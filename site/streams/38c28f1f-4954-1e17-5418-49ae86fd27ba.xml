@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+	<content-type>/component/stream</content-type>	<display-template/>
+	<merge-strategy>inherit-levels</merge-strategy>
+	<objectGroupId>38c2</objectGroupId>
+	<objectId>38c28f1f-4954-1e17-5418-49ae86fd27ba</objectId>
+	<file-name>38c28f1f-4954-1e17-5418-49ae86fd27ba.xml</file-name>
+	<internal-name>A Delightful Way to Teach Kids About Computers</internal-name>
+	<title_s tokenized="true">A Delightful Way to Teach Kids About Computers</title_s>
+	<summary_s>Computer code is the next universal language, and its syntax will be limited only by the imaginations of the next generation of programmers.</summary_s>
+	<categories>	<item>	<key>computer-science</key>
+	<value_smv>Computer Science</value_smv>
+	</item></categories>
+	<origin>	<item>	<key>/site/origins/6efe40ef-cdca-477b-f8c0-7a1e9f0aa990.xml</key>
+	<value>Example</value>
+	<include>/site/origins/6efe40ef-cdca-477b-f8c0-7a1e9f0aa990.xml</include>
+	<disableFlattening>false</disableFlattening>
+	</item></origin>
+	<thumbnail>/static-assets/images/videos/ddbeb08d-9f49-74d8-4c79-ae5c74cfed44/auditorium-benches-chairs-207691.jpg</thumbnail>
+	<description_html>&lt;p&gt;&lt;span data-sheets-value="{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:&amp;quot;Computer code is the next universal language, and its syntax will be limited only by the imaginations of the next generation of programmers.&amp;quot;}" data-sheets-userformat="{&amp;quot;2&amp;quot;:828,&amp;quot;5&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;6&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;7&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;8&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;11&amp;quot;:4,&amp;quot;12&amp;quot;:0}"&gt;Computer code is the next universal language, and its syntax will be limited only by the imaginations of the next generation of programmers.&lt;/span&gt;&lt;/p&gt;</description_html>
+	<date_dt>2021-03-01T05:00:00.000Z</date_dt>
+	<startDate_dt>2021-03-01T08:00:00.000Z</startDate_dt>
+	<endDate_dt>2021-03-31T22:00:00.000Z</endDate_dt>
+	<createdDate>2018-04-25T21:05:08.807Z</createdDate>
+	<createdDate_dt>2018-04-25T21:05:08.807Z</createdDate_dt>
+	<lastModifiedDate>2018-04-25T21:30:00.241Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-04-25T21:30:00.241Z</lastModifiedDate_dt>
+	<startDate_dt_tz>Etc/GMT</startDate_dt_tz>
+	<endDate_dt_tz>Etc/GMT</endDate_dt_tz>
+</component>
