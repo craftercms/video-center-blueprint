@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+	<content-type>/component/stream</content-type>	<display-template/>
+	<merge-strategy>inherit-levels</merge-strategy>
+	<objectGroupId>8109</objectGroupId>
+	<objectId>81094fde-78cc-5713-1a36-72a4d8694a5f</objectId>
+	<file-name>81094fde-78cc-5713-1a36-72a4d8694a5f.xml</file-name>
+	<internal-name>Why I Fell in Love With Monster Prime Numbers</internal-name>
+	<title_s tokenized="true">Why I Fell in Love With Monster Prime Numbers</title_s>
+	<summary_s>They're millions of digits long, and it takes an army of mathematicians and machines to hunt them down -- what's not to love about monster primes?</summary_s>
+	<categories>	<item>	<key>mathematics</key>
+	<value_smv>Mathematics</value_smv>
+	</item></categories>
+	<origin>	<item>	<key>/site/origins/6efe40ef-cdca-477b-f8c0-7a1e9f0aa990.xml</key>
+	<value>Example</value>
+	<include>/site/origins/6efe40ef-cdca-477b-f8c0-7a1e9f0aa990.xml</include>
+	<disableFlattening>false</disableFlattening>
+	</item></origin>
+	<thumbnail>/static-assets/images/videos/ddbeb08d-9f49-74d8-4c79-ae5c74cfed44/auditorium-benches-chairs-207691.jpg</thumbnail>
+	<description_html>&lt;p&gt;&lt;span data-sheets-value="{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:&amp;quot;They&amp;#39;re millions of digits long, and it takes an army of mathematicians and machines to hunt them down -- what&amp;#39;s not to love about monster primes?&amp;quot;}" data-sheets-userformat="{&amp;quot;2&amp;quot;:828,&amp;quot;5&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;6&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;7&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;8&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;11&amp;quot;:4,&amp;quot;12&amp;quot;:0}"&gt;They&amp;#39;re millions of digits long, and it takes an army of mathematicians and machines to hunt them down -- what&amp;#39;s not to love about monster primes?&lt;/span&gt;&lt;/p&gt;</description_html>
+	<date_dt>2019-06-01T04:00:00.000Z</date_dt>
+	<startDate_dt>2019-06-01T08:00:00.000Z</startDate_dt>
+	<endDate_dt>2019-06-30T22:00:00.000Z</endDate_dt>
+	<createdDate>2018-04-25T21:14:36.942Z</createdDate>
+	<createdDate_dt>2018-04-25T21:14:36.942Z</createdDate_dt>
+	<lastModifiedDate>2018-04-25T21:29:38.203Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-04-25T21:29:38.203Z</lastModifiedDate_dt>
+	<startDate_dt_tz>Etc/GMT</startDate_dt_tz>
+	<endDate_dt_tz>Etc/GMT</endDate_dt_tz>
+</component>

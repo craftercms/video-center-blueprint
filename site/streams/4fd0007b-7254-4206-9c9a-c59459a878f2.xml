@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+	<content-type>/component/stream</content-type>	<display-template/>
+	<merge-strategy>inherit-levels</merge-strategy>
+	<objectGroupId>4fd0</objectGroupId>
+	<objectId>4fd0007b-7254-4206-9c9a-c59459a878f2</objectId>
+	<file-name>4fd0007b-7254-4206-9c9a-c59459a878f2.xml</file-name>
+	<internal-name>The Fascinating Physics of Everyday Life</internal-name>
+	<title_s tokenized="true">The Fascinating Physics of Everyday Life</title_s>
+	<summary_s>Physics doesn't just happen in a fancy lab -- it happens when you push a piece of buttered toast off the table or drop a couple of raisins in a fizzy drink or watch a coffee spill dry.</summary_s>
+	<categories>	<item>	<key>physics</key>
+	<value_smv>Physics</value_smv>
+	</item></categories>
+	<origin>	<item>	<key>/site/origins/6efe40ef-cdca-477b-f8c0-7a1e9f0aa990.xml</key>
+	<value>Example</value>
+	<include>/site/origins/6efe40ef-cdca-477b-f8c0-7a1e9f0aa990.xml</include>
+	<disableFlattening>false</disableFlattening>
+	</item></origin>
+	<thumbnail>/static-assets/images/videos/ddbeb08d-9f49-74d8-4c79-ae5c74cfed44/auditorium-benches-chairs-207691.jpg</thumbnail>
+	<description_html>&lt;p&gt;&lt;span data-sheets-value="{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:&amp;quot;Physics doesn&amp;#39;t just happen in a fancy lab -- it happens when you push a piece of buttered toast off the table or drop a couple of raisins in a fizzy drink or watch a coffee spill dry.&amp;quot;}" data-sheets-userformat="{&amp;quot;2&amp;quot;:828,&amp;quot;5&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;6&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;7&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;8&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;11&amp;quot;:4,&amp;quot;12&amp;quot;:0}"&gt;Physics doesn&amp;#39;t just happen in a fancy lab -- it happens when you push a piece of buttered toast off the table or drop a couple of raisins in a fizzy drink or watch a coffee spill dry.&lt;/span&gt;&lt;/p&gt;</description_html>
+	<date_dt>2018-09-01T04:00:00.000Z</date_dt>
+	<startDate_dt>2018-09-01T08:00:00.000Z</startDate_dt>
+	<endDate_dt>2018-09-30T22:00:00.000Z</endDate_dt>
+	<createdDate>2018-04-25T21:08:12.089Z</createdDate>
+	<createdDate_dt>2018-04-25T21:08:12.089Z</createdDate_dt>
+	<lastModifiedDate>2018-04-25T21:29:12.804Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-04-25T21:29:12.804Z</lastModifiedDate_dt>
+	<startDate_dt_tz>Etc/GMT</startDate_dt_tz>
+	<endDate_dt_tz>Etc/GMT</endDate_dt_tz>
+</component>

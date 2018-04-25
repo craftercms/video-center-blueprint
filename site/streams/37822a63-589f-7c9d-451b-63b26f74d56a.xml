@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+	<content-type>/component/stream</content-type>	<display-template/>
+	<merge-strategy>inherit-levels</merge-strategy>
+	<objectGroupId>3782</objectGroupId>
+	<objectId>37822a63-589f-7c9d-451b-63b26f74d56a</objectId>
+	<file-name>37822a63-589f-7c9d-451b-63b26f74d56a.xml</file-name>
+	<internal-name>Insects are Awesome!</internal-name>
+	<title_s tokenized="true">Insects are Awesome!</title_s>
+	<summary_s>Bugs are one of nature's wonders. These insect-obsessed speakers talks about how ants form societies, how bees pollinate flowers, and how termites can be quite ... tasty.</summary_s>
+	<categories>	<item>	<key>biology</key>
+	<value_smv>Biology</value_smv>
+	</item></categories>
+	<origin>	<item>	<key>/site/origins/6efe40ef-cdca-477b-f8c0-7a1e9f0aa990.xml</key>
+	<value>Example</value>
+	<include>/site/origins/6efe40ef-cdca-477b-f8c0-7a1e9f0aa990.xml</include>
+	<disableFlattening>false</disableFlattening>
+	</item></origin>
+	<thumbnail>/static-assets/images/videos/ddbeb08d-9f49-74d8-4c79-ae5c74cfed44/auditorium-benches-chairs-207691.jpg</thumbnail>
+	<description_html>&lt;p&gt;&lt;span data-sheets-value="{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:&amp;quot;Bugs are one of nature&amp;#39;s wonders. These insect-obsessed speakers talks about how ants form societies, how bees pollinate flowers, and how termites can be quite ... tasty.&amp;quot;}" data-sheets-userformat="{&amp;quot;2&amp;quot;:828,&amp;quot;5&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;6&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;7&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;8&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;11&amp;quot;:4,&amp;quot;12&amp;quot;:0}"&gt;Bugs are one of nature&amp;#39;s wonders. These insect-obsessed speakers talks about how ants form societies, how bees pollinate flowers, and how termites can be quite ... tasty.&lt;/span&gt;&lt;/p&gt;</description_html>
+	<date_dt>2019-09-01T04:00:00.000Z</date_dt>
+	<startDate_dt>2019-09-01T08:00:00.000Z</startDate_dt>
+	<endDate_dt>2019-09-30T22:00:00.000Z</endDate_dt>
+	<createdDate>2018-04-25T21:17:11.806Z</createdDate>
+	<createdDate_dt>2018-04-25T21:17:11.806Z</createdDate_dt>
+	<lastModifiedDate>2018-04-25T21:30:50.325Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-04-25T21:30:50.325Z</lastModifiedDate_dt>
+	<startDate_dt_tz>Etc/GMT</startDate_dt_tz>
+	<endDate_dt_tz>Etc/GMT</endDate_dt_tz>
+</component>
