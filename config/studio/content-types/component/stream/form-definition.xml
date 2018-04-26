@@ -46,13 +46,23 @@
 					<properties>
 						<property>
 							<name>size</name>
-							<value>50</value>
+							<value>75</value>
 							<type>int</type>
 						</property>
 						<property>
 							<name>maxlength</name>
-							<value>50</value>
+							<value>150</value>
 							<type>int</type>
+						</property>
+						<property>
+							<name>readonly</name>
+							<value></value>
+							<type>boolean</type>
+						</property>
+						<property>
+							<name>tokenize</name>
+							<value>false</value>
+							<type>boolean</type>
 						</property>
 					</properties>
 					<constraints>
