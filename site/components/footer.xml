@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+	<content-type>/component/component-footer</content-type>	<display-template/>
+	<merge-strategy>inherit-levels</merge-strategy>
+	<objectGroupId>6cdb</objectGroupId>
+	<objectId>6cdbf4e0-c7b7-b02e-296d-316b0cdcbaa1</objectId>
+	<file-name>footer.xml</file-name>
+	<folder-name/>
+	<internal-name>Site Footer</internal-name>
+	<copyrightLabel>© 2018</copyrightLabel>
+	<nav>	<item>	<title>Contact Us</title>
+	<link>/contact-us</link>
+	</item>	<item>	<title>Terms of Use</title>
+	<link>/terms-of-use</link>
+	</item></nav>
+	<createdDate>2018-05-17T15:49:10.604Z</createdDate>
+	<createdDate_dt>2018-05-17T15:49:10.604Z</createdDate_dt>
+	<lastModifiedDate>2018-05-17T15:49:10.604Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-05-17T15:49:10.604Z</lastModifiedDate_dt>
+</component>
