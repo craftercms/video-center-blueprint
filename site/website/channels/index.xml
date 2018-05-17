@@ -9,12 +9,12 @@
 	<internal-name>Channels</internal-name>
 	<reactComponent>Channels</reactComponent>
 	<title>Channels Page</title>
-	<placeInNav>false</placeInNav>
-	<orderDefault_f>-1</orderDefault_f>
+	<placeInNav>true</placeInNav>
+	<orderDefault_f>2000</orderDefault_f>
 	<disabled>false</disabled>
 	<body>&lt;p&gt;Channels Page Body&lt;/p&gt;</body>
 	<createdDate>2018-05-17T18:05:25.406Z</createdDate>
 	<createdDate_dt>2018-05-17T18:05:25.406Z</createdDate_dt>
-	<lastModifiedDate>2018-05-17T18:05:25.406Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-05-17T18:05:25.406Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-05-17T18:06:23.330Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-05-17T18:06:23.330Z</lastModifiedDate_dt>
 </page>
