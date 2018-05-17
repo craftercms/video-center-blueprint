@@ -10,4 +10,9 @@
         <accessControlAllowHeaders>Content-Type</accessControlAllowHeaders>
         <accessControlAllowCredentials>true</accessControlAllowCredentials>
     </cors>
+    
+    <!-- Navigation properties -->
+   	<navigation>
+        <additionalFields>componentType</additionalFields>
+    </navigation>
 </site>
