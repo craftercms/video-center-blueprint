@@ -13,6 +13,6 @@
     
     <!-- Navigation properties -->
    	<navigation>
-        <additionalFields>componentType</additionalFields>
+        <additionalFields>reactComponent</additionalFields>
     </navigation>
 </site>
