@@ -108,9 +108,9 @@
 					<fields>
 				<field>
 					<type>input</type>
-					<id>tItle</id>
+					<id>title</id>
 					<iceId></iceId>
-					<title>TItle</title>
+					<title>Title</title>
 					<description></description>
 					<defaultValue></defaultValue>
 					<help></help>
