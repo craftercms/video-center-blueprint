@@ -9,17 +9,19 @@
 	<vod>Computer Science</vod>
 	<background>/static-assets/images/videos/6f1b063a-cb5d-6afd-ce79-02972ba88fb9/auditorium-benches-chairs-207691.jpg</background>
 	<logo/>
+	<title>Teaching Your Kid to Code</title>
 	</item>	<item>	<tItle>Why is C so Influential</tItle>
 	<subtitle>Why is C Such an influential language?</subtitle>
 	<vod>Computer Science</vod>
 	<background>/static-assets/images/videos/479c8836-bbec-6305-f634-7b70d0b82cf5/why-c-is-so-influential.jpg</background>
 	<logo/>
+	<title>Why is C so Influential</title>
 	</item></slides>
 	<file-name>home-slider.xml</file-name>
 	<folder-name/>
 	<internal-name>Home Slider</internal-name>
 	<createdDate>2018-05-17T15:51:12.518Z</createdDate>
 	<createdDate_dt>2018-05-17T15:51:12.518Z</createdDate_dt>
-	<lastModifiedDate>2018-05-17T15:51:12.518Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-05-17T15:51:12.518Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-05-17T16:08:11.373Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-05-17T16:08:11.373Z</lastModifiedDate_dt>
 </component>
