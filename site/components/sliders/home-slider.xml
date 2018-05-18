@@ -16,12 +16,17 @@
 	<background>/static-assets/images/videos/479c8836-bbec-6305-f634-7b70d0b82cf5/why-c-is-so-influential.jpg</background>
 	<logo/>
 	<title>Why is C so Influential</title>
+	</item>	<item>	<title/>
+	<subtitle>Are Machines Better at Quantm Physics than Humans?</subtitle>
+	<vod>Physics</vod>
+	<background>/static-assets/images/videos/f4465f1c-c056-0a93-def8-9deba80cd764/are-machines-better-at-quantum-physics-than-humans.jpg</background>
+	<logo/>
 	</item></slides>
 	<file-name>home-slider.xml</file-name>
 	<folder-name/>
 	<internal-name>Home Slider</internal-name>
 	<createdDate>2018-05-17T15:51:12.518Z</createdDate>
 	<createdDate_dt>2018-05-17T15:51:12.518Z</createdDate_dt>
-	<lastModifiedDate>2018-05-17T16:08:11.373Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-05-17T16:08:11.373Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-05-18T15:34:02.053Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-05-18T15:34:02.053Z</lastModifiedDate_dt>
 </component>
