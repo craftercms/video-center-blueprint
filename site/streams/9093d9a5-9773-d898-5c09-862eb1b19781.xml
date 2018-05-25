@@ -23,8 +23,11 @@
 	<endDate_dt>2020-09-30T22:00:00.000Z</endDate_dt>
 	<createdDate>2018-04-26T15:38:20.554Z</createdDate>
 	<createdDate_dt>2018-04-26T15:38:20.554Z</createdDate_dt>
-	<lastModifiedDate>2018-04-26T15:38:20.554Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-04-26T15:38:20.554Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-05-25T20:05:23.443Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-05-25T20:05:23.443Z</lastModifiedDate_dt>
 	<startDate_dt_tz>Etc/GMT</startDate_dt_tz>
 	<endDate_dt_tz>Etc/GMT</endDate_dt_tz>
+	<channels>	<item>	<key>engineering</key>
+	<value_smv>Engineering</value_smv>
+	</item></channels>
 </component>
