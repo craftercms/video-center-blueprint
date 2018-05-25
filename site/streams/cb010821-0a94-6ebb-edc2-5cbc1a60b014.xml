@@ -23,8 +23,11 @@
 	<endDate_dt>2020-03-31T22:00:00.000Z</endDate_dt>
 	<createdDate>2018-04-26T15:39:56.460Z</createdDate>
 	<createdDate_dt>2018-04-26T15:39:56.460Z</createdDate_dt>
-	<lastModifiedDate>2018-04-26T15:39:56.460Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-04-26T15:39:56.460Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-05-25T20:05:06.944Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-05-25T20:05:06.944Z</lastModifiedDate_dt>
 	<startDate_dt_tz>Etc/GMT</startDate_dt_tz>
 	<endDate_dt_tz>Etc/GMT</endDate_dt_tz>
+	<channels>	<item>	<key>psychology</key>
+	<value_smv>Psychology</value_smv>
+	</item></channels>
 </component>
