@@ -8,9 +8,6 @@
 	<internal-name>Graphene!</internal-name>
 	<title_s tokenized="true">Graphene!</title_s>
 	<summary_s>What is it, and why it can change everything.</summary_s>
-	<categories>	<item>	<key>engineering</key>
-	<value_smv>Engineering</value_smv>
-	</item></categories>
 	<origin>	<item>	<key>/site/origins/6efe40ef-cdca-477b-f8c0-7a1e9f0aa990.xml</key>
 	<value>Example</value>
 	<include>/site/origins/6efe40ef-cdca-477b-f8c0-7a1e9f0aa990.xml</include>
@@ -23,8 +20,8 @@
 	<endDate_dt>2019-12-31T22:00:00.000Z</endDate_dt>
 	<createdDate>2018-04-26T15:36:58.320Z</createdDate>
 	<createdDate_dt>2018-04-26T15:36:58.320Z</createdDate_dt>
-	<lastModifiedDate>2018-05-25T20:04:46.612Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-05-25T20:04:46.612Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-05-25T20:17:24.251Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-05-25T20:17:24.251Z</lastModifiedDate_dt>
 	<startDate_dt_tz>Etc/GMT</startDate_dt_tz>
 	<endDate_dt_tz>Etc/GMT</endDate_dt_tz>
 	<channels>	<item>	<key>engineering</key>
