@@ -83,7 +83,7 @@
 		<section>
 			<title>Section</title>
 			<description></description>
-			<defaultOpen>false</defaultOpen>
+			<defaultOpen>true</defaultOpen>
 			<fields>
 				<field>
 					<type>image-picker</type>
