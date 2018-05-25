@@ -8,9 +8,6 @@
 	<internal-name>Rats and not Human</internal-name>
 	<title_s tokenized="true">Rats and not Human</title_s>
 	<summary_s>While animal experiments remain critical for pharmacological research, results don't always carry to human subjects. Join us as we discuss the reasons why successful animal experiment are only the beginning.</summary_s>
-	<categories>	<item>	<key>biology</key>
-	<value_smv>Biology</value_smv>
-	</item></categories>
 	<origin>	<item>	<key>/site/origins/6efe40ef-cdca-477b-f8c0-7a1e9f0aa990.xml</key>
 	<value>Example</value>
 	<include>/site/origins/6efe40ef-cdca-477b-f8c0-7a1e9f0aa990.xml</include>
@@ -23,8 +20,8 @@
 	<endDate_dt>2019-09-30T22:00:00.000Z</endDate_dt>
 	<createdDate>2018-04-26T15:35:37.585Z</createdDate>
 	<createdDate_dt>2018-04-26T15:35:37.585Z</createdDate_dt>
-	<lastModifiedDate>2018-05-25T20:05:31.248Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-05-25T20:05:31.248Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-05-25T20:17:53.656Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-05-25T20:17:53.656Z</lastModifiedDate_dt>
 	<startDate_dt_tz>Etc/GMT</startDate_dt_tz>
 	<endDate_dt_tz>Etc/GMT</endDate_dt_tz>
 	<channels>	<item>	<key>biology</key>
