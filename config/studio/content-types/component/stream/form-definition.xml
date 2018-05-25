@@ -309,6 +309,39 @@
 				</field>
 				<field>
 					<type>checkbox-group</type>
+					<id>channels</id>
+					<iceId></iceId>
+					<title>Channels</title>
+					<description></description>
+					<defaultValue></defaultValue>
+					<help></help>
+					<properties>
+						<property>
+							<name>datasource</name>
+							<value>channels</value>
+							<type>datasource:item</type>
+						</property>
+						<property>
+							<name>selectAll</name>
+							<value></value>
+							<type>boolean</type>
+						</property>
+						<property>
+							<name>readonly</name>
+							<value></value>
+							<type>boolean</type>
+						</property>
+					</properties>
+					<constraints>
+						<constraint>
+							<name>minSize</name>
+							<value><![CDATA[1]]></value>
+							<type>int</type>
+						</constraint>
+					</constraints>
+				</field>
+				<field>
+					<type>checkbox-group</type>
 					<id>categories</id>
 					<iceId></iceId>
 					<title>Categories</title>
@@ -711,6 +744,24 @@
 						<property>
 							<name>type</name>
 							<value>/component/stream-origin</value>
+								<type>undefined</type>
+						</property>
+					</properties>
+				</datasource>
+				<datasource>
+					<type>site-component</type>
+					<id>channels</id>
+					<title>Channels</title>
+					<interface>item</interface>
+					<properties>
+						<property>
+							<name>dataType</name>
+							<value>[{&quot;value&quot;:&quot;value&quot;,&quot;label&quot;:&quot;&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_s&quot;,&quot;label&quot;:&quot;String&quot;,&quot;selected&quot;:true},{&quot;value&quot;:&quot;value_i&quot;,&quot;label&quot;:&quot;Integer&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_f&quot;,&quot;label&quot;:&quot;Float&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_dt&quot;,&quot;label&quot;:&quot;Date&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_html&quot;,&quot;label&quot;:&quot;HTML&quot;,&quot;selected&quot;:false}]</value>
+								<type>undefined</type>
+						</property>
+						<property>
+							<name>componentPath</name>
+							<value>/site/taxonomies/channels.xml</value>
 								<type>undefined</type>
 						</property>
 					</properties>
