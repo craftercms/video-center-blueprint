@@ -9,10 +9,10 @@
 	<internal-name>Computer Science</internal-name>
 	<createdDate>2018-05-25T19:34:08.558Z</createdDate>
 	<createdDate_dt>2018-05-25T19:34:08.558Z</createdDate_dt>
-	<lastModifiedDate>2018-05-25T20:20:41.818Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-05-25T20:20:41.818Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-05-25T21:54:35.858Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-05-25T21:54:35.858Z</lastModifiedDate_dt>
 	<description>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</description>
-	<heroImage/>
-	<thumbnailImage/>
+	<heroImage>/static-assets/images/channels/11945997-d8c6-b053-bd0f-cbe4734e8d14/computer-science.jpg</heroImage>
+	<thumbnailImage>/static-assets/images/channels/11945997-d8c6-b053-bd0f-cbe4734e8d14/computer-science-thumbnail.jpg</thumbnailImage>
 	<featured>true</featured>
 </component>
