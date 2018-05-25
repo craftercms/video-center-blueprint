@@ -7,11 +7,11 @@
 	<file-name>computer-science.xml</file-name>
 	<folder-name/>
 	<internal-name>Computer Science</internal-name>
-	<key>computer-science</key>
-	<label>Computer Science</label>
-	<categoryImage/>
 	<createdDate>2018-05-25T19:34:08.558Z</createdDate>
 	<createdDate_dt>2018-05-25T19:34:08.558Z</createdDate_dt>
-	<lastModifiedDate>2018-05-25T19:34:08.558Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-05-25T19:34:08.558Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-05-25T19:44:54.913Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-05-25T19:44:54.913Z</lastModifiedDate_dt>
+	<description>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</description>
+	<heroImage/>
+	<thumbnailImage/>
 </component>
