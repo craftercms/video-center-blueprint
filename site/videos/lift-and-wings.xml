@@ -19,6 +19,9 @@
 	<date_dt>2017-09-11T04:00:00.000Z</date_dt>
 	<createdDate>2018-04-24T19:54:18.108Z</createdDate>
 	<createdDate_dt>2018-04-24T19:54:18.108Z</createdDate_dt>
-	<lastModifiedDate>2018-04-24T19:54:18.108Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-04-24T19:54:18.108Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-05-25T20:01:42.011Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-05-25T20:01:42.011Z</lastModifiedDate_dt>
+	<channels>	<item>	<key>physics</key>
+	<value_smv>Physics</value_smv>
+	</item></channels>
 </component>
