@@ -8,9 +8,6 @@
 	<summary_s>In this talk, we will do a high-level overview of GraphQL: what is it, when to use it and when not to use it.</summary_s>
 	<internal-name>GraphQL: Overview</internal-name>
 	<title_s tokenized="true">GraphQL: Overview</title_s>
-	<categories>	<item>	<key>computer-science</key>
-	<value_smv>Computer Science</value_smv>
-	</item></categories>
 	<origin>	<item>	<key>/site/origins/6efe40ef-cdca-477b-f8c0-7a1e9f0aa990.xml</key>
 	<value>Example</value>
 	<include>/site/origins/6efe40ef-cdca-477b-f8c0-7a1e9f0aa990.xml</include>
@@ -23,8 +20,8 @@
 	<endDate_dt>2018-06-30T22:00:00.000Z</endDate_dt>
 	<createdDate>2018-04-26T15:21:38.548Z</createdDate>
 	<createdDate_dt>2018-04-26T15:21:38.548Z</createdDate_dt>
-	<lastModifiedDate>2018-05-25T20:04:52.146Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-05-25T20:04:52.146Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-05-25T20:17:29.084Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-05-25T20:17:29.084Z</lastModifiedDate_dt>
 	<startDate_dt_tz>Etc/GMT</startDate_dt_tz>
 	<endDate_dt_tz>Etc/GMT</endDate_dt_tz>
 	<channels>	<item>	<key>computer-science</key>
