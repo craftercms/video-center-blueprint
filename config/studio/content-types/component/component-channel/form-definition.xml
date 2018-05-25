@@ -187,7 +187,7 @@
 						</property>
 						<property>
 							<name>imageManager</name>
-							<value></value>
+							<value>imageUploadDS,imageRepoDS</value>
 							<type>datasource:image</type>
 						</property>
 						<property>
