@@ -8,11 +8,11 @@
 	<folder-name/>
 	<internal-name>Astronomy</internal-name>
 	<description>Lorem ipsum dolor sit amet, consetetur sadipscing elit</description>
-	<heroImage/>
-	<thumbnailImage/>
+	<heroImage>/static-assets/images/channels/3a087fb6-1d38-0492-424a-c1f8b847ea3d/astronomy.jpg</heroImage>
+	<thumbnailImage>/static-assets/images/channels/3a087fb6-1d38-0492-424a-c1f8b847ea3d/astronomy-thumbnail.jpeg</thumbnailImage>
 	<createdDate>2018-05-25T19:49:11.421Z</createdDate>
 	<createdDate_dt>2018-05-25T19:49:11.421Z</createdDate_dt>
-	<lastModifiedDate>2018-05-25T20:19:54.995Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-05-25T20:19:54.995Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-05-25T21:53:05.024Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-05-25T21:53:05.024Z</lastModifiedDate_dt>
 	<featured>false</featured>
 </component>
