@@ -23,8 +23,11 @@
 	<endDate_dt>2018-06-30T22:00:00.000Z</endDate_dt>
 	<createdDate>2018-04-26T15:21:38.548Z</createdDate>
 	<createdDate_dt>2018-04-26T15:21:38.548Z</createdDate_dt>
-	<lastModifiedDate>2018-04-26T15:21:38.548Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-04-26T15:21:38.548Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-05-25T20:04:52.146Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-05-25T20:04:52.146Z</lastModifiedDate_dt>
 	<startDate_dt_tz>Etc/GMT</startDate_dt_tz>
 	<endDate_dt_tz>Etc/GMT</endDate_dt_tz>
+	<channels>	<item>	<key>computer-science</key>
+	<value_smv>Computer Science</value_smv>
+	</item></channels>
 </component>
