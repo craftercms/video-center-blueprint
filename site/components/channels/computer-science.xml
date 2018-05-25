@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+	<content-type>/component/component-channel</content-type>	<display-template/>
+	<merge-strategy>inherit-levels</merge-strategy>
+	<objectGroupId>1194</objectGroupId>
+	<objectId>11945997-d8c6-b053-bd0f-cbe4734e8d14</objectId>
+	<file-name>computer-science.xml</file-name>
+	<folder-name/>
+	<internal-name>Computer Science</internal-name>
+	<key>computer-science</key>
+	<label>Computer Science</label>
+	<categoryImage/>
+	<createdDate>2018-05-25T19:34:08.558Z</createdDate>
+	<createdDate_dt>2018-05-25T19:34:08.558Z</createdDate_dt>
+	<lastModifiedDate>2018-05-25T19:34:08.558Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-05-25T19:34:08.558Z</lastModifiedDate_dt>
+</component>
