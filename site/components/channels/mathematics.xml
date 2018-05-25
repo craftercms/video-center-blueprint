@@ -8,11 +8,11 @@
 	<folder-name/>
 	<internal-name>Mathematics</internal-name>
 	<description>Lorem ipsum dolor sit amet, consetetur sadipscing elit</description>
-	<heroImage/>
-	<thumbnailImage/>
+	<heroImage>/static-assets/images/channels/4f716275-912c-2a27-97d6-4021bf6676b3/mathematics.jpg</heroImage>
+	<thumbnailImage>/static-assets/images/channels/4f716275-912c-2a27-97d6-4021bf6676b3/mathematics-thumbnail.jpg</thumbnailImage>
 	<createdDate>2018-05-25T19:49:36.547Z</createdDate>
 	<createdDate_dt>2018-05-25T19:49:36.547Z</createdDate_dt>
-	<lastModifiedDate>2018-05-25T20:20:18.402Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-05-25T20:20:18.402Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-05-25T21:55:09.679Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-05-25T21:55:09.679Z</lastModifiedDate_dt>
 	<featured>false</featured>
 </component>
