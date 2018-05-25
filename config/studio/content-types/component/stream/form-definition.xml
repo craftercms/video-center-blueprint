@@ -341,39 +341,6 @@
 					</constraints>
 				</field>
 				<field>
-					<type>checkbox-group</type>
-					<id>categories</id>
-					<iceId></iceId>
-					<title>Categories</title>
-					<description></description>
-					<defaultValue></defaultValue>
-					<help></help>
-					<properties>
-						<property>
-							<name>datasource</name>
-							<value>categories</value>
-							<type>datasource:item</type>
-						</property>
-						<property>
-							<name>selectAll</name>
-							<value></value>
-							<type>boolean</type>
-						</property>
-						<property>
-							<name>readonly</name>
-							<value></value>
-							<type>boolean</type>
-						</property>
-					</properties>
-					<constraints>
-						<constraint>
-							<name>minSize</name>
-							<value><![CDATA[1]]></value>
-							<type>int</type>
-						</constraint>
-					</constraints>
-				</field>
-				<field>
 					<type>repeat</type>
 					<id>tags</id>
 					<iceId></iceId>
