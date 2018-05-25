@@ -8,11 +8,11 @@
 	<folder-name/>
 	<internal-name>Biology</internal-name>
 	<description>Lorem ipsum dolor sit amet, consetetur sadipscing elit</description>
-	<heroImage/>
-	<thumbnailImage/>
+	<heroImage>/static-assets/images/channels/9ab3d1ff-d59c-aadf-012f-e5475ca51d8e/biology.jpg</heroImage>
+	<thumbnailImage>/static-assets/images/channels/9ab3d1ff-d59c-aadf-012f-e5475ca51d8e/biology-thumbnail.jpg</thumbnailImage>
 	<createdDate>2018-05-25T19:49:59.479Z</createdDate>
 	<createdDate_dt>2018-05-25T19:49:59.479Z</createdDate_dt>
-	<lastModifiedDate>2018-05-25T20:20:00.001Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-05-25T20:20:00.001Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-05-25T21:53:50.813Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-05-25T21:53:50.813Z</lastModifiedDate_dt>
 	<featured>false</featured>
 </component>
