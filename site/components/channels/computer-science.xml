@@ -9,10 +9,10 @@
 	<internal-name>Computer Science</internal-name>
 	<createdDate>2018-05-25T19:34:08.558Z</createdDate>
 	<createdDate_dt>2018-05-25T19:34:08.558Z</createdDate_dt>
-	<lastModifiedDate>2018-05-25T20:20:08.808Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-05-25T20:20:08.808Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-05-25T20:20:41.818Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-05-25T20:20:41.818Z</lastModifiedDate_dt>
 	<description>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</description>
 	<heroImage/>
 	<thumbnailImage/>
-	<featured>false</featured>
+	<featured>true</featured>
 </component>
