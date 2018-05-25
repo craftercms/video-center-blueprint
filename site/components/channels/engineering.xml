@@ -8,11 +8,11 @@
 	<folder-name/>
 	<internal-name>Engineering</internal-name>
 	<description>Lorem ipsum dolor sit amet, consetetur sadipscing elit</description>
-	<heroImage/>
-	<thumbnailImage/>
+	<heroImage>/static-assets/images/channels/98e324b3-b333-a1a6-050e-05bdcb913fbd/engineering.jpg</heroImage>
+	<thumbnailImage>/static-assets/images/channels/98e324b3-b333-a1a6-050e-05bdcb913fbd/engineering-thumbnail.jpg</thumbnailImage>
 	<createdDate>2018-05-25T19:50:18.277Z</createdDate>
 	<createdDate_dt>2018-05-25T19:50:18.277Z</createdDate_dt>
-	<lastModifiedDate>2018-05-25T20:20:56.027Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-05-25T20:20:56.027Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-05-25T21:54:53.098Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-05-25T21:54:53.098Z</lastModifiedDate_dt>
 	<featured>true</featured>
 </component>
