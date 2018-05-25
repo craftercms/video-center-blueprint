@@ -258,7 +258,7 @@
 					<properties>
 						<property>
 							<name>repoPath</name>
-							<value>/static-assets/images/{objectId}/</value>
+							<value>/static-assets/images/channels/{objectId}/</value>
 								<type>undefined</type>
 						</property>
 					</properties>
