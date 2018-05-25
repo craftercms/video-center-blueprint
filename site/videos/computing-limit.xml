@@ -19,6 +19,9 @@
 	<date_dt>2017-11-03T04:00:00.000Z</date_dt>
 	<createdDate>2018-04-24T19:36:01.313Z</createdDate>
 	<createdDate_dt>2018-04-24T19:36:01.313Z</createdDate_dt>
-	<lastModifiedDate>2018-04-24T19:36:01.313Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-04-24T19:36:01.313Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-05-25T20:00:27.128Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-05-25T20:00:27.128Z</lastModifiedDate_dt>
+	<channels>	<item>	<key>computer-science</key>
+	<value_smv>Computer Science</value_smv>
+	</item></channels>
 </component>
