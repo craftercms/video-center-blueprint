@@ -8,11 +8,11 @@
 	<folder-name/>
 	<internal-name>Chemistry</internal-name>
 	<description>Lorem ipsum dolor sit amet, consetetur sadipscing elit</description>
-	<heroImage/>
-	<thumbnailImage/>
+	<heroImage>/static-assets/images/channels/4976105a-c318-4f43-ec62-764ccd78ea87/chemistry.jpg</heroImage>
+	<thumbnailImage>/static-assets/images/channels/4976105a-c318-4f43-ec62-764ccd78ea87/chemistry-thumbnail.jpg</thumbnailImage>
 	<createdDate>2018-05-25T19:48:55.809Z</createdDate>
 	<createdDate_dt>2018-05-25T19:48:55.809Z</createdDate_dt>
-	<lastModifiedDate>2018-05-25T20:20:04.284Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-05-25T20:20:04.284Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-05-25T21:54:13.368Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-05-25T21:54:13.368Z</lastModifiedDate_dt>
 	<featured>false</featured>
 </component>
