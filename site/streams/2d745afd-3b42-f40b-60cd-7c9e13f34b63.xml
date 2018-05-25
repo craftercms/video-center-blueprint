@@ -23,8 +23,11 @@
 	<endDate_dt>2018-09-30T22:00:00.000Z</endDate_dt>
 	<createdDate>2018-04-26T15:27:12.911Z</createdDate>
 	<createdDate_dt>2018-04-26T15:27:12.911Z</createdDate_dt>
-	<lastModifiedDate>2018-04-26T15:27:12.911Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-04-26T15:27:12.911Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-05-25T20:05:14.311Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-05-25T20:05:14.311Z</lastModifiedDate_dt>
 	<startDate_dt_tz>Etc/GMT</startDate_dt_tz>
 	<endDate_dt_tz>Etc/GMT</endDate_dt_tz>
+	<channels>	<item>	<key>physics</key>
+	<value_smv>Physics</value_smv>
+	</item></channels>
 </component>
