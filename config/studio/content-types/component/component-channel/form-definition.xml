@@ -86,6 +86,29 @@
 			<defaultOpen>true</defaultOpen>
 			<fields>
 				<field>
+					<type>checkbox</type>
+					<id>featured</id>
+					<iceId></iceId>
+					<title>Featured</title>
+					<description></description>
+					<defaultValue></defaultValue>
+					<help></help>
+					<properties>
+						<property>
+							<name>readonly</name>
+							<value></value>
+							<type>boolean</type>
+						</property>
+					</properties>
+					<constraints>
+						<constraint>
+							<name>required</name>
+							<value><![CDATA[]]></value>
+							<type>boolean</type>
+						</constraint>
+					</constraints>
+				</field>
+				<field>
 					<type>image-picker</type>
 					<id>heroImage</id>
 					<iceId></iceId>
@@ -221,29 +244,6 @@
 							<name>pattern</name>
 							<value><![CDATA[]]></value>
 							<type>string</type>
-						</constraint>
-					</constraints>
-				</field>
-				<field>
-					<type>checkbox</type>
-					<id>featured</id>
-					<iceId></iceId>
-					<title>Featured</title>
-					<description></description>
-					<defaultValue></defaultValue>
-					<help></help>
-					<properties>
-						<property>
-							<name>readonly</name>
-							<value></value>
-							<type>boolean</type>
-						</property>
-					</properties>
-					<constraints>
-						<constraint>
-							<name>required</name>
-							<value><![CDATA[]]></value>
-							<type>boolean</type>
 						</constraint>
 					</constraints>
 				</field>
