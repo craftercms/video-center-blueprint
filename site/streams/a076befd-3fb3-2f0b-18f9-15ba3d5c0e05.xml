@@ -20,11 +20,13 @@
 	<endDate_dt>2020-06-30T22:00:00.000Z</endDate_dt>
 	<createdDate>2018-04-26T15:23:05.072Z</createdDate>
 	<createdDate_dt>2018-04-26T15:23:05.072Z</createdDate_dt>
-	<lastModifiedDate>2018-05-25T20:17:12.488Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-05-25T20:17:12.488Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-05-29T17:15:36.579Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-05-29T17:15:36.579Z</lastModifiedDate_dt>
 	<startDate_dt_tz>Etc/GMT</startDate_dt_tz>
 	<endDate_dt_tz>Etc/GMT</endDate_dt_tz>
 	<channels>	<item>	<key>computer-science</key>
 	<value_smv>Computer Science</value_smv>
+	</item>	<item>	<key>engineering</key>
+	<value_smv>Engineering</value_smv>
 	</item></channels>
 </component>
