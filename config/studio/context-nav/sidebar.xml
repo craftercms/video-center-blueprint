@@ -111,6 +111,17 @@
                                         <onClick>none</onClick>
                                     </params>
                                 </modulehook>
+                                
+                                <!-- Static Assets -->
+                                <modulehook>
+                                    <name>wcm-assets-folder</name>
+                                    <params>
+                                        <label>Sources</label>
+                                        <path>/sources</path>
+                                        <showRootItem>true</showRootItem>
+                                        <onClick>none</onClick>
+                                    </params>
+                                </modulehook>
 
                                 <!-- Templates -->
                                 <modulehook>
