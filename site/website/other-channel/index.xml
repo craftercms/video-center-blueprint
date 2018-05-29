@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+	<content-type>/page/entry</content-type>	<display-template>/templates/web/entry.ftl</display-template>
+	<merge-strategy>inherit-levels</merge-strategy>
+	<objectGroupId>b086</objectGroupId>
+	<objectId>b086a5e1-1452-9c86-811b-0fffad7d435c</objectId>
+	<file-name>index.xml</file-name>
+	<folder-name>other-channel</folder-name>
+	<internal-name>Other Channel</internal-name>
+	<reactComponent>Channels</reactComponent>
+	<title>asd</title>
+	<placeInNav>true</placeInNav>
+	<orderDefault_f>6000</orderDefault_f>
+	<disabled>false</disabled>
+	<body>&lt;p&gt;asd&lt;/p&gt;</body>
+	<createdDate>2018-05-29T20:21:45.923Z</createdDate>
+	<createdDate_dt>2018-05-29T20:21:45.923Z</createdDate_dt>
+	<lastModifiedDate>2018-05-29T20:21:45.923Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-05-29T20:21:45.923Z</lastModifiedDate_dt>
+</page>
