@@ -42,6 +42,8 @@ class Footer extends Component {
 
                                 <div className="footer__nav">
                                     { this.renderFooterNav() }
+                                    
+                                    <a key={ i } className="footer__link" target="_blank">This is a test</a>
                                 </div>
                             </div>
                         }
