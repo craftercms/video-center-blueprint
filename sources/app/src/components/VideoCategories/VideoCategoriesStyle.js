@@ -747,6 +747,215 @@ const VideoCategoriesHolder = styled.div`
                 }
             }
 
+            .live-events-item {
+                text-align: left;
+
+                .live-events-item__link {
+                    display: block;
+                    color: inherit;
+                    text-decoration: none;
+                    position: relative;
+                    margin: 3rem 0;
+                    background: #1c1f24;
+                    -webkit-transition: background .15s;
+                    transition: background .15s;
+
+                    @media (min-width: 28.125em){
+                        min-height: 32rem;
+                    }
+
+                    &:after, :before {
+                        display: table;
+                        content: "";
+                    }
+
+                    .live-events-item__image {
+                        height: 0;
+                        padding-bottom: 56.25%;
+                        position: relative;
+                        overflow: hidden;
+
+                        @media (min-width: 60em) {
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+                            bottom: 0;
+                            left: 40rem;
+                            margin: auto;
+                            height: 100%;
+                            padding-bottom: 0;
+                        }
+
+                        @media (min-width: 75em) {
+                            left: 40rem;
+                        }
+
+                        .live-events-item__background {
+                            position: absolute;
+                            top: 0;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            background-position: 50% 50%;
+                            background-size: cover;
+                            -webkit-transform: scale(1);
+                            transform: scale(1);
+                            -webkit-transition: opacity .3s,-webkit-transform 1.5s;
+                            transition: opacity .3s,-webkit-transform 1.5s;
+                            transition: opacity .3s,transform 1.5s;
+                            transition: opacity .3s,transform 1.5s,-webkit-transform 1.5s;
+                            -webkit-transition-timing-function: cubic-bezier(0,1,.75,1);
+                            transition-timing-function: cubic-bezier(0,1,.75,1);
+                            opacity: 1;
+                        }
+                    }
+
+                    .live-events-item__content {
+                        position: relative;
+                        display: -webkit-box;
+                        display: -ms-flexbox;
+                        display: flex;
+                        -webkit-box-orient: vertical;
+                        -webkit-box-direction: normal;
+                        -ms-flex-direction: column;
+                        flex-direction: column;
+                        height: 100%;
+                        padding: 1.5rem 2rem 0;
+
+                        @media (min-width: 28.125em) {
+                            padding: 2rem 2rem 0;
+                        }
+
+                        @media (min-width: 75em) {
+                            padding: 2rem 4rem 0;
+                            width: 40rem;
+                            min-height: 32rem;
+                        }
+
+                        .live-events-item__date {
+                            line-height: 1;
+
+                            @media (min-width: 60em) {
+                                margin-bottom: .75rem;
+                            }
+                        }
+
+                        .live-events-item__time {
+                            -webkit-box-flex: 1;
+                            -ms-flex-positive: 1;
+                            flex-grow: 1;
+
+                            font-size: 1.4rem;
+                            font-weight: 700;
+                            margin-bottom: 3rem;
+                            color: #6f7279;
+
+                            @media (min-width: 60em) {
+                                font-size: 1.6rem;
+                                margin-bottom: 0;
+                            }
+                        }
+
+                        .live-events-item__detail {
+                            -webkit-box-flex: 0;
+                            -ms-flex-positive: 0;
+                            flex-grow: 0;
+
+                            .live-events-item__heading-group {
+                                line-height: 1.35;
+                                padding-bottom: 2rem;
+
+                                @media (min-width: 60em) {
+                                    padding-bottom: 4rem;
+                                }
+
+                                .live-events-item__heading {
+                                    margin: 0;
+                                    padding: 0;
+                                    border: 0;
+                                    vertical-align: baseline;
+                                    font-family: inherit;
+                                    font-size: inherit;
+                                    font-weight: inherit;
+                                    line-height: inherit;
+                                    width: auto;
+                                    font-size: 1.7rem;
+                                    line-height: 1.2;
+                                    font-weight: 700;
+                                    color: inherit;
+                                }
+
+                                .live-events-item__subheading {
+                                    font-size: 1.3rem;
+                                    font-weight: 500;
+                                    color: #6f7279;
+
+                                    @media (min-width: 20.625em) {
+                                        font-size: 1.4rem;
+                                    }
+
+                                    @media (min-width: 60em) {
+                                        font-size: 1.5rem;
+                                    }
+                                }
+                            }
+                        }
+
+                        .live-events-item__cta {
+                            position: relative;
+                            display: inline-block;
+                            color: #e6e7e9;
+                            padding: .75rem 0 2rem;
+
+                            @media (min-width: 48em) {
+                                padding-top: 1.5rem;
+                                padding-bottom: 3rem;
+                            }
+
+                            &:before {
+                                content: "";
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                display: block;
+                                width: 1.8rem;
+                                height: .2rem;
+                                background: #666f7a;
+                            }
+                        }
+
+                    }
+
+                    &:hover{
+                        .live-events-item__image{
+                            .live-events-item__background {
+                                @media (min-width: 60em) {
+                                    opacity: .85;
+                                    -webkit-transform: scale(1.05);
+                                    transform: scale(1.05);
+                                }
+                            }
+                        }
+
+                        .live-events-item__content {
+                            .live-events-item__detail{
+                                .live-events-item__heading-group {
+                                    .live-events-item__heading {
+                                        color: #db0a40;
+                                    }
+                                }
+                            }   
+                        }
+                    }
+                }
+
+                &:first-of-type .live-events-item__link {
+                    @media (min-width: 60em) {
+                            margin-top: 0;
+                    }
+                }
+            }
+
         }
     }
 `;

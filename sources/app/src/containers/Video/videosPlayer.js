@@ -3,10 +3,6 @@ import ReactPlayer from 'react-player';
 import { setVideoStatus } from "../../actions/videoPlayerActions";
 
 class VideosPlayer extends Component {
-    constructor(props){
-        super(props);
-    }
-
     onStart(e) {
         if( this.props.seekTo ){
             this.refs.video.seekTo(this.props.seekTo);

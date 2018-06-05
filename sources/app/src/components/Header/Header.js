@@ -26,7 +26,7 @@ class Header extends Component {
     }
  
     render() {
-        const { nav, ghost } = this.props;
+        const { nav } = this.props;
 
         return (
             <HeaderHolder>

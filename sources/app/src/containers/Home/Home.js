@@ -16,13 +16,10 @@ class Home extends Component {
         const self = this;
 
         contentStoreService.getItem("/site/website/index.xml").then(item => {
+            console.log(item)
             self.setState({ content: item });
             self.setState({ slider: item.descriptorDom.page.slider.item })
         });
-
-        // contentStoreService.getItem("/site/taxonomies/channels.xml").then(item => {
-        //     self.setState({ channels: item.descriptorDom.component.items.item });
-        // });
 
         document.getElementById("mainHeader").classList.add("header--ghost");
 
@@ -55,9 +52,6 @@ class Home extends Component {
 
     render() {
         return (
-        // <div className="app-content__cont">
-        //     <div className="app-content__main">
-        //         <Header ghost={true}/>
             <div>
                 { this.state && this.state.slider &&
                     <Slider data={ this.state.slider }>
@@ -69,9 +63,6 @@ class Home extends Component {
                     </VideoCategories>
                 }
             </div>
-        //         <Footer/>
-        //     </div>
-        // </div>
         );
     }
 }

@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom';
 import VideosPlayer from '../../containers/Video/videosPlayer';
 import StreamsPlayer from '../../containers/Video/streamsPlayer';
 
-import ReactPlayer from 'react-player';
-
 import { setVideoStatus, setVideoInfo } from "../../actions/videoPlayerActions";
 
 var Player = {};

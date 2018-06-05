@@ -249,6 +249,65 @@ body {
   }
 }
 
+.inline-button {
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 6rem;
+  line-height: 6rem;
+  width: 15rem;
+  max-width: 100%;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  width: auto!important;
+  height: auto;
+  line-height: inherit;
+  overflow: visible;
+  color: inherit;
+  -webkit-transition: color .15s cubic-bezier(0,1,.75,1);
+  transition: color .15s cubic-bezier(0,1,.75,1);
+}
+
+@media (min-width: 28.125em){
+  .inline-button {
+    font-size: 1.4rem;
+    width: 20rem;
+  }
+}
+
+.inline-button__text {
+    z-index: 993;
+}
+
+.inline-button__text {
+    color: #fff;
+    position: relative;
+    left: 0;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-transition: left .15s;
+    transition: left .15s;
+}
+
+.inline-button:after, .inline-button:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
 
 /***************** GRID *****************/
 

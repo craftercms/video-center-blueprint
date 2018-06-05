@@ -6,7 +6,6 @@ import VideoCategories from '../../components/VideoCategories/VideoCategories.js
 import { setVideoStatus } from "../../actions/videoPlayerActions";
 
 const WAIT_INTERVAL = 1000;
-const ENTER_KEY = 13;
 class Search extends Component {
 
     constructor(props) {

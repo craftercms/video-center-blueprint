@@ -1,6 +1,5 @@
 import { studioConfig } from './settings';
-import { SearchClient } from '@craftercms/sdk/lib/craftercms';
-import { EngineClient } from '@craftercms/sdk/lib/craftercms';
+import { SearchClient, EngineClient } from '@craftercms/sdk/lib/craftercms';
 
 const engineClient = new EngineClient(studioConfig.baseUrl, studioConfig.site);
 const contentStoreService = engineClient.contentStoreService;
@@ -13,4 +12,4 @@ export {
   contentStoreService, 
   navService,
   searchService
-} ;
+};

@@ -33,14 +33,16 @@ class VideoCategories extends Component {
 
     renderArticlesSections(){
         return this.props.categories.map((category, i) => {
-            var gridElClass;
-            // switch( category.type ) {
-            switch( "video-card" ) {
+            var gridElClass,
+                categoryType = category.type ? category.type : "video-card";
+
+            switch( categoryType ) {
                 case "video-card":
                     gridElClass = "static-grid static-grid--3 static-grid--break-at-480";
                     break;
                 case "channel-card-alt":
-                    gridElClass = "static-grid static-grid--4 static-grid--standard static-grid--break-at-480";
+                    gridElClass = "static-grid static-grid--3 static-grid--break-at-480";   
+                    // gridElClass = "static-grid static-grid--4 static-grid--standard static-grid--break-at-480";
                     break;
                 case "standard-card":
                     gridElClass = "static-grid static-grid--4 static-grid--standard static-grid--break-at-480";

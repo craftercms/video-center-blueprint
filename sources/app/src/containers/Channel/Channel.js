@@ -55,8 +55,8 @@ class Channel extends Component {
         this.state = {
             categories: [
                 {
-                    key: "featured",
-                    value: "Featured",
+                    key: "featured-videos",
+                    value: "Featured Videos",
                     query: ["content-type:/component/video", 'channels.item.key: "computer-science"'] 
                 },
                 { 

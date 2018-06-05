@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 
 import { searchService } from '../../api.js';
 
+const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+
 class Cards extends Component {
     componentDidMount() {
         this.searchCards(this.props);
@@ -51,37 +55,6 @@ class Cards extends Component {
         }
     }
 
-    // renderArticles( category ) {
-    //     return articles.map((article, i) => {
-    //         // switch( category.type ) {
-    //         switch( "video-card" ) {
-    //             case "video-card":
-    //                 return (
-
-    //                 break;
-    //             case "channel-card-alt":
-
-    //                 break;
-    //             case "standard-card":
-    //                 return (
-    //                     <div className="static-grid__item" key={article.id}>
-    //                         <div className="standard-card">
-    //                             <a className="standard-card__link" href="/show/AP-1V6V7K8HN1W11/the-way-of-the-wildcard">
-    //                                 <div className="image standard-card__image">
-    //                                     <div className="image__image" style={{ backgroundImage: `url(${ article.image })` }}></div>
-    //                                 </div>
-    //                             </a>
-    //                         </div>
-    //                     </div>
-    //                 );
-    //                 break
-    //             default:
-    //                 console.log("test")
-    //         }
-
-    //     });
-    // }
-
     renderCards() {
         // console.log(this.state.cards);
 
@@ -125,7 +98,6 @@ class Cards extends Component {
                                 <Link className="channel-card-alt__link" to={`/channel/${ url }`}>
                                     <div className="image channel-card-alt__image">
                                         <div className="image__image" style={{ backgroundImage: `url(${ card.thumbnailImage })` }}>
-                                        {/* <div className="image__image" style={{ backgroundImage: `url("/static-assets/images/videos/4d12b7de-0c73-e205-cdbb-784e3821f1c0/why-is-glass-transparent.jpg")` }}> */}
                                             <div className="channel-card-alt__overlay"></div>
                                         </div>
                                     </div>
@@ -147,26 +119,70 @@ class Cards extends Component {
                             </div> */}
                         </div>
                     );
-                    break
+                    break;
+                case "live-event-item":
+                    var date = new Date(parseInt(card.startDate_dt)),
+                        dateStrings = date.toString().split(" "),
+                        dateFormatted = {
+                            month: dateStrings[1],
+                            weekDay: dateStrings[0],
+                            monthDay: dateStrings[2],
+                            year: dateStrings[3],
+                            time: dateStrings[4],
+                            timezone: dateStrings[6]
+                        };
+
+                    return (
+                        <div className="live-events-item" key={ card.id }>
+                            <a className="live-events-item__link" href="">
+                                <div className="live-events-item__image">
+                                    <div className="live-events-item__background">
+                                        <div className="image">
+                                            <div className="image__image" style={{ backgroundImage: `url("${ card.thumbnail }")` }}></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="live-events-item__content">
+                                    <div className="live-events-item__date">
+                                        <h2 className="heading heading--default">{dateFormatted.month} {dateFormatted.monthDay}</h2>
+                                    </div>
+                                    <div className="live-events-item__time">{ dateFormatted.weekDay } @ { dateFormatted.time } { dateFormatted.timezone }</div>
+                                    <div className="live-events-item__detail">
+                                        <div className="live-events-item__heading-group">
+                                            <h3 className="live-events-item__heading">{ card.title_s }</h3>
+                                            {/* <div className="live-events-item__subheading">Mugello, Italy</div> */}
+                                        </div>
+                                    </div>
+                                    <div className="live-events-item__cta">
+                                        <div className="inline-button inline-button__text"> 
+                                            <span className="inline-button__text">Remind me</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    );
+                    break;
                 default:
-                    console.log("test")
+                    return (
+                        <div></div>
+                    );
             }
         });
     }
 
     render() {
         return (
-            <div className="static-grid__items">
+            <div className={ this.props.category.type !== "live-event-item" ? "static-grid__items" : "" } >
                 { this.state && this.state.cards &&
                     this.renderCards()
                 }
-                {
-                    this.state && this.state.cards && this.state.cards.length === 0 &&
-                        <div className="segment">
-                            <div style={{textAlign: "center", fontSize: "3rem", fontWeight: '700', padding: "15rem 0px 25rem", minHeight: "50vh" }}>
-                                No results
-                            </div>
+                { this.state && this.state.cards && this.state.cards.length === 0 &&
+                    <div className="segment">
+                        <div style={{textAlign: "center", fontSize: "3rem", fontWeight: '700', padding: "15rem 0px 25rem", minHeight: "50vh" }}>
+                            No results
                         </div>
+                    </div>
                 }
             </div>
         );

@@ -6,8 +6,6 @@ import { setVideoStatus } from "../../actions/videoPlayerActions";
 
 import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
 
-import Image1 from '../../images/videoCard1.png';
-
 class Channels extends Component {
     constructor(props) {
         super(props);

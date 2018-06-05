@@ -1,20 +1,16 @@
 import React, { Component } from "react";
 import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
 import VideoHolder from './VideoStyle.js';
-import VideosPlayer from './videosPlayer.js';
 import VideoSidebar from './VideoSidebar.js';
 
 import { connect } from "react-redux";
 import { setVideoInfo, setVideoStatus } from "../../actions/videoPlayerActions";
 
 import { searchService } from '../../api.js';
-import StreamsPlayer from "./streamsPlayer.js";
 
 class Video extends Component {
     constructor(props) {
         super(props);
-
-        console.log(props);
 
         this.loadVideo(props);
     }
