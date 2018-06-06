@@ -8,9 +8,6 @@
 	<internal-name>AlphaGo</internal-name>
 	<title_s tokenized="true">AlphaGo</title_s>
 	<summary_s>When AlphaGo beat Lee Sedol it introduced humans to new and interesting Go formations and changed that game forever. This event will describe AlphaGo's AI design and why it's so different from IBM's Deep Blue.</summary_s>
-	<categories>	<item>	<key>computer-science</key>
-	<value_smv>Computer Science</value_smv>
-	</item></categories>
 	<origin>	<item>	<key>/site/origins/6efe40ef-cdca-477b-f8c0-7a1e9f0aa990.xml</key>
 	<value>Example</value>
 	<include>/site/origins/6efe40ef-cdca-477b-f8c0-7a1e9f0aa990.xml</include>
@@ -23,8 +20,11 @@
 	<endDate_dt>2020-06-30T22:00:00.000Z</endDate_dt>
 	<createdDate>2018-04-26T15:23:05.072Z</createdDate>
 	<createdDate_dt>2018-04-26T15:23:05.072Z</createdDate_dt>
-	<lastModifiedDate>2018-04-26T15:23:05.072Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-04-26T15:23:05.072Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-05-29T17:15:57.282Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-05-29T17:15:57.282Z</lastModifiedDate_dt>
 	<startDate_dt_tz>Etc/GMT</startDate_dt_tz>
 	<endDate_dt_tz>Etc/GMT</endDate_dt_tz>
+	<channels>	<item>	<key>computer-science</key>
+	<value_smv>Computer Science</value_smv>
+	</item></channels>
 </component>

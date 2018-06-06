@@ -8,9 +8,6 @@
 	<internal-name>Transcendental Numbers</internal-name>
 	<title_s tokenized="true">Transcendental Numbers</title_s>
 	<summary_s>What are transcendental numbers and what makes them interesting. Join us for this fun math event!</summary_s>
-	<categories>	<item>	<key>mathematics</key>
-	<value_smv>Mathematics</value_smv>
-	</item></categories>
 	<origin>	<item>	<key>/site/origins/6efe40ef-cdca-477b-f8c0-7a1e9f0aa990.xml</key>
 	<value>Example</value>
 	<include>/site/origins/6efe40ef-cdca-477b-f8c0-7a1e9f0aa990.xml</include>
@@ -23,8 +20,11 @@
 	<endDate_dt>2019-06-30T22:00:00.000Z</endDate_dt>
 	<createdDate>2018-04-26T15:33:27.896Z</createdDate>
 	<createdDate_dt>2018-04-26T15:33:27.896Z</createdDate_dt>
-	<lastModifiedDate>2018-04-26T15:33:27.896Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-04-26T15:33:27.896Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-05-25T20:18:08.817Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-05-25T20:18:08.817Z</lastModifiedDate_dt>
 	<startDate_dt_tz>Etc/GMT</startDate_dt_tz>
 	<endDate_dt_tz>Etc/GMT</endDate_dt_tz>
+	<channels>	<item>	<key>mathematics</key>
+	<value_smv>Mathematics</value_smv>
+	</item></channels>
 </component>

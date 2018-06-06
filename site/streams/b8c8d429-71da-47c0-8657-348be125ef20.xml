@@ -8,9 +8,6 @@
 	<internal-name>Gravitational Waves and LIGO</internal-name>
 	<title_s tokenized="true">Gravitational Waves and LIGO</title_s>
 	<summary_s>In this talk, we will discuss gravitational waves and LIGO (Laser Interferometer Gravitational-Wave Observatory).</summary_s>
-	<categories>	<item>	<key>astronomy</key>
-	<value_smv>Astronomy</value_smv>
-	</item></categories>
 	<origin>	<item>	<key>/site/origins/6efe40ef-cdca-477b-f8c0-7a1e9f0aa990.xml</key>
 	<value>Example</value>
 	<include>/site/origins/6efe40ef-cdca-477b-f8c0-7a1e9f0aa990.xml</include>
@@ -23,8 +20,11 @@
 	<endDate_dt>2019-03-31T22:00:00.000Z</endDate_dt>
 	<createdDate>2018-04-26T15:30:01.707Z</createdDate>
 	<createdDate_dt>2018-04-26T15:30:01.707Z</createdDate_dt>
-	<lastModifiedDate>2018-04-26T15:30:01.707Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-04-26T15:30:01.707Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-05-25T20:17:33.650Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-05-25T20:17:33.650Z</lastModifiedDate_dt>
 	<startDate_dt_tz>Etc/GMT</startDate_dt_tz>
 	<endDate_dt_tz>Etc/GMT</endDate_dt_tz>
+	<channels>	<item>	<key>astronomy</key>
+	<value_smv>Astronomy</value_smv>
+	</item></channels>
 </component>
