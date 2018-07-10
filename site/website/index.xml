@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <page>
-	<content-type>/page/page-home</content-type>	<display-template/>
+	<content-type>/page/page-home</content-type>	<display-template>/templates/web/entry.ftl</display-template>
 	<merge-strategy>inherit-levels</merge-strategy>
 	<placeInNav>false</placeInNav>
 	<file-name>index.xml</file-name>
@@ -11,8 +11,8 @@
 	<folder-name/>
 	<createdDate>2017-1-31T16:18:14.000Z</createdDate>
 	<createdDate_dt>2017-1-31T16:18:14.000Z</createdDate_dt>
-	<lastModifiedDate>2018-05-17T16:30:45.820Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-05-17T16:30:45.820Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-07-10T18:28:42.215Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-07-10T18:28:42.215Z</lastModifiedDate_dt>
 	<disabled>false</disabled>
 	<slider>	<item>	<key>/site/components/sliders/home-slider.xml</key>
 	<value>Home Slider</value>
