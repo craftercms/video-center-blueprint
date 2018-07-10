@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { setVideoStatus } from "../../actions/videoPlayerActions";
+import { setVideoDocked } from "../../actions/videoPlayerActions";
 
 import Slider from '../../components/Slider/Slider.js';
 import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
@@ -9,14 +9,13 @@ import { contentStoreService } from '../../api.js';
 
 class Home extends Component {
     componentWillMount() {
-        this.props.dispatch(setVideoStatus( { ...this.props.videoStatus, docked: false } ));
+        this.props.setVideoDocked( false );
     }
 
     componentDidMount() {
         const self = this;
 
         contentStoreService.getItem("/site/website/index.xml").then(item => {
-            console.log(item)
             self.setState({ content: item });
             self.setState({ slider: item.descriptorDom.page.slider.item })
         });
@@ -69,9 +68,15 @@ class Home extends Component {
 
 function mapStateToProps(store) {
     return { 
-        videoInfo: store.video.videoInfo,
+        videoInfo: store.video.videoInfo,       //TODO: will this be used? remove (?)
         videoStatus: store.video.videoStatus
     };
 }
 
-export default connect(mapStateToProps)(Home);
+function mapDispatchToProps(dispatch) {
+    return({
+        setVideoDocked: (docked) => { dispatch(setVideoDocked(docked)) }
+    })
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

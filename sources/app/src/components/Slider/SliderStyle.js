@@ -14,6 +14,7 @@ const SliderHolder = styled.div`
 
     .ant-carousel, .discover-slider, .discover-slider .slick-track{
         height: inherit;
+        font-family: inherit;
     }
 
     .ant-carousel{
@@ -104,6 +105,139 @@ const SliderHolder = styled.div`
 
                         @media (max-height: 47.9375em){
                             bottom: 4rem;
+                        }
+
+                        &.hero_content {
+                            text-align: left;
+
+                            @media (min-width: 75em){
+                                width: 110rem;
+                            }
+                    
+                            @media (min-width: 87.5em){
+                                width: 120rem;
+                            }
+                    
+                            @media (min-width: 114.0625em){
+                                width: 135rem;
+                            }
+
+                            .heading--slider {
+                                @media (max-height: 48em) and (min-width: 60em){
+                                    max-width: 60%;
+                                }
+                                @media (min-width: 75em){
+                                    max-width: 70%;
+                                }
+                                @media (max-height: 48em){
+                                    max-width: 60%;
+                                }
+                            }
+
+                            .discover-slider__inner--subtitle {
+                                text-align: left;
+                                font-size: 1.8rem;
+
+                                @media (min-width: 87.5em) {
+                                    max-width: 60%;
+                                }
+                                @media (min-width: 60em) {
+                                    max-width: 80%;
+                                }
+                            }
+                        
+                            .hero__countdown {
+                                margin: 0 0 2.5rem;
+                                display: -webkit-box;
+                                display: -ms-flexbox;
+                                display: flex;
+
+                                @media (min-width: 87.5em) {
+                                    position: absolute;
+                                    top: 0;
+                                    right: 0;
+                                    max-width: 45rem;
+                                }
+
+                                @media (max-height: 48em) {
+                                    position: absolute;
+                                    top: 0;
+                                    right: 0;
+                                    padding-left: 2rem;
+                                }
+
+                                .countdown__label {
+                                    display: none;
+                                    text-transform: uppercase;
+                                    font-weight: 500;
+                                    font-size: 1.3rem;
+                                    letter-spacing: .01em;
+
+                                    @media (min-width: 60em) {
+                                        font-size: 1.5rem;
+                                        display: inline-block;
+                                    }
+                                }
+
+                                .countdown__heading {
+                                    font-weight: 800;
+                                    line-height: 1.2;
+                                    letter-spacing: -.01em;
+                                    text-transform: capitalize;
+                                    font-size: 3rem;
+
+                                    @media (min-width: 60em) {
+                                        line-height: 1;
+                                    }
+
+                                    @media (min-width: 48em) {
+                                        font-size: 3.5rem;
+                                    }
+
+                                    @media (min-width: 64em) {
+                                        font-size: 3.5rem;
+                                    }
+
+                                    @media (min-width: 75em) {
+                                        font-size: 4rem;
+                                    }
+
+                                    @media (min-width: 87.5em) {
+                                        font-size: 4.5rem;
+                                    }
+                                } 
+                                
+                                .countdown__live-time {
+                                    font-weight: 500;
+                                    font-size: 1.5rem;
+
+                                    @media (min-width: 48em) {
+                                        font-size: 2rem;
+                                    }
+
+                                    @media (min-width: 64em) {
+                                        font-size: 2rem;
+                                    }
+
+                                    @media (min-width: 75em) {
+                                        font-size: 2rem;
+                                    }
+
+                                    @media (min-width: 87.5em) {
+                                        font-size: 2.1rem;
+                                    }
+                                }
+                            }
+                            
+                            
+
+                            .countdown-container__content {
+                                @media (min-width: 60em) {
+                                    border-left: 4px solid #db0a40;
+                                    padding: 0 0 0 1.8rem;
+                                    min-height: 82px;
+                                }
+                            }
                         }
                     }
                     

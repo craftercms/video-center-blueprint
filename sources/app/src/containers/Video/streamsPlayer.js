@@ -18,8 +18,6 @@ class StreamsPlayer extends Component {
         this.volumeInput = (e) => this._volumeInput(e);
         this.fullscreenClick = (e) => this._fullscreenClick(e);
         this.currentTimeClick = (e) => this._currentTimeClick(e);
-
-        // console.log(this.props);
     }
 
     componentDidMount() {

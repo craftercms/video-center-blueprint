@@ -1,12 +1,15 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { isNullOrUndefined } from 'util';
+
+import { getItem, search } from '@craftercms/redux';
+import { SearchService } from '@craftercms/search';
+
 import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
 import VideoHolder from './VideoStyle.js';
+import Slider from '../../components/Slider/Slider.js';
 import VideoSidebar from './VideoSidebar.js';
-
-import { connect } from "react-redux";
 import { setVideoInfo, setVideoStatus } from "../../actions/videoPlayerActions";
-
-import { searchService } from '../../api.js';
 
 class Video extends Component {
     constructor(props) {
@@ -16,38 +19,91 @@ class Video extends Component {
     }
 
     componentWillMount() {  
-        this.props.dispatch(setVideoStatus( { ...this.props.videoStatus, docked: true, currentVideoUrl: this.props.match.url } ));
+        this.props.setVideoStatus( { ...this.props.videoStatus, docked: true, currentVideoUrl: this.props.match.url } );
     }
 
     componentDidMount() {
-        window.addEventListener("resize", this.updateDimensions);
+        // window.addEventListener("resize", this.updateDimensions);
         // this.updateDimensions();
     }
 
     componentWillUnmount() {
         window.removeEventListener("resize", this.updateDimensions);
+        document.getElementById("mainHeader").classList.remove("header--ghost");
     }
 
     componentWillReceiveProps(newProps){
-        if(this.props.match.url !== newProps.match.url){
+        var { match, searchResults } = this.props,
+            searchEntry = searchResults.entries[this.searchId],
+            newSearchEntry = newProps.searchResults.entries[this.searchId];
+
+        if(match.url !== newProps.match.url){
             this.loadVideo(newProps);
         }
+
+        if( 
+            ( isNullOrUndefined(searchEntry) && !isNullOrUndefined(newSearchEntry) )
+            || ( !isNullOrUndefined(searchEntry) && !isNullOrUndefined(newSearchEntry))
+            && newProps.searchResults.entries[this.searchId]
+        ){
+            this.setVideo(newProps.searchResults.entries[this.searchId]);
+        }
+
     }
 
     loadVideo(props){
         var self = this,
-        videoId = props.match.params.id;
+            videoId = props.match.params.id;
+       
+        var query = SearchService.createQuery('solr');
+        this.searchId = query.uuid;
+        query.query = "*:*";
+        query.filterQueries = ["content-type:/component/video", "objectId:" + videoId];
 
-        var query = searchService.createQuery();
-            query.setQuery("*:*");
-            query.setFilterQueries(["content-type:/component/video", "objectId:" + videoId]);
+        this.props.search(query);
+
+        // this.videoUrl = props.match.path.indexOf('/video') !== -1
+        //     ? '/site/videos/'
+        //     : '/site/streams/';
+
+        // this.videoUrl += videoId + '.xml';
+
+        // if(!(props.items.entries[this.videoUrl])){
+        //     this.props.getItem(this.videoUrl)
+        // }
         
-            
-        searchService.search(query).then(cards => {
-            var video = cards.response.documents[0],
-                categories = [];
+    }
 
-            this.props.dispatch(setVideoInfo(video));
+    setVideo(searchResult) {
+        var { setVideoInfo } = this.props;
+
+        if(searchResult.numFound > 0){
+            var video = searchResult.documents[0],
+                categories = [],
+                upcomingVideoHero = [];
+
+            var videoStartDate = new Date(video.startDate_dt),
+                videoEndDate = new Date(video.endDate_dt),
+                now = new Date();
+
+            if(video['content-type'] === '/component/stream' && videoStartDate > now ){
+                //TODO: when it was on a video and changes to upcoming stream -> needs to remove 
+                //      old video an set new video info.
+
+                document.getElementById("mainHeader").classList.add("header--ghost");
+
+                upcomingVideoHero.push({
+                    url: "#",
+                    background: video.thumbnail,
+                    title: video.title_s,
+                    subtitle: video.description_html,
+                    date: video.startDate_dt
+                })
+    
+                this.setState({ slider: upcomingVideoHero })
+            }else{
+                setVideoInfo(video);
+            }
 
             if( video["channels.item.key"].constructor === Array ){
                 for (var i = 0, len = video["channels.item.key"].length; i < len; i++) {
@@ -61,12 +117,9 @@ class Video extends Component {
                 );
             }
 
-            self.setState({ categories: categories });
+            this.setState({ categories: categories });
+        }
 
-
-        }).catch(error => {
-            
-        });
     }
 
     updateDimensions() {
@@ -74,6 +127,7 @@ class Video extends Component {
 
         var playerContainer = document.getElementById("app-content__player"),
             playerResize = document.querySelector(".global-video-player .player-container"),
+            containerResize = document.querySelector('#videoPlayerAspect'),
             dimensions = {
                 width: playerContainer.offsetWidth,
                 height: playerContainer.offsetHeight
@@ -81,7 +135,7 @@ class Video extends Component {
             aspect = ( playerResize.offsetHeight * 100 ) / playerResize.offsetWidth,
             maxWidth = ( dimensions.height * 100 ) / aspect;
 
-        console.log(dimensions);
+        // containerResize.style.height = dimensions.height + "px";
 
         playerResize.style.minWidth = "160px";
         playerResize.style.minHeight = "90px";
@@ -143,18 +197,27 @@ class Video extends Component {
     }
 
     render() {
+        var { videoInfo, items, searchResults } = this.props;
         return (
             <VideoHolder>
 
-                { this.props.videoInfo &&
-                    this.renderDetailsSection( this.props.videoInfo )
+                { this.state && this.state.slider &&
+                    <Slider data={ this.state.slider }
+                        localData={ true }
+                        hero={ true }
+                    >
+                    </Slider>
+                }
+
+                { videoInfo &&
+                    this.renderDetailsSection( videoInfo )
                 }
 
                 { this.state && this.state.categories &&
                     <VideoCategories categories={ this.state.categories }></VideoCategories>
                 }
                 
-                <VideoSidebar/> 
+                {/* <VideoSidebar/>  */}
             </VideoHolder>
         );
     }
@@ -163,8 +226,19 @@ class Video extends Component {
 function mapStateToProps(store) {
     return { 
         videoInfo: store.video.videoInfo,
-        videoStatus: store.video.videoStatus
+        videoStatus: store.video.videoStatus,
+        items: store.craftercms.items,
+        searchResults: store.craftercms.search
     };
 }
 
-export default connect(mapStateToProps)(Video);
+function mapDispatchToProps(dispatch) {
+    return({
+        getItem: (url) => { dispatch(getItem(url)) },
+        search: (query) => { dispatch(search(query)) },
+        setVideoStatus: (status) => { dispatch(setVideoStatus(status)) },
+        setVideoInfo: (info) => { dispatch(setVideoInfo(info)) }
+    })
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Video);

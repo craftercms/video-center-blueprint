@@ -21,14 +21,13 @@ body, html{
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
 }
 
 body {
   position: relative;
   margin: 0 1!important;
   line-height: 1.4 !important;
-  font-family: Bull,sans-serif;
+  font-family: helvetica,	/* Unix+X, MacOS */ sans-serif !important;
   font-size: 1.8em !important;
   color: #fff !important;
 }
@@ -74,7 +73,6 @@ body {
     line-height: inherit;
     width: auto;
     letter-spacing: -.02em;
-    font-family: Bull,sans-serif;
     font-weight: 800;
     color: inherit;
     -webkit-transition: color .15s cubic-bezier(0,1,.75,1);

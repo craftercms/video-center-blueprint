@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import ChannelsHolder from './ChannelsStyle';
 
-import { setVideoStatus } from "../../actions/videoPlayerActions";
+import { setVideoDocked } from "../../actions/videoPlayerActions";
 
 import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
 
@@ -30,7 +30,7 @@ class Channels extends Component {
     }
 
     componentWillMount() {
-        this.props.dispatch(setVideoStatus( { ...this.props.videoStatus, docked: false } ));
+        this.props.setVideoDocked( false );
     }
 
     render() {
@@ -57,4 +57,10 @@ function mapStateToProps(store) {
     };
 }
 
-export default connect(mapStateToProps)(Channels);
+function mapDispatchToProps(dispatch) {
+    return({
+        setVideoDocked: (docked) => { dispatch(setVideoDocked(docked)) }
+    })
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Channels);

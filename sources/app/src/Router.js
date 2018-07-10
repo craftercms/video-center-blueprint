@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Switch, Route, withRouter } from 'react-router-dom';
+import { connect } from "react-redux";
+import { getNav } from '@craftercms/redux';
 
 import Home from './containers/Home/Home.js';
 import Video from './containers/Video/Video.js';
@@ -8,21 +10,30 @@ import Channel from './containers/Channel/Channel.js';
 import LiveEvents from './containers/LiveEvents/LiveEvents.js';
 import Search from './containers/Search/Search.js';
 
-import { connect } from "react-redux";
-import { getNav } from "./actions/navigationActions";
-
 // The Main component renders one of the provided Routes 
 class Router extends Component {
     componentWillMount() {
         //Need to locally set components in order to dinamically load them in router
         this.Channels = Channels;
 
-        this.props.dispatch(getNav())
+        this.props.getNav('/site/website');
     }
- 
+
+    renderRouteEntries() {
+        var rootId = '/',
+            me = this;
+
+        return this.props.nav.childIds[rootId].map((id, i) =>{
+            var navItem = this.props.nav.entries[id];
+
+            return (
+                <Route key={ i }  exact path={navItem.url} component={ me[navItem.attributes.reactComponent] }/>
+            );
+        });
+    }
+
     render() {
-        const { nav } = this.props,
-              me = this;
+        const { nav } = this.props;
 
         return (
         <Switch>
@@ -34,10 +45,8 @@ class Router extends Component {
             <Route exact path='/search' component={Search}/>
             <Route exact path='/search/:query' component={Search}/>
             <Route exact path='/channel/:name' component={Channel}/>
-            { nav &&
-                nav.subItems.map((entry, i) => (
-                    <Route key={ i }  exact path={entry.url} component={ me[entry.attributes.reactComponent] }/>
-                ))
+            { nav && nav.entries['/'] &&
+                this.renderRouteEntries()
             }
         </Switch>
         );
@@ -45,7 +54,16 @@ class Router extends Component {
 }
 
 function mapStateToProps(store) {
-    return { nav: store.nav.nav };
+    return { nav: store.craftercms.navigation };
 }
 
-export default withRouter(connect(mapStateToProps)(Router));
+function mapDispatchToProps(dispatch) {
+    return({
+        getNav: (url) => { dispatch(getNav(url)) }
+    })
+}
+
+export default withRouter(connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Router));

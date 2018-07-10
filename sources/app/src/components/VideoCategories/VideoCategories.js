@@ -109,10 +109,10 @@ class VideoCategories extends Component {
                     <nav className="inline-nav inline-nav--align-left">
                         <div className="inline-nav__inner">
                             <Scrollspy className="inline-nav__ul" 
-                                        items={ this.sectionsScrollSpy } 
-                                        currentClassName="inline-nav__item--active"
-                                        rootEl={ ".app-content__main" }
-                                        ref={node => (this.scrollspy = node)}>
+                                       items={ this.sectionsScrollSpy } 
+                                       currentClassName="inline-nav__item--active"
+                                       rootEl={ ".app-content__main" }
+                                       ref={node => (this.scrollspy = node)}>
                                 {this.renderCategoriesItems()}
                             </Scrollspy>
                         </div>

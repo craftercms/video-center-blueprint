@@ -11,3 +11,10 @@ export function setVideoStatus(videoStatus){
         payload: videoStatus
     }
 }
+
+export function setVideoDocked(docked){
+    return {
+        type: 'SET_VIDEO_DOCKED',
+        payload: docked
+    }
+}

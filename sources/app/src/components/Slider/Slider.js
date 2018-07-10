@@ -13,7 +13,6 @@ class Slider extends Component {
         this.contentStoreService = engineClient.contentStoreService;
     
         if( this.props.localData ){
-            console.log("SLIDER, local data");
             this.setState({ slides: this.props.data });
         }else{
             this.getSlidesContent();
@@ -40,6 +39,35 @@ class Slider extends Component {
         });
     }
 
+    renderCountdown() {
+        //since it is a hero (only one slide), it's the first item of array
+        var { data } = this.props,
+            date = new Date(data[0].date),
+            dateStrings = date.toString().split(" "),
+            dateFormatted = {
+                month: dateStrings[1],
+                weekDay: dateStrings[0],
+                monthDay: dateStrings[2],
+                year: dateStrings[3],
+                time: dateStrings[4],
+                timezone: dateStrings[6]
+            };
+
+        console.log(data, data.startDate_dt, date, dateStrings, dateFormatted)
+
+        return (
+            <div className="hero__countdown">
+                <div className="countdown-container__content" id="countdown">
+                    <div className="countdown--pre countdown--text">
+                        <div className="countdown__label">Upcoming</div>
+                        <div className="countdown__heading">{ dateFormatted.month } { dateFormatted.monthDay }</div>
+                        <div className="countdown__live-time"> Live at { dateFormatted.time }</div>
+                    </div>
+                </div>                       
+            </div>         
+        );
+    }
+
     renderSlides() {
         return this.state.slides.map((slide, i) => {
             return (
@@ -58,7 +86,7 @@ class Slider extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div className="discover-slider__inner--content">
+                            <div className={"discover-slider__inner--content" + (this.props.hero ? ' hero_content' : '') }>
                                 { slide.vod &&
                                     <div className="discover-slider__inner--vod">
                                         <span className="discover-slider__inner--vod-label">
@@ -80,6 +108,11 @@ class Slider extends Component {
                                 <div className="discover-slider__inner--subtitle">
                                     { slide.subtitle }
                                 </div>
+
+                                { this.props.hero &&
+                                    this.renderCountdown()
+                                }
+
                             </div>
                         </Link>
                     </div>

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Slider from '../../components/Slider/Slider.js';
 
 import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
-import { setVideoStatus } from "../../actions/videoPlayerActions";
+import { setVideoDocked } from "../../actions/videoPlayerActions";
 
 class LiveEvents extends Component {
     constructor(props) {
@@ -15,14 +15,14 @@ class LiveEvents extends Component {
                     key: "upcoming-events",
                     value: "Upcoming Events",
                     type: "live-event-item",
-                    query: ['content-type:"/component/stream"'],
+                    query: ['content-type:"/component/stream"', 'startDate_dt:[NOW TO *]'],
                     numResults: 6
                 },
                 { 
                     key: "past-events", 
                     value: "Past Events",
-                    type: "live-event-item",   //TO RENDER CHANNEL CARD STYLING
-                    query: ['content-type:"/component/stream"'] ,
+                    type: "live-event-item",
+                    query: ['content-type:"/component/stream"', 'endDate_dt:[* TO NOW]'] ,
                     numResults: 6
                 }
             ]
@@ -30,7 +30,7 @@ class LiveEvents extends Component {
     }
 
     componentWillMount() {
-        this.props.dispatch(setVideoStatus( { ...this.props.videoStatus, docked: false } ));
+        this.props.setVideoDocked( false );
     }
     render() {
         return (
@@ -54,4 +54,10 @@ function mapStateToProps(store) {
     };
 }
 
-export default connect(mapStateToProps)(LiveEvents);
+function mapDispatchToProps(dispatch) {
+    return({
+        setVideoDocked: (docked) => { dispatch(setVideoDocked(docked)) }
+    })
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LiveEvents);

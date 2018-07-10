@@ -75,7 +75,7 @@ const VideoHolder = styled.div`
 
                     h1.video-details__heading {
                         font-weight: 800;
-                        font-family: Bull,sans-serif;
+                        font-family: inherit;
                         margin: 0 0 .3rem;
                     }
                 }

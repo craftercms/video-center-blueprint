@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 
 import { searchService } from '../../api.js';
+import { SearchService } from '@craftercms/search';
 
-const monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
-];
+// const monthNames = ["January", "February", "March", "April", "May", "June",
+//   "July", "August", "September", "October", "November", "December"
+// ];
 
 class Cards extends Component {
     componentDidMount() {
@@ -19,34 +20,29 @@ class Cards extends Component {
     searchCards(props) {
         const self = this;
 
-        var query = searchService.createQuery(),
+        var query = SearchService.createQuery('solr'),
             category = props.category;
 
         if(category.query){
             if(props.query !== ""){
-                query.setQuery("*:*");
-                query.setFilterQueries(category.query);
-                // query.setFilterQueries(["content-type:/component/video", "title_t: (*" + props.query + "*)"]);
-                query.setNumResults(category.numResults);   //   OLD VERSION
-                // query.numResults = 2;     //   NEW VERSION - NOT ON MASTER YET
+                query.query = "*:*";
+                query.filterQueries = category.query;
+                query.numResults = category.numResults;
 
                 if(category.sort !== ""){
                     query.addParam('sort', category.sort);
                 }
 
                 searchService.search(query).then(cards => {
-                    self.setState({ cards: cards.response.documents });                    
+                    self.setState({ cards: cards.response.documents });          
                 }).catch(error => {
                     
                 });
             }
         }else{
             category = props.category.key
-
-            query.setQuery("*:*");
-            query.setFilterQueries(["content-type:/component/video", "channels.item.key:" + category]);
-            // query.setNumResults(2);    //  OLD VERSION
-            // query.numResults = 2;      //  NEW VERSION - NOT ON MASTER YET
+            query.query = "*:*";
+            query.filterQueries = ["content-type:/component/video", "channels.item.key:" + category];
             searchService.search(query).then(cards => {
                 self.setState({ cards: cards.response.documents });
             }).catch(error => {
@@ -56,18 +52,23 @@ class Cards extends Component {
     }
 
     renderCards() {
-        // console.log(this.state.cards);
-
         return this.state.cards.map((card, i) => {
+            // console.log(card);
             var componentUrl = card["content-type"] === "/component/stream" ? "/stream/" : "/video/",
                 categoryType = this.props.category.type ? this.props.category.type : "video-card";
 
             switch( categoryType ) {
                 case "video-card":
+                    var videoUrl = card.localId.replace('.xml', '');
+                    videoUrl = card['content-type'] === "/component/stream" 
+                        ? videoUrl.replace('/site/streams/', '')
+                        : videoUrl.replace('/site/videos/', '');
+
                     return (
                         <div className="static-grid__item" key={ card.id }>
                             <div className="video-card video-card--has-description">
                                 <Link className="video-card__link" to={ componentUrl + card.objectId }>
+                                {/* <Link className="video-card__link" to={ componentUrl + videoUrl }> */}
                                     <div>
                                         <div className="image video-card__image--background" style={{ background: 'transparent' }}>
                                             <div className="image__image" style={{ backgroundImage: `url(${ card.thumbnail })` }}></div>
@@ -134,7 +135,7 @@ class Cards extends Component {
 
                     return (
                         <div className="live-events-item" key={ card.id }>
-                            <a className="live-events-item__link" href="">
+                            <Link className="live-events-item__link" to={`/stream/${ card.objectId }`}>
                                 <div className="live-events-item__image">
                                     <div className="live-events-item__background">
                                         <div className="image">
@@ -159,7 +160,7 @@ class Cards extends Component {
                                         </div>
                                     </div>
                                 </div>
-                            </a>
+                            </Link>
                         </div>
                     );
                     break;

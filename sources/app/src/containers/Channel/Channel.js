@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { setVideoStatus } from "../../actions/videoPlayerActions";
+import { setVideoDocked } from "../../actions/videoPlayerActions";
 import Slider from '../../components/Slider/Slider.js';
 import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
 
@@ -17,7 +17,7 @@ class Channel extends Component {
     }
 
     componentWillMount() {
-        this.props.dispatch(setVideoStatus( { ...this.props.videoStatus, docked: false } ));
+        this.props.setVideoDocked( false );
     }
 
     componentDidMount() {
@@ -63,7 +63,7 @@ class Channel extends Component {
                     key: "related-channels", 
                     value: "Related Channels",
                     type: "channel-card-alt",   //TO RENDER CHANNEL CARD STYLING
-                    query: ['content-type:"/component/component-channel"'] ,
+                    query: ['content-type:"/component/component-channel"'] ,       
                     numResults: 3
                 }
             ]
@@ -95,4 +95,10 @@ function mapStateToProps(store) {
     };
 }
 
-export default connect(mapStateToProps)(Channel);
+function mapDispatchToProps(dispatch) {
+    return({
+        setVideoDocked: (docked) => { dispatch(setVideoDocked(docked)) }
+    })
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Channel);

@@ -35,7 +35,7 @@ class VideoPlayer extends Component {
     }
 
     loadVideo(videoInfo) {
-        var videoType = videoInfo.youTubeVideo ? "video" : "stream";
+        var videoType = videoInfo.youTubeVideo ? "video" : "stream";        //TODO: update, not only youtube link
 
         Player = videoType === "video" ? VideosPlayer : StreamsPlayer;
         this.props.dispatch(setVideoStatus( { ...this.props.videoStatus, loaded: true } ));
@@ -52,7 +52,7 @@ class VideoPlayer extends Component {
                 {this.props.videoStatus.loaded &&
                     <div className="app-content__player-wrapper">
                         <div className={ `global-video-player global-video-player--visible global-video-player--${ this.props.videoStatus.docked ? 'docked' : 'fixed' }` }>
-                            <div className="global-video-player__aspect">
+                            <div id="videoPlayerAspect" className="global-video-player__aspect">
                                 <div className="global-video-player__inner">
                                     <Player video={ this.props.videoInfo }
                                         videoStatus={ this.props.videoStatus }

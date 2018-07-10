@@ -24,7 +24,7 @@ const FooterHolder = styled.div`
             flex-wrap: nowrap;
             color: #8b9099;
             font-size: 1.1rem;
-            font-family: Bull,sans-serif;
+            font-family: inherit;
             font-weight: 800;
             text-transform: uppercase;
             line-height: 2;

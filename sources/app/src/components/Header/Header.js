@@ -9,10 +9,12 @@ import { connect } from "react-redux";
 import logo from '../../images/logo.png';
 
 class Header extends Component {
-
-    //TODO: Right now is only one level deep - Should it be more than one level?
     renderNavItems() {
-        return this.props.nav.subItems.map((navItem, i) => {
+        var rootId = '/';
+
+        return this.props.nav.childIds[rootId].map((id, i) =>{
+            var navItem = this.props.nav.entries[id];
+
             return (
                 <li key={ i } className="navigation__item">
                     <Link className="navigation__link navigation__link--apps" to={ navItem.url }>
@@ -61,7 +63,11 @@ class Header extends Component {
                                             </span>
                                         </Link>
                                     </li> */}
-                                    { this.props.nav && this.renderNavItems() }
+                                    { 
+                                        nav 
+                                        && nav.entries['/']
+                                        && this.renderNavItems()
+                                    }
                                 </ul>
                             </nav>
                         </div>
@@ -78,7 +84,9 @@ class Header extends Component {
 }
 
 function mapStateToProps(store) {
-    return { nav: store.nav.nav };
+    return { 
+        nav: store.craftercms.navigation
+    };
 }
 
 export default connect(mapStateToProps)(Header);

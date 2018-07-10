@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import SearchHolder from './SearchStyle';
 import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
 
-import { setVideoStatus } from "../../actions/videoPlayerActions";
+import { setVideoDocked } from "../../actions/videoPlayerActions";
 
 const WAIT_INTERVAL = 1000;
 class Search extends Component {
@@ -20,7 +20,7 @@ class Search extends Component {
     }
 
     componentWillMount() {
-        this.props.dispatch(setVideoStatus( { ...this.props.videoStatus, docked: false } ));
+        this.props.setVideoDocked( false );
         this.timer = null;
     }
 
@@ -87,4 +87,10 @@ function mapStateToProps(store) {
     };
 }
 
-export default connect(mapStateToProps)(Search);
+function mapDispatchToProps(dispatch) {
+    return({
+        setVideoDocked: (docked) => { dispatch(setVideoDocked(docked)) }
+    })
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
