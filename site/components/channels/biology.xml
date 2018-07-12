@@ -12,7 +12,12 @@
 	<thumbnailImage>/static-assets/images/channels/9ab3d1ff-d59c-aadf-012f-e5475ca51d8e/biology-thumbnail.jpg</thumbnailImage>
 	<createdDate>2018-05-25T19:49:59.479Z</createdDate>
 	<createdDate_dt>2018-05-25T19:49:59.479Z</createdDate_dt>
-	<lastModifiedDate>2018-05-29T15:09:55.451Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-05-29T15:09:55.451Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-07-12T00:10:28.864Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-07-12T00:10:28.864Z</lastModifiedDate_dt>
 	<featured>true</featured>
+	<tags>	<item>	<value>biology</value>
+	</item>	<item>	<value>science</value>
+	</item>	<item>	<value>cells</value>
+	</item>	<item>	<value>virus</value>
+	</item></tags>
 </component>
