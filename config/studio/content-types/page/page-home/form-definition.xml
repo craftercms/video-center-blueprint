@@ -227,7 +227,7 @@
 					<id>maxVideosDisplay</id>
 					<iceId></iceId>
 					<title>Max Videos to Display</title>
-					<description></description>
+					<description>(per category)</description>
 					<defaultValue>6</defaultValue>
 					<help></help>
 					<properties>
