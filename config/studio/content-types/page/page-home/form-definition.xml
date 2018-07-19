@@ -172,7 +172,7 @@
 		<section>
 			<title>Content</title>
 			<description></description>
-			<defaultOpen>false</defaultOpen>
+			<defaultOpen>true</defaultOpen>
 			<fields>
 				<field>
 					<type>node-selector</type>
