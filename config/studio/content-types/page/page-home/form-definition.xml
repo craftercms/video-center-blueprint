@@ -233,12 +233,12 @@
 					<properties>
 						<property>
 							<name>size</name>
-							<value>50</value>
+							<value>2</value>
 							<type>int</type>
 						</property>
 						<property>
 							<name>maxlength</name>
-							<value>50</value>
+							<value>2</value>
 							<type>int</type>
 						</property>
 						<property>
@@ -255,7 +255,7 @@
 					<constraints>
 						<constraint>
 							<name>required</name>
-							<value><![CDATA[]]></value>
+							<value><![CDATA[true]]></value>
 							<type>boolean</type>
 						</constraint>
 						<constraint>
@@ -276,12 +276,12 @@
 					<properties>
 						<property>
 							<name>size</name>
-							<value>50</value>
+							<value>2</value>
 							<type>int</type>
 						</property>
 						<property>
 							<name>maxlength</name>
-							<value>50</value>
+							<value>2</value>
 							<type>int</type>
 						</property>
 						<property>
@@ -298,7 +298,7 @@
 					<constraints>
 						<constraint>
 							<name>required</name>
-							<value><![CDATA[false]]></value>
+							<value><![CDATA[true]]></value>
 							<type>boolean</type>
 						</constraint>
 						<constraint>
