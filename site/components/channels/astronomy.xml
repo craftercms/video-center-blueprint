@@ -12,12 +12,14 @@
 	<thumbnailImage>/static-assets/images/channels/3a087fb6-1d38-0492-424a-c1f8b847ea3d/astronomy-thumbnail.jpeg</thumbnailImage>
 	<createdDate>2018-05-25T19:49:11.421Z</createdDate>
 	<createdDate_dt>2018-05-25T19:49:11.421Z</createdDate_dt>
-	<lastModifiedDate>2018-07-12T00:09:13.231Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-07-12T00:09:13.231Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-07-20T00:11:12.772Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-07-20T00:11:12.772Z</lastModifiedDate_dt>
 	<featured>false</featured>
 	<tags>	<item>	<value>astronomy</value>
 	</item>	<item>	<value>universe</value>
 	</item>	<item>	<value>stars</value>
 	</item>	<item>	<value>physics</value>
 	</item></tags>
+	<maxVideosDisplay>6</maxVideosDisplay>
+	<maxChannelsDisplay>3</maxChannelsDisplay>
 </component>
