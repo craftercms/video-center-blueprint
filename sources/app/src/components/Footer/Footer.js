@@ -6,10 +6,6 @@ import { EngineClient } from '@craftercms/sdk/lib/craftercms';
 import FooterHolder from './FooterStyle';
 
 class Footer extends Component {
-    // constructor(props) {
-    //     super(props);
-    // }
-
     componentDidMount() {
         const self = this;
         var engineClient = new EngineClient(studioConfig.baseUrl, studioConfig.site);
@@ -41,11 +37,19 @@ class Footer extends Component {
                                 </div>
 
                                 <div className="footer__nav">
-                                    { this.renderFooterNav() }
+                                    { this.state.content.nav &&
+                                        this.renderFooterNav()     
+                                    }
                                 </div>
                             </div>
                         }
                 </footer>
+
+                {/* <a href="https://github.com/you">
+                    <img style={{ position: 'absolute', bottom: 0, right: 0, border: 0, width: '149px', height: '149px' }}
+                         src="http://aral.github.com/fork-me-on-github-retina-ribbons/right-graphite@2x.png" 
+                         alt="Fork me on GitHub"/>
+                </a> */}
             </FooterHolder>
         );
     }

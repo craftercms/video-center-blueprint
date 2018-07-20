@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { palette/*, font*/ } from 'styled-theme';
+import { palette } from 'styled-theme';
 
 const AppHolder = styled.div`
     background: ${ palette('primary', 0) };
@@ -60,7 +60,7 @@ const AppHolder = styled.div`
             flex-shrink: 0;
             min-width: 0;
             height: 100vh;
-            background: #23252a;
+            background: ${ palette('primary', 1) };
             -webkit-transform: translateX(100%);
             transform: translateX(100%);
 
@@ -77,7 +77,6 @@ const AppHolder = styled.div`
         &.search-content {
             .header{
                 .header__search--container {
-                    display: none;
                 }
             }
         }
@@ -186,6 +185,10 @@ const AppHolder = styled.div`
                 min-height: 90px;
                 max-width: 980px;
                 max-height: 551px;
+
+                video {
+                    filter: grayscale(100%);
+                }
 
                 &.global-video-player--visible {
                     opacity: 1;

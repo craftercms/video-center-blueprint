@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Slider from '../../components/Slider/Slider.js';
 
 import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
 import { setVideoDocked } from "../../actions/videoPlayerActions";

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { isNullOrUndefined } from 'util';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShareAlt, faComment } from '@fortawesome/free-solid-svg-icons';
 
 import { getItem, search } from '@craftercms/redux';
 import { SearchService } from '@craftercms/search';
@@ -8,7 +10,7 @@ import { SearchService } from '@craftercms/search';
 import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
 import VideoHolder from './VideoStyle.js';
 import Slider from '../../components/Slider/Slider.js';
-import VideoSidebar from './VideoSidebar.js';
+// import VideoSidebar from './VideoSidebar.js';
 import { setVideoInfo, setVideoStatus } from "../../actions/videoPlayerActions";
 
 class Video extends Component {
@@ -52,8 +54,7 @@ class Video extends Component {
     }
 
     loadVideo(props){
-        var self = this,
-            videoId = props.match.params.id;
+        var videoId = props.match.params.id;
        
         var query = SearchService.createQuery('solr');
         this.searchId = query.uuid;
@@ -83,7 +84,6 @@ class Video extends Component {
                 upcomingVideoHero = [];
 
             var videoStartDate = new Date(video.startDate_dt),
-                videoEndDate = new Date(video.endDate_dt),
                 now = new Date();
 
             if(video['content-type'] === '/component/stream' && videoStartDate > now ){
@@ -127,7 +127,7 @@ class Video extends Component {
 
         var playerContainer = document.getElementById("app-content__player"),
             playerResize = document.querySelector(".global-video-player .player-container"),
-            containerResize = document.querySelector('#videoPlayerAspect'),
+            // containerResize = document.querySelector('#videoPlayerAspect'),
             dimensions = {
                 width: playerContainer.offsetWidth,
                 height: playerContainer.offsetHeight
@@ -166,21 +166,15 @@ class Video extends Component {
                             </div>
                             <div className="video-details__links">
                                 <div className="inline-button inline-button__text video-details__links-link">
-                                    <i className="inline-button__icon fa fa-share-alt"></i>
+                                    <FontAwesomeIcon className="inline-button__icon" icon={ faShareAlt }/>
                                     <span className="inline-button__text">share</span>
                                 </div>
                                 <a href="mailto:mail@mail.com" id="uservoice-video" className="video-details__links-link">
                                     <div className="inline-button inline-button__text"> 
-                                        <i className="inline-button__icon fa fa-comment"></i>
+                                        <FontAwesomeIcon className="inline-button__icon" icon={ faComment }/>
                                         <span className="inline-button__text">feedback</span>
                                     </div>
                                 </a>
-                                {/* <a className="inline-button inline-button__text video-details__links-link" href="/show/AP-1VAXFHQMW1W11/red-bull-music-academy-lectures"> 
-                                    <span className="inline-button__text">View Show</span>
-                                </a> */}
-                                {/* <div className="inline-button inline-button__text video-details__links-link"> 
-                                    <span className="inline-button__text">Transcript</span>
-                                </div> */}
                             </div>
                         </div>
 
@@ -197,7 +191,7 @@ class Video extends Component {
     }
 
     render() {
-        var { videoInfo, items, searchResults } = this.props;
+        var { videoInfo } = this.props;
         return (
             <VideoHolder>
 

@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
 import SearchHolder from './SearchStyle';
 import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
-
 import { setVideoDocked } from "../../actions/videoPlayerActions";
 
 const WAIT_INTERVAL = 1000;
@@ -62,7 +64,7 @@ class Search extends Component {
                         <div className="search-bar__container">
                             <div className="search-bar__inner">
                                 <div className="search-bar__icon">
-                                    <i className="search__icon fa fa-search"></i>    
+                                    <FontAwesomeIcon className="search__icon" icon={ faSearch }/>
                                 </div>
                                 <input type="text" className="search-bar__input" placeholder="Start Typing..." 
                                     defaultValue={ this.searchId }

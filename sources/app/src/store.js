@@ -17,9 +17,4 @@ const store = createReduxStore({
     additionalMiddleWare: [thunk]
 });
 
-// const middleware = applyMiddleware(promise(), thunk, createLogger())
-// const middleware = applyMiddleware(promise(), thunk)
-
-// export default createStore(reducer, middleware)
-
 export default store;

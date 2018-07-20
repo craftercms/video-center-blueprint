@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 import VideosPlayer from '../../containers/Video/videosPlayer';
 import StreamsPlayer from '../../containers/Video/streamsPlayer';
@@ -64,7 +66,7 @@ class VideoPlayer extends Component {
                                     </Link>
 
                                     <a className="global-video-player__close" onClick={ this.unloadVideo.bind(this) }>
-                                        <i className="search__icon fa fa-times"></i>
+                                        <FontAwesomeIcon icon={ faTimes }/>
                                     </a>
                                 </div>
                             </div>

@@ -1,22 +1,20 @@
 import React, { Component } from "react";
-import VideoCategoriesHolder from "./VideoCategoriesStyle";
 import Scrollspy from 'react-scrollspy';
+import { Link } from 'react-router-dom';
+import { isNullOrUndefined } from 'util';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
+
+import VideoCategoriesHolder from "./VideoCategoriesStyle";
 import Cards from '../Cards/Cards.js';
-
-//other categories: video-card - channel-card-alt - standard-card   - live-events-item
-
-// const categoriesMap = {
-//     "video-card" : "video-card video-card--has-description",
-//     "channel-card": "channel-card-alt channel-card-alt--secondary"
-// }
-
 
 class VideoCategories extends Component {
     constructor(props) {
         super(props);
 
         this.sectionsScrollSpy = [];
-        props.categories.map((category, i) => {
+
+        props.categories.forEach((category, i) => {
             this.sectionsScrollSpy.push("section-" + category.key);
         });
     }
@@ -34,7 +32,8 @@ class VideoCategories extends Component {
     renderArticlesSections(){
         return this.props.categories.map((category, i) => {
             var gridElClass,
-                categoryType = category.type ? category.type : "video-card";
+                categoryType = category.type ? category.type : "video-card",
+                showViewAll = isNullOrUndefined(category.viewAll) ? true : category.viewAll
 
             switch( categoryType ) {
                 case "video-card":
@@ -51,12 +50,35 @@ class VideoCategories extends Component {
                     gridElClass = "";
             }
 
+            if( categoryType === "video-card"){
+                var categoryName = encodeURI(category.value),
+                    sort = category.sort ? encodeURI(category.sort) : null,
+                    query = category.query ? encodeURI(category.query.toString()) : category.key,
+                    viewAllURL;
+
+                query = query.replace(/\//g, '_');
+
+                viewAllURL = `/list/${ categoryName }/${ query }`;
+                viewAllURL = sort ? `${ viewAllURL }/${ sort }` : viewAllURL;
+            }
 
             return (
                 <section className="segment" key={i} id={"section-" + category.key}>
                     <div className="content-container__block content-container__block--0 content-container__block--active">
                         <div className="segment">
-                            <h2 className="heading heading--default heading--section">{ category.value }</h2>
+                            <h2 className="heading heading--default heading--section" 
+                                style={ (showViewAll) ? { display: 'inline-block' } : { display: 'none' } }>
+                                { category.value }
+                            </h2>
+                        
+                            { categoryType === "video-card" && showViewAll &&
+                                <Link className="collection__item--link" to={ viewAllURL }>
+                                    <span>
+                                        <FontAwesomeIcon className="icon" icon={ faAngleRight }/>
+                                        View All
+                                    </span>
+                                </Link>
+                            }
 
                             <div className={ gridElClass }>
                                 {this.renderCards( category )}

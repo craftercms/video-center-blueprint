@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-// import { palette, font } from 'styled-theme';
+import { palette } from 'styled-theme';
 
 const SearchHolder = styled.div`
 
@@ -13,7 +13,7 @@ const SearchHolder = styled.div`
             position: relative;
             overflow: hidden;
             z-index: 998;
-            background: #1c1f24;
+            background: ${ palette('primary', 2) };
             pointer-events: none;
             opacity: 0;
             -webkit-transition: opacity 225ms;

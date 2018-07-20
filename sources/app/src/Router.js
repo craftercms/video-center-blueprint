@@ -9,6 +9,7 @@ import Channels from './containers/Channels/Channels.js';
 import Channel from './containers/Channel/Channel.js';
 import LiveEvents from './containers/LiveEvents/LiveEvents.js';
 import Search from './containers/Search/Search.js';
+import List from "./containers/List/List.js";
 
 // The Main component renders one of the provided Routes 
 class Router extends Component {
@@ -45,6 +46,8 @@ class Router extends Component {
             <Route exact path='/search' component={Search}/>
             <Route exact path='/search/:query' component={Search}/>
             <Route exact path='/channel/:name' component={Channel}/>
+            <Route exact path='/list/:id' component={List}/>
+            <Route exact path='/list/:categoryName/:query/:sort?' component={List}/>
             { nav && nav.entries['/'] &&
                 this.renderRouteEntries()
             }

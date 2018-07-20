@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { isNullOrUndefined } from 'util';
+import { getDescriptor } from "@craftercms/redux";
 
 import { setVideoDocked } from "../../actions/videoPlayerActions";
 import Slider from '../../components/Slider/Slider.js';
 import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
-
-import { contentStoreService } from '../../api.js';
 
 class Channel extends Component {
     constructor(props) {
@@ -35,54 +35,75 @@ class Channel extends Component {
     }
 
     getChannelInfo(props) {
-        var self = this,
-            channelName = props.match.params.name,
-            channelHero = [];
+        var channelName = props.match.params.name;
 
-        contentStoreService.getItem(`/site/components/channels/${ channelName }.xml`).then(item => {
-            var channelContent = item.descriptorDom.component;
+        this.descriptorUrl = `/site/components/channels/${ channelName }.xml`;
 
-            channelHero.push({
-                url: "#",
-                background: channelContent.heroImage,
-                title: channelContent["internal-name"],
-                subtitle: channelContent.description
-            })
+        if(isNullOrUndefined(this.props.descriptors[this.descriptorUrl])){
+            this.props.getDescriptor(this.descriptorUrl);
+        }
+    }
 
-            self.setState({ slider: channelHero })
+    renderChannelContent(descriptor) {
+        var component = descriptor.component,
+            channelHero = [],
+            channelContent = descriptor.component,
+            channelTags = channelContent.tags.item,
+            tagsFilter = 'tags.item.value: ',
+            categories;
+
+        channelHero.push({
+            url: "#",
+            background: channelContent.heroImage,
+            title: channelContent["internal-name"],
+            subtitle: channelContent.description
         });
 
-        this.state = {
-            categories: [
-                {
-                    key: "featured-videos",
-                    value: "Featured Videos",
-                    query: ["content-type:/component/video", 'channels.item.key: "computer-science"'] 
-                },
-                { 
-                    key: "related-channels", 
-                    value: "Related Channels",
-                    type: "channel-card-alt",   //TO RENDER CHANNEL CARD STYLING
-                    query: ['content-type:"/component/component-channel"'] ,       
-                    numResults: 3
-                }
-            ]
-        };
+        //get channel tags
+        for(var x = 0; x < channelTags.length; x++) {
+            var tag = channelTags[x];
+
+            tagsFilter += '"' + tag.value + '"';
+            tagsFilter += x < channelTags.length - 1 ? ' OR ' : ''; 
+        }
+
+        categories = [
+            {
+                key: "featured-videos",
+                value: "Featured Videos",
+                query: ["content-type:/component/video", 'channels.item.key: "computer-science"'],
+                numResults: component.maxVideosDisplay
+            },
+            { 
+                key: "related-channels", 
+                value: "Related Channels",
+                type: "channel-card-alt",   //TO RENDER CHANNEL CARD STYLING
+                query: ['content-type:"/component/component-channel"', tagsFilter, '-file-name: "' + channelContent['file-name'] + '"'] ,       
+                numResults: component.maxChannelsDisplay
+            }
+        ];
+
+        return (
+            <div>
+                <Slider data={ channelHero }
+                    localData={ true }
+                >
+                </Slider>
+                <VideoCategories 
+                    categories={ categories } >
+                </VideoCategories>
+            </div>
+        );
     }
 
     render() {
+        const { descriptors } = this.props; 
+
         return (
             <div>
-                { this.state && this.state.slider &&
-                    <Slider data={ this.state.slider }
-                        localData={ true }
-                    >
-                    </Slider>
+                { descriptors && descriptors[this.descriptorUrl] &&
+                    this.renderChannelContent(descriptors[this.descriptorUrl])
                 }
-
-                <VideoCategories 
-                    categories={ this.state.categories } >
-                </VideoCategories>
             </div>
         );
     }
@@ -91,13 +112,15 @@ class Channel extends Component {
 function mapStateToProps(store) {
     return { 
         videoInfo: store.video.videoInfo,
-        videoStatus: store.video.videoStatus
+        videoStatus: store.video.videoStatus,
+        descriptors: store.craftercms.descriptors.entries
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return({
-        setVideoDocked: (docked) => { dispatch(setVideoDocked(docked)) }
+        setVideoDocked: (docked) => { dispatch(setVideoDocked(docked)) },
+        getDescriptor: (url) => { dispatch(getDescriptor(url)) }
     })
 }
 

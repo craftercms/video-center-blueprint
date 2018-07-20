@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-// import { palette, font } from 'styled-theme';
+import { palette } from 'styled-theme';
 
 const ChannelsHolder = styled.div`
     .channel-card-alt {
@@ -11,7 +11,7 @@ const ChannelsHolder = styled.div`
         overflow: hidden;
         line-height: 1;
         cursor: pointer;
-        background: #1c1f24;
+        background: ${ palette('primary', 2) };
 
         @media (min-width: 60em) {
             height: 0;

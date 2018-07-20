@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Carousel } from 'antd';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 import { studioConfig } from '../../settings';
 import { EngineClient } from '@craftercms/sdk/lib/craftercms';
@@ -145,10 +147,10 @@ class Slider extends Component {
                 {this.state && this.state.slides && this.state.slides.length > 1 &&
                     <div className="discover-slider__inner--nav">
                         <label className="discover-slider__inner--nav-button discover-slider__inner--nav-prev" onClick={() => this.changeSlide("previous")}>
-                            <i className="fa fa-angle-left"></i>
+                            <FontAwesomeIcon className="nav-icon" icon={ faAngleLeft }/>
                         </label>
                         <label className="discover-slider__inner--nav-button discover-slider__inner--nav-next" onClick={() => this.changeSlide("next")}>
-                            <i className="fa fa-angle-right"></i>
+                            <FontAwesomeIcon className="nav-icon" icon={ faAngleRight }/>
                         </label>
                     </div> 
                 }

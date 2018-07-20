@@ -1,10 +1,12 @@
 import styled from 'styled-components';
-// import { palette, font } from 'styled-theme';
+import { palette } from 'styled-theme';
 
 const FooterHolder = styled.div`
+    position: relative;
+
     .footer {
         position: relative;
-        background: #2c2f36;
+        background: ${ palette('primary', 1) };
         margin-top: 10rem;
         width: 100%;
         padding: 50px;
@@ -26,7 +28,7 @@ const FooterHolder = styled.div`
             font-size: 1.1rem;
             font-family: inherit;
             font-weight: 800;
-            text-transform: uppercase;
+            // text-transform: uppercase;
             line-height: 2;
 
             .footer__copyright {

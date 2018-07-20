@@ -1,18 +1,27 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
+import { getDescriptor } from '@craftercms/redux';
+import { isNullOrUndefined } from 'util';
+
 import HeaderHolder from './HeaderStyle';
 import HeaderSearch from './HeaderSearch';
-import 'font-awesome/css/font-awesome.min.css';
-
-import { connect } from "react-redux";
-
-import logo from '../../images/logo.png';
 
 class Header extends Component {
+    constructor(props) {
+        super(props);
+
+        this.levelDescriptorUrl = '/site/website/crafter-level-descriptor.level.xml';
+
+        if(isNullOrUndefined(props.descriptors[this.levelDescriptorUrl])){
+            this.props.getDescriptor(this.levelDescriptorUrl);
+        }
+    }
+
     renderNavItems() {
         var rootId = '/';
 
-        return this.props.nav.childIds[rootId].map((id, i) =>{
+        return this.props.nav.childIds[rootId].map((id, i) => {
             var navItem = this.props.nav.entries[id];
 
             return (
@@ -26,9 +35,20 @@ class Header extends Component {
             );
         });
     }
+
+    renderHeaderLogo(descriptor) {
+        const logo = descriptor.component.siteLogo
+
+        return (
+            <Link className="header__logo active" to="/" 
+                  style={{ backgroundImage: `url(${ logo })` }}>
+                Video Center
+            </Link>  
+        );
+    }
  
     render() {
-        const { nav } = this.props;
+        const { nav, descriptors } = this.props;
 
         return (
             <HeaderHolder>
@@ -36,9 +56,10 @@ class Header extends Component {
                     <div className="header__container">
                         <div className="header__overlay"></div>
         
-                        <Link className="header__logo active" to="/" style={{ backgroundImage: `url(${ logo })` }}>
-                            Video Center
-                        </Link>
+                        { descriptors && descriptors[this.levelDescriptorUrl] &&
+                            this.renderHeaderLogo(descriptors[this.levelDescriptorUrl])
+                        }
+
                         <div className="header__navigation">
                             <nav className="navigation">
                                 <ul className="navigation__list">
@@ -83,10 +104,13 @@ class Header extends Component {
     }
 }
 
-function mapStateToProps(store) {
-    return { 
-        nav: store.craftercms.navigation
-    };
-}
+const mapDispatchToProps = dispatch => ({
+    getDescriptor: url => dispatch(getDescriptor(url))
+})
 
-export default connect(mapStateToProps)(Header);
+const mapStateToProps = store => ({
+    nav: store.craftercms.navigation,
+    descriptors: store.craftercms.descriptors.entries
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
