@@ -9,8 +9,8 @@
 	<internal-name>Computer Science</internal-name>
 	<createdDate>2018-05-25T19:34:08.558Z</createdDate>
 	<createdDate_dt>2018-05-25T19:34:08.558Z</createdDate_dt>
-	<lastModifiedDate>2018-07-12T00:24:50.189Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-07-12T00:24:50.189Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-07-20T00:11:42.418Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-07-20T00:11:42.418Z</lastModifiedDate_dt>
 	<description>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</description>
 	<heroImage>/static-assets/images/channels/11945997-d8c6-b053-bd0f-cbe4734e8d14/computer-science.jpg</heroImage>
 	<thumbnailImage>/static-assets/images/channels/11945997-d8c6-b053-bd0f-cbe4734e8d14/computer-science-thumbnail.jpg</thumbnailImage>
@@ -22,4 +22,6 @@
 	</item>	<item>	<value>information</value>
 	</item>	<item>	<value>engineering</value>
 	</item></tags>
+	<maxVideosDisplay>6</maxVideosDisplay>
+	<maxChannelsDisplay>3</maxChannelsDisplay>
 </component>
