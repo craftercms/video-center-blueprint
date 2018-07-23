@@ -24,13 +24,7 @@ class Video extends Component {
         this.props.setVideoStatus( { ...this.props.videoStatus, docked: true, currentVideoUrl: this.props.match.url } );
     }
 
-    componentDidMount() {
-        // window.addEventListener("resize", this.updateDimensions);
-        // this.updateDimensions();
-    }
-
     componentWillUnmount() {
-        window.removeEventListener("resize", this.updateDimensions);
         document.getElementById("mainHeader").classList.remove("header--ghost");
     }
 
@@ -120,30 +114,6 @@ class Video extends Component {
             this.setState({ categories: categories });
         }
 
-    }
-
-    updateDimensions() {
-        // this.setState({width: $(window).width(), height: $(window).height()});
-
-        var playerContainer = document.getElementById("app-content__player"),
-            playerResize = document.querySelector(".global-video-player .player-container"),
-            // containerResize = document.querySelector('#videoPlayerAspect'),
-            dimensions = {
-                width: playerContainer.offsetWidth,
-                height: playerContainer.offsetHeight
-            },
-            aspect = ( playerResize.offsetHeight * 100 ) / playerResize.offsetWidth,
-            maxWidth = ( dimensions.height * 100 ) / aspect;
-
-        // containerResize.style.height = dimensions.height + "px";
-
-        playerResize.style.minWidth = "160px";
-        playerResize.style.minHeight = "90px";
-        playerResize.style.maxWidth =  maxWidth + "px";
-        playerResize.style.maxHeight = dimensions.height + "px";
-
-        // console.log(document.getElementById("app-content__player"));
-        // console.log(playerResize);
     }
 
     renderDetailsSection( video ) {

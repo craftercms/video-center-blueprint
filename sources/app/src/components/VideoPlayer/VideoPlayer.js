@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
-import VideosPlayer from '../../containers/Video/videosPlayer';
-import StreamsPlayer from '../../containers/Video/streamsPlayer';
+import ReactVideoPlayer from './ReactPlayer';
+import ShakaPlayer from './ShakaPlayer';
 
 import { setVideoStatus, setVideoInfo } from "../../actions/videoPlayerActions";
 
@@ -39,7 +39,7 @@ class VideoPlayer extends Component {
     loadVideo(videoInfo) {
         var videoType = videoInfo.youTubeVideo ? "video" : "stream";        //TODO: update, not only youtube link
 
-        Player = videoType === "video" ? VideosPlayer : StreamsPlayer;
+        Player = videoType === "video" ? ReactVideoPlayer : ShakaPlayer;
         this.props.dispatch(setVideoStatus( { ...this.props.videoStatus, loaded: true } ));
     }
 
