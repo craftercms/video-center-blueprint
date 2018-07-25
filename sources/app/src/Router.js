@@ -10,6 +10,7 @@ import Channel from './containers/Channel/Channel.js';
 import LiveEvents from './containers/LiveEvents/LiveEvents.js';
 import Search from './containers/Search/Search.js';
 import List from "./containers/List/List.js";
+import NotFound from './containers/Errors/404';
 
 // The Main component renders one of the provided Routes 
 class Router extends Component {
@@ -51,6 +52,7 @@ class Router extends Component {
             { nav && nav.entries['/'] &&
                 this.renderRouteEntries()
             }
+            <Route component={NotFound} />
         </Switch>
         );
     }

@@ -369,13 +369,10 @@ class ShakaPlayer extends Component {
                             onTouchEnd={ this.seekEnd }
                             onMouseUp={ this.seekEnd }
                         />
-                        {/* <button id="rewindButton" className="material-icons">fast_rewind</button> */}
                         <div id="currentTime" onClick={ this.currentTimeClick }>0:00</div>
-                        <button id="fastForwardButton" className="material-icons">fast_forward</button>
                         <button id="muteButton" className="material-icons" onClick={ this.muteClick }>volume_up</button>
                         <label htmlFor="volumeBar" className="for-screen-readers">volume</label>
                         <input id="volumeBar" type="range" step="any" min="0" max="1" defaultValue="0" onInput={ this.volumeInput } />
-                        {/* <button id="castButton" className="material-icons">cast</button> */}
                         <button id="fullscreenButton" className="material-icons" onClick={ this.fullscreenClick }>fullscreen</button>
                     </div>
                 </div>

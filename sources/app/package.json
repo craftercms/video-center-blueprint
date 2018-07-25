@@ -22,6 +22,7 @@
     "redux-thunk": "^2.2.0",
     "rxjs": "^6.2.1",
     "rxjs-compat": "^6.2.1",
+    "screenfull": "^3.3.2",
     "shaka-player": "^2.3.7",
     "styled-components": "^2.2.1",
     "styled-theme": "^0.3.3"

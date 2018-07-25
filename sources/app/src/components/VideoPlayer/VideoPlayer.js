@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
+import VideoPlayerHolder from './VideoPlayerStyle';
 import ReactVideoPlayer from './ReactPlayer';
 import ShakaPlayer from './ShakaPlayer';
 
@@ -50,30 +51,32 @@ class VideoPlayer extends Component {
 
     render() {
         return (
-            <div id="app-content__player" className="app-content__player">
-                {this.props.videoStatus.loaded &&
-                    <div className="app-content__player-wrapper">
-                        <div className={ `global-video-player global-video-player--visible global-video-player--${ this.props.videoStatus.docked ? 'docked' : 'fixed' }` }>
-                            <div id="videoPlayerAspect" className="global-video-player__aspect">
-                                <div className="global-video-player__inner">
-                                    <Player video={ this.props.videoInfo }
-                                        videoStatus={ this.props.videoStatus }
-                                        dispatch={ this.props.dispatch }
-                                        controls={ true }
-                                    />
+            <VideoPlayerHolder>
+                <div id="app-content__player" className="app-content__player">
+                    {this.props.videoStatus.loaded &&
+                        <div className="app-content__player-wrapper">
+                            <div className={ `global-video-player global-video-player--visible global-video-player--${ this.props.videoStatus.docked ? 'docked' : 'fixed' }` }>
+                                <div id="videoPlayerAspect" className="global-video-player__aspect">
+                                    <div className="global-video-player__inner">
+                                        <Player video={ this.props.videoInfo }
+                                            videoStatus={ this.props.videoStatus }
+                                            dispatch={ this.props.dispatch }
+                                            controls={ true }
+                                        />
 
-                                    <Link className="fixed-player__link-overlay" to={ this.props.videoStatus.currentVideoUrl }>
-                                    </Link>
+                                        <Link className="fixed-player__link-overlay" to={ this.props.videoStatus.currentVideoUrl }>
+                                        </Link>
 
-                                    <a className="global-video-player__close" onClick={ this.unloadVideo.bind(this) }>
-                                        <FontAwesomeIcon icon={ faTimes }/>
-                                    </a>
+                                        <a className="global-video-player__close" onClick={ this.unloadVideo.bind(this) }>
+                                            <FontAwesomeIcon icon={ faTimes }/>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                }
-            </div>
+                    }
+                </div>
+            </VideoPlayerHolder>
         );
     }
 }

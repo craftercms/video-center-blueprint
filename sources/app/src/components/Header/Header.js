@@ -6,6 +6,7 @@ import { isNullOrUndefined } from 'util';
 
 import HeaderHolder from './HeaderStyle';
 import HeaderSearch from './HeaderSearch';
+import { common } from '../../settings';
 
 class Header extends Component {
     constructor(props) {
@@ -52,6 +53,11 @@ class Header extends Component {
 
         return (
             <HeaderHolder>
+                <a href={ common.repoUrl } target="_blank" rel="noopener noreferrer">
+                    <img style={{ position: "absolute", top: 0, right: 0, border: 0, width: "120px", height: "120px", zIndex: 997 }} 
+                         src="http://aral.github.com/fork-me-on-github-retina-ribbons/right-graphite@2x.png" alt="Fork me on GitHub"/>
+                </a>
+
                 <header id="mainHeader" className={"header"}>
                     <div className="header__container">
                         <div className="header__overlay"></div>

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Router from './Router';
-import './App.css';
 import { ThemeProvider } from 'styled-components';
 import themes from './settings/themes';
 import { themeConfig } from './settings';

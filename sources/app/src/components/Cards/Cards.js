@@ -40,7 +40,11 @@ class Cards extends Component {
         }else{
             category = props.category.key
             query.query = "*:*";
-            query.filterQueries = ["content-type:/component/video", "channels.item.key:" + category];
+            // query.filterQueries = props.exclude
+            //     ? ["content-type:/component/video", "channels.item.key:" + category, '-id: "' + props.exclude + '"']
+            //     : ["content-type:/component/video", "channels.item.key:" + category];
+
+                query.filterQueries = ["content-type:/component/video", "channels.item.key:" + category];
         }
 
         SearchService

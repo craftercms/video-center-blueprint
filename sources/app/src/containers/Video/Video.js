@@ -56,17 +56,6 @@ class Video extends Component {
         query.filterQueries = ["content-type:/component/video", "objectId:" + videoId];
 
         this.props.search(query);
-
-        // this.videoUrl = props.match.path.indexOf('/video') !== -1
-        //     ? '/site/videos/'
-        //     : '/site/streams/';
-
-        // this.videoUrl += videoId + '.xml';
-
-        // if(!(props.items.entries[this.videoUrl])){
-        //     this.props.getItem(this.videoUrl)
-        // }
-        
     }
 
     setVideo(searchResult) {
@@ -94,8 +83,12 @@ class Video extends Component {
                     date: video.startDate_dt
                 })
     
+                // remove video info (if available)
+                setVideoInfo(null);
                 this.setState({ slider: upcomingVideoHero })
             }else{
+                // remove upcoming stream slider info (if available)
+                this.setState({ slider: null })
                 setVideoInfo(video);
             }
 
@@ -178,7 +171,9 @@ class Video extends Component {
                 }
 
                 { this.state && this.state.categories &&
-                    <VideoCategories categories={ this.state.categories }></VideoCategories>
+                    <VideoCategories categories={ this.state.categories }
+                                     exclude= { videoInfo }    
+                    ></VideoCategories>
                 }
                 
                 {/* <VideoSidebar/>  */}
