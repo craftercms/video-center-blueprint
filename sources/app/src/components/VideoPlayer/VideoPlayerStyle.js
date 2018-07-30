@@ -26,7 +26,7 @@ const VideoPlayerHolder = styled.div`
             width: 100%;
             padding: 0px;
 
-            @media (min-width: 114.0625em){ {
+            @media (min-width: 114.0625em){ 
                 position: relative;
                 margin: 0 auto;
                 min-height: .1rem;
@@ -35,11 +35,11 @@ const VideoPlayerHolder = styled.div`
                 padding: 0 4rem;
             }
 
-            @media (min-width: 114.0625em) and (min-width: 75em){{
+            @media (min-width: 114.0625em) and (min-width: 75em){
                 width: 110rem;
             }
 
-            @media (min-width: 114.0625em) and (min-width: 87.5em){{
+            @media (min-width: 114.0625em) and (min-width: 87.5em){
                 width: 120rem;
             }
 

@@ -53,6 +53,7 @@ class Header extends Component {
 
         return (
             <HeaderHolder>
+                {/* https://2018.ar.al/scribbles/fork-me-on-github-retina-ribbons/ */}
                 <a href={ common.repoUrl } target="_blank" rel="noopener noreferrer">
                     <img style={{ position: "absolute", top: 0, right: 0, border: 0, width: "120px", height: "120px", zIndex: 997 }} 
                          src="http://aral.github.com/fork-me-on-github-retina-ribbons/right-graphite@2x.png" alt="Fork me on GitHub"/>

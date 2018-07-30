@@ -10,7 +10,7 @@ import Channel from './containers/Channel/Channel.js';
 import LiveEvents from './containers/LiveEvents/LiveEvents.js';
 import Search from './containers/Search/Search.js';
 import List from "./containers/List/List.js";
-import NotFound from './containers/Errors/404';
+import ErrorPage from './containers/Errors/errorPage';
 
 // The Main component renders one of the provided Routes 
 class Router extends Component {
@@ -42,8 +42,8 @@ class Router extends Component {
             <Route exact path='/' component={Home}/>
             {/* <Route exact path='/channels' component={Channels}/> */}
             <Route exact path='/live-events' component={LiveEvents}/>
-            <Route exact path='/video/:id' component={Video}/>
-            <Route exact path='/stream/:id' component={Video}/>
+            <Route exact path='/video/:id/:videoName?' component={Video}/>
+            <Route exact path='/stream/:id/:videoName?' component={Video}/>
             <Route exact path='/search' component={Search}/>
             <Route exact path='/search/:query' component={Search}/>
             <Route exact path='/channel/:name' component={Channel}/>
@@ -52,7 +52,7 @@ class Router extends Component {
             { nav && nav.entries['/'] &&
                 this.renderRouteEntries()
             }
-            <Route component={NotFound} />
+            <Route component={ErrorPage} />
         </Switch>
         );
     }

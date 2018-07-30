@@ -6,6 +6,7 @@ import { getDescriptor } from "@craftercms/redux";
 import { setVideoDocked } from "../../actions/videoPlayerActions";
 import Slider from '../../components/Slider/Slider.js';
 import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
+import NotFound from '../Errors/404';
 
 class Channel extends Component {
     constructor(props) {
@@ -97,15 +98,21 @@ class Channel extends Component {
     }
 
     render() {
-        const { descriptors } = this.props; 
+        const { descriptors, descriptorsLoading } = this.props; 
 
-        return (
-            <div>
-                { descriptors && descriptors[this.descriptorUrl] &&
-                    this.renderChannelContent(descriptors[this.descriptorUrl])
-                }
-            </div>
-        );
+        if( (descriptorsLoading[this.descriptorUrl] === false ) && isNullOrUndefined(descriptors[this.descriptorUrl]) ){
+            return (
+                <NotFound/>
+            )
+        }else{
+            return (
+                <div>
+                    { descriptors && descriptors[this.descriptorUrl] &&
+                        this.renderChannelContent(descriptors[this.descriptorUrl])
+                    }
+                </div>
+            );
+        } 
     }
 }
 
@@ -113,7 +120,8 @@ function mapStateToProps(store) {
     return { 
         videoInfo: store.video.videoInfo,
         videoStatus: store.video.videoStatus,
-        descriptors: store.craftercms.descriptors.entries
+        descriptors: store.craftercms.descriptors.entries,
+        descriptorsLoading: store.craftercms.descriptors.loading
     };
 }
 

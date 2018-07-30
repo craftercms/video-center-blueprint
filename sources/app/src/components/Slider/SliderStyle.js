@@ -51,6 +51,10 @@ const SliderHolder = styled.div`
                     -webkit-transform: translateZ(0);
                     transform: translateZ(0);
 
+                    &.slick-current {
+                        z-index: 10;
+                    }
+
                     .discover-slider__inner, .discover-slider__video {
                         height: inherit;
                         width: 100%;
@@ -255,6 +259,7 @@ const SliderHolder = styled.div`
                     .discover-slider__inner--vod, .discover-slider__video--vod {
                         display: inline-block;
                         text-transform: uppercase;
+                        font-weight: bold;
                     }
                     
                     .discover-slider__inner--subtitle, .discover-slider__inner--title, .discover-slider__video--subtitle, .discover-slider__video--title {

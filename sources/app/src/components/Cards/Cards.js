@@ -57,15 +57,18 @@ class Cards extends Component {
     renderCards() {
         return this.state.cards.map((card, i) => {
             var componentUrl = card["content-type"] === "/component/stream" ? "/stream/" : "/video/",
-                categoryType = this.props.category.type ? this.props.category.type : "video-card";
+                categoryType = this.props.category.type ? this.props.category.type : "video-card",
+                videoName;
 
             switch( categoryType ) {
                 case "video-card":
+                    videoName = card.title_s ? (card.title_s).toLowerCase().replace(/ /g, '-') : '';
+                    videoName = encodeURI(videoName);
 
                     return (
                         <div className="static-grid__item" key={ card.id }>
                             <div className="video-card video-card--has-description">
-                                <Link className="video-card__link" to={ componentUrl + card.objectId }>
+                                <Link className="video-card__link" to={ `${componentUrl} ${card.objectId}/${videoName}` }>
                                     <div>
                                         <div className="image video-card__image--background" style={{ background: 'transparent' }}>
                                             <div className="image__image" style={{ backgroundImage: `url(${ card.thumbnail })` }}></div>
@@ -127,9 +130,12 @@ class Cards extends Component {
                             timezone: dateStrings[6]
                         };
 
+                    videoName = card.title_s ? (card.title_s).toLowerCase().replace(/ /g, '-') : '';
+                    videoName = encodeURI(videoName);
+
                     return (
                         <div className="live-events-item" key={ card.id }>
-                            <Link className="live-events-item__link" to={`/stream/${ card.objectId }`}>
+                            <Link className="live-events-item__link" to={`/stream/${ card.objectId }/${ videoName }`}>
                                 <div className="live-events-item__image">
                                     <div className="live-events-item__background">
                                         <div className="image">

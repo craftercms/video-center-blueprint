@@ -39,7 +39,9 @@ class Search extends Component {
         return [{ 
                 key: "top-results", 
                 value: "Top Results", 
-                query: ["content-type:/component/video", "title_t: (*" + searchId + "*)"] 
+                query: ["content-type:/component/video", "title_t: (*" + searchId + "*)"],
+                viewAll: false,
+                numResults: 90
             }];
     }
 

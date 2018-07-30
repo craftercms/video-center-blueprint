@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { isNullOrUndefined } from 'util';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShareAlt, faComment } from '@fortawesome/free-solid-svg-icons';
+import { isNullOrUndefined } from "util";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShareAlt, faComment } from "@fortawesome/free-solid-svg-icons";
 
 import { getItem, search } from '@craftercms/redux';
 import { SearchService } from '@craftercms/search';
 
+import NotFound from '../Errors/404';
 import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
 import VideoHolder from './VideoStyle.js';
 import Slider from '../../components/Slider/Slider.js';
@@ -14,6 +15,10 @@ import Slider from '../../components/Slider/Slider.js';
 import { setVideoInfo, setVideoStatus } from "../../actions/videoPlayerActions";
 
 class Video extends Component {
+    state = {
+        notFound: false
+    }
+
     constructor(props) {
         super(props);
 
@@ -105,6 +110,10 @@ class Video extends Component {
             }
 
             this.setState({ categories: categories });
+        }else{
+            this.setState({
+                notFound: true
+            });
         }
 
     }
@@ -156,28 +165,33 @@ class Video extends Component {
     render() {
         var { videoInfo } = this.props;
         return (
-            <VideoHolder>
+            <div>
+                { this.state.notFound && <NotFound/> }
 
-                { this.state && this.state.slider &&
-                    <Slider data={ this.state.slider }
-                        localData={ true }
-                        hero={ true }
-                    >
-                    </Slider>
-                }
+                <VideoHolder>
 
-                { videoInfo &&
-                    this.renderDetailsSection( videoInfo )
-                }
+                    { this.state && this.state.slider &&
+                        <Slider data={ this.state.slider }
+                            localData={ true }
+                            hero={ true }
+                        >
+                        </Slider>
+                    }
 
-                { this.state && this.state.categories &&
-                    <VideoCategories categories={ this.state.categories }
-                                     exclude= { videoInfo }    
-                    ></VideoCategories>
-                }
-                
-                {/* <VideoSidebar/>  */}
-            </VideoHolder>
+                    { videoInfo &&
+                        this.renderDetailsSection( videoInfo )
+                    }
+
+                    { this.state && this.state.categories &&
+                        <VideoCategories categories={ this.state.categories }
+                                        exclude= { videoInfo }    
+                        ></VideoCategories>
+                    }
+                    
+                    {/* <VideoSidebar/>  */}
+                </VideoHolder>
+            </div>
+            
         );
     }
 }
