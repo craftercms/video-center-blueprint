@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import { isNullOrUndefined } from 'util'
 
-import { searchService } from '../../api.js';
+import { crafterConf } from '@craftercms/classes';
+import { SearchService } from '@craftercms/search';
 
-const monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
-];
+// const monthNames = ["January", "February", "March", "April", "May", "June",
+//   "July", "August", "September", "October", "November", "December"
+// ];
 
 class Cards extends Component {
     componentDidMount() {
@@ -19,55 +23,52 @@ class Cards extends Component {
     searchCards(props) {
         const self = this;
 
-        var query = searchService.createQuery(),
+        var query = SearchService.createQuery('solr'),
             category = props.category;
 
         if(category.query){
-            if(props.query !== ""){
-                query.setQuery("*:*");
-                query.setFilterQueries(category.query);
-                // query.setFilterQueries(["content-type:/component/video", "title_t: (*" + props.query + "*)"]);
-                query.setNumResults(category.numResults);   //   OLD VERSION
-                // query.numResults = 2;     //   NEW VERSION - NOT ON MASTER YET
+            query.query = "*:*";
+            query.filterQueries = category.query;
+            
+            if( !isNullOrUndefined(category.numResults) ){
+                query.numResults = category.numResults;
+            }
 
-                if(category.sort !== ""){
-                    query.addParam('sort', category.sort);
-                }
-
-                searchService.search(query).then(cards => {
-                    self.setState({ cards: cards.response.documents });                    
-                }).catch(error => {
-                    
-                });
+            if( !isNullOrUndefined(category.sort) ){
+                query.addParam('sort', category.sort);
             }
         }else{
             category = props.category.key
+            query.query = "*:*";
+            // query.filterQueries = props.exclude
+            //     ? ["content-type:/component/video", "channels.item.key:" + category, '-id: "' + props.exclude + '"']
+            //     : ["content-type:/component/video", "channels.item.key:" + category];
 
-            query.setQuery("*:*");
-            query.setFilterQueries(["content-type:/component/video", "channels.item.key:" + category]);
-            // query.setNumResults(2);    //  OLD VERSION
-            // query.numResults = 2;      //  NEW VERSION - NOT ON MASTER YET
-            searchService.search(query).then(cards => {
-                self.setState({ cards: cards.response.documents });
-            }).catch(error => {
-                
-            });
+                query.filterQueries = ["content-type:/component/video", "channels.item.key:" + category];
         }
+
+        SearchService
+            .search(query, crafterConf.getConfig())
+            .subscribe(cards => {
+                self.setState({ cards: cards.response.documents });       
+            });
     }
 
     renderCards() {
-        // console.log(this.state.cards);
-
         return this.state.cards.map((card, i) => {
             var componentUrl = card["content-type"] === "/component/stream" ? "/stream/" : "/video/",
-                categoryType = this.props.category.type ? this.props.category.type : "video-card";
+                categoryType = this.props.category.type ? this.props.category.type : "video-card",
+                videoName;
 
             switch( categoryType ) {
                 case "video-card":
+                    videoName = card.title_s ? (card.title_s).toLowerCase().replace(/ /g, '-') : '';
+                    videoName = encodeURI(videoName);
+
                     return (
                         <div className="static-grid__item" key={ card.id }>
                             <div className="video-card video-card--has-description">
-                                <Link className="video-card__link" to={ componentUrl + card.objectId }>
+                                <Link className="video-card__link" to={ `${componentUrl} ${card.objectId}/${videoName}` }>
                                     <div>
                                         <div className="image video-card__image--background" style={{ background: 'transparent' }}>
                                             <div className="image__image" style={{ backgroundImage: `url(${ card.thumbnail })` }}></div>
@@ -82,13 +83,12 @@ class Cards extends Component {
                                         <div className="video-card__progress" style={{ width: '0%' }}></div>
                                     </div>
                                     <div className="video-card__play-button">
-                                        <i className="fa fa-play"/>
+                                        <FontAwesomeIcon className="play-icon" icon={ faPlay }/>
                                     </div>
                                 </Link>
                             </div>
                         </div>
                     );
-                    break;
                 case "channel-card-alt":
                     var url = card["file-name"].replace(".xml", "");
                     
@@ -106,7 +106,6 @@ class Cards extends Component {
                             </div>
                         </div>
                     );
-                    break;
                 case "standard-card":
                     return (
                         <div className="static-grid__item" key={card.id}>
@@ -119,9 +118,8 @@ class Cards extends Component {
                             </div> */}
                         </div>
                     );
-                    break;
                 case "live-event-item":
-                    var date = new Date(parseInt(card.startDate_dt)),
+                    var date = new Date(parseInt(card.startDate_dt, 10)),
                         dateStrings = date.toString().split(" "),
                         dateFormatted = {
                             month: dateStrings[1],
@@ -132,9 +130,12 @@ class Cards extends Component {
                             timezone: dateStrings[6]
                         };
 
+                    videoName = card.title_s ? (card.title_s).toLowerCase().replace(/ /g, '-') : '';
+                    videoName = encodeURI(videoName);
+
                     return (
                         <div className="live-events-item" key={ card.id }>
-                            <a className="live-events-item__link" href="">
+                            <Link className="live-events-item__link" to={`/stream/${ card.objectId }/${ videoName }`}>
                                 <div className="live-events-item__image">
                                     <div className="live-events-item__background">
                                         <div className="image">
@@ -150,7 +151,6 @@ class Cards extends Component {
                                     <div className="live-events-item__detail">
                                         <div className="live-events-item__heading-group">
                                             <h3 className="live-events-item__heading">{ card.title_s }</h3>
-                                            {/* <div className="live-events-item__subheading">Mugello, Italy</div> */}
                                         </div>
                                     </div>
                                     <div className="live-events-item__cta">
@@ -159,10 +159,9 @@ class Cards extends Component {
                                         </div>
                                     </div>
                                 </div>
-                            </a>
+                            </Link>
                         </div>
                     );
-                    break;
                 default:
                     return (
                         <div></div>

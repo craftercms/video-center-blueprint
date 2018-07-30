@@ -12,7 +12,14 @@
 	<thumbnailImage>/static-assets/images/channels/10e7f820-12d3-ddd7-08c5-0b6f471ce880/physics-thumbnail.jpg</thumbnailImage>
 	<createdDate>2018-05-25T19:46:51.860Z</createdDate>
 	<createdDate_dt>2018-05-25T19:46:51.860Z</createdDate_dt>
-	<lastModifiedDate>2018-05-25T21:55:26.831Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-05-25T21:55:26.831Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-07-20T00:12:02.430Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-07-20T00:12:02.430Z</lastModifiedDate_dt>
 	<featured>false</featured>
+	<tags>	<item>	<value>physics</value>
+	</item>	<item>	<value>science</value>
+	</item>	<item>	<value>gravitation</value>
+	</item>	<item>	<value>thermodinamics</value>
+	</item></tags>
+	<maxVideosDisplay>6</maxVideosDisplay>
+	<maxChannelsDisplay>3</maxChannelsDisplay>
 </component>

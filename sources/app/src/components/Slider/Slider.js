@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Carousel } from 'antd';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 import { studioConfig } from '../../settings';
 import { EngineClient } from '@craftercms/sdk/lib/craftercms';
@@ -13,7 +15,6 @@ class Slider extends Component {
         this.contentStoreService = engineClient.contentStoreService;
     
         if( this.props.localData ){
-            console.log("SLIDER, local data");
             this.setState({ slides: this.props.data });
         }else{
             this.getSlidesContent();
@@ -40,6 +41,35 @@ class Slider extends Component {
         });
     }
 
+    renderCountdown() {
+        //since it is a hero (only one slide), it's the first item of array
+        var { data } = this.props,
+            date = new Date(data[0].date),
+            dateStrings = date.toString().split(" "),
+            dateFormatted = {
+                month: dateStrings[1],
+                weekDay: dateStrings[0],
+                monthDay: dateStrings[2],
+                year: dateStrings[3],
+                time: dateStrings[4],
+                timezone: dateStrings[6]
+            };
+
+        console.log(data, data.startDate_dt, date, dateStrings, dateFormatted)
+
+        return (
+            <div className="hero__countdown">
+                <div className="countdown-container__content" id="countdown">
+                    <div className="countdown--pre countdown--text">
+                        <div className="countdown__label">Upcoming</div>
+                        <div className="countdown__heading">{ dateFormatted.month } { dateFormatted.monthDay }</div>
+                        <div className="countdown__live-time"> Live at { dateFormatted.time }</div>
+                    </div>
+                </div>                       
+            </div>         
+        );
+    }
+
     renderSlides() {
         return this.state.slides.map((slide, i) => {
             return (
@@ -58,7 +88,7 @@ class Slider extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div className="discover-slider__inner--content">
+                            <div className={"discover-slider__inner--content" + (this.props.hero ? ' hero_content' : '') }>
                                 { slide.vod &&
                                     <div className="discover-slider__inner--vod">
                                         <span className="discover-slider__inner--vod-label">
@@ -80,6 +110,11 @@ class Slider extends Component {
                                 <div className="discover-slider__inner--subtitle">
                                     { slide.subtitle }
                                 </div>
+
+                                { this.props.hero &&
+                                    this.renderCountdown()
+                                }
+
                             </div>
                         </Link>
                     </div>
@@ -112,10 +147,10 @@ class Slider extends Component {
                 {this.state && this.state.slides && this.state.slides.length > 1 &&
                     <div className="discover-slider__inner--nav">
                         <label className="discover-slider__inner--nav-button discover-slider__inner--nav-prev" onClick={() => this.changeSlide("previous")}>
-                            <i className="fa fa-angle-left"></i>
+                            <FontAwesomeIcon className="nav-icon" icon={ faAngleLeft }/>
                         </label>
                         <label className="discover-slider__inner--nav-button discover-slider__inner--nav-next" onClick={() => this.changeSlide("next")}>
-                            <i className="fa fa-angle-right"></i>
+                            <FontAwesomeIcon className="nav-icon" icon={ faAngleRight }/>
                         </label>
                     </div> 
                 }

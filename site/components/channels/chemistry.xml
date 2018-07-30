@@ -12,7 +12,15 @@
 	<thumbnailImage>/static-assets/images/channels/4976105a-c318-4f43-ec62-764ccd78ea87/chemistry-thumbnail.jpg</thumbnailImage>
 	<createdDate>2018-05-25T19:48:55.809Z</createdDate>
 	<createdDate_dt>2018-05-25T19:48:55.809Z</createdDate_dt>
-	<lastModifiedDate>2018-05-25T21:54:13.368Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-05-25T21:54:13.368Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-07-20T00:11:37.700Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-07-20T00:11:37.700Z</lastModifiedDate_dt>
 	<featured>false</featured>
+	<tags>	<item>	<value>chemistry</value>
+	</item>	<item>	<value>science</value>
+	</item>	<item>	<value>bodies</value>
+	</item>	<item>	<value>molecule</value>
+	</item>	<item>	<value>organic</value>
+	</item></tags>
+	<maxVideosDisplay>6</maxVideosDisplay>
+	<maxChannelsDisplay>3</maxChannelsDisplay>
 </component>

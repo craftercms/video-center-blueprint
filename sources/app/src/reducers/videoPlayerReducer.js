@@ -24,6 +24,12 @@ export default function reducer(state={
                 videoStatus: action.payload
             }
         }
+        case "SET_VIDEO_DOCKED": {
+            return {
+                ...state,
+                videoStatus: { ...state.videoStatus, docked: action.payload }
+            }
+        }
         case "SET_SHOW_PORTAL": {
             return {
                 ...state,
@@ -34,6 +40,4 @@ export default function reducer(state={
             return { ...state }
         }
     }
-
-    return state
 }

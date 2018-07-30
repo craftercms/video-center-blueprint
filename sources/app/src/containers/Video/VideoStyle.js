@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-// import { palette, font } from 'styled-theme';
+import { palette } from 'styled-theme';
 
 const VideoHolder = styled.div`
     .video-details {
@@ -75,7 +75,7 @@ const VideoHolder = styled.div`
 
                     h1.video-details__heading {
                         font-weight: 800;
-                        font-family: Bull,sans-serif;
+                        font-family: inherit;
                         margin: 0 0 .3rem;
                     }
                 }
@@ -226,7 +226,7 @@ const VideoHolder = styled.div`
             height: 0;
             margin: 0;
             border: 0;
-            border-bottom: 1px solid #23252a;
+            border-bottom: 1px solid ${ palette('primary', 1) };
         }
     }
 
@@ -242,7 +242,7 @@ const VideoHolder = styled.div`
         flex-shrink: 0;
         min-width: 0;
         height: 100vh;
-        background: #23252a;
+        background: ${ palette('primary', 1) };
         -webkit-transform: translateX(100%);
         transform: translateX(100%);
     

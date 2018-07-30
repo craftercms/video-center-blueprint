@@ -1,67 +1,82 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { setVideoStatus } from "../../actions/videoPlayerActions";
+import { isNullOrUndefined } from 'util';
+import { getDescriptor } from "@craftercms/redux";
 
+import { setVideoDocked } from "../../actions/videoPlayerActions";
 import Slider from '../../components/Slider/Slider.js';
 import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
 
-import { contentStoreService } from '../../api.js';
-
 class Home extends Component {
     componentWillMount() {
-        this.props.dispatch(setVideoStatus( { ...this.props.videoStatus, docked: false } ));
+        this.props.setVideoDocked( false );
+
+        this.descriptorUrl = '/site/website/index.xml';
+
+        if(isNullOrUndefined(this.props.descriptors[this.descriptorUrl])){
+            this.props.getDescriptor(this.descriptorUrl);
+        }
     }
 
     componentDidMount() {
-        const self = this;
-
-        contentStoreService.getItem("/site/website/index.xml").then(item => {
-            console.log(item)
-            self.setState({ content: item });
-            self.setState({ slider: item.descriptorDom.page.slider.item })
-        });
-
         document.getElementById("mainHeader").classList.add("header--ghost");
+    }
+    componentWillUnmount() {
+        document.getElementById("mainHeader").classList.remove("header--ghost");
+    }
 
-        var categories = [
+    renderSlider(descriptor) {
+        if( descriptor.page.slider.item ) {
+            return (
+                <Slider data={ descriptor.page.slider.item }>
+                </Slider>
+            )
+        }
+    }
+
+    renderHomeContent(descriptor) {
+        var page = descriptor.page,
+            categories = [
             {
                 key: "featured-videos",
                 value: "Featured Videos",
-                query: ['content-type:"/component/video"', 'featured: "true"'] 
+                query: ['content-type:"/component/video"', 'featured: "true"'],
+                numResults: page.maxVideosDisplay
             },
             { 
                 key: "latest-videos", 
                 value: "Latest Videos",
                 query: ['content-type:"/component/video"'],
-                sort: "createdDate_dt desc"
+                sort: "createdDate_dt desc",
+                numResults: page.maxVideosDisplay
             },
             {
                 key: "featured-channels",
                 value: "Featured Channels",
                 type: "channel-card-alt",
                 query: ['content-type:"/component/component-channel"', 'featured: "true"'],
-                numResults: 3
+                numResults: page.maxChannelsDisplay
             }
-        ]
+        ];
 
-        this.setState({ channels: categories });
-    }
-    componentWillUnmount() {
-        document.getElementById("mainHeader").classList.remove("header--ghost");
+        return (
+            <div>
+                { this.renderSlider(descriptor) }
+                
+                <VideoCategories categories={ categories }>
+                </VideoCategories>
+            </div>
+        );
     }
 
     render() {
+        var { descriptors } = this.props;
+
         return (
             <div>
-                { this.state && this.state.slider &&
-                    <Slider data={ this.state.slider }>
-                    </Slider>
-                }
-
-                { this.state && this.state.channels &&
-                    <VideoCategories categories={ this.state.channels }>
-                    </VideoCategories>
-                }
+                { descriptors && descriptors[this.descriptorUrl] &&
+                    this.renderHomeContent(descriptors[this.descriptorUrl])
+                }   
             </div>
         );
     }
@@ -69,9 +84,16 @@ class Home extends Component {
 
 function mapStateToProps(store) {
     return { 
-        videoInfo: store.video.videoInfo,
-        videoStatus: store.video.videoStatus
+        videoStatus: store.video.videoStatus,
+        descriptors: store.craftercms.descriptors.entries
     };
 }
 
-export default connect(mapStateToProps)(Home);
+function mapDispatchToProps(dispatch) {
+    return({
+        setVideoDocked: (docked) => { dispatch(setVideoDocked(docked)) },
+        getDescriptor: (url) => { dispatch(getDescriptor(url)) }
+    })
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

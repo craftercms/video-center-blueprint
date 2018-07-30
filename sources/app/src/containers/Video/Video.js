@@ -1,14 +1,24 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { isNullOrUndefined } from "util";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShareAlt, faComment } from "@fortawesome/free-solid-svg-icons";
+
+import { getItem, search } from '@craftercms/redux';
+import { SearchService } from '@craftercms/search';
+
+import NotFound from '../Errors/404';
 import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
 import VideoHolder from './VideoStyle.js';
-import VideoSidebar from './VideoSidebar.js';
-
-import { connect } from "react-redux";
+import Slider from '../../components/Slider/Slider.js';
+// import VideoSidebar from './VideoSidebar.js';
 import { setVideoInfo, setVideoStatus } from "../../actions/videoPlayerActions";
 
-import { searchService } from '../../api.js';
-
 class Video extends Component {
+    state = {
+        notFound: false
+    }
+
     constructor(props) {
         super(props);
 
@@ -16,38 +26,76 @@ class Video extends Component {
     }
 
     componentWillMount() {  
-        this.props.dispatch(setVideoStatus( { ...this.props.videoStatus, docked: true, currentVideoUrl: this.props.match.url } ));
-    }
-
-    componentDidMount() {
-        window.addEventListener("resize", this.updateDimensions);
-        // this.updateDimensions();
+        this.props.setVideoStatus( { ...this.props.videoStatus, docked: true, currentVideoUrl: this.props.match.url } );
     }
 
     componentWillUnmount() {
-        window.removeEventListener("resize", this.updateDimensions);
+        document.getElementById("mainHeader").classList.remove("header--ghost");
     }
 
     componentWillReceiveProps(newProps){
-        if(this.props.match.url !== newProps.match.url){
+        var { match, searchResults } = this.props,
+            searchEntry = searchResults.entries[this.searchId],
+            newSearchEntry = newProps.searchResults.entries[this.searchId];
+
+        if(match.url !== newProps.match.url){
             this.loadVideo(newProps);
         }
+
+        if( 
+            ( isNullOrUndefined(searchEntry) && !isNullOrUndefined(newSearchEntry) )
+            || ( !isNullOrUndefined(searchEntry) && !isNullOrUndefined(newSearchEntry))
+            && newProps.searchResults.entries[this.searchId]
+        ){
+            this.setVideo(newProps.searchResults.entries[this.searchId]);
+        }
+
     }
 
     loadVideo(props){
-        var self = this,
-        videoId = props.match.params.id;
+        var videoId = props.match.params.id;
+       
+        var query = SearchService.createQuery('solr');
+        this.searchId = query.uuid;
+        query.query = "*:*";
+        query.filterQueries = ["content-type:/component/video", "objectId:" + videoId];
 
-        var query = searchService.createQuery();
-            query.setQuery("*:*");
-            query.setFilterQueries(["content-type:/component/video", "objectId:" + videoId]);
-        
-            
-        searchService.search(query).then(cards => {
-            var video = cards.response.documents[0],
-                categories = [];
+        this.props.search(query);
+    }
 
-            this.props.dispatch(setVideoInfo(video));
+    setVideo(searchResult) {
+        var { setVideoInfo } = this.props;
+
+        if(searchResult.numFound > 0){
+            var video = searchResult.documents[0],
+                categories = [],
+                upcomingVideoHero = [];
+
+            var videoStartDate = new Date(video.startDate_dt),
+                now = new Date();
+
+            if(video['content-type'] === '/component/stream' && videoStartDate > now ){
+                //TODO: when it was on a video and changes to upcoming stream -> needs to remove 
+                //      old video an set new video info.
+
+                document.getElementById("mainHeader").classList.add("header--ghost");
+
+                upcomingVideoHero.push({
+                    url: "#",
+                    background: video.thumbnail,
+                    title: video.title_s,
+                    subtitle: video.description_html,
+                    date: video.startDate_dt
+                })
+    
+                // remove video info (if available)
+                setVideoInfo(null);
+                this.setState({ slider: upcomingVideoHero })
+            }else{
+                // remove upcoming stream slider info (if available)
+                this.setState({ slider: null })
+                setVideoInfo(video);
+            }
 
             if( video["channels.item.key"].constructor === Array ){
                 for (var i = 0, len = video["channels.item.key"].length; i < len; i++) {
@@ -61,35 +109,13 @@ class Video extends Component {
                 );
             }
 
-            self.setState({ categories: categories });
+            this.setState({ categories: categories });
+        }else{
+            this.setState({
+                notFound: true
+            });
+        }
 
-
-        }).catch(error => {
-            
-        });
-    }
-
-    updateDimensions() {
-        // this.setState({width: $(window).width(), height: $(window).height()});
-
-        var playerContainer = document.getElementById("app-content__player"),
-            playerResize = document.querySelector(".global-video-player .player-container"),
-            dimensions = {
-                width: playerContainer.offsetWidth,
-                height: playerContainer.offsetHeight
-            },
-            aspect = ( playerResize.offsetHeight * 100 ) / playerResize.offsetWidth,
-            maxWidth = ( dimensions.height * 100 ) / aspect;
-
-        console.log(dimensions);
-
-        playerResize.style.minWidth = "160px";
-        playerResize.style.minHeight = "90px";
-        playerResize.style.maxWidth =  maxWidth + "px";
-        playerResize.style.maxHeight = dimensions.height + "px";
-
-        // console.log(document.getElementById("app-content__player"));
-        // console.log(playerResize);
     }
 
     renderDetailsSection( video ) {
@@ -112,21 +138,15 @@ class Video extends Component {
                             </div>
                             <div className="video-details__links">
                                 <div className="inline-button inline-button__text video-details__links-link">
-                                    <i className="inline-button__icon fa fa-share-alt"></i>
+                                    <FontAwesomeIcon className="inline-button__icon" icon={ faShareAlt }/>
                                     <span className="inline-button__text">share</span>
                                 </div>
                                 <a href="mailto:mail@mail.com" id="uservoice-video" className="video-details__links-link">
                                     <div className="inline-button inline-button__text"> 
-                                        <i className="inline-button__icon fa fa-comment"></i>
+                                        <FontAwesomeIcon className="inline-button__icon" icon={ faComment }/>
                                         <span className="inline-button__text">feedback</span>
                                     </div>
                                 </a>
-                                {/* <a className="inline-button inline-button__text video-details__links-link" href="/show/AP-1VAXFHQMW1W11/red-bull-music-academy-lectures"> 
-                                    <span className="inline-button__text">View Show</span>
-                                </a> */}
-                                {/* <div className="inline-button inline-button__text video-details__links-link"> 
-                                    <span className="inline-button__text">Transcript</span>
-                                </div> */}
                             </div>
                         </div>
 
@@ -143,19 +163,35 @@ class Video extends Component {
     }
 
     render() {
+        var { videoInfo } = this.props;
         return (
-            <VideoHolder>
+            <div>
+                { this.state.notFound && <NotFound/> }
 
-                { this.props.videoInfo &&
-                    this.renderDetailsSection( this.props.videoInfo )
-                }
+                <VideoHolder>
 
-                { this.state && this.state.categories &&
-                    <VideoCategories categories={ this.state.categories }></VideoCategories>
-                }
-                
-                <VideoSidebar/> 
-            </VideoHolder>
+                    { this.state && this.state.slider &&
+                        <Slider data={ this.state.slider }
+                            localData={ true }
+                            hero={ true }
+                        >
+                        </Slider>
+                    }
+
+                    { videoInfo &&
+                        this.renderDetailsSection( videoInfo )
+                    }
+
+                    { this.state && this.state.categories &&
+                        <VideoCategories categories={ this.state.categories }
+                                        exclude= { videoInfo }    
+                        ></VideoCategories>
+                    }
+                    
+                    {/* <VideoSidebar/>  */}
+                </VideoHolder>
+            </div>
+            
         );
     }
 }
@@ -163,8 +199,19 @@ class Video extends Component {
 function mapStateToProps(store) {
     return { 
         videoInfo: store.video.videoInfo,
-        videoStatus: store.video.videoStatus
+        videoStatus: store.video.videoStatus,
+        items: store.craftercms.items,
+        searchResults: store.craftercms.search
     };
 }
 
-export default connect(mapStateToProps)(Video);
+function mapDispatchToProps(dispatch) {
+    return({
+        getItem: (url) => { dispatch(getItem(url)) },
+        search: (query) => { dispatch(search(query)) },
+        setVideoStatus: (status) => { dispatch(setVideoStatus(status)) },
+        setVideoInfo: (info) => { dispatch(setVideoInfo(info)) }
+    })
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Video);

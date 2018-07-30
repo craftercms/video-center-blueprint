@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
-import VideosPlayer from '../../containers/Video/videosPlayer';
-import StreamsPlayer from '../../containers/Video/streamsPlayer';
+import VideoPlayerHolder from './VideoPlayerStyle';
+import ReactVideoPlayer from './ReactPlayer';
+import ShakaPlayer from './ShakaPlayer';
 
 import { setVideoStatus, setVideoInfo } from "../../actions/videoPlayerActions";
 
@@ -35,9 +38,9 @@ class VideoPlayer extends Component {
     }
 
     loadVideo(videoInfo) {
-        var videoType = videoInfo.youTubeVideo ? "video" : "stream";
+        var videoType = videoInfo.youTubeVideo ? "video" : "stream";        //TODO: update, not only youtube link
 
-        Player = videoType === "video" ? VideosPlayer : StreamsPlayer;
+        Player = videoType === "video" ? ReactVideoPlayer : ShakaPlayer;
         this.props.dispatch(setVideoStatus( { ...this.props.videoStatus, loaded: true } ));
     }
 
@@ -48,30 +51,32 @@ class VideoPlayer extends Component {
 
     render() {
         return (
-            <div id="app-content__player" className="app-content__player">
-                {this.props.videoStatus.loaded &&
-                    <div className="app-content__player-wrapper">
-                        <div className={ `global-video-player global-video-player--visible global-video-player--${ this.props.videoStatus.docked ? 'docked' : 'fixed' }` }>
-                            <div className="global-video-player__aspect">
-                                <div className="global-video-player__inner">
-                                    <Player video={ this.props.videoInfo }
-                                        videoStatus={ this.props.videoStatus }
-                                        dispatch={ this.props.dispatch }
-                                        controls={ true }
-                                    />
+            <VideoPlayerHolder>
+                <div id="app-content__player" className="app-content__player">
+                    {this.props.videoStatus.loaded &&
+                        <div className="app-content__player-wrapper">
+                            <div className={ `global-video-player global-video-player--visible global-video-player--${ this.props.videoStatus.docked ? 'docked' : 'fixed' }` }>
+                                <div id="videoPlayerAspect" className="global-video-player__aspect">
+                                    <div className="global-video-player__inner">
+                                        <Player video={ this.props.videoInfo }
+                                            videoStatus={ this.props.videoStatus }
+                                            dispatch={ this.props.dispatch }
+                                            controls={ true }
+                                        />
 
-                                    <Link className="fixed-player__link-overlay" to={ this.props.videoStatus.currentVideoUrl }>
-                                    </Link>
+                                        <Link className="fixed-player__link-overlay" to={ this.props.videoStatus.currentVideoUrl }>
+                                        </Link>
 
-                                    <a className="global-video-player__close" onClick={ this.unloadVideo.bind(this) }>
-                                        <i className="search__icon fa fa-times"></i>
-                                    </a>
+                                        <a className="global-video-player__close" onClick={ this.unloadVideo.bind(this) }>
+                                            <FontAwesomeIcon icon={ faTimes }/>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                }
-            </div>
+                    }
+                </div>
+            </VideoPlayerHolder>
         );
     }
 }

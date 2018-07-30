@@ -21,14 +21,13 @@ body, html{
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
 }
 
 body {
   position: relative;
   margin: 0 1!important;
   line-height: 1.4 !important;
-  font-family: Bull,sans-serif;
+  font-family: helvetica,	/* Unix+X, MacOS */ sans-serif !important;
   font-size: 1.8em !important;
   color: #fff !important;
 }
@@ -74,7 +73,6 @@ body {
     line-height: inherit;
     width: auto;
     letter-spacing: -.02em;
-    font-family: Bull,sans-serif;
     font-weight: 800;
     color: inherit;
     -webkit-transition: color .15s cubic-bezier(0,1,.75,1);
@@ -307,6 +305,60 @@ body {
     right: 0;
     bottom: 0;
     margin: auto;
+}
+
+@media (min-width: 28.125em){
+  .standard-button {
+    font-size: 1.4rem;
+    width: 20rem;
+  }
+}
+
+.standard-button {
+    color: inherit;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    display: inline-block;
+    height: 6rem;
+    line-height: 5.5rem;
+    width: 15rem;
+    max-width: 100%;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition-duration: .15s;
+    transition-duration: .15s;
+    -webkit-transition-timing-function: cubic-bezier(0,1,.75,1);
+    transition-timing-function: cubic-bezier(0,1,.75,1);
+    -webkit-transition-property: color;
+    transition-property: color;
+    color: #fff;
+    border: .3rem solid #fff;
+    background: rgba(20,21,25,.1);
+}
+
+@media (min-width: 28.125em){
+  .standard-button {
+    font-size: 1.4rem;
+    width: 20rem;
+  }
+}
+
+.standard-button:hover {
+  color: #141519;
+  background-color: #fff;
+  -webkit-transition: background-color 200ms linear;
+  -ms-transition: background-color 200ms linear;
+  transition: background-color 200ms linear;
 }
 
 /***************** GRID *****************/

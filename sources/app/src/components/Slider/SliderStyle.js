@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-// import { palette, font } from 'styled-theme';
+import { palette } from 'styled-theme';
 
 const SliderHolder = styled.div`
     height: calc(100vh - 220px);
     margin: 0;
     overflow: hidden;
-    background-color: #23252a;
+    background-color: ${ palette('primary', 1) };
     position: relative;
 
     &.hero-container__ghost {
@@ -14,6 +14,7 @@ const SliderHolder = styled.div`
 
     .ant-carousel, .discover-slider, .discover-slider .slick-track{
         height: inherit;
+        font-family: inherit;
     }
 
     .ant-carousel{
@@ -49,6 +50,10 @@ const SliderHolder = styled.div`
                     overflow: hidden;
                     -webkit-transform: translateZ(0);
                     transform: translateZ(0);
+
+                    &.slick-current {
+                        z-index: 10;
+                    }
 
                     .discover-slider__inner, .discover-slider__video {
                         height: inherit;
@@ -105,6 +110,139 @@ const SliderHolder = styled.div`
                         @media (max-height: 47.9375em){
                             bottom: 4rem;
                         }
+
+                        &.hero_content {
+                            text-align: left;
+
+                            @media (min-width: 75em){
+                                width: 110rem;
+                            }
+                    
+                            @media (min-width: 87.5em){
+                                width: 120rem;
+                            }
+                    
+                            @media (min-width: 114.0625em){
+                                width: 135rem;
+                            }
+
+                            .heading--slider {
+                                @media (max-height: 48em) and (min-width: 60em){
+                                    max-width: 60%;
+                                }
+                                @media (min-width: 75em){
+                                    max-width: 70%;
+                                }
+                                @media (max-height: 48em){
+                                    max-width: 60%;
+                                }
+                            }
+
+                            .discover-slider__inner--subtitle {
+                                text-align: left;
+                                font-size: 1.8rem;
+
+                                @media (min-width: 87.5em) {
+                                    max-width: 60%;
+                                }
+                                @media (min-width: 60em) {
+                                    max-width: 80%;
+                                }
+                            }
+                        
+                            .hero__countdown {
+                                margin: 0 0 2.5rem;
+                                display: -webkit-box;
+                                display: -ms-flexbox;
+                                display: flex;
+
+                                @media (min-width: 87.5em) {
+                                    position: absolute;
+                                    top: 0;
+                                    right: 0;
+                                    max-width: 45rem;
+                                }
+
+                                @media (max-height: 48em) {
+                                    position: absolute;
+                                    top: 0;
+                                    right: 0;
+                                    padding-left: 2rem;
+                                }
+
+                                .countdown__label {
+                                    display: none;
+                                    text-transform: uppercase;
+                                    font-weight: 500;
+                                    font-size: 1.3rem;
+                                    letter-spacing: .01em;
+
+                                    @media (min-width: 60em) {
+                                        font-size: 1.5rem;
+                                        display: inline-block;
+                                    }
+                                }
+
+                                .countdown__heading {
+                                    font-weight: 800;
+                                    line-height: 1.2;
+                                    letter-spacing: -.01em;
+                                    text-transform: capitalize;
+                                    font-size: 3rem;
+
+                                    @media (min-width: 60em) {
+                                        line-height: 1;
+                                    }
+
+                                    @media (min-width: 48em) {
+                                        font-size: 3.5rem;
+                                    }
+
+                                    @media (min-width: 64em) {
+                                        font-size: 3.5rem;
+                                    }
+
+                                    @media (min-width: 75em) {
+                                        font-size: 4rem;
+                                    }
+
+                                    @media (min-width: 87.5em) {
+                                        font-size: 4.5rem;
+                                    }
+                                } 
+                                
+                                .countdown__live-time {
+                                    font-weight: 500;
+                                    font-size: 1.5rem;
+
+                                    @media (min-width: 48em) {
+                                        font-size: 2rem;
+                                    }
+
+                                    @media (min-width: 64em) {
+                                        font-size: 2rem;
+                                    }
+
+                                    @media (min-width: 75em) {
+                                        font-size: 2rem;
+                                    }
+
+                                    @media (min-width: 87.5em) {
+                                        font-size: 2.1rem;
+                                    }
+                                }
+                            }
+                            
+                            
+
+                            .countdown-container__content {
+                                @media (min-width: 60em) {
+                                    border-left: 4px solid #db0a40;
+                                    padding: 0 0 0 1.8rem;
+                                    min-height: 82px;
+                                }
+                            }
+                        }
                     }
                     
                     .discover-slider__inner--live, .discover-slider__inner--time, .discover-slider__inner--vod, .discover-slider__video--live, .discover-slider__video--time, .discover-slider__video--vod {
@@ -121,6 +259,7 @@ const SliderHolder = styled.div`
                     .discover-slider__inner--vod, .discover-slider__video--vod {
                         display: inline-block;
                         text-transform: uppercase;
+                        font-weight: bold;
                     }
                     
                     .discover-slider__inner--subtitle, .discover-slider__inner--title, .discover-slider__video--subtitle, .discover-slider__video--title {
@@ -260,10 +399,10 @@ const SliderHolder = styled.div`
             &:hover {
                 -webkit-transition: all .15s cubic-bezier(0,1,.75,1);
                 transition: all .15s cubic-bezier(0,1,.75,1);
-                background: #db0a40;
+                background: ${ palette('primary', 3) };
 
-                i {
-                    color: #fff;
+                .nav-icon {
+                    color: ${ palette('primary', 4) };
                 }
             }
 
@@ -277,8 +416,8 @@ const SliderHolder = styled.div`
                 margin-left: 4px;
             }
 
-            i {
-                color: #db0a40;
+            .nav-icon {
+                color: ${ palette('primary', 3) };
                 font-size: 1.5em;
                 font-weight: bold;
             }

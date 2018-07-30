@@ -1,15 +1,15 @@
 import { Modal } from 'antd';
 import styled from 'styled-components';
-// import { palette, font } from 'styled-theme';
+import { palette } from 'styled-theme';
 
 const HeaderSearchModal = styled(Modal)`
 
     .ant-modal-content {
         -webkit-transition: background-color .2s cubic-bezier(0,1,.75,1);
         transition: background-color .2s cubic-bezier(0,1,.75,1);
-        background-color: #23252a;
-        -webkit-box-shadow: 0 0 20px #1c1f24;
-        box-shadow: 0 0 20px #1c1f24;
+        background-color: ${ palette('primary', 1) };
+        -webkit-box-shadow: 0 0 20px ${ palette('primary', 1) };
+        box-shadow: 0 0 20px ${ palette('primary', 1) };
         border-radius: 0;
 
         .ant-modal-body {

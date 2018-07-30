@@ -1,18 +1,30 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
+import { getDescriptor } from '@craftercms/redux';
+import { isNullOrUndefined } from 'util';
+
 import HeaderHolder from './HeaderStyle';
 import HeaderSearch from './HeaderSearch';
-import 'font-awesome/css/font-awesome.min.css';
-
-import { connect } from "react-redux";
-
-import logo from '../../images/logo.png';
+import { common } from '../../settings';
 
 class Header extends Component {
+    constructor(props) {
+        super(props);
 
-    //TODO: Right now is only one level deep - Should it be more than one level?
+        this.levelDescriptorUrl = '/site/website/crafter-level-descriptor.level.xml';
+
+        if(isNullOrUndefined(props.descriptors[this.levelDescriptorUrl])){
+            this.props.getDescriptor(this.levelDescriptorUrl);
+        }
+    }
+
     renderNavItems() {
-        return this.props.nav.subItems.map((navItem, i) => {
+        var rootId = '/';
+
+        return this.props.nav.childIds[rootId].map((id, i) => {
+            var navItem = this.props.nav.entries[id];
+
             return (
                 <li key={ i } className="navigation__item">
                     <Link className="navigation__link navigation__link--apps" to={ navItem.url }>
@@ -24,19 +36,37 @@ class Header extends Component {
             );
         });
     }
+
+    renderHeaderLogo(descriptor) {
+        const logo = descriptor.component.siteLogo
+
+        return (
+            <Link className="header__logo active" to="/" 
+                  style={{ backgroundImage: `url(${ logo })` }}>
+                Video Center
+            </Link>  
+        );
+    }
  
     render() {
-        const { nav } = this.props;
+        const { nav, descriptors } = this.props;
 
         return (
             <HeaderHolder>
+                {/* https://2018.ar.al/scribbles/fork-me-on-github-retina-ribbons/ */}
+                <a href={ common.repoUrl } target="_blank" rel="noopener noreferrer">
+                    <img style={{ position: "absolute", top: 0, right: 0, border: 0, width: "120px", height: "120px", zIndex: 997 }} 
+                         src="http://aral.github.com/fork-me-on-github-retina-ribbons/right-graphite@2x.png" alt="Fork me on GitHub"/>
+                </a>
+
                 <header id="mainHeader" className={"header"}>
                     <div className="header__container">
                         <div className="header__overlay"></div>
         
-                        <Link className="header__logo active" to="/" style={{ backgroundImage: `url(${ logo })` }}>
-                            Video Center
-                        </Link>
+                        { descriptors && descriptors[this.levelDescriptorUrl] &&
+                            this.renderHeaderLogo(descriptors[this.levelDescriptorUrl])
+                        }
+
                         <div className="header__navigation">
                             <nav className="navigation">
                                 <ul className="navigation__list">
@@ -61,7 +91,11 @@ class Header extends Component {
                                             </span>
                                         </Link>
                                     </li> */}
-                                    { this.props.nav && this.renderNavItems() }
+                                    { 
+                                        nav 
+                                        && nav.entries['/']
+                                        && this.renderNavItems()
+                                    }
                                 </ul>
                             </nav>
                         </div>
@@ -77,8 +111,13 @@ class Header extends Component {
     }
 }
 
-function mapStateToProps(store) {
-    return { nav: store.nav.nav };
-}
+const mapDispatchToProps = dispatch => ({
+    getDescriptor: url => dispatch(getDescriptor(url))
+})
 
-export default connect(mapStateToProps)(Header);
+const mapStateToProps = store => ({
+    nav: store.craftercms.navigation,
+    descriptors: store.craftercms.descriptors.entries
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

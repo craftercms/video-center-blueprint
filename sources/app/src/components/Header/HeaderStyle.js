@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-// import { palette, font } from 'styled-theme';
+import { palette } from 'styled-theme';
 
 const HeaderHolder = styled.div`
     width:'100%';
@@ -8,7 +8,7 @@ const HeaderHolder = styled.div`
         height: 5.6rem;
         position: relative;
         z-index: 996;
-        background: #141519;
+        background: ${ palette('primary', 0) };
         color: hsla(0,0%,100%,.5);
         text-align: right;
         overflow: hidden;
@@ -20,7 +20,7 @@ const HeaderHolder = styled.div`
 
         @media (min-width: 48em){
             height: 9rem;
-            border-bottom: 1px solid #1c1f24;
+            border-bottom: 1px solid ${ palette('primary', 2) };
         }
 
         .header__logo {
@@ -213,10 +213,10 @@ const HeaderHolder = styled.div`
                 }
 
                 .search__icon {
-                    width: 2.5rem;
-                    height: 2.5rem;
+                    width: 2rem;
+                    height: 2rem;
                     vertical-align: middle;
-                    margin-top: -.3rem;
+                    margin-top: -.5rem;
                 }
             }
         }

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-// import { palette, font } from 'styled-theme';
+import { palette } from 'styled-theme';
 
 const VideoCategoriesHolder = styled.div`
     
@@ -13,9 +13,9 @@ const VideoCategoriesHolder = styled.div`
             .inline-nav{
                 -webkit-transition: background-color .2s cubic-bezier(0,1,.75,1);
                 transition: background-color .2s cubic-bezier(0,1,.75,1);
-                background-color: #23252a;
-                -webkit-box-shadow: 0 0 20px #1c1f24;
-                box-shadow: 0 0 20px #1c1f24;
+                background-color: ${ palette('primary', 1) };
+                -webkit-box-shadow: 0 0 20px ${ palette('primary', 2) };
+                box-shadow: 0 0 20px ${ palette('primary', 2) };
 
                 .inline-nav__inner{
                     &:before, :after {
@@ -45,7 +45,7 @@ const VideoCategoriesHolder = styled.div`
         }        
 
         .inline-nav {
-            background: #141519;
+            background: ${ palette('primary', 0) };
             height: 6.8rem;
             position: relative;
             z-index: 996;
@@ -254,10 +254,37 @@ const VideoCategoriesHolder = styled.div`
             &:first-child{
                 .content-container__block {
                     .heading--section {
-                        display: none;
                     }
                 }    
             }
+
+            .content-container__block {
+                .heading--section {
+                    display: inline-block;
+                }
+
+                .collection__item--link {
+                    span {
+                        display: inline-block;
+                        color: hsla(0,0%,100%,.8);
+                        font-size: 1.2rem;
+                        background: hsla(0,0%,100%,.1);
+                        border-radius: 10px;
+                        padding: .25rem 1rem 0.25rem 1rem;
+                        text-transform: uppercase;
+                        margin: 2rem 0 2.5rem 2rem;
+                        vertical-align: middle;
+                        line-height: 2rem;
+                        font-weight: bold;
+
+                        .icon {
+                            font-weight: normal;
+                            margin-right: 5px;
+                            font-size: 10px;
+                        }
+                    }
+                }
+            }    
                 
             .static-grid {
                 position: relative;
@@ -319,8 +346,8 @@ const VideoCategoriesHolder = styled.div`
                                 }
 
                                 .image__image {
-                                    background-position: top;
-                                    background-size: contain;
+                                    background-position: center;
+                                    background-size: cover;
                                 }
 
                                 .preview-video {
@@ -352,7 +379,7 @@ const VideoCategoriesHolder = styled.div`
                                         transition-duration: .15s;
                                         -webkit-transition-timing-function: cubic-bezier(0,1,.75,1);
                                         transition-timing-function: cubic-bezier(0,1,.75,1);
-                                        background: #1c1f24;
+                                        background: ${ palette('primary', 2) };
                                     }
 
                                     .video-card__time {
@@ -475,7 +502,7 @@ const VideoCategoriesHolder = styled.div`
                                         top: -15.5rem;
                                     }
 
-                                    i {
+                                    .play-icon {
                                         font-size: 25px;
                                         margin-top: 4px;
                                         margin-left: 4px;
@@ -544,7 +571,7 @@ const VideoCategoriesHolder = styled.div`
                             overflow: hidden;
                             line-height: 1;
                             cursor: pointer;
-                            background: #1c1f24;
+                            background: ${ palette('primary', 2) };
                     
                             @media (min-width: 60em) {
                                 height: 0;
@@ -756,7 +783,7 @@ const VideoCategoriesHolder = styled.div`
                     text-decoration: none;
                     position: relative;
                     margin: 3rem 0;
-                    background: #1c1f24;
+                    background: ${ palette('primary', 2) };
                     -webkit-transition: background .15s;
                     transition: background .15s;
 

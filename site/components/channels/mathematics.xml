@@ -12,7 +12,15 @@
 	<thumbnailImage>/static-assets/images/channels/4f716275-912c-2a27-97d6-4021bf6676b3/mathematics-thumbnail.jpg</thumbnailImage>
 	<createdDate>2018-05-25T19:49:36.547Z</createdDate>
 	<createdDate_dt>2018-05-25T19:49:36.547Z</createdDate_dt>
-	<lastModifiedDate>2018-05-25T21:55:09.679Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-05-25T21:55:09.679Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-07-20T00:11:57.227Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-07-20T00:11:57.227Z</lastModifiedDate_dt>
 	<featured>false</featured>
+	<tags>	<item>	<value>mathematics</value>
+	</item>	<item>	<value>numbers</value>
+	</item>	<item>	<value>geometry</value>
+	</item>	<item>	<value>algebra</value>
+	</item>	<item>	<value>trigonometry</value>
+	</item></tags>
+	<maxVideosDisplay>6</maxVideosDisplay>
+	<maxChannelsDisplay>3</maxChannelsDisplay>
 </component>

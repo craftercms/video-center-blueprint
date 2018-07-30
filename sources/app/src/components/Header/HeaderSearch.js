@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import 'font-awesome/css/font-awesome.min.css';
 import { Route } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
 import HeaderSearchModal from './HeaderSearchStyle';
 import InputSearch from './searchBox';
 
@@ -25,7 +27,7 @@ class HeaderSearch extends Component {
     render() {
         return (
             <div className="header__search--container">
-                <i className="search__icon fa fa-search" onClick={() => this.setModalVisible(true)}></i>
+                <FontAwesomeIcon className="search__icon" icon={ faSearch } onClick={() => this.setModalVisible(true)}/>
 
                 <HeaderSearchModal
                     style={{ top: 0 }}
@@ -39,7 +41,7 @@ class HeaderSearch extends Component {
                     destroyOnClose={ true }
                     ref={node => (this.searchModal = node)}
                 >
-                    <i className="search__icon fa fa-search"></i>
+                    <FontAwesomeIcon className="search__icon" icon={ faSearch }/>
 
                     <Route render={({ history}) => (
                         <InputSearch history={history}

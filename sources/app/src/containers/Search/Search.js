@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
 import SearchHolder from './SearchStyle';
 import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
-
-import { setVideoStatus } from "../../actions/videoPlayerActions";
+import { setVideoDocked } from "../../actions/videoPlayerActions";
 
 const WAIT_INTERVAL = 1000;
 class Search extends Component {
@@ -20,7 +22,7 @@ class Search extends Component {
     }
 
     componentWillMount() {
-        this.props.dispatch(setVideoStatus( { ...this.props.videoStatus, docked: false } ));
+        this.props.setVideoDocked( false );
         this.timer = null;
     }
 
@@ -37,7 +39,9 @@ class Search extends Component {
         return [{ 
                 key: "top-results", 
                 value: "Top Results", 
-                query: ["content-type:/component/video", "title_t: (*" + searchId + "*)"] 
+                query: ["content-type:/component/video", "title_t: (*" + searchId + "*)"],
+                viewAll: false,
+                numResults: 90
             }];
     }
 
@@ -62,7 +66,7 @@ class Search extends Component {
                         <div className="search-bar__container">
                             <div className="search-bar__inner">
                                 <div className="search-bar__icon">
-                                    <i className="search__icon fa fa-search"></i>    
+                                    <FontAwesomeIcon className="search__icon" icon={ faSearch }/>
                                 </div>
                                 <input type="text" className="search-bar__input" placeholder="Start Typing..." 
                                     defaultValue={ this.searchId }
@@ -87,4 +91,10 @@ function mapStateToProps(store) {
     };
 }
 
-export default connect(mapStateToProps)(Search);
+function mapDispatchToProps(dispatch) {
+    return({
+        setVideoDocked: (docked) => { dispatch(setVideoDocked(docked)) }
+    })
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);

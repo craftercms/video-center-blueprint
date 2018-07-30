@@ -1,12 +1,20 @@
-import { applyMiddleware, createStore } from "redux";
+import { createReduxStore } from '@craftercms/redux';
+import { crafterConf } from '@craftercms/classes';
 
-// import { createLogger } from "redux-logger";
 import thunk from "redux-thunk";
-import promise from "redux-promise-middleware";
 
-import reducer from "./reducers";
+import { allReducers } from "./reducers";
 
-// const middleware = applyMiddleware(promise(), thunk, createLogger())
-const middleware = applyMiddleware(promise(), thunk)
+crafterConf.configure({
+    site: 'video-center'
+})
 
-export default createStore(reducer, middleware)
+const store = createReduxStore({
+    namespace: "craftercms",
+    namespaceCrafterState: true,
+    reducerMixin: allReducers,
+    reduxDevTools: true,
+    additionalMiddleWare: [thunk]
+});
+
+export default store;
