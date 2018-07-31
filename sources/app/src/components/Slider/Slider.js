@@ -4,41 +4,17 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
-import { studioConfig } from '../../settings';
-import { EngineClient } from '@craftercms/sdk/lib/craftercms';
-
 import SliderHolder from './SliderStyle';
 
 class Slider extends Component {
     componentDidMount() {
-        var engineClient = new EngineClient(studioConfig.baseUrl, studioConfig.site);
-        this.contentStoreService = engineClient.contentStoreService;
     
         if( this.props.localData ){
             this.setState({ slides: this.props.data });
         }else{
-            this.getSlidesContent();
+            this.props.getDescriptor(this.props.data.key);
         }
         
-    
-    }
-
-    getSlidesContent() {
-        const self = this;
-
-        this.contentStoreService.getItem(this.props.data.key).then(item => {
-            var slides = item.descriptorDom.component.slides;
-
-            if( !(slides.item instanceof Array) ){
-                slides = [slides.item];
-            }else{
-                slides = slides.item;
-            }
-
-            self.setState({ content: item });
-            self.setState({ slides: slides });
-
-        });
     }
 
     renderCountdown() {
@@ -55,8 +31,6 @@ class Slider extends Component {
                 timezone: dateStrings[6]
             };
 
-        console.log(data, data.startDate_dt, date, dateStrings, dateFormatted)
-
         return (
             <div className="hero__countdown">
                 <div className="countdown-container__content" id="countdown">
@@ -70,8 +44,8 @@ class Slider extends Component {
         );
     }
 
-    renderSlides() {
-        return this.state.slides.map((slide, i) => {
+    renderSlides(slides) {
+        return slides.map((slide, i) => {
             return (
                 <div key={ i }>
                     <div className="discover-slider__inner">
@@ -132,30 +106,72 @@ class Slider extends Component {
         }
     }
 
-    render() {
+    renderSliderControls(){
+        return(
+            <div className="discover-slider__inner--nav">
+                <label className="discover-slider__inner--nav-button discover-slider__inner--nav-prev" onClick={() => this.changeSlide("previous")}>
+                    <FontAwesomeIcon className="nav-icon" icon={ faAngleLeft }/>
+                </label>
+                <label className="discover-slider__inner--nav-button discover-slider__inner--nav-next" onClick={() => this.changeSlide("next")}>
+                    <FontAwesomeIcon className="nav-icon" icon={ faAngleRight }/>
+                </label>
+            </div> 
+        );
+    }
+
+    renderSliderLocalData() {
         return (
             <SliderHolder className="hero-container hero-container__ghost">
-                { this.state && this.state.slides &&
-                    <Carousel className="discover-slider" 
-                        effect="fade"
-                        ref={node => (this.slider = node)}
-                        autoplay>
-                        { this.renderSlides() }
-                    </Carousel> 
-                }
+                <Carousel className="discover-slider" 
+                    effect="fade"
+                    ref={node => (this.slider = node)}
+                    autoplay>
+                    { this.renderSlides(this.state.slides) }
+                </Carousel> 
 
                 {this.state && this.state.slides && this.state.slides.length > 1 &&
-                    <div className="discover-slider__inner--nav">
-                        <label className="discover-slider__inner--nav-button discover-slider__inner--nav-prev" onClick={() => this.changeSlide("previous")}>
-                            <FontAwesomeIcon className="nav-icon" icon={ faAngleLeft }/>
-                        </label>
-                        <label className="discover-slider__inner--nav-button discover-slider__inner--nav-next" onClick={() => this.changeSlide("next")}>
-                            <FontAwesomeIcon className="nav-icon" icon={ faAngleRight }/>
-                        </label>
-                    </div> 
-                }
-                
+                    this.renderSliderControls()
+                }   
             </SliderHolder>
+        )
+    }
+
+    renderSliderDescriptor(descriptor) {
+        var slides = descriptor.component.slides;
+
+        if( !(slides.item instanceof Array) ){
+            slides = [slides.item];
+        }else{
+            slides = slides.item;
+        }
+
+        return (
+            <SliderHolder className="hero-container hero-container__ghost">
+                <Carousel className="discover-slider" 
+                    effect="fade"
+                    ref={node => (this.slider = node)}
+                    autoplay>
+                    { this.renderSlides(slides) }
+                </Carousel> 
+
+                { slides.length > 1 &&
+                    this.renderSliderControls()
+                }   
+            </SliderHolder>
+        )
+    }
+
+    render() {
+        return (
+            <div>
+                { this.props.descriptors && this.props.descriptors[this.props.data.key] &&
+                    this.renderSliderDescriptor(this.props.descriptors[this.props.data.key])
+                }
+
+                { this.state && this.state.slides &&
+                    this.renderSliderLocalData()
+                }
+            </div>
         );
     }
 }

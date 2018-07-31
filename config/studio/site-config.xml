@@ -9,7 +9,7 @@
     <display-name>video-center</display-name>
     <default-timezone>EST5EDT</default-timezone>
 
-	<previewServer>http://localhost:3000</previewServer>
+	<!-- previewServer>http://localhost:3000</previewServer -->
 
     <repository rootPrefix="/site">
 

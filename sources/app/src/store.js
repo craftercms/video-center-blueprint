@@ -1,12 +1,14 @@
 import { createReduxStore } from '@craftercms/redux';
 import { crafterConf } from '@craftercms/classes';
+import { studioConfig } from './settings';
 
 import thunk from "redux-thunk";
 
 import { allReducers } from "./reducers";
 
 crafterConf.configure({
-    site: 'video-center'
+    site: studioConfig.site,
+    baseUrl: studioConfig.baseUrl
 })
 
 const store = createReduxStore({
