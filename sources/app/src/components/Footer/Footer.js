@@ -1,58 +1,59 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import { studioConfig } from '../../settings';
-import { EngineClient } from '@craftercms/sdk/lib/craftercms';
+import { getDescriptor } from '@craftercms/redux';
 
 import FooterHolder from './FooterStyle';
 
 class Footer extends Component {
-    componentDidMount() {
-        const self = this;
-        var engineClient = new EngineClient(studioConfig.baseUrl, studioConfig.site);
-        var contentStoreService = engineClient.contentStoreService;
-    
-        contentStoreService.getItem("/site/components/footer.xml").then(item => {
-            self.setState({ content: item.descriptorDom.component });
-        });
-    
+    componentWillMount() {
+        this.footerUrl = "/site/components/footer.xml"
+        this.props.getDescriptor(this.footerUrl);
     }
     
-    renderFooterNav() {
-        return this.state.content.nav.item.map((entry, i) => {
+    renderFooterNav(nav) {
+        return nav.item.map((entry, i) => {
             return (
                 <a key={ i } className="footer__link" target="_blank">{ entry.title }</a>
             );
         });
     }
 
+    renderFooterContent(descriptor) {
+        return(
+            <div className="footer__content">
+                <div className="footer__copyright">
+                    { descriptor.component.copyrightLabel }
+                </div>
+
+                <div className="footer__nav">
+                    { descriptor.component.nav &&
+                        this.renderFooterNav(descriptor.component.nav)     
+                    }
+                </div>
+            </div>
+        );
+    }
+
     render() {
         return (
             <FooterHolder>
                 <footer className="footer">
-                    
-                        { this.state && this.state.content &&
-                            <div className="footer__content">
-                                <div className="footer__copyright">
-                                    { this.state.content.copyrightLabel }
-                                </div>
-
-                                <div className="footer__nav">
-                                    { this.state.content.nav &&
-                                        this.renderFooterNav()     
-                                    }
-                                </div>
-                            </div>
-                        }
+                    { this.props.descriptors && this.props.descriptors[this.footerUrl] &&
+                        this.renderFooterContent(this.props.descriptors[this.footerUrl])
+                    }
                 </footer>
-
-                {/* <a href="https://github.com/you">
-                    <img style={{ position: 'absolute', bottom: 0, right: 0, border: 0, width: '149px', height: '149px' }}
-                         src="http://aral.github.com/fork-me-on-github-retina-ribbons/right-graphite@2x.png" 
-                         alt="Fork me on GitHub"/>
-                </a> */}
             </FooterHolder>
         );
     }
 }
 
-export default Footer;
+const mapDispatchToProps = dispatch => ({
+    getDescriptor: url => dispatch(getDescriptor(url))
+})
+
+const mapStateToProps = store => ({
+    descriptors: store.craftercms.descriptors.entries
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Footer);
