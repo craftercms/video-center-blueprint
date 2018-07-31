@@ -2,12 +2,35 @@
 # yarn lockfile v1
 
 
-"@craftercms/sdk@^3.0.10":
-  version "3.0.10"
-  resolved "https://registry.yarnpkg.com/@craftercms/sdk/-/sdk-3.0.10.tgz#75de1f410da7ada9ac18b1e3513e8ba3a40d56b0"
+"@craftercms/classes@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@craftercms/classes/-/classes-1.0.0.tgz#24c6f2f65585f4fce63818277be950a9dafec0c9"
+
+"@craftercms/content@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@craftercms/content/-/content-1.0.0.tgz#89cfb8d0f31d9ddf0f280810c8d96e95caf10865"
   dependencies:
-    axios "^0.18.0"
-    qs "^6.5.1"
+    rxjs "^6.2.0"
+
+"@craftercms/models@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@craftercms/models/-/models-1.0.0.tgz#530aa41bf45e4799c5e4c104da43b23083974553"
+
+"@craftercms/redux@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@craftercms/redux/-/redux-1.0.0.tgz#f7db8f1607d6aab5ac48e02eacfb4c008afcfc36"
+  dependencies:
+    redux "^4.0.0"
+    redux-observable "^0.18.0"
+    rxjs "^6.2.0"
+
+"@craftercms/search@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@craftercms/search/-/search-1.0.0.tgz#abd6eddde06eb7acde7d5ad016b7da2e093b6b2a"
+
+"@craftercms/utils@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@craftercms/utils/-/utils-1.0.0.tgz#4654d57356a07db68f01cb066e61d3d69182d90e"
 
 "@fortawesome/fontawesome-common-types@^0.2.0-9":
   version "0.2.0"
@@ -444,13 +467,6 @@ aws-sign2@~0.7.0:
 aws4@^1.6.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.7.0.tgz#d4d0e9b9dbfca77bf08eeb0a8a471550fe39e289"
-
-axios@^0.18.0:
-  version "0.18.0"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.18.0.tgz#32d53e4851efdc0a11993b6cd000789d70c05102"
-  dependencies:
-    follow-redirects "^1.3.0"
-    is-buffer "^1.1.5"
 
 axobject-query@^0.1.0:
   version "0.1.0"
@@ -2998,7 +3014,7 @@ flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
 
-follow-redirects@^1.0.0, follow-redirects@^1.3.0:
+follow-redirects@^1.0.0:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.5.1.tgz#67a8f14f5a1f67f962c2c46469c79eaec0a90291"
   dependencies:
@@ -3121,6 +3137,10 @@ getpass@^0.1.1:
   resolved "https://registry.yarnpkg.com/getpass/-/getpass-0.1.7.tgz#5eff8e3e684d569ae4cb2b1282604e8ba62149fa"
   dependencies:
     assert-plus "^1.0.0"
+
+gitbook-plugin-github@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/gitbook-plugin-github/-/gitbook-plugin-github-2.0.0.tgz#5166e763cfcc402d432880b7a6c85c1c54b56a8d"
 
 glob-base@^0.3.0:
   version "0.3.0"
@@ -5766,7 +5786,7 @@ qs@6.5.1:
   version "6.5.1"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.1.tgz#349cdf6eef89ec45c12d7d5eb3fc0c870343a6d8"
 
-qs@^6.5.1, qs@~6.5.1:
+qs@~6.5.1:
   version "6.5.2"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
 
@@ -6455,6 +6475,12 @@ redux-logger@^3.0.6:
   dependencies:
     deep-diff "^0.3.5"
 
+redux-observable@^0.18.0:
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/redux-observable/-/redux-observable-0.18.0.tgz#48de1f35554b7ba23a88b18379ca1c93f5124197"
+  dependencies:
+    gitbook-plugin-github "^2.0.0"
+
 redux-promise-middleware@^5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/redux-promise-middleware/-/redux-promise-middleware-5.1.1.tgz#37689339a58a33d1fda675ed1ba2053a2d196b8d"
@@ -6471,6 +6497,13 @@ redux@^3.7.2:
     lodash-es "^4.2.1"
     loose-envify "^1.1.0"
     symbol-observable "^1.0.3"
+
+redux@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.0.tgz#aa698a92b729315d22b34a0553d7e6533555cc03"
+  dependencies:
+    loose-envify "^1.1.0"
+    symbol-observable "^1.2.0"
 
 regenerate@^1.2.1:
   version "1.4.0"
@@ -6726,7 +6759,7 @@ rxjs-compat@^6.2.1:
   version "6.2.2"
   resolved "https://registry.yarnpkg.com/rxjs-compat/-/rxjs-compat-6.2.2.tgz#3c0fcdb46130cc70aa55412c2b1147905ab4680a"
 
-rxjs@^6.2.1:
+rxjs@^6.2.0, rxjs@^6.2.1:
   version "6.2.2"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.2.2.tgz#eb75fa3c186ff5289907d06483a77884586e1cf9"
   dependencies:
@@ -7306,7 +7339,7 @@ sw-toolbox@^3.4.0:
     path-to-regexp "^1.0.1"
     serviceworker-cache-polyfill "^4.0.0"
 
-symbol-observable@^1.0.3:
+symbol-observable@^1.0.3, symbol-observable@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
 
