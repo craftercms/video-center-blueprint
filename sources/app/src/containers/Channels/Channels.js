@@ -37,10 +37,6 @@ class Channels extends Component {
         return (
             <ChannelsHolder>
                 <div className="">
-                    {/* <div className="segment segment--no-hero">
-                        
-                    </div> */}
-
                     <VideoCategories 
                         categories={ this.state.categories }>
                     </VideoCategories>

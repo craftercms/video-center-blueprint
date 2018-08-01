@@ -4,6 +4,7 @@ import { isNullOrUndefined } from 'util';
 import { getDescriptor } from "@craftercms/redux";
 
 import { setVideoDocked } from "../../actions/videoPlayerActions";
+import { setHeaderGhost } from '../../actions/headerActions';
 import Slider from '../../components/Slider/Slider.js';
 import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
 import NotFound from '../Errors/404';
@@ -22,11 +23,11 @@ class Channel extends Component {
     }
 
     componentDidMount() {
-        document.getElementById("mainHeader").classList.add("header--ghost");
+        this.props.setHeaderGhost(true);
     }
 
     componentWillUnmount() {
-        document.getElementById("mainHeader").classList.remove("header--ghost");
+        this.props.setHeaderGhost(false);
     }
 
     componentWillReceiveProps(newProps){
@@ -128,7 +129,8 @@ function mapStateToProps(store) {
 function mapDispatchToProps(dispatch) {
     return({
         setVideoDocked: (docked) => { dispatch(setVideoDocked(docked)) },
-        getDescriptor: (url) => { dispatch(getDescriptor(url)) }
+        getDescriptor: (url) => { dispatch(getDescriptor(url)) },
+        setHeaderGhost: (ghost) => { dispatch(setHeaderGhost(ghost)) }
     })
 }
 

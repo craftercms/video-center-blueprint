@@ -24,9 +24,13 @@ class VideoCategories extends Component {
         
         if ( isSearch ) {
             return <Cards category={category} query={this.props.query}></Cards>;
+        }else{
+            if(this.props.exclude){
+                return <Cards category={category} exclude={ this.props.exclude }></Cards>;
+            }else{
+                return <Cards category={category}></Cards>;
+            }
         }
-        return <Cards category={category}></Cards>;
-
     }
 
     renderArticlesSections(){
