@@ -4,7 +4,7 @@ const common = {
 
 const studioConfig = {
   baseUrl: "http://localhost:8080",
-  site: "video-center",
+  site: window.siteName ? window.siteName : "video-center",
   navTreeBase: "/site/website"
 }
 

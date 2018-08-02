@@ -1,13 +1,15 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 
 import NotFound from './404';
+import { setHeaderGhost } from '../../actions/headerActions';
 
 class ErrorPage extends Component {
     componentDidMount() {
-        document.getElementById("mainHeader").classList.add("header--ghost");
+        this.props.setHeaderGhost(true);
     }
     componentWillUnmount() {
-        document.getElementById("mainHeader").classList.remove("header--ghost");
+        this.props.setHeaderGhost(false);
     }
 
     render() {
@@ -19,5 +21,16 @@ class ErrorPage extends Component {
     }
 }
 
+function mapStateToProps(store) {
+    return { 
+      
+    };
+}
 
-export default ErrorPage;
+function mapDispatchToProps(dispatch) {
+    return({
+        setHeaderGhost: (ghost) => { dispatch(setHeaderGhost(ghost)) }
+    })
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ErrorPage);

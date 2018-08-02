@@ -1,9 +1,10 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { isNullOrUndefined } from 'util';
 import { getDescriptor } from "@craftercms/redux";
 
-import { setVideoDocked } from "../../actions/videoPlayerActions";
+import { setVideoDocked } from '../../actions/videoPlayerActions';
+import { setHeaderGhost } from '../../actions/headerActions';
 import Slider from '../../components/Slider/Slider.js';
 import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
 
@@ -19,16 +20,18 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        document.getElementById("mainHeader").classList.add("header--ghost");
+        this.props.setHeaderGhost(true);
     }
     componentWillUnmount() {
-        document.getElementById("mainHeader").classList.remove("header--ghost");
+        this.props.setHeaderGhost(false);
     }
 
     renderSlider(descriptor) {
         if( descriptor.page.slider.item ) {
             return (
-                <Slider data={ descriptor.page.slider.item }>
+                <Slider data={ descriptor.page.slider.item }
+                        getDescriptor={ this.props.getDescriptor }
+                        descriptors={ this.props.descriptors }>
                 </Slider>
             )
         }
@@ -92,7 +95,8 @@ function mapStateToProps(store) {
 function mapDispatchToProps(dispatch) {
     return({
         setVideoDocked: (docked) => { dispatch(setVideoDocked(docked)) },
-        getDescriptor: (url) => { dispatch(getDescriptor(url)) }
+        getDescriptor: (url) => { dispatch(getDescriptor(url)) },
+        setHeaderGhost: (ghost) => { dispatch(setHeaderGhost(ghost)) }
     })
 }
 

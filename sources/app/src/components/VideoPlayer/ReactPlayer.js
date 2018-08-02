@@ -19,7 +19,6 @@ class ReactVideoPlayer extends Component {
 
     componentDidMount() {
         window.addEventListener("resize", updateDimensions);
-        updateDimensions();
     }
 
     componentWillUnmount() {
@@ -96,6 +95,8 @@ class ReactVideoPlayer extends Component {
     //////////////////////////
 
     onStart(e) {
+        updateDimensions();
+
         if( this.props.seekTo ){
             this.refs.video.seekTo(this.props.seekTo);
         }
@@ -145,7 +146,7 @@ class ReactVideoPlayer extends Component {
                     <div id="controls">
                         <button id="playPauseButton" className="material-icons" onClick={ this.playPause }>{playing ? 'pause' : 'play_arrow'}</button>
                         <label htmlFor="seekBar" className="for-screen-readers">seek</label>
-                        <input id="seekBar" type="range" step="any" min="0" max="1" defaultValue="0"
+                        <input id="seekBar" type="range" step="any" min="0" max="1" 
                             value={played}
                             onMouseDown={this.onSeekMouseDown}
                             onChange={this.onSeekChange}

@@ -4,13 +4,6 @@ import { Link } from 'react-router-dom';
 import NotFoundHolder from './404Style';
 
 class NotFound extends Component {
-    componentDidMount() {
-        document.getElementById("mainHeader").classList.add("header--ghost");
-    }
-    componentWillUnmount() {
-        document.getElementById("mainHeader").classList.remove("header--ghost");
-    }
-
     render() {
         return (
             <NotFoundHolder>

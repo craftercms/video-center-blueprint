@@ -59,7 +59,7 @@ class Header extends Component {
                          src="http://aral.github.com/fork-me-on-github-retina-ribbons/right-graphite@2x.png" alt="Fork me on GitHub"/>
                 </a>
 
-                <header id="mainHeader" className={"header"}>
+                <header id="mainHeader" className={"header " + ( this.props.headerGhost ? 'header--ghost' : '' )}>
                     <div className="header__container">
                         <div className="header__overlay"></div>
         
@@ -117,7 +117,8 @@ const mapDispatchToProps = dispatch => ({
 
 const mapStateToProps = store => ({
     nav: store.craftercms.navigation,
-    descriptors: store.craftercms.descriptors.entries
+    descriptors: store.craftercms.descriptors.entries,
+    headerGhost: store.header.headerGhost
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
