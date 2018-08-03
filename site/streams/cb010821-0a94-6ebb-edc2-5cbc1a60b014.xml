@@ -8,9 +8,9 @@
 	<internal-name>Inflated Self Assessment</internal-name>
 	<title_s tokenized="true">Inflated Self Assessment</title_s>
 	<summary_s>Ever wondered why the more you learn about a topic, the more you understand how little you know? Join us for this event where we dive into people's self assessment mechanics and how it inversely correlates with their competence.</summary_s>
-	<origin>	<item>	<key>/site/origins/6efe40ef-cdca-477b-f8c0-7a1e9f0aa990.xml</key>
-	<value>Example</value>
-	<include>/site/origins/6efe40ef-cdca-477b-f8c0-7a1e9f0aa990.xml</include>
+	<origin item-list="true">	<item>	<key>/site/origins/416d952c-92a8-e0e9-178e-23c43734facb.xml</key>
+	<value>ShakaDemo</value>
+	<include>/site/origins/416d952c-92a8-e0e9-178e-23c43734facb.xml</include>
 	<disableFlattening>false</disableFlattening>
 	</item></origin>
 	<thumbnail>/static-assets/images/videos/6f1b063a-cb5d-6afd-ce79-02972ba88fb9/auditorium-benches-chairs-207691.jpg</thumbnail>
@@ -20,8 +20,8 @@
 	<endDate_dt>2020-03-31T22:00:00.000Z</endDate_dt>
 	<createdDate>2018-04-26T15:39:56.460Z</createdDate>
 	<createdDate_dt>2018-04-26T15:39:56.460Z</createdDate_dt>
-	<lastModifiedDate>2018-07-06T21:28:35.311Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-07-06T21:28:35.311Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-08-03T22:06:07.176Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-08-03T22:06:07.176Z</lastModifiedDate_dt>
 	<startDate_dt_tz>Etc/GMT</startDate_dt_tz>
 	<endDate_dt_tz>Etc/GMT</endDate_dt_tz>
 	<channels>	<item>	<key>psychology</key>
