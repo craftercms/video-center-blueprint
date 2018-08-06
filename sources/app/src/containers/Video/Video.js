@@ -15,6 +15,7 @@ import ModalDialog from '../../components/Modal/Modal';
 // import VideoSidebar from './VideoSidebar.js';
 import { setVideoInfo, setVideoStatus } from "../../actions/videoPlayerActions";
 import { setHeaderGhost } from '../../actions/headerActions';
+import { pageScrollTop } from '../../utils';
 
 class Video extends Component {
     state = {
@@ -42,6 +43,7 @@ class Video extends Component {
 
         if(match.url !== newProps.match.url){
             this.loadVideo(newProps);
+            pageScrollTop();
         }
 
         if( 
@@ -77,6 +79,7 @@ class Video extends Component {
                 now = new Date();
 
             if(video['content-type'] === '/component/stream' && videoStartDate > now ){
+                //is an upcoming video, won't load player
                 this.props.setHeaderGhost(true);
 
                 upcomingVideoHero.push({
@@ -89,13 +92,16 @@ class Video extends Component {
     
                 // remove video info (if available)
                 setVideoInfo(null);
-                this.setState({ slider: upcomingVideoHero })
+                this.setState({ slider: upcomingVideoHero });
             }else{
+                //is a video (regular video or stream) - will load player
                 // remove upcoming stream slider info (if available)
                 this.setState({ slider: null })
+                this.props.setHeaderGhost(false);
                 setVideoInfo(video);
             }
 
+            //get categories for videoCategories component
             if( video["channels.item.key"].constructor === Array ){
                 for (var i = 0, len = video["channels.item.key"].length; i < len; i++) {
                     categories.push( 
