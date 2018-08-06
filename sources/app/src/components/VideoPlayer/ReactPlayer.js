@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import ReactPlayer from 'react-player';
 import { setVideoStatus } from "../../actions/videoPlayerActions";
 import { updateDimensions } from "./Common";
-import screenfull from 'screenfull';
-import { findDOMNode } from 'react-dom';
+import fscreen from 'fscreen';
 
 class ReactVideoPlayer extends Component {
     state = {
@@ -25,14 +24,22 @@ class ReactVideoPlayer extends Component {
         window.removeEventListener("resize", updateDimensions);
     }
 
-
     // Custom controls methods
     playPause = () => {
         this.setState({ playing: !this.state.playing })
     }
 
     onClickFullscreen = () => {
-        screenfull.request(findDOMNode(this.player))
+        var videoContainer_ = document.getElementById("videoContainer");
+
+        if (fscreen.fullscreenEnabled) {
+            if(fscreen.fullscreenElement){
+                fscreen.exitFullscreen();
+            }else{
+                fscreen.requestFullscreen(videoContainer_);
+            }
+        }
+
     }
 
     onSeekMouseDown = e => {
@@ -76,7 +83,7 @@ class ReactVideoPlayer extends Component {
         const volume = parseFloat(e.target.value);
         this.setState({ volume: volume })
     }
-    toggleMuted = () => {
+    toggleMuted = (e) => {
         var muted = !this.state.muted,
             volume;
 
@@ -104,15 +111,11 @@ class ReactVideoPlayer extends Component {
 
     onPlaying(e) {
         this.props.dispatch(setVideoStatus( { ...this.props.videoStatus, playing: true } ));
-
-        //TODO: refactor - I think this doesn't belong in this method, check onPlaying doc
         this.setState({ playing: true })
     }
 
     onStopped(e){
         this.props.dispatch(setVideoStatus( { ...this.props.videoStatus, playing: false } ));
-
-        //TODO: refactor
         this.setState({ playing: false })
     }
 

@@ -223,6 +223,7 @@ const VideoPlayerHolder = styled.div`
             align-items: center;
         
             bottom: 5px;
+            left: 0px;
         }
     
         #controls {
@@ -250,6 +251,7 @@ const VideoPlayerHolder = styled.div`
         */
         &.player-container:hover #controls, #controls:hover {
             opacity: 1;
+            z-index: 9999999999;    // Screenfull lib sets z-index: 2147483647; when in fullscreen, need to override in controls
         }
     
         /* NOTE: These fullscreen pseudo-classes can't be combined.  Browsers ignore
@@ -260,6 +262,13 @@ const VideoPlayerHolder = styled.div`
         #videoContainer:-moz-full-screen { width: 100%; height: 100%; }
         #videoContainer:-ms-fullscreen { width: 100%; height: 100%; }
     
+        #liveLabel {
+            color: #ff0000;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
         #controls button {
             color: white;
             height: 32px;

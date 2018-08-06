@@ -50,12 +50,26 @@ class ShakaPlayer extends Component {
     componentWillUnmount() {
         clearInterval(this.updateTimeRangeInterval);
         window.removeEventListener("resize", updateDimensions);
+        this.player.destroy();
+    }
+
+    componentWillReceiveProps(newProps) {
+        // if(newProps.video !== null && (!this.props.videoStatus.loaded)){
+        //     this.loadVideo(newProps.videoInfo);
+        // }
+
+        // new video Info -> load new manifestUri into player
+        if(this.props.video && newProps.video){
+            if(this.props.video.id !== newProps.video.id){
+                const newManifestUri = newProps.video["origin.item.component.url"];
+                this.player.load(newManifestUri)
+            }
+        }
     }
 
     initPlayer(){
         var me = this;
-        var manifestUri = '//storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd';      //TODO: this is the stream url
-        // var manifestUri = this.props.video["origin.item.component.url"];
+        var manifestUri = this.props.video["origin.item.component.url"];
         this.video_ = this.refs.video;
 
         player = new shaka.Player(this.refs.video);
@@ -361,6 +375,7 @@ class ShakaPlayer extends Component {
                 <div id="controlsContainer" className="overlay">
                     <div id="controls">
                         <button id="playPauseButton" className="material-icons" onClick={ this.playPause }>play_arrow</button>
+                        <label id="liveLabel">&#8226; Live</label>
                         <label htmlFor="seekBar" className="for-screen-readers">seek</label>
                         <input id="seekBar" type="range" step="any" min="0" max="1" defaultValue="0"
                             onMouseDown={ this.seekStart }
