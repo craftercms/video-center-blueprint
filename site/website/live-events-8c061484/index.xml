@@ -5,16 +5,14 @@
 	<objectGroupId>da8ea741</objectGroupId>
 	<objectId>da8ea741-a2c6-49e2-bf0e-34a31706bda7</objectId>
 	<file-name>index.xml</file-name>
-	<folder-name>live-events-8c061484</folder-name>
+	<folder-name>channel</folder-name>
 	<placeInNav>true</placeInNav>
 	<orderDefault_f>0.0</orderDefault_f>
-	<internal-name>Live Events 8c061484</internal-name>
-	<reactComponent>LiveEvents</reactComponent>
-	<title>Live Events</title>
+	<internal-name>Channel</internal-name>
+	<reactComponent>Channel</reactComponent>
 	<disabled>false</disabled>
-	<body>&lt;p&gt;Live Events&lt;/p&gt;</body>
 	<createdDate>2018-05-29T17:02:14.112Z</createdDate>
 	<createdDate_dt>2018-05-29T17:02:14.112Z</createdDate_dt>
-	<lastModifiedDate>2018-05-29T17:02:14.112Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-05-29T17:02:14.112Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-08-06T06:04:17.981Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-08-06T06:04:17.981Z</lastModifiedDate_dt>
 </page>
