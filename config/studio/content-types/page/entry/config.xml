@@ -9,5 +9,8 @@
 	<noThumbnail>true</noThumbnail>
 	<image-thumbnail></image-thumbnail>
 	<paths>
+		<includes>
+			<pattern>undefined</pattern>
+		</includes>
 	</paths>
 </content-type>

@@ -13,6 +13,10 @@ import { setVideoStatus, setVideoInfo } from "../../actions/videoPlayerActions";
 var Player = {};
 class VideoPlayer extends Component {
     componentWillReceiveProps(newProps) {
+        //Video info removed - unload video
+        if(!newProps.videoInfo && this.props.videoInfo) {
+            this.unloadVideo();
+        }
 
         //If video not loaded and it has new video Info -> load video
         if(newProps.videoInfo !== null && (!this.props.videoStatus.loaded)){
@@ -26,12 +30,13 @@ class VideoPlayer extends Component {
             this.unloadVideo();
         }
 
-        //If new props contains a different type of video than current (stream, video) => load new one
         if(this.props.videoInfo && newProps.videoInfo){
             var currentType = this.props.videoInfo.youTubeVideo ? "video" : "stream",
                 newType = newProps.videoInfo.youTubeVideo ? "video" : "stream";
 
+            //If new props contains a different type of video than current (stream, video) => load new one
             if( currentType !== newType ){
+                this.unloadVideo();
                 this.loadVideo(newProps.videoInfo);
             }
         }
@@ -45,7 +50,7 @@ class VideoPlayer extends Component {
     }
 
     unloadVideo() {
-        this.props.dispatch(setVideoStatus( { ...this.props.videoStatus, loaded: false } ));
+        this.props.dispatch(setVideoStatus( { ...this.props.videoStatus, loaded: false, playing: false } ));
         this.props.dispatch(setVideoInfo( null ));
     }
 
@@ -53,7 +58,7 @@ class VideoPlayer extends Component {
         return (
             <VideoPlayerHolder>
                 <div id="app-content__player" className="app-content__player">
-                    {this.props.videoStatus.loaded &&
+                    { this.props.videoInfo && this.props.videoStatus.loaded &&
                         <div className="app-content__player-wrapper">
                             <div className={ `global-video-player global-video-player--visible global-video-player--${ this.props.videoStatus.docked ? 'docked' : 'fixed' }` }>
                                 <div id="videoPlayerAspect" className="global-video-player__aspect">

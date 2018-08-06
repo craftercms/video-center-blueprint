@@ -39,7 +39,7 @@ class Channel extends Component {
     getChannelInfo(props) {
         var channelName = props.match.params.name;
 
-        this.descriptorUrl = `/site/components/channels/${ channelName }.xml`;
+        this.descriptorUrl = `/site/components/channel/${ channelName }.xml`;
 
         if(isNullOrUndefined(this.props.descriptors[this.descriptorUrl])){
             this.props.getDescriptor(this.descriptorUrl);

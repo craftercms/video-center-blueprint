@@ -118,6 +118,17 @@ class VideoCategories extends Component {
         }
     }
 
+    //horizontal scroll to category (when mobile or many categories that overflow the bar space)
+    scrollMenuToCategory(sectionEl) {
+        if(sectionEl){
+            var menuEl = document.querySelector("[href='#" + sectionEl.id + "']"),
+                menuContainer = document.querySelector("#stickyBar .inline-nav__ul"),
+                scrollTo = menuEl.offsetLeft - 40;      // -40 because of left padding
+
+            menuContainer.scrollLeft = scrollTo;
+        }
+    }
+
     componentDidMount() {
         document.getElementsByClassName("app-content__main")[0].addEventListener('scroll', this.handleScroll);
     }
@@ -138,7 +149,8 @@ class VideoCategories extends Component {
                                        items={ this.sectionsScrollSpy } 
                                        currentClassName="inline-nav__item--active"
                                        rootEl={ ".app-content__main" }
-                                       ref={node => (this.scrollspy = node)}>
+                                       ref={node => (this.scrollspy = node)}
+                                       onUpdate={ el => { this.scrollMenuToCategory(el) } }>
                                 {this.renderCategoriesItems()}
                             </Scrollspy>
                         </div>

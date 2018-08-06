@@ -8,9 +8,9 @@
 	<internal-name>Fluoride in Drinking Water</internal-name>
 	<title_s tokenized="true">Fluoride in Drinking Water</title_s>
 	<summary_s>70 years in, is fluoride in drinking water safe? Find out in this event as we discuss the science of water fluoridation.</summary_s>
-	<origin>	<item>	<key>/site/origins/6efe40ef-cdca-477b-f8c0-7a1e9f0aa990.xml</key>
-	<value>Example</value>
-	<include>/site/origins/6efe40ef-cdca-477b-f8c0-7a1e9f0aa990.xml</include>
+	<origin item-list="true">	<item>	<key>/site/origins/852160d4-0c30-1da7-03f9-2b3557d7945a.xml</key>
+	<value>Big Buck Bunny</value>
+	<include>/site/origins/852160d4-0c30-1da7-03f9-2b3557d7945a.xml</include>
 	<disableFlattening>false</disableFlattening>
 	</item></origin>
 	<thumbnail>/static-assets/images/videos/6f1b063a-cb5d-6afd-ce79-02972ba88fb9/auditorium-benches-chairs-207691.jpg</thumbnail>
@@ -20,8 +20,8 @@
 	<endDate_dt>2018-07-06T22:00:00.000Z</endDate_dt>
 	<createdDate>2018-04-26T15:28:33.787Z</createdDate>
 	<createdDate_dt>2018-04-26T15:28:33.787Z</createdDate_dt>
-	<lastModifiedDate>2018-07-07T01:07:17.985Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-07-07T01:07:17.985Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-08-03T22:03:52.844Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-08-03T22:03:52.844Z</lastModifiedDate_dt>
 	<startDate_dt_tz>Etc/GMT</startDate_dt_tz>
 	<endDate_dt_tz>America/Guatemala</endDate_dt_tz>
 	<channels>	<item>	<key>chemistry</key>
