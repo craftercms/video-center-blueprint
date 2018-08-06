@@ -7,9 +7,7 @@ import { isNullOrUndefined } from 'util'
 import { crafterConf } from '@craftercms/classes';
 import { SearchService } from '@craftercms/search';
 
-// const monthNames = ["January", "February", "March", "April", "May", "June",
-//   "July", "August", "September", "October", "November", "December"
-// ];
+import { formatDate } from '../../utils';
 
 class Cards extends Component {
     componentDidMount() {
@@ -65,6 +63,12 @@ class Cards extends Component {
                     videoName = card.title_s ? (card.title_s).toLowerCase().replace(/ /g, '-') : '';
                     videoName = encodeURI(videoName);
 
+                    if(card.startDate_dt) {
+                        var videoStartDate = new Date(card.startDate_dt),
+                            now = new Date(),
+                            formattedDate = formatDate(card.startDate_dt);   
+                    }
+
                     return (
                         <div className="static-grid__item" key={ card.id }>
                             <div className="video-card video-card--has-description">
@@ -75,6 +79,16 @@ class Cards extends Component {
                                         </div>
                                         <video className="image preview-video" loop="" preload="auto" playsInline=""></video>
                                     </div>
+                                    { videoStartDate > now &&
+                                        <div className="video-card__date-info">
+                                            <div className="day">
+                                                { formattedDate.month } { formattedDate.monthDay }
+                                            </div>
+                                            <div className="time">
+                                                { formattedDate.weekDay } @ { formattedDate.time } { formattedDate.timezone }
+                                            </div>
+                                        </div>
+                                    }
                                     <div className="video-card__content">
                                         <div className="video-card__time"> { card.length } </div>
                                         <h3 className="heading video-card__heading heading--default heading--card">{ card.title_s }</h3>
@@ -119,17 +133,8 @@ class Cards extends Component {
                         </div>
                     );
                 case "live-event-item":
-                    var date = new Date(parseInt(card.startDate_dt, 10)),
-                        dateStrings = date.toString().split(" "),
-                        dateFormatted = {
-                            month: dateStrings[1],
-                            weekDay: dateStrings[0],
-                            monthDay: dateStrings[2],
-                            year: dateStrings[3],
-                            time: dateStrings[4],
-                            timezone: dateStrings[6]
-                        };
-
+                    var dateFormatted = formatDate(card.startDate_dt);
+                    
                     videoName = card.title_s ? (card.title_s).toLowerCase().replace(/ /g, '-') : '';
                     videoName = encodeURI(videoName);
 
@@ -151,11 +156,6 @@ class Cards extends Component {
                                     <div className="live-events-item__detail">
                                         <div className="live-events-item__heading-group">
                                             <h3 className="live-events-item__heading">{ card.title_s }</h3>
-                                        </div>
-                                    </div>
-                                    <div className="live-events-item__cta">
-                                        <div className="inline-button inline-button__text"> 
-                                            <span className="inline-button__text">Remind me</span>
                                         </div>
                                     </div>
                                 </div>

@@ -360,6 +360,33 @@ const VideoCategoriesHolder = styled.div`
                                     opacity: 0;
                                 }
 
+                                .video-card__date-info {
+                                    position: absolute;
+                                    font-size: 1.5rem;
+                                    top: 2rem;
+                                    left: 2rem;
+                                    font-weight: bold;
+                                    color: #fff;
+
+                                    .day {
+                                        font-size: 3rem;
+                                        font-weight: 800;
+                                        letter-spacing: -.03em;
+                                        text-shadow: 2px 2px 20px rgba(0,0,0,.25);
+                                    }
+
+                                    .time {
+                                        font-size: 1.3rem;
+                                        font-weight: 800;
+                                        white-space: nowrap;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                        text-transform: uppercase;
+                                        text-shadow: 0 0 4px rgba(0,0,0,.25);
+                                        color: #fff;
+                                    }
+                                }
+
                                 .video-card__content {
                                     position: relative;
                                     z-index: 100;
