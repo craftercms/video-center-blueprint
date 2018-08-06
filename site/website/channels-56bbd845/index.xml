@@ -5,16 +5,14 @@
 	<objectGroupId>342442e7</objectGroupId>
 	<objectId>342442e7-084f-409f-890f-e08d1bc50ece</objectId>
 	<file-name>index.xml</file-name>
-	<folder-name>channels-56bbd845</folder-name>
-	<internal-name>Channels 56bbd845</internal-name>
-	<reactComponent>Channels</reactComponent>
-	<title>Channels Page</title>
+	<folder-name>search</folder-name>
+	<internal-name>Search</internal-name>
+	<reactComponent>Search</reactComponent>
 	<placeInNav>true</placeInNav>
 	<orderDefault_f>0.0</orderDefault_f>
 	<disabled>false</disabled>
-	<body>&lt;p&gt;Channels Page Body&lt;/p&gt;</body>
 	<createdDate>2018-05-17T18:05:25.406Z</createdDate>
 	<createdDate_dt>2018-05-17T18:05:25.406Z</createdDate_dt>
-	<lastModifiedDate>2018-05-17T18:06:23.330Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-05-17T18:06:23.330Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-08-06T06:15:43.090Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-08-06T06:15:43.090Z</lastModifiedDate_dt>
 </page>
