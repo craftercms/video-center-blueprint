@@ -2,9 +2,33 @@
 
 Live, live-to-VOD, and video serving blueprint on Crafter CMS.
 
-## Building
+## Installation
 
-*__TBD__: Add docs on how to build the ui app.*
+- Created using:
+  - [Create React App](https://github.com/facebookincubator/create-react-app).
+
+1. Install [yarn](https://yarnpkg.com/en/)
+2. Run `yarn`
+
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `yarn start`
+
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.
+
+### `yarn build`
+
+Builds the app for production to the site `static-assets` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.<br>
 
 ## Site Configuration
 
