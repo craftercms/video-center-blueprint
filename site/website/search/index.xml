@@ -8,11 +8,11 @@
 	<folder-name>search</folder-name>
 	<internal-name>Search</internal-name>
 	<reactComponent>Search</reactComponent>
-	<placeInNav>true</placeInNav>
-	<orderDefault_f>0.0</orderDefault_f>
+	<placeInNav>false</placeInNav>
+	<orderDefault_f>-1</orderDefault_f>
 	<disabled>false</disabled>
 	<createdDate>2018-05-17T18:05:25.406Z</createdDate>
 	<createdDate_dt>2018-05-17T18:05:25.406Z</createdDate_dt>
-	<lastModifiedDate>2018-08-06T06:15:43.090Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-08-06T06:15:43.090Z</lastModifiedDate_dt>
+	<lastModifiedDate>2018-08-06T19:52:28.417Z</lastModifiedDate>
+	<lastModifiedDate_dt>2018-08-06T19:52:28.417Z</lastModifiedDate_dt>
 </page>

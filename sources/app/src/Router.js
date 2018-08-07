@@ -17,6 +17,7 @@ class Router extends Component {
     componentWillMount() {
         //Need to locally set components in order to dinamically load them in router
         this.Channels = Channels;
+        this.LiveEvents = LiveEvents;
 
         this.props.getNav('/site/website');
     }
@@ -40,8 +41,6 @@ class Router extends Component {
         return (
         <Switch>
             <Route exact path='/' component={Home}/>
-            {/* <Route exact path='/channels' component={Channels}/> */}
-            <Route exact path='/live-events' component={LiveEvents}/>
             <Route exact path='/video/:id/:videoName?' component={Video}/>
             <Route exact path='/stream/:id/:videoName?' component={Video}/>
             <Route exact path='/search' component={Search}/>
