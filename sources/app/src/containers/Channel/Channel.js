@@ -13,7 +13,7 @@ class Channel extends Component {
     constructor(props) {
         super(props);
 
-        //categories = new/featured, all videos, all streams, related 
+        //categories = new/featured, all videos, all streams, related
 
         this.getChannelInfo(props);
     }
@@ -57,7 +57,7 @@ class Channel extends Component {
         channelHero.push({
             url: "#",
             background: channelContent.heroImage,
-            title: channelContent["internal-name"],
+            title: channelContent['internal-name'],
             subtitle: channelContent.description
         });
 
@@ -66,21 +66,21 @@ class Channel extends Component {
             var tag = channelTags[x];
 
             tagsFilter += '"' + tag.value + '"';
-            tagsFilter += x < channelTags.length - 1 ? ' OR ' : ''; 
+            tagsFilter += x < channelTags.length - 1 ? ' OR ' : '';
         }
 
         categories = [
             {
                 key: "featured-videos",
                 value: "Featured Videos",
-                query: ["content-type:/component/video", 'channels.item.key: "computer-science"'],
+                query: ["content-type:/component/video", 'channels.item.key: "' + channelContent.channelKey + '"'],
                 numResults: component.maxVideosDisplay
             },
-            { 
-                key: "related-channels", 
+            {
+                key: "related-channels",
                 value: "Related Channels",
                 type: "channel-card-alt",   //TO RENDER CHANNEL CARD STYLING
-                query: ['content-type:"/component/component-channel"', tagsFilter, '-file-name: "' + channelContent['file-name'] + '"'] ,       
+                query: ['content-type:"/component/component-channel"', tagsFilter, '-file-name: "' + channelContent['file-name'] + '"'],
                 numResults: component.maxChannelsDisplay
             }
         ];
@@ -91,7 +91,7 @@ class Channel extends Component {
                     localData={ true }
                 >
                 </Slider>
-                <VideoCategories 
+                <VideoCategories
                     categories={ categories } >
                 </VideoCategories>
             </div>
@@ -99,7 +99,7 @@ class Channel extends Component {
     }
 
     render() {
-        const { descriptors, descriptorsLoading } = this.props; 
+        const { descriptors, descriptorsLoading } = this.props;
 
         if( (descriptorsLoading[this.descriptorUrl] === false ) && isNullOrUndefined(descriptors[this.descriptorUrl]) ){
             return (
@@ -113,12 +113,12 @@ class Channel extends Component {
                     }
                 </div>
             );
-        } 
+        }
     }
 }
 
 function mapStateToProps(store) {
-    return { 
+    return {
         videoInfo: store.video.videoInfo,
         videoStatus: store.video.videoStatus,
         descriptors: store.craftercms.descriptors.entries,
