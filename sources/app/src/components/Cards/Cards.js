@@ -27,7 +27,7 @@ class Cards extends Component {
         if(category.query){
             query.query = "*:*";
             query.filterQueries = category.query;
-            
+
             if( !isNullOrUndefined(category.numResults) ){
                 query.numResults = category.numResults;
             }
@@ -48,7 +48,7 @@ class Cards extends Component {
         SearchService
             .search(query, crafterConf.getConfig())
             .subscribe(cards => {
-                self.setState({ cards: cards.response.documents });       
+                self.setState({ cards: cards.response.documents });
             });
     }
 
@@ -66,13 +66,13 @@ class Cards extends Component {
                     if(card.startDate_dt) {
                         var videoStartDate = new Date(card.startDate_dt),
                             now = new Date(),
-                            formattedDate = formatDate(card.startDate_dt);   
+                            formattedDate = formatDate(card.startDate_dt);
                     }
 
                     return (
                         <div className="static-grid__item" key={ card.id }>
                             <div className="video-card video-card--has-description">
-                                <Link className="video-card__link" to={ `${componentUrl} ${card.objectId}/${videoName}` }>
+                                <Link className="video-card__link" to={ `${componentUrl}${card.objectId}` }>
                                     <div>
                                         <div className="image video-card__image--background" style={{ background: 'transparent' }}>
                                             <div className="image__image" style={{ backgroundImage: `url(${ card.thumbnail })` }}></div>
@@ -105,7 +105,7 @@ class Cards extends Component {
                     );
                 case "channel-card-alt":
                     var url = card["file-name"].replace(".xml", "");
-                    
+
                     return (
                         <div className="static-grid__item" key={card.id}>
                             <div className="channel-card-alt">
@@ -134,7 +134,7 @@ class Cards extends Component {
                     );
                 case "live-event-item":
                     var dateFormatted = formatDate(card.startDate_dt);
-                    
+
                     videoName = card.title_s ? (card.title_s).toLowerCase().replace(/ /g, '-') : '';
                     videoName = encodeURI(videoName);
 

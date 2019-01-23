@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component>
-	<content-type>/component/component-channel</content-type>	<display-template/>
+	<content-type>/component/component-channel</content-type>	<display-template>/templates/web/entry.ftl</display-template>
 	<merge-strategy>inherit-levels</merge-strategy>
 	<objectGroupId>98e3</objectGroupId>
 	<objectId>98e324b3-b333-a1a6-050e-05bdcb913fbd</objectId>
@@ -12,10 +12,10 @@
 	<thumbnailImage>/static-assets/images/channels/98e324b3-b333-a1a6-050e-05bdcb913fbd/engineering-thumbnail.jpg</thumbnailImage>
 	<createdDate>2018-05-25T19:50:18.277Z</createdDate>
 	<createdDate_dt>2018-05-25T19:50:18.277Z</createdDate_dt>
-	<lastModifiedDate>2018-07-20T00:11:52.839Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-07-20T00:11:52.839Z</lastModifiedDate_dt>
+	<lastModifiedDate>2019-01-23T16:21:46.078Z</lastModifiedDate>
+	<lastModifiedDate_dt>2019-01-23T16:21:46.078Z</lastModifiedDate_dt>
 	<featured>true</featured>
-	<tags>	<item>	<value>engineering</value>
+	<tags item-list="true">	<item>	<value>engineering</value>
 	</item>	<item>	<value>software</value>
 	</item>	<item>	<value>physics</value>
 	</item>	<item>	<value>mathematics</value>
@@ -23,4 +23,5 @@
 	</item></tags>
 	<maxVideosDisplay>6</maxVideosDisplay>
 	<maxChannelsDisplay>3</maxChannelsDisplay>
+	<channelKey>engineering</channelKey>
 </component>

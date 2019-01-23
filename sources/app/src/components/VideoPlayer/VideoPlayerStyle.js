@@ -26,7 +26,7 @@ const VideoPlayerHolder = styled.div`
             width: 100%;
             padding: 0px;
 
-            @media (min-width: 114.0625em){ 
+            @media (min-width: 114.0625em){
                 position: relative;
                 margin: 0 auto;
                 min-height: .1rem;
@@ -65,10 +65,6 @@ const VideoPlayerHolder = styled.div`
                 min-height: 90px;
                 max-width: 980px;
                 max-height: 551px;
-
-                video {
-                    filter: grayscale(100%);
-                }
 
                 &.global-video-player--visible {
                     opacity: 1;
@@ -202,13 +198,13 @@ const VideoPlayerHolder = styled.div`
             margin: auto;
             width: 100px;
             height: 100px;
-        
+
             top: 0;
             left: 0;
             bottom: 0;
             right: 0;
         }
-    
+
         #controlsContainer {
             position: absolute;
             width: 100%;
@@ -216,35 +212,35 @@ const VideoPlayerHolder = styled.div`
             padding: 0 5px;
             margin: 0 auto 5px;
             box-sizing: border-box;
-        
+
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-        
+
             bottom: 5px;
             left: 0px;
         }
-    
+
         #controls {
             width: 100%;
             max-width: 800px;
             height: 35px;
             margin: 0;
             padding: 0 0 0 7px;
-        
+
             background-color: rgba(20, 20, 20, 0.8);
             border-radius: 5px;
-        
+
             display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: center;
-        
+
             opacity: 0;
             transition: opacity 0.3s;
         }
-    
+
         /* Show the controls when the mouse is over them.  This overrides the mouse
         * timeout logic in JS that is used to hide the controls when the mouse stops
         * moving over the video container.
@@ -253,7 +249,7 @@ const VideoPlayerHolder = styled.div`
             opacity: 1;
             z-index: 9999999999;    // Screenfull lib sets z-index: 2147483647; when in fullscreen, need to override in controls
         }
-    
+
         /* NOTE: These fullscreen pseudo-classes can't be combined.  Browsers ignore
         * the rest of the list once they hit one prefix they don't support.
         */
@@ -261,7 +257,7 @@ const VideoPlayerHolder = styled.div`
         #videoContainer:-webkit-full-screen { width: 100%; height: 100%; }
         #videoContainer:-moz-full-screen { width: 100%; height: 100%; }
         #videoContainer:-ms-fullscreen { width: 100%; height: 100%; }
-    
+
         #liveLabel {
             color: #ff0000;
             font-size: 1.5rem;
@@ -281,45 +277,45 @@ const VideoPlayerHolder = styled.div`
             border-radius: 4px;
             cursor: pointer;
         }
-    
+
         #controls button:active {
             background: rgba(100, 100, 100, 0.4);
         }
-    
+
         #controls button:disabled {
             color: rgba(255, 255, 255, 0.3);
         }
-    
+
         #controls input[type="range"] {
             cursor: pointer;
         }
-    
+
         #castReceiverName {
             display: none;
-        
+
             background-color: rgba(0, 0, 0, 0.5);
             color: white;
             font-size: 150%;
             padding: 5px;
-        
+
             bottom: 50px;
             left: 0;
             right: 0;
             margin: auto;
             width: max-content;
         }
-        
+
         #giantPlayButtonContainer {
             margin: auto;
             width: 200px;
             height: 200px;
-        
+
             top: 0;
             left: 0;
             bottom: 0;
             right: 0;
         }
-        
+
         #giantPlayButton {
             width: 100%;
             height: 100%;
@@ -331,14 +327,14 @@ const VideoPlayerHolder = styled.div`
             background: rgba(100, 100, 100, 0.4);
             border-radius: 40px;
         }
-        
+
         #pauseButton, #unmuteButton,
         #castButton, #castConnectedButton,
         #rewindButton, #fastForwardButton,
         #giantPlayButtonContainer, #bufferingSpinner {
             display: none;
         }
-        
+
         #currentTime {
             display: flex;
             flex-grow: 0;
@@ -347,40 +343,40 @@ const VideoPlayerHolder = styled.div`
             font-size: 13px;
             font-weight: bold;
             color: white;
-        
+
             cursor: default;
             user-select: none;
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
         }
-        
-        
+
+
         /* Always show controls while casting */
         #controls.casting {
             opacity: 1;
         }
-        
+
         /* Hide fullscreen button while casting */
         #controls.casting #fullscreenButton {
             display: none;
         }
-        
-        
+
+
         /* NOTE: pseudo-elements for different browsers can't be combined with commas.
         * Browsers will ignore styles if any pseudo-element in the list is unknown.
         */
-        
+
         /* range inputs, common style */
         #seekBar, #volumeBar {
             display: flex;
             height: 7px;
             margin: 0 12px 0 0;
             padding: 0;
-        
+
             /* removes webkit default styling */
             -webkit-appearance: none;
-        
+
             border: 1px solid #666;
             border-radius: 4px;
             background-color: black;
@@ -397,7 +393,7 @@ const VideoPlayerHolder = styled.div`
             background-color: transparent;
             outline: none;
         }
-        
+
         /* per-instance styles */
         #seekBar {
             flex-grow: 1;
@@ -407,8 +403,8 @@ const VideoPlayerHolder = styled.div`
             min-width: 15px;
             max-width: 70px;
         }
-        
-        
+
+
         /* thumb pseudo-element, common style */
         #seekBar::-webkit-slider-thumb, #volumeBar::-webkit-slider-thumb {
             -webkit-appearance: none;
@@ -423,7 +419,7 @@ const VideoPlayerHolder = styled.div`
             background-color: white;
             outline: none;
         }
-        
+
         /* thumb pseudo-element, seek style */
         #seekBar::-webkit-slider-thumb {
             width: 18px;
@@ -440,7 +436,7 @@ const VideoPlayerHolder = styled.div`
             height: 11px;
             border-radius: 8px;
         }
-        
+
         /* thumb pseudo-element, volume style */
         #volumeBar::-webkit-slider-thumb {
             width: 12px;
@@ -457,36 +453,36 @@ const VideoPlayerHolder = styled.div`
             height: 12px;
             border-radius: 12px;
         }
-        
+
         /* turn off tooltips for the seekBar on IE */
         #seekBar::-ms-tooltip {
             display: none;
         }
-        
+
         /* hide volume and mute buttons on mobile-sized screens */
         @media screen and (max-width: 700px) {
             #volumeBar, #muteButton {
             display: none;
             }
         }
-        
-        
+
+
         /*
         The SVG/CSS buffering spinner is based on http://codepen.io/jczimm/pen/vEBpoL
         Some local modifications have been made.
-        
+
         Copyright (c) 2016 by jczimm
-        
+
         Permission is hereby granted, free of charge, to any person obtaining a copy of
         this software and associated documentation files (the "Software"), to deal in
         the Software without restriction, including without limitation the rights to
         use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
         of the Software, and to permit persons to whom the Software is furnished to do
         so, subject to the following conditions:
-        
+
         The above copyright notice and this permission notice shall be included in all
         copies or substantial portions of the Software.
-        
+
         THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
         IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
         FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -495,7 +491,7 @@ const VideoPlayerHolder = styled.div`
         OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
         SOFTWARE.
         */
-        
+
         .spinnerSvg {
             animation: rotate 2s linear infinite;
             height: 100%;
@@ -505,26 +501,26 @@ const VideoPlayerHolder = styled.div`
             top: 0; bottom: 0; left: 0; right: 0;
             margin: auto;
         }
-        
+
         .spinnerPath {
             /* Fall back for IE 11, where the stroke properties are not animated,
             but the spinner still rotates. */
             stroke: #d62d20;
             stroke-dasharray: 20, 200;
             stroke-dashoffset: 0;
-        
+
             animation:
             dash 1.5s ease-in-out infinite,
             color 6s ease-in-out infinite;
             stroke-linecap: round;
         }
-        
+
         @keyframes rotate {
             100% {
             transform: rotate(360deg);
             }
         }
-        
+
         @keyframes dash {
             0% {
             stroke-dasharray: 1, 200;
@@ -539,7 +535,7 @@ const VideoPlayerHolder = styled.div`
             stroke-dashoffset: -124px;
             }
         }
-        
+
         @keyframes color {
             100%, 0% {
             stroke: #d62d20;
