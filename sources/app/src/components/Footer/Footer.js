@@ -12,6 +12,9 @@ class Footer extends Component {
     }
     
     renderFooterNav(nav) {
+        if(Object.keys(nav).length === 0 && nav.constructor === Object){
+            return null;
+        }
         return nav.item.map((entry, i) => {
             return (
                 <a key={ i } className="footer__link" target="_blank">{ entry.title }</a>
@@ -20,10 +23,13 @@ class Footer extends Component {
     }
 
     renderFooterContent(descriptor) {
+        const currentYear = new Date().getFullYear(),
+              updatedCopyright = descriptor.component.copyrightLabel.replace('{year}', currentYear); 
+
         return(
             <div className="footer__content">
                 <div className="footer__copyright">
-                    { descriptor.component.copyrightLabel }
+                    { updatedCopyright }
                 </div>
 
                 <div className="footer__nav">
