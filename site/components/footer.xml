@@ -7,10 +7,10 @@
 	<file-name>footer.xml</file-name>
 	<folder-name/>
 	<internal-name>Site Footer</internal-name>
-	<copyrightLabel>Copyright © 2018 Crafter Software Corporation. All rights reserved.</copyrightLabel>
-	<nav/>
+	<copyrightLabel>Copyright © {year} Crafter Software Corporation. All rights reserved.</copyrightLabel>
+	<nav item-list="true"/>
 	<createdDate>2018-05-17T15:49:10.604Z</createdDate>
 	<createdDate_dt>2018-05-17T15:49:10.604Z</createdDate_dt>
-	<lastModifiedDate>2018-07-11T20:42:21.519Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-07-11T20:42:21.519Z</lastModifiedDate_dt>
+	<lastModifiedDate>2019-02-26T14:55:51.961Z</lastModifiedDate>
+	<lastModifiedDate_dt>2019-02-26T14:55:51.961Z</lastModifiedDate_dt>
 </component>
