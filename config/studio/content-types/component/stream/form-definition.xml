@@ -235,7 +235,7 @@
 					</constraints>
 				</field>
 				<field>
-					<type>rte</type>
+					<type>rte-tinymce5</type>
 					<id>description_html</id>
 					<iceId></iceId>
 					<title>Description</title>
@@ -244,24 +244,9 @@
 					<help></help>
 					<properties>
 						<property>
-							<name>width</name>
-							<value></value>
-							<type>int</type>
-						</property>
-						<property>
 							<name>height</name>
-							<value>100</value>
+							<value>200</value>
 							<type>int</type>
-						</property>
-						<property>
-							<name>maxlength</name>
-							<value></value>
-							<type>int</type>
-						</property>
-						<property>
-							<name>allowResize</name>
-							<value>true</value>
-							<type>boolean</type>
 						</property>
 						<property>
 							<name>forceRootBlockPTag</name>
@@ -279,11 +264,6 @@
 							<type>boolean</type>
 						</property>
 						<property>
-							<name>forceImageAlts</name>
-							<value>false</value>
-							<type>boolean</type>
-						</property>
-						<property>
 							<name>supportedChannels</name>
 							<value></value>
 							<type>supportedChannels</type>
@@ -297,6 +277,11 @@
 							<name>imageManager</name>
 							<value></value>
 							<type>datasource:image</type>
+						</property>
+						<property>
+							<name>videoManager</name>
+							<value></value>
+							<type>datasource:video</type>
 						</property>
 					</properties>
 					<constraints>
