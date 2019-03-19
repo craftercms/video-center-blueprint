@@ -16,7 +16,7 @@ blueprint:
     Video center blueprint
   website:
     name: Video Center Blueprint
-    url: https://craftercms.org
+    url: https://vc.craftercloud.io
   media:
     screenshots:
       - screenshot:
