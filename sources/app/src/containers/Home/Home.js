@@ -40,26 +40,69 @@ class Home extends Component {
     renderHomeContent(descriptor) {
         var page = descriptor.page,
             categories = [
-            {
-                key: "featured-videos",
-                value: "Featured Videos",
-                query: ['content-type:"/component/video"', 'featured: "true"'],
-                numResults: page.maxVideosDisplay
-            },
-            { 
-                key: "latest-videos", 
-                value: "Latest Videos",
-                query: ['content-type:"/component/video"'],
-                sort: "createdDate_dt desc",
-                numResults: page.maxVideosDisplay
-            },
-            {
-                key: "featured-channels",
-                value: "Featured Channels",
-                type: "channel-card-alt",
-                query: ['content-type:"/component/component-channel"', 'featured: "true"'],
-                numResults: page.maxChannelsDisplay
-            }
+                {
+                    key: "featured-videos",
+                    value: "Featured Videos",
+                    query: {
+                        "bool": {
+                            "filter": [
+                                {
+                                    "match": {
+                                        "content-type": "/component/video"
+                                    }
+                                },
+                                {
+                                    "match": {
+                                        "featured": true
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    numResults: page.maxVideosDisplay
+                },
+                {
+                    key: "latest-videos",
+                    value: "Latest Videos",
+                    query: {
+                        "bool": {
+                            "filter": [
+                                {
+                                    "match": {
+                                        "content-type": "/component/video"
+                                    }
+                                }
+                            ]
+                        },
+                    },
+                    sort: {
+                        by: "createdDate_dt",
+                        order: "desc"
+                    },
+                    numResults: page.maxVideosDisplay
+                },
+                {
+                    key: "featured-channels",
+                    value: "Featured Channels",
+                    type: "channel-card-alt",
+                    query: {
+                        "bool": {
+                            "filter": [
+                                {
+                                    "match": {
+                                        "content-type": "/component/component-channel"
+                                    }
+                                },
+                                {
+                                    "match": {
+                                        "featured": true
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    numResults: page.maxChannelsDisplay
+                }
         ];
 
         return (

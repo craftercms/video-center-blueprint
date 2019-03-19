@@ -14,14 +14,48 @@ class LiveEvents extends Component {
                     key: "upcoming-events",
                     value: "Upcoming Events",
                     type: "live-event-item",
-                    query: ['content-type:"/component/stream"', 'startDate_dt:[NOW TO *]'],
+                    query: {
+                        "bool": {
+                            "filter": [
+                                {
+                                    "match": {
+                                        "content-type": "/component/stream"
+                                    }
+                                },
+                                {
+                                    "range" : {
+                                        "startDate_dt" : {
+                                            "gt" : "now"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
                     numResults: 6
                 },
-                { 
+                {
                     key: "past-events", 
                     value: "Past Events",
                     type: "live-event-item",
-                    query: ['content-type:"/component/stream"', 'endDate_dt:[* TO NOW]'] ,
+                    query: {
+                        "bool": {
+                            "filter": [
+                                {
+                                    "match": {
+                                        "content-type": "/component/stream"
+                                    }
+                                },
+                                {
+                                    "range" : {
+                                        "endDate_dt" : {
+                                            "lt" : "now"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
                     numResults: 6
                 }
             ]
@@ -34,10 +68,6 @@ class LiveEvents extends Component {
     render() {
         return (
         <div>
-            {/* <Slider></Slider> */}
-
-            {/* <VideoCategories></VideoCategories> */}
-
             <VideoCategories 
                 categories={ this.state.categories }>
             </VideoCategories>

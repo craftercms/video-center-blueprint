@@ -69,7 +69,7 @@ class ShakaPlayer extends Component {
 
     initPlayer(){
         var me = this;
-        var manifestUri = this.props.video["origin.item.component.url"];
+        var manifestUri = this.props.video.origin.item.component.url;
         this.video_ = this.refs.video;
 
         player = new shaka.Player(this.refs.video);

@@ -19,12 +19,13 @@
     "moment-timezone": "^0.5.21",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
+    "react-html-parser": "^2.0.2",
     "react-player": "^1.5.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "4.1.1",
     "react-scrollspy": "^3.3.5",
     "react-sticky-el": "^1.0.17",
-    "redux": "^3.7.2",
+    "redux": "^4.0.0",
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^5.1.1",
     "redux-thunk": "^2.2.0",
@@ -32,7 +33,8 @@
     "rxjs-compat": "^6.2.1",
     "shaka-player": "^2.3.7",
     "styled-components": "^2.2.1",
-    "styled-theme": "^0.3.3"
+    "styled-theme": "^0.3.3",
+    "url-search-params-polyfill": "^5.0.0"
   },
   "devDependencies": {
     "react-scripts": "^1.1.4",

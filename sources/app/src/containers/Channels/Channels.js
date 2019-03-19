@@ -16,13 +16,38 @@ class Channels extends Component {
                     key: "featured-channels",
                     value: "Featured Channels",
                     type: "channel-card-alt",
-                    query: ['content-type:"/component/component-channel"', 'featured: "true"'] 
+                    query: {
+                        "bool": {
+                            "filter": [
+                                {
+                                    "match": {
+                                        "content-type": "/component/component-channel"
+                                    }
+                                },
+                                {
+                                    "match": {
+                                        "featured": true
+                                    }
+                                }
+                            ]
+                        }
+                    }
                 },
-                { 
+                {
                     key: "all-channels", 
                     value: "All Channels",
-                    type: "channel-card-alt",   //TO RENDER CHANNEL CARD STYLING
-                    query: ['content-type:"/component/component-channel"'] ,
+                    type: "channel-card-alt",   //TO RENDER CHANNEL CARD STYLING    
+                    query: {
+                        "bool": {
+                            "filter": [
+                                {
+                                    "match": {
+                                        "content-type": "/component/component-channel"
+                                    }
+                                }
+                            ]
+                        }
+                    },
                     numResults: 100
                 }
             ]

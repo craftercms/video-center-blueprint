@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import ReactHtmlParser from 'react-html-parser';
 import { isNullOrUndefined } from 'util'
 
 import { crafterConf } from '@craftercms/classes';
@@ -21,40 +22,56 @@ class Cards extends Component {
     searchCards(props) {
         const self = this;
 
-        var query = SearchService.createQuery('solr'),
+        var query = SearchService.createQuery('elasticsearch'),
             category = props.category;
 
         if(category.query){
-            query.query = "*:*";
-            query.filterQueries = category.query;
+            var queryObj = {
+                "query": category.query
+            }
 
             if( !isNullOrUndefined(category.numResults) ){
-                query.numResults = category.numResults;
+                queryObj.size = category.numResults;
             }
 
             if( !isNullOrUndefined(category.sort) ){
-                query.addParam('sort', category.sort);
+                queryObj.sort = {
+                    [category.sort.by]: category.sort.order
+                }
             }
+
+            query.query = queryObj;
         }else{
             category = props.category.key
-            query.query = "*:*";
-            // query.filterQueries = props.exclude
-            //     ? ["content-type:/component/video", "channels.item.key:" + category, '-id: "' + props.exclude + '"']
-            //     : ["content-type:/component/video", "channels.item.key:" + category];
-
-                query.filterQueries = ["content-type:/component/video", "channels.item.key:" + category];
+            query.query = {
+                "query": {
+                    "bool": {
+                        "filter": [
+                            {
+                                "match": {
+                                    "content-type": "/component/video"
+                                },
+                                "match": {
+                                    "channels.item.key": category
+                                }
+                            }
+                        ]
+                    },
+                }
+            };
         }
 
         SearchService
             .search(query, crafterConf.getConfig())
-            .subscribe(cards => {
-                self.setState({ cards: cards.response.documents });
+            .subscribe(response => {
+                self.setState({ hits: response.hits });
             });
     }
 
     renderCards() {
-        return this.state.cards.map((card, i) => {
-            var componentUrl = card["content-type"] === "/component/stream" ? "/stream/" : "/video/",
+        return this.state.hits.map((hit, i) => {
+            var card = hit.sourceAsMap,
+                componentUrl = card["content-type"] === "/component/stream" ? "/stream/" : "/video/",
                 categoryType = this.props.category.type ? this.props.category.type : "video-card",
                 videoName;
 
@@ -70,7 +87,7 @@ class Cards extends Component {
                     }
 
                     return (
-                        <div className="static-grid__item" key={ card.id }>
+                        <div className="static-grid__item" key={ hit.id }>
                             <div className="video-card video-card--has-description">
                                 <Link className="video-card__link" to={ `${componentUrl}${card.objectId}` }>
                                     <div>
@@ -93,7 +110,7 @@ class Cards extends Component {
                                         <div className="video-card__time"> { card.length } </div>
                                         <h3 className="heading video-card__heading heading--default heading--card">{ card.title_s }</h3>
                                         <div className="video-card__description"> { card.summary_s } </div>
-                                        <div className="video-card__long-description"> { card.description_html } </div>
+                                        <div className="video-card__long-description"> { ReactHtmlParser(card.description_html) } </div>
                                         <div className="video-card__progress" style={{ width: '0%' }}></div>
                                     </div>
                                     <div className="video-card__play-button">
@@ -107,7 +124,7 @@ class Cards extends Component {
                     var url = card["file-name"].replace(".xml", "");
 
                     return (
-                        <div className="static-grid__item" key={card.id}>
+                        <div className="static-grid__item" key={hit.id}>
                             <div className="channel-card-alt">
                                 <Link className="channel-card-alt__link" to={`/channel/${ url }`}>
                                     <div className="image channel-card-alt__image">
@@ -122,7 +139,7 @@ class Cards extends Component {
                     );
                 case "standard-card":
                     return (
-                        <div className="static-grid__item" key={card.id}>
+                        <div className="static-grid__item" key={hit.id}>
                             {/* <div className="standard-card">
                                 <a className="standard-card__link" href="/show/AP-1V6V7K8HN1W11/the-way-of-the-wildcard">
                                     <div className="image standard-card__image">
@@ -139,7 +156,7 @@ class Cards extends Component {
                     videoName = encodeURI(videoName);
 
                     return (
-                        <div className="live-events-item" key={ card.id }>
+                        <div className="live-events-item" key={ hit.id }>
                             <Link className="live-events-item__link" to={`/stream/${ card.objectId }/${ videoName }`}>
                                 <div className="live-events-item__image">
                                     <div className="live-events-item__background">
@@ -173,10 +190,10 @@ class Cards extends Component {
     render() {
         return (
             <div className={ this.props.category.type !== "live-event-item" ? "static-grid__items" : "" } >
-                { this.state && this.state.cards &&
+                { this.state && this.state.hits &&
                     this.renderCards()
                 }
-                { this.state && this.state.cards && this.state.cards.length === 0 &&
+                { this.state && this.state.hits && this.state.hits.length === 0 &&
                     <div className="segment">
                         <div style={{textAlign: "center", fontSize: "3rem", fontWeight: '700', padding: "15rem 0px 25rem", minHeight: "50vh" }}>
                             No results
