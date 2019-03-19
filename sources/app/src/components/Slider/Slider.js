@@ -3,6 +3,7 @@ import { Carousel } from 'antd';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import ReactHtmlParser from 'react-html-parser';
 
 import { formatDate } from '../../utils';
 import SliderHolder from './SliderStyle';
@@ -74,7 +75,7 @@ class Slider extends Component {
                                 }
 
                                 <div className="discover-slider__inner--subtitle">
-                                    { slide.subtitle }
+                                    { ReactHtmlParser(slide.subtitle) }
                                 </div>
 
                                 { this.props.hero &&

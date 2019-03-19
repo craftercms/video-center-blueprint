@@ -36,10 +36,26 @@ class Search extends Component {
     }
 
     setCategories(searchId){
-        return [{ 
-                key: "top-results", 
-                value: "Top Results", 
-                query: ["content-type:/component/video", "title_t: (*" + searchId + "*)"],
+        return [
+            {
+                key: "top-results",
+                value: "Top Results",
+                query: {
+                    "bool": {
+                        "filter": [
+                            {
+                                "regexp": {
+                                    "title_s": ".*" + searchId + ".*"
+                                }
+                            },
+                            {
+                                "match": {
+                                    "content-type": "/component/video"
+                                }
+                            }
+                        ]
+                    }
+                },
                 viewAll: false,
                 numResults: 90
             }];
