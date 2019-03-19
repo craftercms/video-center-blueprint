@@ -22,15 +22,15 @@ blueprint:
       - screenshot:
           title: Home page
           description: Screenshot of the home page
-          url: /studio/static-assets/images/blueprints/video_center/vc1.png
+          url: /studio/static-assets/images/blueprints/video-center/vc1.png
       - screenshot:
           title: Videos page
           description: Screenshot of the videos page
-          url: /studio/static-assets/images/blueprints/video_center/vc2.png
+          url: /studio/static-assets/images/blueprints/video-center/vc2.png
       - screenshot:
           title: Channels page
           description: Screenshot of the channels page
-          url: /studio/static-assets/images/blueprints/video_center/vc3.png
+          url: /studio/static-assets/images/blueprints/video-center/vc3.png
     developer:
       company:
         name: Crafter Software
