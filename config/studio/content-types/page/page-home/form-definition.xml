@@ -329,7 +329,7 @@
 						</property>
 						<property>
 							<name>type</name>
-							<value>/component/slider</value>
+							<value>/component/component-slider</value>
 								<type>undefined</type>
 						</property>
 					</properties>
