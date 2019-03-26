@@ -6,6 +6,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import SearchHolder from './SearchStyle';
 import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
 import { setVideoDocked } from "../../actions/videoPlayerActions";
+import { isNullOrUndefined } from "util";
 
 const WAIT_INTERVAL = 1000;
 class Search extends Component {
@@ -36,6 +37,20 @@ class Search extends Component {
     }
 
     setCategories(searchId){
+        const searchKeyword = isNullOrUndefined(searchId) ? '' : searchId,
+              searchFilter = searchKeyword.replace(/\s/g,'') === '' ? 
+                {
+                    "regexp": {
+                        "title_t": ".*" + searchKeyword + ".*"
+                    }
+                } :
+                {
+                    "match_phrase_prefix": {
+                        "title_t": searchKeyword
+                    }
+                };
+
+
         return [
             {
                 key: "top-results",
@@ -43,11 +58,7 @@ class Search extends Component {
                 query: {
                     "bool": {
                         "filter": [
-                            {
-                                "regexp": {
-                                    "title_s": ".*" + searchId + ".*"
-                                }
-                            },
+                            searchFilter,                            
                             {
                                 "match": {
                                     "content-type": "/component/video"
