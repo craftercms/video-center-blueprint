@@ -24,13 +24,17 @@ blueprint:
           description: Screenshot of the home page
           url: /studio/static-assets/images/blueprints/video-center/vc1.png
       - screenshot:
-          title: Videos page
-          description: Screenshot of the videos page
+          title: Featured videos page
+          description: Screenshot of the featured videos page
           url: /studio/static-assets/images/blueprints/video-center/vc2.png
       - screenshot:
-          title: Channels page
-          description: Screenshot of the channels page
+          title: Player page
+          description: Screenshot of the player page
           url: /studio/static-assets/images/blueprints/video-center/vc3.png
+      - screenshot:
+          title: Search page
+          description: Screenshot of the search page
+          url: /studio/static-assets/images/blueprints/video-center/vc4.png
     developer:
       company:
         name: Crafter Software
