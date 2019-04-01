@@ -10,7 +10,7 @@
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<title>Video Center</title>
-		<link href="/static-assets/css/main.css" rel="stylesheet">
+		<link href="/static-assets/css/main.css?v=${siteContext.siteName}" rel="stylesheet">
 
 		<script type="text/javascript">
 			window.siteName = "${siteContext.siteName}";
@@ -20,6 +20,6 @@
 	<body>
 		<noscript>You need to enable JavaScript to run this app.</noscript>
 		<div id="root"></div>
-		<script type="text/javascript" src="/static-assets/js/main.js"></script> 
+		<script type="text/javascript" src="/static-assets/js/main.js?v=${siteContext.siteName}"></script> 
 	</body>
 </html>
