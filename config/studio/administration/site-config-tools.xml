@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
+  ~ Copyright (C) 2007-2019 Crafter Software Corporation. All Rights Reserved.
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<!--
     Site Configuration Tools
 
     This file helps configure the Site Config section with tools. The tools specified here appear on the left-
@@ -24,6 +41,7 @@
     </config>
 -->
 <config>
+    <version>4</version>
     <tools>
         <tool>
             <name>content-types</name>
@@ -134,20 +152,6 @@
                         <stackedclass>fa-magic</stackedclass>
                     </icon>
                 </control>
-                <control>
-                    <name>box-file-upload</name>
-                    <icon>
-                        <class>fa-file-o</class>
-                        <stackedclass>fa-magic</stackedclass>
-                    </icon>
-                </control>
-                <control>
-                    <name>aws-video-upload</name>
-                    <icon>
-                        <class>fa-file-o</class>
-                        <stackedclass>fa-magic</stackedclass>
-                    </icon>
-                </control>
             </controls>
             <datasources>
                 <datasource>
@@ -191,6 +195,84 @@
                     <name>CMIS-repo</name>
                     <icon>
                         <class>fa-plug</class>
+                    </icon>
+                </datasource>
+                <datasource>
+                    <name>WebDAV-repo</name>
+                    <icon>
+                        <class>fa-square-o fa-server</class>
+                    </icon>
+                </datasource>
+                <datasource>
+                    <name>img-WebDAV-repo</name>
+                    <icon>
+                        <class>fa-square-o fa-server</class>
+                    </icon>
+                </datasource>
+                <datasource>
+                    <name>video-WebDAV-repo</name>
+                    <icon>
+                        <class>fa-square-o fa-server</class>
+                    </icon>
+                </datasource>
+                <datasource>
+                    <name>WebDAV-upload</name>
+                    <icon>
+                        <class>fa-square-o fa-server</class>
+                    </icon>
+                </datasource>
+                <datasource>
+                    <name>img-WebDAV-upload</name>
+                    <icon>
+                        <class>fa-square-o fa-server</class>
+                    </icon>
+                </datasource>
+                <datasource>
+                    <name>video-WebDAV-upload</name>
+                    <icon>
+                        <class>fa-square-o fa-server</class>
+                    </icon>
+                </datasource>
+                <datasource>
+                    <name>S3-repo</name>
+                    <icon>
+                        <class>fa-file-o</class>
+                        <stackedclass>fa-amazon</stackedclass>
+                    </icon>
+                </datasource>
+                <datasource>
+                    <name>img-S3-repo</name>
+                    <icon>
+                        <class>fa-square</class>
+                        <stackedclass>fa-amazon fa-inverse</stackedclass>
+                    </icon>
+                </datasource>
+                <datasource>
+                    <name>video-S3-repo</name>
+                    <icon>
+                        <class>fa-film</class>
+                        <stackedclass>fa-amazon</stackedclass>
+                    </icon>
+                </datasource>
+                <datasource>
+                    <name>S3-upload</name>
+                    <icon>
+                        <class>fa-file-o</class>
+                        <stackedclass>fa-amazon</stackedclass>
+                    </icon>
+                </datasource>
+                <datasource>
+                    <name>img-S3-upload</name>
+                    <icon>
+                        <class>fa-square</class>
+                        <stackedclass>fa-amazon fa-inverse</stackedclass>
+                    </icon>
+                </datasource>
+                <datasource>
+                    <name>video-S3-upload</name>
+                    <icon>
+                        <class>fa-film</class>
+                        <stackedclass>fa-amazon</stackedclass>
                     </icon>
                 </datasource>
                 <datasource>
@@ -268,10 +350,6 @@
         <tool>
             <name>admin-configurations</name>
             <label>Configuration</label>
-        </tool>
-        <tool>
-            <name>groups</name>
-            <label>Groups</label>
         </tool>
         <tool>
             <name>audit</name>

@@ -1,15 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C) 2007-2019 Crafter Software Corporation. All Rights Reserved.
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
 <!-- site-config.xml
 
     This contains the primary site configuration.
 
 -->
 <site-config>
-    <wem-project>video-center</wem-project>
-    <display-name>video-center</display-name>
+    <wem-project>{siteName}</wem-project>
+    <display-name>{siteName}</display-name>
     <default-timezone>EST5EDT</default-timezone>
 
-	<!-- previewServer>http://localhost:3000</previewServer -->
+    <published-repository>
+        <enable-staging-environment>false</enable-staging-environment>
+        <staging-environment>staging</staging-environment>
+        <live-environment>live</live-environment>
+    </published-repository>
 
     <repository rootPrefix="/site">
 
@@ -81,7 +102,7 @@
     <contentMonitoring>
         <monitor>
             <name>Content Expiring Tomorrow</name>
-            <query>expired_dt:[NOW/DAY+1DAY TO NOW/DAY+2DAY]</query>
+            <query>expired_dt:[now+1d/d TO now+2d/d]</query>
             <paths>
                 <path>
                     <name>All Site</name>
@@ -94,7 +115,7 @@
         </monitor>
         <monitor>
             <name>Content Expiring In One Week</name>
-            <query>expired_dt:[NOW/DAY+7DAYS TO NOW/DAY+8DAYS]</query>
+            <query>expired_dt:[now+7d/d TO now+8d/d]</query>
             <paths>
                 <path>
                     <name>All Site</name>
@@ -107,7 +128,7 @@
         </monitor>
         <monitor>
             <name>Content Expiring In One Month</name>
-            <query>expired_dt:[NOW/DAY+30DAYS TO NOW/DAY+32DAYS]</query>
+            <query>expired_dt:[now+30d/d TO now+32d/d]</query>
             <paths>
                 <path>
                     <name>All Site</name>
@@ -120,7 +141,7 @@
         </monitor>
         <monitor>
             <name>Content Expiring In Two Months</name>
-            <query>expired_dt:[NOW/DAY+60DAYS TO NOW/DAY+62DAYS]</query>
+            <query>expired_dt:[now+60d/d TO now+62d/d]</query>
             <paths>
                 <path>
                     <name>All Site</name>
