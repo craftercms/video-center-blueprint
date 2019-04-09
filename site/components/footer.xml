@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
   ~ MIT License
   ~
@@ -21,8 +22,6 @@
   ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   ~ SOFTWARE.
   -->
-
-<?xml version="1.0" encoding="UTF-8"?>
 <component>
 	<content-type>/component/component-footer</content-type>	<display-template/>
 	<merge-strategy>inherit-levels</merge-strategy>
