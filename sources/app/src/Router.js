@@ -20,6 +20,18 @@ class Router extends Component {
         this.LiveEvents = LiveEvents;
 
         this.props.getNav('/site/website');
+
+        this.unlisten = this.props.history.listen((location, action) => {
+            if(window.require){
+                window.require(['guest'], function (guest) {
+                    guest.reportNavigation(location, location.pathname);
+                });
+            }
+        });
+    }
+
+    componentWillUnmount(){
+        this.unlisten();
     }
 
     renderRouteEntries() {
