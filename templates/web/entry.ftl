@@ -16,7 +16,6 @@
 			window.siteName = "${siteContext.siteName}";
 			window.applicationContext = "${applicationContext}";
 		</script> 
-		
 		<script src="http://localhost:8080/studio/static-assets/libs/requirejs/require.js" data-main="http://localhost:8080/studio/overlayhook?page=x&site=id&cs.js"></script>
 	</head>
 	<body>
