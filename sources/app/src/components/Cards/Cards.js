@@ -154,7 +154,6 @@ class Cards extends Component {
 
                     videoName = card.title_s ? (card.title_s).toLowerCase().replace(/ /g, '-') : '';
                     videoName = encodeURI(videoName);
-
                     return (
                         <div className="live-events-item" key={ hit.id }>
                             <Link className="live-events-item__link" to={`/stream/${ card.objectId }/${ videoName }`}>
@@ -168,6 +167,7 @@ class Cards extends Component {
                                 <div className="live-events-item__content">
                                     <div className="live-events-item__date">
                                         <h2 className="heading heading--default">{dateFormatted.month} {dateFormatted.monthDay}</h2>
+                                        <h3 className="heading heading--year">, {dateFormatted.year}</h3>
                                     </div>
                                     <div className="live-events-item__time">{ dateFormatted.weekDay } @ { dateFormatted.time } { dateFormatted.timezone }</div>
                                     <div className="live-events-item__detail">

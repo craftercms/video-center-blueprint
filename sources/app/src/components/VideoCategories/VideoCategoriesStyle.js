@@ -892,6 +892,14 @@ const VideoCategoriesHolder = styled.div`
                             @media (min-width: 60em) {
                                 margin-bottom: .75rem;
                             }
+
+                            .heading {
+                                display: inline-block;
+
+                                &.heading--year {
+                                    font-size: 36px;
+                                }
+                            }
                         }
 
                         .live-events-item__time {

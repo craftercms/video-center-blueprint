@@ -58,13 +58,18 @@ class Search extends Component {
                 query: {
                     "bool": {
                         "filter": [
-                            searchFilter,                            
-                            {
-                                "match": {
-                                    "content-type": "/component/video"
-                                }
+                            searchFilter
+                        ],
+                        "should": {
+                            "match": {
+                                "content-type": "/component/video"
                             }
-                        ]
+                        },
+                        "should": {
+                            "match": {
+                                "content-type": "/component/stream"
+                            }
+                        }
                     }
                 },
                 viewAll: false,
