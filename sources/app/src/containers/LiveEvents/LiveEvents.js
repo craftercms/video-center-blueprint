@@ -32,6 +32,10 @@ class LiveEvents extends Component {
                             ]
                         }
                     },
+                    sort: {
+                        by: "startDate_dt",
+                        order: "asc"
+                    },
                     numResults: 6
                 },
                 {
@@ -55,6 +59,10 @@ class LiveEvents extends Component {
                                 }
                             ]
                         }
+                    },
+                    sort: {
+                        by: "endDate_dt",
+                        order: "desc"
                     },
                     numResults: 6
                 }

@@ -9,7 +9,7 @@ export function pageScrollTop() {
 
 // Returns an object with formatted date parts - Using Crafter Studio Date
 export function formatDate(studioDate) {
-    var date = new Date(parseInt(studioDate, 10)),
+    var date = new Date(studioDate),
         clientTimezone = moment.tz(moment.tz.guess()).format('z'),
         dateFormatted = {
             month: moment(date).format('MMM'),
@@ -20,7 +20,7 @@ export function formatDate(studioDate) {
             timezone: clientTimezone,
             dateObj: date,
             calendar: moment(date).calendar()
-        }
+        };
 
     return dateFormatted;
 }
