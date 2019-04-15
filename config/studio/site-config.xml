@@ -29,8 +29,8 @@
 
 -->
 <site-config>
-    <wem-project>{siteName}</wem-project>
-    <display-name>{siteName}</display-name>
+    <wem-project>dsdsdssdds</wem-project>
+    <display-name>dsdsdssdds</display-name>
     <default-timezone>EST5EDT</default-timezone>
 
     <published-repository>
@@ -55,6 +55,9 @@
             <folder name="Components" path="/components" read-direct-children="false" attach-root-prefix="true"/>
             <folder name="Assets" path="/static-assets" read-direct-children="false" attach-root-prefix="false"/>
             <folder name="Templates" path="/templates" read-direct-children="false" attach-root-prefix="false"/>
+            <folder name="Videos" path="/site/videos" read-direct-children="false" attach-root-prefix="false"/>
+            <folder name="Streams" path="/site/streams" read-direct-children="false" attach-root-prefix="false"/>
+            <folder name="Origins" path="/site/origins" read-direct-children="false" attach-root-prefix="false"/>
         </folders>
 
         <!-- Item Patterns -->
@@ -74,6 +77,9 @@
                 <pattern>/site/component-bindings/([^&lt;]+)\.xml</pattern>
                 <pattern>/site/indexes/([^&lt;]+)\.xml</pattern>
                 <pattern>/site/resources/([^&lt;]+)\.xml</pattern>
+                <pattern>/site/videos/([^&lt;]+)\.xml</pattern>
+                <pattern>/site/streams/([^&lt;]+)\.xml</pattern>
+                <pattern>/site/origins/([^&lt;]+)\.xml</pattern>
             </pattern-group>
 
             <pattern-group name="asset">
