@@ -39,6 +39,14 @@
                         </pattern>
                     </includes>
                 </dependency-type>
+		<dependency-type>
+                    <name>item</name>
+                    <includes>
+                        <pattern>
+                            <find-regex>/site/(?!website/|components/)([^&lt;]+)\.xml</find-regex>
+                        </pattern>
+                    </includes>
+                </dependency-type>
                 <dependency-type>
                     <name>asset</name>
                     <includes>
@@ -114,6 +122,96 @@
                         </pattern>
                         <pattern>
                             <find-regex>/site/resources/([^&lt;]+)\.xml</find-regex>
+                        </pattern>
+                    </includes>
+                </dependency-type>
+		<dependency-type>
+                    <name>item</name>
+                    <includes>
+                        <pattern>
+                            <find-regex>/site/(?!website/|components/)([^&lt;]+)\.xml</find-regex>
+                        </pattern>
+                    </includes>
+                </dependency-type>
+                <dependency-type>
+                    <name>asset</name>
+                    <includes>
+                        <!-- path patterns to look for (multiple) -->
+                        <pattern>
+                            <find-regex>/static-assets/([^&lt;"'\)]+)</find-regex>
+                        </pattern>
+                    </includes>
+                </dependency-type>
+                <dependency-type>
+                    <name>rendering-template</name>
+                    <includes>
+                        <pattern>
+                            <find-regex>/templates/([^&lt;"]+)\.ftl</find-regex>
+                        </pattern>
+                    </includes>
+                </dependency-type>
+                <dependency-type>
+                    <name>script</name>
+                    <includes>
+                        <pattern>
+                            <find-regex>/scripts/([^&lt;"]+)\.groovy</find-regex>
+                        </pattern>
+                        <pattern>
+                            <find-regex>&lt;content-type&gt;/(.*)/(.*)&lt;/content-type&gt;</find-regex>
+                            <transforms>
+                                <transform>
+                                    <match>&lt;content-type&gt;/(.*)/(.*)&lt;/content-type&gt;</match>
+                                    <replace>/scripts/$1s/$2.groovy</replace>
+                                </transform>
+                            </transforms>
+                        </pattern>
+                    </includes>
+                </dependency-type>
+            </dependency-types>
+        </item-type>
+	<item-type>
+            <!-- an item is content that is not a page nor a component -->
+            <name>item</name>
+            <!-- how to identify items of this type -->
+            <includes>
+                <!-- path pattern regexes (multiple) -->
+                <path-pattern>/site/(?!website/|components/).*\.xml</path-pattern>
+            </includes>
+            <!-- how to find dependencies in these items -->
+            <dependency-types>
+                <dependency-type>
+                    <name>page</name>
+                    <includes>
+                        <pattern>
+                            <find-regex>/site/website/([^&lt;]+)\.xml</find-regex>
+                        </pattern>
+                    </includes>
+                </dependency-type>
+                <dependency-type>
+                    <name>component</name>
+                    <includes>
+                        <pattern>
+                            <find-regex>/site/components/([^&lt;]+)\.xml</find-regex>
+                        </pattern>
+                        <pattern>
+                            <find-regex>/site/system/page-components/([^&lt;]+)\.xml</find-regex>
+                        </pattern>
+                        <pattern>
+                            <find-regex>/site/component-bindings/([^&lt;]+)\.xml</find-regex>
+                        </pattern>
+                        <pattern>
+                            <find-regex>/site/indexes/([^&lt;]+)\.xml</find-regex>
+                        </pattern>
+                        <pattern>
+                            <find-regex>/site/resources/([^&lt;]+)\.xml</find-regex>
+                        </pattern>
+                    </includes>
+                </dependency-type>
+		<dependency-type>
+                    <name>item</name>
+                    <includes>
+                        <pattern>
+                            <find-regex>/site/(?!website/|components/)([^&lt;]+)\.xml</find-regex>
                         </pattern>
                     </includes>
                 </dependency-type>
