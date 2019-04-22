@@ -69,7 +69,7 @@
                         </pattern>
                     </includes>
                 </dependency-type>
-		<dependency-type>
+				<dependency-type>
                     <name>item</name>
                     <includes>
                         <pattern>
@@ -155,7 +155,7 @@
                         </pattern>
                     </includes>
                 </dependency-type>
-		<dependency-type>
+				<dependency-type>
                     <name>item</name>
                     <includes>
                         <pattern>
@@ -199,7 +199,7 @@
                 </dependency-type>
             </dependency-types>
         </item-type>
-	<item-type>
+		<item-type>
             <!-- an item is content that is not a page nor a component -->
             <name>item</name>
             <!-- how to identify items of this type -->
@@ -237,7 +237,7 @@
                         </pattern>
                     </includes>
                 </dependency-type>
-		<dependency-type>
+				<dependency-type>
                     <name>item</name>
                     <includes>
                         <pattern>
@@ -324,7 +324,9 @@
                 <dependency-type>
                     <name>rendering-template</name>
                     <includes>
-                        <find-regex>/templates/([^&lt;"]+)\.ftl</find-regex>
+                        <pattern>
+                        	<find-regex>/templates/([^&lt;"]+)\.ftl</find-regex>
+						</pattern>
                     </includes>
                 </dependency-type>
             </dependency-types>
