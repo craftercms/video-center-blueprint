@@ -55,18 +55,6 @@
                         <pattern>
                             <find-regex>/site/components/([^&lt;]+)\.xml</find-regex>
                         </pattern>
-                        <pattern>
-                            <find-regex>/site/system/page-components/([^&lt;]+)\.xml</find-regex>
-                        </pattern>
-                        <pattern>
-                            <find-regex>/site/component-bindings/([^&lt;]+)\.xml</find-regex>
-                        </pattern>
-                        <pattern>
-                            <find-regex>/site/indexes/([^&lt;]+)\.xml</find-regex>
-                        </pattern>
-                        <pattern>
-                            <find-regex>/site/resources/([^&lt;]+)\.xml</find-regex>
-                        </pattern>
                     </includes>
                 </dependency-type>
 				<dependency-type>
@@ -82,7 +70,7 @@
                     <includes>
                         <!-- path patterns to look for (multiple) -->
                         <pattern>
-                            <find-regex>/static-assets/([^&lt;"'\)]+)</find-regex>
+                            <find-regex>/static-assets/([^&lt;"'\)\?\#]+)</find-regex>
                         </pattern>
                     </includes>
                 </dependency-type>
@@ -120,10 +108,6 @@
             <includes>
                 <!-- path pattern regexes (multiple) -->
                 <path-pattern>/site/components/([^&lt;]+)\.xml</path-pattern>
-                <path-pattern>/site/system/page-components/([^&lt;]+)\.xml</path-pattern>
-                <path-pattern>/site/component-bindings/([^&lt;]+)\.xml</path-pattern>
-                <path-pattern>/site/indexes/([^&lt;]+)\.xml</path-pattern>
-                <path-pattern>/site/resources/([^&lt;]+)\.xml</path-pattern>
             </includes>
             <!-- how to find dependencies in these items -->
             <dependency-types>
@@ -141,18 +125,6 @@
                         <pattern>
                             <find-regex>/site/components/([^&lt;]+)\.xml</find-regex>
                         </pattern>
-                        <pattern>
-                            <find-regex>/site/system/page-components/([^&lt;]+)\.xml</find-regex>
-                        </pattern>
-                        <pattern>
-                            <find-regex>/site/component-bindings/([^&lt;]+)\.xml</find-regex>
-                        </pattern>
-                        <pattern>
-                            <find-regex>/site/indexes/([^&lt;]+)\.xml</find-regex>
-                        </pattern>
-                        <pattern>
-                            <find-regex>/site/resources/([^&lt;]+)\.xml</find-regex>
-                        </pattern>
                     </includes>
                 </dependency-type>
 				<dependency-type>
@@ -166,9 +138,8 @@
                 <dependency-type>
                     <name>asset</name>
                     <includes>
-                        <!-- path patterns to look for (multiple) -->
                         <pattern>
-                            <find-regex>/static-assets/([^&lt;"'\)]+)</find-regex>
+                            <find-regex>/static-assets/([^&lt;"'\)\?\#]+)</find-regex>
                         </pattern>
                     </includes>
                 </dependency-type>
@@ -217,23 +188,19 @@
                         </pattern>
                     </includes>
                 </dependency-type>
+				<dependency-type>
+                    <name>item</name>
+                    <includes>
+                        <pattern>
+                            <find-regex>/site/(?!website/|components/)([^&lt;]+)\.xml</find-regex>
+                        </pattern>
+                    </includes>
+                </dependency-type>
                 <dependency-type>
                     <name>component</name>
                     <includes>
                         <pattern>
                             <find-regex>/site/components/([^&lt;]+)\.xml</find-regex>
-                        </pattern>
-                        <pattern>
-                            <find-regex>/site/system/page-components/([^&lt;]+)\.xml</find-regex>
-                        </pattern>
-                        <pattern>
-                            <find-regex>/site/component-bindings/([^&lt;]+)\.xml</find-regex>
-                        </pattern>
-                        <pattern>
-                            <find-regex>/site/indexes/([^&lt;]+)\.xml</find-regex>
-                        </pattern>
-                        <pattern>
-                            <find-regex>/site/resources/([^&lt;]+)\.xml</find-regex>
                         </pattern>
                     </includes>
                 </dependency-type>
@@ -248,9 +215,8 @@
                 <dependency-type>
                     <name>asset</name>
                     <includes>
-                        <!-- path patterns to look for (multiple) -->
                         <pattern>
-                            <find-regex>/static-assets/([^&lt;"'\)]+)</find-regex>
+                            <find-regex>/static-assets/([^&lt;"'\)\?\#]+)</find-regex>
                         </pattern>
                     </includes>
                 </dependency-type>
@@ -287,7 +253,15 @@
             <!-- how to identify items of this type -->
             <includes>
                 <!-- path pattern regexes (multiple) -->
-                <path-pattern>/static-assets/([^&lt;"'\)]+)</path-pattern>
+				<!-- include only textual files that can be scanned -->
+				<path-pattern>/static-assets/([^&lt;"'\)]+)\.css</path-pattern>
+				<path-pattern>/static-assets/([^&lt;"'\)]+)\.js</path-pattern>
+				<path-pattern>/static-assets/([^&lt;"'\)]+)\.html</path-pattern>
+				<path-pattern>/static-assets/([^&lt;"'\)]+)\.xml</path-pattern>
+				<path-pattern>/static-assets/([^&lt;"'\)]+)\.json</path-pattern>
+				<path-pattern>/static-assets/([^&lt;"'\)]+)\.scss</path-pattern>
+				<path-pattern>/static-assets/([^&lt;"'\)]+)\.sass</path-pattern>
+				<path-pattern>/static-assets/([^&lt;"'\)]+)\.hbs</path-pattern>
             </includes>
             <!-- how to find dependencies in these items -->
             <dependency-types>
@@ -296,7 +270,7 @@
                     <includes>
                         <!-- path patterns to look for (multiple) -->
                         <pattern>
-                            <find-regex>/static-assets/([^&lt;"'\)]+)</find-regex>
+                            <find-regex>/static-assets/([^&lt;"'\)\?\#]+)</find-regex>
                         </pattern>
                     </includes>
                 </dependency-type>
@@ -317,7 +291,7 @@
                     <includes>
                         <!-- path patterns to look for (multiple) -->
                         <pattern>
-                            <find-regex>/static-assets/([^&lt;"'\)]+)</find-regex>
+                            <find-regex>/static-assets/([^&lt;"'\)\?\#]+)</find-regex>
                         </pattern>
                     </includes>
                 </dependency-type>
@@ -360,3 +334,4 @@
         </item-type>
     </item-types>
 </dependency-resolver>
+
