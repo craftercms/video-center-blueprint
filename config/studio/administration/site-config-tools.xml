@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
+  ~ MIT License
+  ~
+  ~ Copyright (c) 2018-2019 Crafter Software Corporation. All Rights Reserved.
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  -->
+
+<!--
     Site Configuration Tools
 
     This file helps configure the Site Config section with tools. The tools specified here appear on the left-
@@ -24,6 +48,7 @@
     </config>
 -->
 <config>
+    <version>4</version>
     <tools>
         <tool>
             <name>content-types</name>
@@ -53,6 +78,12 @@
                 </control>
                 <control>
                     <name>rte</name>
+                    <icon>
+                        <class>fa-code</class>
+                    </icon>
+                </control>
+                <control>
+                    <name>rte-tinymce5</name>
                     <icon>
                         <class>fa-code</class>
                     </icon>
@@ -128,20 +159,6 @@
                         <stackedclass>fa-magic</stackedclass>
                     </icon>
                 </control>
-                <control>
-                    <name>box-file-upload</name>
-                    <icon>
-                        <class>fa-file-o</class>
-                        <stackedclass>fa-magic</stackedclass>
-                    </icon>
-                </control>
-                <control>
-                    <name>aws-video-upload</name>
-                    <icon>
-                        <class>fa-file-o</class>
-                        <stackedclass>fa-magic</stackedclass>
-                    </icon>
-                </control>
             </controls>
             <datasources>
                 <datasource>
@@ -185,6 +202,84 @@
                     <name>CMIS-repo</name>
                     <icon>
                         <class>fa-plug</class>
+                    </icon>
+                </datasource>
+                <datasource>
+                    <name>WebDAV-repo</name>
+                    <icon>
+                        <class>fa-square-o fa-server</class>
+                    </icon>
+                </datasource>
+                <datasource>
+                    <name>img-WebDAV-repo</name>
+                    <icon>
+                        <class>fa-square-o fa-server</class>
+                    </icon>
+                </datasource>
+                <datasource>
+                    <name>video-WebDAV-repo</name>
+                    <icon>
+                        <class>fa-square-o fa-server</class>
+                    </icon>
+                </datasource>
+                <datasource>
+                    <name>WebDAV-upload</name>
+                    <icon>
+                        <class>fa-square-o fa-server</class>
+                    </icon>
+                </datasource>
+                <datasource>
+                    <name>img-WebDAV-upload</name>
+                    <icon>
+                        <class>fa-square-o fa-server</class>
+                    </icon>
+                </datasource>
+                <datasource>
+                    <name>video-WebDAV-upload</name>
+                    <icon>
+                        <class>fa-square-o fa-server</class>
+                    </icon>
+                </datasource>
+                <datasource>
+                    <name>S3-repo</name>
+                    <icon>
+                        <class>fa-file-o</class>
+                        <stackedclass>fa-amazon</stackedclass>
+                    </icon>
+                </datasource>
+                <datasource>
+                    <name>img-S3-repo</name>
+                    <icon>
+                        <class>fa-square</class>
+                        <stackedclass>fa-amazon fa-inverse</stackedclass>
+                    </icon>
+                </datasource>
+                <datasource>
+                    <name>video-S3-repo</name>
+                    <icon>
+                        <class>fa-film</class>
+                        <stackedclass>fa-amazon</stackedclass>
+                    </icon>
+                </datasource>
+                <datasource>
+                    <name>S3-upload</name>
+                    <icon>
+                        <class>fa-file-o</class>
+                        <stackedclass>fa-amazon</stackedclass>
+                    </icon>
+                </datasource>
+                <datasource>
+                    <name>img-S3-upload</name>
+                    <icon>
+                        <class>fa-square</class>
+                        <stackedclass>fa-amazon fa-inverse</stackedclass>
+                    </icon>
+                </datasource>
+                <datasource>
+                    <name>video-S3-upload</name>
+                    <icon>
+                        <class>fa-film</class>
+                        <stackedclass>fa-amazon</stackedclass>
                     </icon>
                 </datasource>
                 <datasource>
@@ -264,20 +359,12 @@
             <label>Configuration</label>
         </tool>
         <tool>
-            <name>groups</name>
-            <label>Groups</label>
-        </tool>
-        <tool>
             <name>audit</name>
             <label>Audit</label>
         </tool>
         <tool>
             <name>workflow-states</name>
             <label>Workflow States</label>
-        </tool>
-        <tool>
-            <name>logging</name>
-            <label>Logging Levels</label>
         </tool>
         <tool>
             <name>log-view</name>
@@ -295,6 +382,13 @@
             <label>Remote Repositories</label>
             <icon>
                 <class>fa-database</class>
+            </icon>
+        </tool>
+        <tool>
+            <name>graphiql</name>
+            <label>GraphiQL</label>
+            <icon>
+                <class>fa-line-chart</class>
             </icon>
         </tool>
     </tools>

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { isNullOrUndefined } from "util";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShareAlt, faComment } from "@fortawesome/free-solid-svg-icons";
+import ReactHtmlParser from 'react-html-parser';
 
 import { getItem, search } from '@craftercms/redux';
 import { SearchService } from '@craftercms/search';
@@ -59,10 +60,24 @@ class Video extends Component {
     loadVideo(props){
         var videoId = props.match.params.id;
        
-        var query = SearchService.createQuery('solr');
+        var query = SearchService.createQuery('elasticsearch');
         this.searchId = query.uuid;
-        query.query = "*:*";
-        query.filterQueries = ["content-type:/component/video", "objectId:" + videoId];
+        query.query = {
+            "query": {
+                "bool": {
+                    "filter": [
+                        {
+                            "match": {
+                                "content-type": "/component/video"
+                            },
+                            "match": {
+                                "objectId": videoId
+                            }
+                        }
+                    ]
+                },
+            }
+        };
 
         this.props.search(query);
     }
@@ -70,8 +85,8 @@ class Video extends Component {
     setVideo(searchResult) {
         var { setVideoInfo } = this.props;
 
-        if(searchResult.numFound > 0){
-            var video = searchResult.documents[0],
+        if(searchResult.totalHits > 0){
+            var video = searchResult.hits[0].sourceAsMap,
                 categories = [],
                 upcomingVideoHero = [];
 
@@ -102,15 +117,15 @@ class Video extends Component {
             }
 
             //get categories for videoCategories component
-            if( video["channels.item.key"].constructor === Array ){
-                for (var i = 0, len = video["channels.item.key"].length; i < len; i++) {
+            if( video.channels.item.key.constructor === Array ){
+                for (var i = 0, len = video.channels.item.key.length; i < len; i++) {
                     categories.push( 
-                        { key: video["channels.item.key"][i], value: video["channels.item.value_smv"][i] } 
+                        { key: video.channels.item.key[i], value: video.channels.item.value_smv[i] } 
                     );
                 }
             }else{
                 categories.push( 
-                    { key: video["channels.item.key"], value: video["channels.item.value_smv"] } 
+                    { key: video.channels.item.key, value: video.channels.item.value_smv } 
                 );
             }
 
@@ -197,9 +212,7 @@ class Video extends Component {
                         </div>
 
                         <div className="video-details__description">
-                            <p>
-                                { video.description_html }
-                            </p>
+                            { ReactHtmlParser(video.description_html) }
                         </div>
                         <hr/>
                     </div>

@@ -73,14 +73,47 @@ class Channel extends Component {
             {
                 key: "featured-videos",
                 value: "Featured Videos",
-                query: ["content-type:/component/video", 'channels.item.key: "' + channelContent.channelKey + '"'],
+                query: {
+                    "bool": {
+                        "filter": [
+                            {
+                                "match": {
+                                    "content-type": "/component/video"
+                                }
+                            },
+                            {
+                                "match": {
+                                    "channels.item.key": channelContent.channelKey
+                                }
+                            },
+                            {
+                                "match": {
+                                    "featured": true
+                                }
+                            }
+                        ]
+                    }
+                },
                 numResults: component.maxVideosDisplay
             },
             {
                 key: "related-channels",
                 value: "Related Channels",
                 type: "channel-card-alt",   //TO RENDER CHANNEL CARD STYLING
-                query: ['content-type:"/component/component-channel"', tagsFilter, '-file-name: "' + channelContent['file-name'] + '"'],
+                query: {
+                    "bool": {
+                        "must_not" : {
+                            "term" : {"file-name" : channelContent['file-name']} 
+                        },
+                        "filter": [
+                            {
+                                "match": {
+                                    "content-type": "/component/component-channel"
+                                }
+                            }
+                        ]
+                    }
+                },
                 numResults: component.maxChannelsDisplay
             }
         ];

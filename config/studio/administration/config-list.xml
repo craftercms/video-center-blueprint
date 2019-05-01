@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
+  ~ MIT License
+  ~
+  ~ Copyright (c) 2018-2019 Crafter Software Corporation. All Rights Reserved.
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  -->
+
+<!--
     This file configures the list of configurations available in the SiteConfig section for this site/blueprint.
 
     For every configuration you'd like to make editable, you need:
@@ -19,126 +43,151 @@
     - samplePath: the path to a sample file to help the user update the file
 -->
 <config>
+    <version>5</version>
     <files>
         <file>
             <path>/studio/site-config.xml</path>
             <title>confTabSiteConfiguration</title>
             <description>confTabSiteConfigurationDesc</description>
-            <samplePath>/studio/administration/samples/sample-site-config.xml</samplePath>
+            <samplePath>sample-site-config.xml</samplePath>
         </file>
         <file>
             <path>/studio/context-nav/sidebar.xml</path>
             <title>confTabSidebarConf</title>
             <description>confTabSidebarConfDesc</description>
-            <samplePath>/studio/administration/samples/sample-sidebar.xml</samplePath>
+            <samplePath>sample-sidebar.xml</samplePath>
         </file>
         <file>
             <path>/studio/form-control-config/rte/rte-setup.xml</path>
             <title>confTabRTEConf</title>
             <description>confTabRTEConfDesc</description>
-            <samplePath>/studio/administration/samples/sample-form-control-rte-setup.xml</samplePath>
+            <samplePath>sample-form-control-rte-setup.xml</samplePath>
+        </file>
+        <file>
+            <path>/studio/form-control-config/rte/rte-setup-tinymce5.xml</path>
+            <title>confTabRTEtMCE5Conf</title>
+            <description>confTabRTEtMCE5ConfDesc</description>
+            <samplePath>sample-form-control-rte-setup-tinymce5.xml</samplePath>
         </file>
         <file>
             <path>/studio/preview-tools/components-config.xml</path>
             <title>confTabPreviewComponentsConf</title>
             <description>confTabPreviewComponentsConfDesc</description>
-            <samplePath>/studio/administration/samples/sample-preview-components-config.xml</samplePath>
+            <samplePath>sample-preview-components-config.xml</samplePath>
         </file>
         <file>
             <path>/studio/targeting/targeting-config.xml</path>
             <title>confTabTargetingConfiguration</title>
             <description>confTabTargetingConfigurationDesc</description>
-            <samplePath>/studio/administration/samples/sample-targeting-config.xml</samplePath>
+            <samplePath>sample-targeting-config.xml</samplePath>
         </file>
         <file>
             <path>/studio/preview-tools/panel.xml</path>
             <title>confTabPreviewPanelConf</title>
             <description>confTabconfTabPreviewPanelConfDesc</description>
-            <samplePath>/studio/administration/samples/sample-preview-panel.xml</samplePath>
+            <samplePath>sample-preview-panel.xml</samplePath>
         </file>
         <file>
             <path>/studio/workflow/notification-config.xml</path>
             <title>confTabNotificationConf</title>
             <description>confTabNotificationConfDesc</description>
-            <samplePath>/studio/administration/samples/sample-notification-config.xml</samplePath>
+            <samplePath>sample-notification-config.xml</samplePath>
         </file>
         <file>
             <path>/studio/permission-mappings-config.xml</path>
             <title>confTabPermissionsMappings</title>
             <description>confTabPermissionsMappingsDesc</description>
-            <samplePath>/studio/administration/samples/sample-permission-mappings-config.xml</samplePath>
+            <samplePath>sample-permission-mappings-config.xml</samplePath>
         </file>
         <file>
             <path>/studio/role-mappings-config.xml</path>
             <title>confTabRoleMappings</title>
             <description>confTabRoleMappingsDesc</description>
-            <samplePath>/studio/administration/samples/sample-role-mappings-config.xml</samplePath>
+            <samplePath>sample-role-mappings-config.xml</samplePath>
         </file>
         <file>
             <path>/studio/environment/environment-config.xml</path>
             <title>confTabEnvironmentConfiguration</title>
             <description>confTabEnvironmentConfigurationDesc</description>
-            <samplePath>/studio/administration/samples/sample-environment-config.xml</samplePath>
+            <samplePath>sample-environment-config.xml</samplePath>
         </file>
         <file>
             <path>/studio/data-sources/cmis-config.xml</path>
             <title>confTabCMISConfiguration</title>
             <description>confTabCMISConfigurationDesc</description>
-            <samplePath>/studio/administration/samples/sample-cmis-config.xml</samplePath>
+            <samplePath>sample-cmis-config.xml</samplePath>
         </file>
         <file>
             <path>/studio/context-nav/contextual-nav.xml</path>
             <title>confTabContextualNavigationConf</title>
             <description>confTabContextualNavigationConfDesc</description>
-            <samplePath>/studio/administration/samples/sample-contextual-nav.xml</samplePath>
+            <samplePath>sample-contextual-nav.xml</samplePath>
         </file>
         <file>
             <path>/studio/administration/site-config-tools.xml</path>
             <title>confTabSiteConf</title>
             <description>confTabSiteConfDesc</description>
-            <samplePath>/studio/administration/samples/sample-site-config-tools.xml</samplePath>
+            <samplePath>sample-site-config-tools.xml</samplePath>
         </file>
         <file>
             <path>/studio/administration/config-list.xml</path>
             <title>confTabConfigurations</title>
             <description>confTabConfDesc</description>
-            <samplePath>/studio/administration/samples/sample-config-list.xml</samplePath>
+            <samplePath>sample-config-list.xml</samplePath>
         </file>
         <file>
             <path>/studio/mime-type.xml</path>
             <title>Mime Types</title>
             <description>mime Types</description>
-            <samplePath>/studio/administration/samples/sample-mime-type.xml</samplePath>
+            <samplePath>sample-mime-type.xml</samplePath>
         </file>
         <file>
             <path>/engine/site-config.xml</path>
             <title>confTabEngineSiteConfiguration</title>
             <description>confTabEngineSiteConfigurationDesc</description>
-            <samplePath>/studio/administration/samples/sample-engine-site-config.xml</samplePath>
+            <samplePath>sample-engine-site-config.xml</samplePath>
         </file>
         <file>
             <path>/engine/application-context.xml</path>
             <title>confTabEngineSiteAppContextConfiguration</title>
             <description>confTabEngineSiteAppContextConfigurationDesc</description>
-            <samplePath>/studio/administration/samples/sample-engine-application-context.xml</samplePath>
+            <samplePath>sample-engine-application-context.xml</samplePath>
+        </file>
+        <file>
+            <path>/engine/urlrewrite.xml</path>
+            <title>Engine URL Rewrite Configuration (XML Style)</title>
+            <description>Engine URL Rewrite Configuration (XML Style)</description>
+            <samplePath>sample-urlrewrite.xml</samplePath>
+        </file>
+        <file>
+            <path>/studio/dependency/resolver-config.xml</path>
+            <title>Dependency Resolver Configuration</title>
+            <description>Dependency Resolver Configuration</description>
+            <samplePath>sample-resolver-config.xml</samplePath>
         </file>
         <file>
             <path>/studio/aws/aws.xml</path>
             <title>AWS Profiles</title>
             <description>AWS Profiles</description>
-            <samplePath>/studio/administration/samples/sample-aws.xml</samplePath>
+            <samplePath>sample-aws.xml</samplePath>
         </file>
         <file>
             <path>/studio/box/box.xml</path>
             <title>Box Profiles</title>
             <description>Box Profiles</description>
-            <samplePath>/studio/administration/samples/sample-box.xml</samplePath>
+            <samplePath>sample-box.xml</samplePath>
+        </file>
+        <file>
+            <path>/studio/webdav/webdav.xml</path>
+            <title>WebDAV Profiles</title>
+            <description>WebDAV Profiles</description>
+            <samplePath>sample-webdav.xml</samplePath>
         </file>
         <file>
             <path>/studio/asset-processing/asset-processing-config.xml</path>
             <title>Asset Processing</title>
             <description>Asset Processing</description>
-            <samplePath>/studio/administration/samples/sample-asset-processing-config.xml</samplePath>
+            <samplePath>sample-asset-processing-config.xml</samplePath>
         </file>
     </files>
 </config>

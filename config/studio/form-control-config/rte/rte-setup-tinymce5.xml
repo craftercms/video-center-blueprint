@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ MIT License
+  ~
+  ~ Copyright (c) 2018-2019 Crafter Software Corporation. All Rights Reserved.
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  -->
+
+<!--
+	This file configures Studio's Rich Text Editor (RTE), and it supports several configuration profiles, where the
+	content model selects which profile to use for which RTE field in the forms.
+-->
+<config>
+    <setup>
+        <id>generic</id> <!-- This starts a profile configuration -->
+
+        <rteStylesheets> <!-- This informs the RTE to use the CSS files -->
+            <!-- <link>/static-assets/css/rte/rte.css</link> -->
+        </rteStylesheets>
+
+        <rteStyleOverride>
+            body {
+                <!-- styles -->
+            }
+        </rteStyleOverride>
+
+        <plugins>
+            print preview searchreplace autolink directionality visualblocks visualchars fullscreen image link media template 
+			codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount 
+			textpattern help acecode
+        </plugins>
+
+        <toolbarItems1>
+            formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify | numlist bullist outdent indent | removeformat
+        </toolbarItems1>
+        <toolbarItems2></toolbarItems2>
+        <toolbarItems3></toolbarItems3>
+        <toolbarItems4></toolbarItems4>
+    </setup>
+</config>
