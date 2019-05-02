@@ -2,35 +2,41 @@
 # yarn lockfile v1
 
 
-"@craftercms/classes@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@craftercms/classes/-/classes-1.0.0.tgz#24c6f2f65585f4fce63818277be950a9dafec0c9"
+"@craftercms/classes@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@craftercms/classes/-/classes-1.1.0.tgz#d1339d88a499d87261c0d230e7e5b1b504b1a34e"
+  integrity sha512-Wq6NEy7X5AQ3OeokkNIi5BEB8e7+2W68fke4ENLvCnOBNnHX6iPKiyyMbJe+OCY4DcUt5K7BbAcvGcvKHbOxjg==
 
-"@craftercms/content@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@craftercms/content/-/content-1.0.0.tgz#89cfb8d0f31d9ddf0f280810c8d96e95caf10865"
+"@craftercms/content@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@craftercms/content/-/content-1.1.0.tgz#1a16018d56e2a0277c1990577bad3f675b6ad38d"
+  integrity sha512-fp+e1rK8XAZgVSumMxX3jENJrsQRZPnTpU91w0Ti0F7Po6dO4a3NwjSDlznITOXYj0ZbO6wQfBFBg+YOgv3elg==
   dependencies:
     rxjs "^6.2.0"
 
-"@craftercms/models@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@craftercms/models/-/models-1.0.0.tgz#530aa41bf45e4799c5e4c104da43b23083974553"
+"@craftercms/models@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@craftercms/models/-/models-1.1.0.tgz#683c28e6e30dbfe30d2727cde97236c2bd355a31"
+  integrity sha512-EF54FwggvKTv3jKVUH2TvvtL67IoAFnNszN9T8ZPP1s9vdDedUrsQgogrJqzcwcftqpCOVfAKTCJTtfNelwmsQ==
 
-"@craftercms/redux@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@craftercms/redux/-/redux-1.0.0.tgz#f7db8f1607d6aab5ac48e02eacfb4c008afcfc36"
+"@craftercms/redux@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@craftercms/redux/-/redux-1.1.0.tgz#bb845bde92188007cc771da79ebd26fbcd6bf785"
+  integrity sha512-aYrMuLsCUXot8zirjC58vdUEILUoq8IQL3HCIwp7sEfeuzn3W9pX16aNOZZLkH1G+fmukxnA4YELHqRfgWTz6w==
   dependencies:
     redux "^4.0.0"
     redux-observable "^0.18.0"
     rxjs "^6.2.0"
 
-"@craftercms/search@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@craftercms/search/-/search-1.0.0.tgz#abd6eddde06eb7acde7d5ad016b7da2e093b6b2a"
+"@craftercms/search@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@craftercms/search/-/search-1.1.0.tgz#0462948ef1e953598b95c7445875895e4854dab8"
+  integrity sha512-XDcEuiixulfJEzWlEx4oNR7EyDi5L9yqy98fzjAQIrjt2rNYCQssxXDEY6N85kn5ZyryVfDAPl034TtP9CXaNg==
 
-"@craftercms/utils@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@craftercms/utils/-/utils-1.0.0.tgz#4654d57356a07db68f01cb066e61d3d69182d90e"
+"@craftercms/utils@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@craftercms/utils/-/utils-1.1.0.tgz#d4219e5caaff4fdc9153ffab060c464af22e4437"
+  integrity sha512-E4nZyEN1Uw4v3Ew7YndlhQqvElp2+0vWWcDTwK3YBCax+/BLdsvWg2d82Lh7CHwDgWbg+M//h7bJslMe0tMjFQ==
 
 "@fortawesome/fontawesome-common-types@^0.2.0-9":
   version "0.2.0"
