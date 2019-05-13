@@ -36,6 +36,14 @@ class Search extends Component {
         this.appContentEl.classList.remove("search-content");
     }
 
+    componentWillReceiveProps(newProps) {
+        let value = newProps.match.params.query,
+            newCategories = this.setCategories(value);
+
+        this.searchInput.value = value;
+        this.setState({categories: newCategories});
+    }
+
     setCategories(searchId){
         const searchKeyword = isNullOrUndefined(searchId) ? '' : searchId,
               searchFilter = searchKeyword.replace(/\s/g,'') === '' ? 
@@ -101,6 +109,7 @@ class Search extends Component {
                                     <FontAwesomeIcon className="search__icon" icon={ faSearch }/>
                                 </div>
                                 <input type="text" className="search-bar__input" placeholder="Start Typing..." 
+                                    ref={ r => this.searchInput = r }
                                     defaultValue={ this.searchId }
                                     onChange={this.onChange.bind(this)}/>
                             </div>
