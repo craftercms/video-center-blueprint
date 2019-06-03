@@ -10,8 +10,7 @@ plugin:
   name: Video Center Blueprint
   tags:
     - blueprint
-    - video
-    - center
+    - video center
   version:
     major: 1
     minor: 0
