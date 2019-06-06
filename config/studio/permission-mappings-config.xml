@@ -84,7 +84,7 @@
 
 -->
 <permissions>
-    <version>4</version>
+    <version>5</version>
     <role name="author">
         <rule regex="/site/website/.*">
             <allowed-permissions>
@@ -202,6 +202,7 @@
                 <permission>push_to_remote</permission>
                 <permission>rebuild_database</permission>
                 <permission>remove_remote</permission>
+                <permission>write_configuration</permission>
             </allowed-permissions>
         </rule>
         <rule regex="^/(?!site/website/index\.xml)(.*)">
@@ -213,6 +214,7 @@
             <allowed-permissions>
                 <permission>Publish</permission>
                 <permission>audit_log</permission>
+                <permission>write_configuration</permission>
             </allowed-permissions>
         </rule>
         <rule regex=".*">
