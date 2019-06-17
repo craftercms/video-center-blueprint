@@ -29,6 +29,7 @@
 
 -->
 <app-context-menu>
+    <version>2</version>
     <context>
        <name>default</name>
         <left> <!-- left-aligned modules -->
