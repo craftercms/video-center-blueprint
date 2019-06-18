@@ -21,7 +21,7 @@ class VideoCategories extends Component {
 
     renderCards(category) {
         const isSearch = this.props.query && category.key === "top-results";
-        
+
         if ( isSearch ) {
             return <Cards category={category} query={this.props.query}></Cards>;
         }else{
@@ -44,7 +44,7 @@ class VideoCategories extends Component {
                     gridElClass = "static-grid static-grid--3 static-grid--break-at-480";
                     break;
                 case "channel-card-alt":
-                    gridElClass = "static-grid static-grid--3 static-grid--break-at-480";   
+                    gridElClass = "static-grid static-grid--3 static-grid--break-at-480";
                     // gridElClass = "static-grid static-grid--4 static-grid--standard static-grid--break-at-480";
                     break;
                 case "standard-card":
@@ -57,7 +57,7 @@ class VideoCategories extends Component {
             if( categoryType === "video-card"){
                 var categoryName = encodeURI(category.value),
                     sort = category.sort ? encodeURI(category.sort) : null,
-                    query = category.query ? encodeURI(category.query.toString()) : category.key,
+                    query = category.query ? encodeURI(JSON.stringify(category.query)) : category.key,
                     viewAllURL;
 
                 query = query.replace(/\//g, '_');
@@ -70,11 +70,11 @@ class VideoCategories extends Component {
                 <section className="segment" key={i} id={"section-" + category.key}>
                     <div className="content-container__block content-container__block--0 content-container__block--active">
                         <div className="segment">
-                            <h2 className="heading heading--default heading--section" 
+                            <h2 className="heading heading--default heading--section"
                                 style={ (showViewAll) ? { display: 'inline-block' } : { display: 'none' } }>
                                 { category.value }
                             </h2>
-                        
+
                             { categoryType === "video-card" && showViewAll &&
                                 <Link className="collection__item--link" to={ viewAllURL }>
                                     <span>
@@ -95,7 +95,7 @@ class VideoCategories extends Component {
     }
 
     renderCategoriesItems() {
-        
+
         return this.props.categories.map((category, i) => {
             return (
                 <li key={i} className={ "inline-nav__item inline-nav__item_0" } >
@@ -138,15 +138,15 @@ class VideoCategories extends Component {
     }
 
     render() {
-      
+
         return (
             <VideoCategoriesHolder>
-                
+
                 <div id="stickyBar" className="inline-nav__sticky">
                     <nav className="inline-nav inline-nav--align-left">
                         <div className="inline-nav__inner">
-                            <Scrollspy className="inline-nav__ul" 
-                                       items={ this.sectionsScrollSpy } 
+                            <Scrollspy className="inline-nav__ul"
+                                       items={ this.sectionsScrollSpy }
                                        currentClassName="inline-nav__item--active"
                                        rootEl={ ".app-content__main" }
                                        ref={node => (this.scrollspy = node)}
