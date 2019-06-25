@@ -48,7 +48,7 @@
     </config>
 -->
 <config>
-   <version>6</version>
+   <version>7</version>
    <tools>
       <tool>
          <name>content-types</name>
@@ -313,6 +313,13 @@
                <icon>
                   <class>fa-film</class>
                   <stackedclass>fa-amazon</stackedclass>
+               </icon>
+            </datasource>
+            <datasource>
+               <name>video-S3-transcoding</name>
+               <icon>
+                  <class>fa-film</class>
+                  <class>fa-amazon</class>
                </icon>
             </datasource>
             <datasource>
