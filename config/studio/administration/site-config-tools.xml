@@ -343,7 +343,7 @@
                <name>video-S3-transcoding</name>
                <icon>
                   <class>fa-film</class>
-                  <class>fa-amazon</class>
+                  <stackedclass>fa-amazon</class>
                </icon>
             </datasource>
          </datasources>
