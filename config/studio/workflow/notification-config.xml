@@ -29,6 +29,7 @@
 
 -->
 <notificationConfig>
+	<version>2</version>
    <lang><!-- language specific notifications -->
       <deploymentFailureNotification><!-- list of email addresses to notify in case of publishing failure -->
          <email>admin@example.com</email>
@@ -223,23 +224,23 @@
          <emailTemplate key="repositoryMergeConflict">
             <subject>Repository merge conflict for site ${siteName}</subject>
             <body>
-                            <![CDATA[
-                        <html>
-                            <head>
-                                <meta charset="utf-8"/>
-                            </head>
-                            <body style=" font-size: 12pt;">
-                                <p>
+                            
+                        &lt;html&gt;
+                            &lt;head&gt;
+                                &lt;meta charset="utf-8"/&gt;
+                            &lt;/head&gt;
+                            &lt;body style=" font-size: 12pt;"&gt;
+                                &lt;p&gt;
                                     The following content was unable to be merged:
-                                    <ul>
-                                        <#list files as file>
-                                                <li>${file}</li>
-                                        </#list>
-                                    </ul>
-                                </p>
-                            </body>
-                        </html>
-]]>
+                                    &lt;ul&gt;
+                                        &lt;#list files as file&gt;
+                                                &lt;li&gt;${file}&lt;/li&gt;
+                                        &lt;/#list&gt;
+                                    &lt;/ul&gt;
+                                &lt;/p&gt;
+                            &lt;/body&gt;
+                        &lt;/html&gt;
+
                         </body>
          </emailTemplate>
       </emailTemplates>
