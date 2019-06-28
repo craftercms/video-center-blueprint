@@ -1,29 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  ~ MIT License
-  ~
-  ~ Copyright (c) 2018-2019 Crafter Software Corporation. All Rights Reserved.
-  ~
-  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
-  ~ of this software and associated documentation files (the "Software"), to deal
-  ~ in the Software without restriction, including without limitation the rights
-  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  ~ copies of the Software, and to permit persons to whom the Software is
-  ~ furnished to do so, subject to the following conditions:
-  ~
-  ~ The above copyright notice and this permission notice shall be included in all
-  ~ copies or substantial portions of the Software.
-  ~
-  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-  ~ SOFTWARE.
-  -->
 <component>
-	<content-type>/component/video</content-type>	<display-template/>
+	<content-type>/component/video</content-type>	<display-template>/templates/web/entry.ftl</display-template>
 	<merge-strategy>inherit-levels</merge-strategy>
 	<objectGroupId>f945</objectGroupId>
 	<objectId>f94545a8-e8d2-8c60-7e7a-dc4c37ace680</objectId>
@@ -35,13 +12,16 @@
 	<summary_s>In our first video about caffeine, Dr Rob Stockman extracts the molecule from six cups of coffee.</summary_s>
 	<featured>false</featured>
 	<thumbnail>/static-assets/images/videos/f94545a8-e8d2-8c60-7e7a-dc4c37ace680/how-much-caffeine-in-coffee.jpg</thumbnail>
-	<description_html>&lt;p&gt;&lt;span data-sheets-value="{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:&amp;quot;In our first video about caffeine, Dr Rob Stockman extracts the molecule from six cups of coffee.&amp;quot;}" data-sheets-userformat="{&amp;quot;2&amp;quot;:829,&amp;quot;3&amp;quot;:[null,0],&amp;quot;5&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;6&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;7&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;8&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;11&amp;quot;:4,&amp;quot;12&amp;quot;:0}"&gt;In our first video about caffeine, Dr Rob Stockman extracts the molecule from six cups of coffee.&lt;/span&gt;&lt;/p&gt;</description_html>
+	<description_html>&lt;p&gt;&lt;span data-sheets-value="{" data-sheets-userformat="{"&gt;In our first video about caffeine, Dr Rob Stockman extracts the molecule from six cups of coffee.&lt;/span&gt;&lt;/p&gt;</description_html>
 	<date_dt>2012-07-17T04:00:00.000Z</date_dt>
 	<createdDate>2018-04-24T19:57:31.022Z</createdDate>
 	<createdDate_dt>2018-04-24T19:57:31.022Z</createdDate_dt>
-	<lastModifiedDate>2018-05-25T20:15:01.037Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-05-25T20:15:01.037Z</lastModifiedDate_dt>
+	<lastModifiedDate>2019-06-28T17:32:48.184Z</lastModifiedDate>
+	<lastModifiedDate_dt>2019-06-28T17:32:48.184Z</lastModifiedDate_dt>
 	<channels>	<item>	<key>chemistry</key>
 	<value_smv>Chemistry</value_smv>
 	</item></channels>
+	<format>video</format>
+	<boxVideo/>
+	<date_dt_tz>EST5EDT</date_dt_tz>
 </component>

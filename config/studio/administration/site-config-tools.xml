@@ -316,6 +316,13 @@
                </icon>
             </datasource>
             <datasource>
+               <name>video-S3-transcoding</name>
+               <icon>
+                  <class>fa-film</class>
+                  <stackedclass>fa-amazon</stackedclass>
+               </icon>
+            </datasource>
+            <datasource>
                <name>video-desktop-upload</name>
                <icon>
                   <class>fa-video-camera</class>
@@ -359,6 +366,12 @@
                      <type>template</type>
                   </property>
                   <property>
+                     <name>no-template-required</name>
+                     <label>No Template Required</label>
+                     <value></value>
+                     <type>boolean</type>
+                  </property>
+                  <property>
                      <name>merge-strategy</name>
                      <label>Merge Strategy</label>
                      <value>inherit-levels</value>
@@ -381,6 +394,12 @@
                      <label>Display Template</label>
                      <value/>
                      <type>template</type>
+                  </property>
+                  <property>
+                     <name>no-template-required</name>
+                     <label>No Template Required</label>
+                     <value></value>
+                     <type>boolean</type>
                   </property>
                   <property>
                      <name>merge-strategy</name>

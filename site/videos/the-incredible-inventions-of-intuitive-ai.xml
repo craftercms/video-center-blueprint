@@ -1,29 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  ~ MIT License
-  ~
-  ~ Copyright (c) 2018-2019 Crafter Software Corporation. All Rights Reserved.
-  ~
-  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
-  ~ of this software and associated documentation files (the "Software"), to deal
-  ~ in the Software without restriction, including without limitation the rights
-  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  ~ copies of the Software, and to permit persons to whom the Software is
-  ~ furnished to do so, subject to the following conditions:
-  ~
-  ~ The above copyright notice and this permission notice shall be included in all
-  ~ copies or substantial portions of the Software.
-  ~
-  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-  ~ SOFTWARE.
-  -->
 <component>
-	<content-type>/component/video</content-type>	<display-template/>
+	<content-type>/component/video</content-type>	<display-template>/templates/web/entry.ftl</display-template>
 	<merge-strategy>inherit-levels</merge-strategy>
 	<objectGroupId>0060</objectGroupId>
 	<objectId>0060286f-b7b6-a7bc-1b6f-671d8a245658</objectId>
@@ -32,16 +9,19 @@
 	<internal-name>The Incredible Inventions of Intuitive AI</internal-name>
 	<title_s tokenized="true">The Incredible Inventions of Intuitive AI</title_s>
 	<youTubeVideo>aR5N2Jl8k14</youTubeVideo>
-	<featured>false</featured>
+	<featured>true</featured>
 	<summary_s>What do you get when you give a design tool a digital nervous system? Computers that improve our ability to think and imagine, and robotic systems that come up with (and build) radical new designs for bridges, cars, drones and much more -- all by themselves. Take a tour of the Augmented Age with futurist Maurice Conti and preview a time when robots and humans will work side-by-side to accomplish things neither could do alone.</summary_s>
 	<thumbnail>/static-assets/images/videos/0060286f-b7b6-a7bc-1b6f-671d8a245658/the-incredible-inventions-of-intuitive-ai.jpg</thumbnail>
-	<description_html>&lt;p&gt;&lt;span data-sheets-value="{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:&amp;quot;What do you get when you give a design tool a digital nervous system? Computers that improve our ability to think and imagine, and robotic systems that come up with (and build) radical new designs for bridges, cars, drones and much more -- all by themselves. Take a tour of the Augmented Age with futurist Maurice Conti and preview a time when robots and humans will work side-by-side to accomplish things neither could do alone.&amp;quot;}" data-sheets-userformat="{&amp;quot;2&amp;quot;:829,&amp;quot;3&amp;quot;:[null,0],&amp;quot;5&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;6&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;7&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;8&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;11&amp;quot;:4,&amp;quot;12&amp;quot;:0}"&gt;What do you get when you give a design tool a digital nervous system? Computers that improve our ability to think and imagine, and robotic systems that come up with (and build) radical new designs for bridges, cars, drones and much more -- all by themselves. Take a tour of the Augmented Age with futurist Maurice Conti and preview a time when robots and humans will work side-by-side to accomplish things neither could do alone.&lt;/span&gt;&lt;/p&gt;</description_html>
+	<description_html>&lt;p&gt;&lt;span data-sheets-value="{"1":2,"2":"What do you get when you give a design tool a digital nervous system? Computers that improve our ability to think and imagine, and robotic systems that come up with (and build) radical new designs for bridges, cars, drones and much more -- all by themselves. Take a tour of the Augmented Age with futurist Maurice Conti and preview a time when robots and humans will work side-by-side to accomplish things neither could do alone."}" data-sheets-userformat="{"2":829,"3":[null,0],"5":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"6":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"7":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"8":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"11":4,"12":0}"&gt;What do you get when you give a design tool a digital nervous system? Computers that improve our ability to think and imagine, and robotic systems that come up with (and build) radical new designs for bridges, cars, drones and much more -- all by themselves. Take a tour of the Augmented Age with futurist Maurice Conti and preview a time when robots and humans will work side-by-side to accomplish things neither could do alone.&lt;/span&gt;&lt;/p&gt;</description_html>
 	<date_dt>2017-04-14T04:00:00.000Z</date_dt>
 	<createdDate>2018-04-24T20:46:20.522Z</createdDate>
 	<createdDate_dt>2018-04-24T20:46:20.522Z</createdDate_dt>
-	<lastModifiedDate>2018-05-25T20:16:19.358Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-05-25T20:16:19.358Z</lastModifiedDate_dt>
+	<lastModifiedDate>2019-06-28T17:29:46.551Z</lastModifiedDate>
+	<lastModifiedDate_dt>2019-06-28T17:29:46.551Z</lastModifiedDate_dt>
 	<channels>	<item>	<key>engineering</key>
 	<value_smv>Engineering</value_smv>
 	</item></channels>
+	<format>video</format>
+	<boxVideo/>
+	<date_dt_tz>EST5EDT</date_dt_tz>
 </component>
