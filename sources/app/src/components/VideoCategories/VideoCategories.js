@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Scrollspy from 'react-scrollspy';
 import { Link } from 'react-router-dom';
-import { isNullOrUndefined } from 'util';
+import { isNullOrUndefined, isNull } from 'util';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
@@ -56,11 +56,18 @@ class VideoCategories extends Component {
 
             if( categoryType === "video-card"){
                 var categoryName = encodeURI(category.value),
-                    sort = category.sort ? encodeURI(category.sort) : null,
+                    sort = category.sort ? encodeURI(JSON.stringify(category.sort)) : null,
                     query = category.query ? encodeURI(JSON.stringify(category.query)) : category.key,
                     viewAllURL;
 
+                // In this scenario both label and category key are the same
+                if ( category.viewAll ) {
+                  categoryName = category.viewAll
+                  query = category.viewAll
+                }
+
                 query = query.replace(/\//g, '_');
+                sort = !isNull(sort) ? sort.replace(/\//g, '_') : sort;
 
                 viewAllURL = `/list/${ categoryName }/${ query }`;
                 viewAllURL = sort ? `${ viewAllURL }/${ sort }` : viewAllURL;

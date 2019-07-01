@@ -94,7 +94,8 @@ class Channel extends Component {
                         ]
                     }
                 },
-                numResults: component.maxVideosDisplay
+                numResults: component.maxVideosDisplay,
+                viewAll: channelContent.channelKey
             },
             {
                 key: "related-channels",
@@ -103,7 +104,7 @@ class Channel extends Component {
                 query: {
                     "bool": {
                         "must_not" : {
-                            "term" : {"file-name" : channelContent['file-name']} 
+                            "term" : {"file-name" : channelContent['file-name']}
                         },
                         "filter": [
                             {

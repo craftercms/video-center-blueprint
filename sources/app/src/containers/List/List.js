@@ -44,7 +44,7 @@ class Channel extends Component {
       }
 
       if(params.sort){
-          category.sort = params.sort;
+          category.sort = JSON.parse(params.sort);
       }
 
       this.setState({
