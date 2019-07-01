@@ -346,6 +346,13 @@
                   <class>fa-puzzle-piece</class>
                </icon>
             </datasource>
+            <datasource>
+               <name>video-S3-transcoding</name>
+               <icon>
+                  <class>fa-film</class>
+                  <stackedclass>fa-amazon</stackedclass>
+               </icon>
+            </datasource>
          </datasources>
          <objectTypes>
             <type>
@@ -370,6 +377,12 @@
                      <value>inherit-levels</value>
                      <type>string</type>
                   </property>
+                  <property>
+                     <name>no-template-required</name>
+                     <label>No Template Required</label>
+                     <value/>
+                     <type>boolean</type>
+                  </property>
                </properties>
             </type>
             <type>
@@ -393,6 +406,12 @@
                      <label>Merge Strategy</label>
                      <value>inherit-levels</value>
                      <type>string</type>
+                  </property>
+                  <property>
+                     <name>no-template-required</name>
+                     <label>No Template Required</label>
+                     <value/>
+                     <type>boolean</type>
                   </property>
                </properties>
             </type>
