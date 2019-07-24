@@ -30,7 +30,7 @@
 	<slides_o>	<item>	<tItle>test</tItle>
 	<subtitle_s>test</subtitle_s>
 	<vod>test</vod>
-	<background>/static-assets/images/videos/74d66d4b-1127-2e8c-fd59-f9988a62c091/how-quantum-biology-might-explain-life-s-biggest-questions.jpg</background>
+	<background_s>/static-assets/images/videos/74d66d4b-1127-2e8c-fd59-f9988a62c091/how-quantum-biology-might-explain-life-s-biggest-questions.jpg</background_s>
 	<logo/>
 	</item></slides_o>
 	<file-name>oneslide.xml</file-name>

@@ -30,21 +30,21 @@
 	<slides_o>	<item>	<tItle>Teaching Your Kid to Code</tItle>
 	<subtitle_s>Computer programming is becoming an...</subtitle_s>
 	<vod>Computer Science</vod>
-	<background>/static-assets/images/videos/6f1b063a-cb5d-6afd-ce79-02972ba88fb9/auditorium-benches-chairs-207691.jpg</background>
+	<background_s>/static-assets/images/videos/6f1b063a-cb5d-6afd-ce79-02972ba88fb9/auditorium-benches-chairs-207691.jpg</background_s>
 	<logo/>
 	<title_t>Teaching Your Kid to Code</title_t>
 	<url>/stream/c0d2cb50-fc38-faee-35ad-e65a64671ea0</url>
 	</item>	<item>	<tItle>Why is C so Influential</tItle>
 	<subtitle_s>Why is C Such an influential language?</subtitle_s>
 	<vod>Computer Science</vod>
-	<background>/static-assets/images/videos/479c8836-bbec-6305-f634-7b70d0b82cf5/why-c-is-so-influential.jpg</background>
+	<background_s>/static-assets/images/videos/479c8836-bbec-6305-f634-7b70d0b82cf5/why-c-is-so-influential.jpg</background_s>
 	<logo/>
 	<title_t>Why is C so Influential</title_t>
 	<url>/video/479c8836-bbec-6305-f634-7b70d0b82cf5</url>
 	</item>	<item>	<title/>
 	<subtitle_s>Are Machines Better at Quantm Physics than Humans?</subtitle_s>
 	<vod>Physics</vod>
-	<background>/static-assets/images/videos/f4465f1c-c056-0a93-def8-9deba80cd764/are-machines-better-at-quantum-physics-than-humans.jpg</background>
+	<background_s>/static-assets/images/videos/f4465f1c-c056-0a93-def8-9deba80cd764/are-machines-better-at-quantum-physics-than-humans.jpg</background_s>
 	<logo>/static-assets/images/keyboard-24186_640.png</logo>
 	<url>/video/f4465f1c-c056-0a93-def8-9deba80cd764</url>
 	</item></slides_o>
