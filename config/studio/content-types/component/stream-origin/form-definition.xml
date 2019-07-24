@@ -101,7 +101,7 @@
 				</field>
 				<field>
 					<type>input</type>
-					<id>url</id>
+					<id>url_s</id>
 					<iceId></iceId>
 					<title>URL</title>
 					<description></description>
