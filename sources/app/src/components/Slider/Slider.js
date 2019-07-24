@@ -42,40 +42,40 @@ class Slider extends Component {
             return (
                 <div key={ i }>
                     <div className="discover-slider__inner">
-                        <Link className="discover-slider__link" to={ slide.url }>
+                        <Link className="discover-slider__link" to={ slide.url_s }>
                             <div>
                                 <div className="image discover-slider__inner--background discover-slider__inner--background-mobile">
                                     <div className="image__image" 
-                                        style={{ backgroundImage: `url(${ slide.background })` }}>
+                                        style={{ backgroundImage: `url(${ slide.background_s })` }}>
                                     </div>
                                 </div>
                                 <div className="image discover-slider__inner--background discover-slider__inner--background-desktop">
                                     <div className="image__image" 
-                                        style={{ backgroundImage: `url(${ slide.background })` }}>
+                                        style={{ backgroundImage: `url(${ slide.background_s })` }}>
                                     </div>
                                 </div>
                             </div>
                             <div className={"discover-slider__inner--content" + (this.props.hero ? ' hero_content' : '') }>
-                                { slide.vod &&
+                                { slide.vod_s &&
                                     <div className="discover-slider__inner--vod">
                                         <span className="discover-slider__inner--vod-label">
-                                            { slide.vod }
+                                            { slide.vod_s }
                                         </span>
                                     </div>
                                 }
                                 
                                 <h1 className="heading discover-slider__inner--title heading--medium heading--slider">
-                                    { slide.title }
+                                    { slide.title_t }
                                 </h1>
 
-                                { slide.logo &&
+                                { slide.logo_s &&
                                     <div className="discover-slider__inner--title discover-slider__inner--title--logo" 
-                                        style={{ backgroundImage: `url(${ slide.logo })` }}>
+                                        style={{ backgroundImage: `url(${ slide.logo_s })` }}>
                                     </div>
                                 }
 
                                 <div className="discover-slider__inner--subtitle">
-                                    { ReactHtmlParser(slide.subtitle) }
+                                    { ReactHtmlParser(slide.subtitle_s) }
                                 </div>
 
                                 { this.props.hero &&
@@ -130,7 +130,7 @@ class Slider extends Component {
     }
 
     renderSliderDescriptor(descriptor) {
-        var slides = descriptor.component.slides;
+        var slides = descriptor.component.slides_o;
 
         if( !(slides.item instanceof Array) ){
             slides = [slides.item];
