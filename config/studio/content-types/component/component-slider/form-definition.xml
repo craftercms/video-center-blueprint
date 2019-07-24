@@ -220,7 +220,7 @@
 				</field>
 				<field>
 					<type>input</type>
-					<id>vod</id>
+					<id>vod_s</id>
 					<iceId></iceId>
 					<title>Vod</title>
 					<description></description>
