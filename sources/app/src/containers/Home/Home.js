@@ -27,9 +27,9 @@ class Home extends Component {
     }
 
     renderSlider(descriptor) {
-        if( descriptor.page.slider.item ) {
+        if( descriptor.page.slider_o.item ) {
             return (
-                <Slider data={ descriptor.page.slider.item }
+                <Slider data={ descriptor.page.slider_o.item }
                         getDescriptor={ this.props.getDescriptor }
                         descriptors={ this.props.descriptors }>
                 </Slider>

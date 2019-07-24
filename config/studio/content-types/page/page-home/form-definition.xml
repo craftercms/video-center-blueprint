@@ -202,7 +202,7 @@
 			<fields>
 				<field>
 					<type>node-selector</type>
-					<id>slider</id>
+					<id>slider_o</id>
 					<iceId></iceId>
 					<title>Slider</title>
 					<description></description>

@@ -37,11 +37,11 @@
 	<lastModifiedDate>2018-07-19T23:40:32.152Z</lastModifiedDate>
 	<lastModifiedDate_dt>2018-07-19T23:40:32.152Z</lastModifiedDate_dt>
 	<disabled>false</disabled>
-	<slider>	<item>	<key>/site/components/sliders/home-slider.xml</key>
+	<slider_o>	<item>	<key>/site/components/sliders/home-slider.xml</key>
 	<value>Home Slider</value>
 	<include>/site/components/sliders/home-slider.xml</include>
 	<disableFlattening>false</disableFlattening>
-	</item></slider>
+	</item></slider_o>
 	<reactComponent_s>Home</reactComponent_s>
 	<maxVideosDisplay_i>6</maxVideosDisplay_i>
 	<maxChannelsDisplay_i>3</maxChannelsDisplay_i>
