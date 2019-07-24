@@ -43,6 +43,6 @@
 	<disableFlattening>false</disableFlattening>
 	</item></slider>
 	<reactComponent>Home</reactComponent>
-	<maxVideosDisplay>6</maxVideosDisplay>
-	<maxChannelsDisplay>3</maxChannelsDisplay>
+	<maxVideosDisplay_i>6</maxVideosDisplay_i>
+	<maxChannelsDisplay_i>3</maxChannelsDisplay_i>
 </page>

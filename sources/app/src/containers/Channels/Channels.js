@@ -26,7 +26,7 @@ class Channels extends Component {
                                 },
                                 {
                                     "match": {
-                                        "featured": true
+                                        "featured_b": true
                                     }
                                 }
                             ]

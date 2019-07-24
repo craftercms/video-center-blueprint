@@ -250,7 +250,7 @@
 				</field>
 				<field>
 					<type>input</type>
-					<id>maxVideosDisplay</id>
+					<id>maxVideosDisplay_i</id>
 					<iceId></iceId>
 					<title>Max Videos to Display</title>
 					<description>(per category)</description>
@@ -293,7 +293,7 @@
 				</field>
 				<field>
 					<type>input</type>
-					<id>maxChannelsDisplay</id>
+					<id>maxChannelsDisplay_i</id>
 					<iceId></iceId>
 					<title>Max Channels to Display</title>
 					<description></description>

@@ -50,15 +50,15 @@ class Channel extends Component {
         var component = descriptor.component,
             channelHero = [],
             channelContent = descriptor.component,
-            channelTags = channelContent.tags.item,
-            tagsFilter = 'tags.item.value: ',
+            channelTags = channelContent.tags_o.item,
+            tagsFilter = 'tags_o.item.value: ',
             categories;
 
         channelHero.push({
             url: "#",
-            background: channelContent.heroImage,
+            background: channelContent.heroImage_s,
             title: channelContent['internal-name'],
-            subtitle: channelContent.description
+            subtitle: channelContent.description_s
         });
 
         //get channel tags
@@ -88,13 +88,13 @@ class Channel extends Component {
                             },
                             {
                                 "match": {
-                                    "featured": true
+                                    "featured_b": true
                                 }
                             }
                         ]
                     }
                 },
-                numResults: component.maxVideosDisplay,
+                numResults: component.maxVideosDisplay_i,
                 viewAll: channelContent.channelKey_s
             },
             {
@@ -115,7 +115,7 @@ class Channel extends Component {
                         ]
                     }
                 },
-                numResults: component.maxChannelsDisplay
+                numResults: component.maxChannelsDisplay_i
             }
         ];
 

@@ -53,13 +53,13 @@ class Home extends Component {
                                 },
                                 {
                                     "match": {
-                                        "featured": true
+                                        "featured_b": true
                                     }
                                 }
                             ]
                         }
                     },
-                    numResults: page.maxVideosDisplay
+                    numResults: page.maxVideosDisplay_i
                 },
                 {
                     key: "latest-videos",
@@ -79,7 +79,7 @@ class Home extends Component {
                         by: "createdDate_dt",
                         order: "desc"
                     },
-                    numResults: page.maxVideosDisplay
+                    numResults: page.maxVideosDisplay_i
                 },
                 {
                     key: "featured-channels",
@@ -95,13 +95,13 @@ class Home extends Component {
                                 },
                                 {
                                     "match": {
-                                        "featured": true
+                                        "featured_b": true
                                     }
                                 }
                             ]
                         }
                     },
-                    numResults: page.maxChannelsDisplay
+                    numResults: page.maxChannelsDisplay_i
                 }
         ];
 

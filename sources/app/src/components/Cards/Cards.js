@@ -128,7 +128,7 @@ class Cards extends Component {
                             <div className="channel-card-alt">
                                 <Link className="channel-card-alt__link" to={`/channel/${ url }`}>
                                     <div className="image channel-card-alt__image">
-                                        <div className="image__image" style={{ backgroundImage: `url(${ card.thumbnailImage })` }}>
+                                        <div className="image__image" style={{ backgroundImage: `url(${ card.thumbnailImage_s })` }}>
                                             <div className="channel-card-alt__overlay"></div>
                                         </div>
                                     </div>

@@ -24,7 +24,7 @@ class Footer extends Component {
 
     renderFooterContent(descriptor) {
         const currentYear = new Date().getFullYear(),
-              updatedCopyright = descriptor.component.copyrightLabel.replace('{year}', currentYear); 
+              updatedCopyright = descriptor.component.copyrightLabel_t.replace('{year}', currentYear); 
 
         return(
             <div className="footer__content">
@@ -33,8 +33,8 @@ class Footer extends Component {
                 </div>
 
                 <div className="footer__nav">
-                    { descriptor.component.nav &&
-                        this.renderFooterNav(descriptor.component.nav)     
+                    { descriptor.component.nav_o &&
+                        this.renderFooterNav(descriptor.component.nav_o)     
                     }
                 </div>
             </div>

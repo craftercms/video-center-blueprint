@@ -335,7 +335,7 @@
 				</field>
 				<field>
 					<type>checkbox</type>
-					<id>featured</id>
+					<id>featured_b</id>
 					<iceId></iceId>
 					<title>Featured</title>
 					<description></description>
@@ -424,7 +424,7 @@
 				</field>
 				<field>
 					<type>repeat</type>
-					<id>tags</id>
+					<id>tags_o</id>
 					<iceId></iceId>
 					<title>Tags</title>
 					<description></description>

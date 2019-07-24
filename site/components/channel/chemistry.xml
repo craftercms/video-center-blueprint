@@ -30,21 +30,21 @@
 	<file-name>chemistry.xml</file-name>
 	<folder-name/>
 	<internal-name>Chemistry</internal-name>
-	<description>Lorem ipsum dolor sit amet, consetetur sadipscing elit</description>
-	<heroImage>/static-assets/images/channels/4976105a-c318-4f43-ec62-764ccd78ea87/chemistry.jpg</heroImage>
-	<thumbnailImage>/static-assets/images/channels/4976105a-c318-4f43-ec62-764ccd78ea87/chemistry-thumbnail.jpg</thumbnailImage>
+	<description_s>Lorem ipsum dolor sit amet, consetetur sadipscing elit</description_s>
+	<heroImage_s>/static-assets/images/channels/4976105a-c318-4f43-ec62-764ccd78ea87/chemistry.jpg</heroImage_s>
+	<thumbnailImage_s>/static-assets/images/channels/4976105a-c318-4f43-ec62-764ccd78ea87/chemistry-thumbnail.jpg</thumbnailImage_s>
 	<createdDate>2018-05-25T19:48:55.809Z</createdDate>
 	<createdDate_dt>2018-05-25T19:48:55.809Z</createdDate_dt>
 	<lastModifiedDate>2019-01-23T16:18:51.589Z</lastModifiedDate>
 	<lastModifiedDate_dt>2019-01-23T16:18:51.589Z</lastModifiedDate_dt>
-	<featured>false</featured>
+	<featured_b>false</featured_b>
 	<tags item-list="true">	<item>	<value>chemistry</value>
 	</item>	<item>	<value>science</value>
 	</item>	<item>	<value>bodies</value>
 	</item>	<item>	<value>molecule</value>
 	</item>	<item>	<value>organic</value>
 	</item></tags>
-	<maxVideosDisplay>6</maxVideosDisplay>
-	<maxChannelsDisplay>3</maxChannelsDisplay>
+	<maxVideosDisplay_i>6</maxVideosDisplay_i>
+	<maxChannelsDisplay_i>3</maxChannelsDisplay_i>
 	<channelKey_s>chemistry</channelKey_s>
 </component>
