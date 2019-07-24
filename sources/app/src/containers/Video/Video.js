@@ -98,11 +98,11 @@ class Video extends Component {
                 this.props.setHeaderGhost(true);
 
                 upcomingVideoHero.push({
-                    url: "#",
-                    background: video.thumbnail,
-                    title: video.title_s,
-                    subtitle: video.description_html,
-                    date: video.startDate_dt
+                    url_s: "#",
+                    background_s: video.thumbnail,
+                    title_t: video.title_s,
+                    subtitle_s: video.description_html,
+                    date_dt: video.startDate_dt
                 })
     
                 // remove video info (if available)

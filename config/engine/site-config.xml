@@ -42,6 +42,6 @@
 
     <!-- Navigation properties -->
    	<navigation>
-        <additionalFields>reactComponent</additionalFields>
+        <additionalFields>reactComponent_s</additionalFields>
     </navigation>
 </site>

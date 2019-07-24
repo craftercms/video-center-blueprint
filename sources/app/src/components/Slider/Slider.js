@@ -22,7 +22,7 @@ class Slider extends Component {
     renderCountdown() {
         //since it is a hero (only one slide), it's the first item of array
         var { data } = this.props,
-            formattedDate = formatDate(data[0].date);
+            formattedDate = formatDate(data[0].date_dt);
 
         return (
             <div className="hero__countdown">
