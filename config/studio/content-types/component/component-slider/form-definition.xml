@@ -113,7 +113,7 @@
 			<fields>
 				<field>
 					<type>repeat</type>
-					<id>slides</id>
+					<id>slides_o</id>
 					<iceId></iceId>
 					<title>Slides</title>
 					<description></description>
