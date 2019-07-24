@@ -177,7 +177,7 @@
 				</field>
 				<field>
 					<type>input</type>
-					<id>subtitle</id>
+					<id>subtitle_s</id>
 					<iceId></iceId>
 					<title>Subtitle</title>
 					<description></description>
