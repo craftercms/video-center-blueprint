@@ -220,7 +220,7 @@
 				</field>
 				<field>
 					<type>input</type>
-					<id>link</id>
+					<id>link_s</id>
 					<iceId></iceId>
 					<title>Link</title>
 					<description></description>
