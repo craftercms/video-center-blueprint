@@ -152,7 +152,7 @@
 				</field>
 				<field>
 					<type>input</type>
-					<id>reactComponent</id>
+					<id>reactComponent_s</id>
 					<iceId></iceId>
 					<title>React Component</title>
 					<description></description>

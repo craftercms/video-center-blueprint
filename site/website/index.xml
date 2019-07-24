@@ -42,7 +42,7 @@
 	<include>/site/components/sliders/home-slider.xml</include>
 	<disableFlattening>false</disableFlattening>
 	</item></slider>
-	<reactComponent>Home</reactComponent>
+	<reactComponent_s>Home</reactComponent_s>
 	<maxVideosDisplay_i>6</maxVideosDisplay_i>
 	<maxChannelsDisplay_i>3</maxChannelsDisplay_i>
 </page>

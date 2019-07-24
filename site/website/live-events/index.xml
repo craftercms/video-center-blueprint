@@ -32,7 +32,7 @@
 	<placeInNav>true</placeInNav>
 	<orderDefault_f>5000</orderDefault_f>
 	<internal-name>Live Events</internal-name>
-	<reactComponent>LiveEvents</reactComponent>
+	<reactComponent_s>LiveEvents</reactComponent_s>
 	<title_t>Live Events</title_t>
 	<disabled>false</disabled>
 	<body>&lt;p&gt;Live Events&lt;/p&gt;</body>

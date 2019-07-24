@@ -30,7 +30,7 @@
 	<file-name>index.xml</file-name>
 	<folder-name>channels</folder-name>
 	<internal-name>Channels</internal-name>
-	<reactComponent>Channels</reactComponent>
+	<reactComponent_s>Channels</reactComponent_s>
 	<title_t>Channels Page</title_t>
 	<placeInNav>true</placeInNav>
 	<orderDefault_f>2000</orderDefault_f>
