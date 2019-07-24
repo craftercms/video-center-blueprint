@@ -32,14 +32,14 @@
 	<vod>Computer Science</vod>
 	<background>/static-assets/images/videos/6f1b063a-cb5d-6afd-ce79-02972ba88fb9/auditorium-benches-chairs-207691.jpg</background>
 	<logo/>
-	<title>Teaching Your Kid to Code</title>
+	<title_t>Teaching Your Kid to Code</title_t>
 	<url>/stream/c0d2cb50-fc38-faee-35ad-e65a64671ea0</url>
 	</item>	<item>	<tItle>Why is C so Influential</tItle>
 	<subtitle>Why is C Such an influential language?</subtitle>
 	<vod>Computer Science</vod>
 	<background>/static-assets/images/videos/479c8836-bbec-6305-f634-7b70d0b82cf5/why-c-is-so-influential.jpg</background>
 	<logo/>
-	<title>Why is C so Influential</title>
+	<title_t>Why is C so Influential</title_t>
 	<url>/video/479c8836-bbec-6305-f634-7b70d0b82cf5</url>
 	</item>	<item>	<title/>
 	<subtitle>Are Machines Better at Quantm Physics than Humans?</subtitle>

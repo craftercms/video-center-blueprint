@@ -31,7 +31,7 @@
 	<folder-name>channels</folder-name>
 	<internal-name>Channels</internal-name>
 	<reactComponent>Channels</reactComponent>
-	<title>Channels Page</title>
+	<title_t>Channels Page</title_t>
 	<placeInNav>true</placeInNav>
 	<orderDefault_f>2000</orderDefault_f>
 	<disabled>false</disabled>

@@ -17,7 +17,7 @@ class Footer extends Component {
         }
         return nav.item.map((entry, i) => {
             return (
-                <a key={ i } className="footer__link" target="_blank">{ entry.title }</a>
+                <a key={ i } className="footer__link" target="_blank">{ entry.title_t }</a>
             );
         });
     }
