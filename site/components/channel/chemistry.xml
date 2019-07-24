@@ -38,11 +38,11 @@
 	<lastModifiedDate>2019-01-23T16:18:51.589Z</lastModifiedDate>
 	<lastModifiedDate_dt>2019-01-23T16:18:51.589Z</lastModifiedDate_dt>
 	<featured_b>false</featured_b>
-	<tags item-list="true">	<item>	<value>chemistry</value>
-	</item>	<item>	<value>science</value>
-	</item>	<item>	<value>bodies</value>
-	</item>	<item>	<value>molecule</value>
-	</item>	<item>	<value>organic</value>
+	<tags item-list="true">	<item>	<value_s>chemistry</value_s>
+	</item>	<item>	<value_s>science</value_s>
+	</item>	<item>	<value_s>bodies</value_s>
+	</item>	<item>	<value_s>molecule</value_s>
+	</item>	<item>	<value_s>organic</value_s>
 	</item></tags>
 	<maxVideosDisplay_i>6</maxVideosDisplay_i>
 	<maxChannelsDisplay_i>3</maxChannelsDisplay_i>

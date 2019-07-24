@@ -339,7 +339,7 @@
 					<fields>
 				<field>
 					<type>input</type>
-					<id>value</id>
+					<id>value_s</id>
 					<iceId></iceId>
 					<title>Value</title>
 					<description></description>

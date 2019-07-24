@@ -38,10 +38,10 @@
 	<lastModifiedDate>2019-01-23T16:18:29.101Z</lastModifiedDate>
 	<lastModifiedDate_dt>2019-01-23T16:18:29.101Z</lastModifiedDate_dt>
 	<featured_b>true</featured_b>
-	<tags item-list="true">	<item>	<value>biology</value>
-	</item>	<item>	<value>science</value>
-	</item>	<item>	<value>cells</value>
-	</item>	<item>	<value>virus</value>
+	<tags item-list="true">	<item>	<value_s>biology</value_s>
+	</item>	<item>	<value_s>science</value_s>
+	</item>	<item>	<value_s>cells</value_s>
+	</item>	<item>	<value_s>virus</value_s>
 	</item></tags>
 	<maxVideosDisplay_i>6</maxVideosDisplay_i>
 	<maxChannelsDisplay_i>3</maxChannelsDisplay_i>
