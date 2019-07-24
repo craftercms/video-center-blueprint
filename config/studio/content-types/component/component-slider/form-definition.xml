@@ -311,7 +311,7 @@
 				</field>
 				<field>
 					<type>image-picker</type>
-					<id>logo</id>
+					<id>logo_s</id>
 					<iceId></iceId>
 					<title>Logo</title>
 					<description></description>
