@@ -83,7 +83,7 @@ class Channel extends Component {
                             },
                             {
                                 "match": {
-                                    "channels.item.key": channelContent.channelKey
+                                    "channels.item.key": channelContent.channelKey_s
                                 }
                             },
                             {
@@ -95,7 +95,7 @@ class Channel extends Component {
                     }
                 },
                 numResults: component.maxVideosDisplay,
-                viewAll: channelContent.channelKey
+                viewAll: channelContent.channelKey_s
             },
             {
                 key: "related-channels",

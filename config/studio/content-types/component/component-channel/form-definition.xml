@@ -106,7 +106,7 @@
 				</field>
 				<field>
 					<type>input</type>
-					<id>channelKey</id>
+					<id>channelKey_s</id>
 					<iceId></iceId>
 					<title>Channel Key</title>
 					<description></description>

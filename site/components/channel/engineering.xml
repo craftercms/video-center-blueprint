@@ -46,5 +46,5 @@
 	</item></tags>
 	<maxVideosDisplay>6</maxVideosDisplay>
 	<maxChannelsDisplay>3</maxChannelsDisplay>
-	<channelKey>engineering</channelKey>
+	<channelKey_s>engineering</channelKey_s>
 </component>
