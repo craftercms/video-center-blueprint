@@ -47,7 +47,7 @@
 	<lastModifiedDate_dt>2018-08-03T22:07:11.782Z</lastModifiedDate_dt>
 	<startDate_dt_tz>Etc/GMT</startDate_dt_tz>
 	<endDate_dt_tz>Etc/GMT</endDate_dt_tz>
-	<channels>	<item>	<key>computer-science</key>
+	<channels_o>	<item>	<key>computer-science</key>
 	<value_smv>Computer Science</value_smv>
-	</item></channels>
+	</item></channels_o>
 </component>

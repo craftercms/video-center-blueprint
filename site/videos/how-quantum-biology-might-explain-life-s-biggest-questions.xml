@@ -41,7 +41,7 @@
 	<createdDate_dt>2018-04-24T20:34:36.011Z</createdDate_dt>
 	<lastModifiedDate>2018-05-25T20:15:11.283Z</lastModifiedDate>
 	<lastModifiedDate_dt>2018-05-25T20:15:11.283Z</lastModifiedDate_dt>
-	<channels>	<item>	<key>biology</key>
+	<channels_o>	<item>	<key>biology</key>
 	<value_smv>Biology</value_smv>
-	</item></channels>
+	</item></channels_o>
 </component>

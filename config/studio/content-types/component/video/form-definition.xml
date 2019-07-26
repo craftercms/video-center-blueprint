@@ -391,7 +391,7 @@
 				</field>
 				<field>
 					<type>checkbox-group</type>
-					<id>channels</id>
+					<id>channels_o</id>
 					<iceId></iceId>
 					<title>Channels</title>
 					<description></description>

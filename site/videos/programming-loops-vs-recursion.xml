@@ -41,7 +41,7 @@
 	<createdDate_dt>2018-04-24T19:42:59.422Z</createdDate_dt>
 	<lastModifiedDate>2018-05-25T20:15:58.409Z</lastModifiedDate>
 	<lastModifiedDate_dt>2018-05-25T20:15:58.409Z</lastModifiedDate_dt>
-	<channels>	<item>	<key>computer-science</key>
+	<channels_o>	<item>	<key>computer-science</key>
 	<value_smv>Computer Science</value_smv>
-	</item></channels>
+	</item></channels_o>
 </component>

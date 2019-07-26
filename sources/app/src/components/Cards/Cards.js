@@ -52,7 +52,7 @@ class Cards extends Component {
                                     "content-type": "/component/video"
                                 },
                                 "match": {
-                                    "channels.item.key": category
+                                    "channels_o.item.key": category
                                 }
                             }
                         ]

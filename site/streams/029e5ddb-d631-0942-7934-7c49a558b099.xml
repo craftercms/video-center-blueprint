@@ -47,7 +47,7 @@
 	<lastModifiedDate_dt>2018-08-03T22:04:05.637Z</lastModifiedDate_dt>
 	<startDate_dt_tz>Etc/GMT</startDate_dt_tz>
 	<endDate_dt_tz>Etc/GMT</endDate_dt_tz>
-	<channels>	<item>	<key>engineering</key>
+	<channels_o>	<item>	<key>engineering</key>
 	<value_smv>Engineering</value_smv>
-	</item></channels>
+	</item></channels_o>
 </component>

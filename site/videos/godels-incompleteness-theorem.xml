@@ -18,9 +18,9 @@
 	<createdDate_dt>2018-04-24T20:17:46.486Z</createdDate_dt>
 	<lastModifiedDate>2019-06-28T17:22:05.041Z</lastModifiedDate>
 	<lastModifiedDate_dt>2019-06-28T17:22:05.041Z</lastModifiedDate_dt>
-	<channels>	<item>	<key>mathematics</key>
+	<channels_o>	<item>	<key>mathematics</key>
 	<value_smv>Mathematics</value_smv>
-	</item></channels>
+	</item></channels_o>
 	<format>video</format>
 	<boxVideo/>
 	<date_dt_tz>EST5EDT</date_dt_tz>

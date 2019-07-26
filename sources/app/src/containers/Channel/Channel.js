@@ -83,7 +83,7 @@ class Channel extends Component {
                             },
                             {
                                 "match": {
-                                    "channels.item.key": channelContent.channelKey_s
+                                    "channels_o.item.key": channelContent.channelKey_s
                                 }
                             },
                             {
