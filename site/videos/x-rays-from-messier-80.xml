@@ -8,7 +8,7 @@
 	<folder-name/>
 	<internal-name>X-rays from Messier 80</internal-name>
 	<title_s tokenized="true">X-rays from Messier 80</title_s>
-	<youTubeVideo>NCtKmS7s-QE</youTubeVideo>
+	<youTubeVideo_s>NCtKmS7s-QE</youTubeVideo_s>
 	<summary_s>Featuring Dr Becky Smethurst.</summary_s>
 	<featured_b>true</featured_b>
 	<thumbnail_s>/static-assets/images/videos/47521766-bd78-b30a-6cdc-121206e93876/x-rays-from-messier-80.jpg</thumbnail_s>
@@ -21,7 +21,7 @@
 	<channels_o>	<item>	<key>astronomy</key>
 	<value_smv>Astronomy</value_smv>
 	</item></channels_o>
-	<format>video</format>
+	<format_s>video</format_s>
 	<boxVideo/>
 	<date_dt_tz>EST5EDT</date_dt_tz>
 </component>

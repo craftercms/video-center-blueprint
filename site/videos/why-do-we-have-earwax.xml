@@ -8,7 +8,7 @@
 	<folder-name/>
 	<internal-name>Why do we Have Earwax?</internal-name>
 	<title_s tokenized="true">Why do we Have Earwax?</title_s>
-	<youTubeVideo>yyYCw-_Y-Q0</youTubeVideo>
+	<youTubeVideo_s>yyYCw-_Y-Q0</youTubeVideo_s>
 	<summary_s>No Judging: At one point you've probably put a finger in your ear and dug out some rather unsightly ear wax, but why does your body produce this yellowy substance in the first place?</summary_s>
 	<featured_b>true</featured_b>
 	<thumbnail_s>/static-assets/images/videos/64af33b7-1501-4e25-236f-2c586f0fe8c2/why-do-we-have-earwax.jpg</thumbnail_s>
@@ -21,7 +21,7 @@
 	<channels_o>	<item>	<key>biology</key>
 	<value_smv>Biology</value_smv>
 	</item></channels_o>
-	<format>video</format>
+	<format_s>video</format_s>
 	<boxVideo/>
 	<date_dt_tz>EST5EDT</date_dt_tz>
 </component>

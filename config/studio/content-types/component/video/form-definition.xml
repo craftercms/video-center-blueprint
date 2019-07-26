@@ -358,7 +358,7 @@
 				</field>
 				<field>
 					<type>dropdown</type>
-					<id>format</id>
+					<id>format_s</id>
 					<iceId></iceId>
 					<title>Format</title>
 					<description></description>
@@ -552,7 +552,7 @@
 			<fields>
 				<field>
 					<type>input</type>
-					<id>youTubeVideo</id>
+					<id>youTubeVideo_s</id>
 					<iceId></iceId>
 					<title>YouTube Video</title>
 					<description></description>

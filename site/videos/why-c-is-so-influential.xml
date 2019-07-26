@@ -8,7 +8,7 @@
 	<folder-name/>
 	<internal-name>Why C is so Influential</internal-name>
 	<title_s tokenized="true">Why C is so Influential</title_s>
-	<youTubeVideo>ci1PJexnfNE</youTubeVideo>
+	<youTubeVideo_s>ci1PJexnfNE</youTubeVideo_s>
 	<summary_s>Why is C such an influential language? We asked ardent C fan Professor Brailsford.</summary_s>
 	<featured_b>true</featured_b>
 	<thumbnail_s>/static-assets/images/videos/479c8836-bbec-6305-f634-7b70d0b82cf5/why-c-is-so-influential.jpg</thumbnail_s>
@@ -21,7 +21,7 @@
 	<channels_o>	<item>	<key>computer-science</key>
 	<value_smv>Computer Science</value_smv>
 	</item></channels_o>
-	<format>video</format>
+	<format_s>video</format_s>
 	<boxVideo/>
 	<date_dt_tz>EST5EDT</date_dt_tz>
 </component>

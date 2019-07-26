@@ -8,7 +8,7 @@
 	<folder-name/>
 	<internal-name>The Psychology of Evil</internal-name>
 	<title_s tokenized="true">The Psychology of Evil</title_s>
-	<youTubeVideo>OsFEV35tWsg</youTubeVideo>
+	<youTubeVideo_s>OsFEV35tWsg</youTubeVideo_s>
 	<summary_s>Philip Zimbardo knows how easy it is for nice people to turn bad. In this talk, he shares insights and graphic unseen photos from the Abu Ghraib trials. Then he talks about the flip side: how easy it is to be a hero, and how we can rise to the challenge.</summary_s>
 	<featured_b>true</featured_b>
 	<thumbnail_s>/static-assets/images/videos/fddcd236-78ef-01fe-b08f-1d08d57ff200/the-psychology-of-evil.jpg</thumbnail_s>
@@ -21,7 +21,7 @@
 	<channels_o>	<item>	<key>psychology</key>
 	<value_smv>Psychology</value_smv>
 	</item></channels_o>
-	<format>video</format>
+	<format_s>video</format_s>
 	<boxVideo/>
 	<date_dt_tz>EST5EDT</date_dt_tz>
 </component>

@@ -8,7 +8,7 @@
 	<folder-name/>
 	<internal-name>James Webb Space Telescope</internal-name>
 	<title_s tokenized="true">James Webb Space Telescope</title_s>
-	<youTubeVideo>pCrntRaolIA</youTubeVideo>
+	<youTubeVideo_s>pCrntRaolIA</youTubeVideo_s>
 	<summary_s>Dr Becky Smethurst discusses the James Webb Space Telescope, often described as the successor to Hubble.</summary_s>
 	<featured_b>true</featured_b>
 	<thumbnail_s>/static-assets/images/videos/9f6fab76-13fe-2917-1e13-a67f8a2a11b2/james-webb-space-telescope.jpg</thumbnail_s>
@@ -21,7 +21,7 @@
 	<channels_o>	<item>	<key>astronomy</key>
 	<value_smv>Astronomy</value_smv>
 	</item></channels_o>
-	<format>video</format>
+	<format_s>video</format_s>
 	<boxVideo/>
 	<date_dt_tz>EST5EDT</date_dt_tz>
 </component>

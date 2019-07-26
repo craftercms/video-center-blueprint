@@ -8,7 +8,7 @@
 	<folder-name/>
 	<internal-name>The Incredible Inventions of Intuitive AI</internal-name>
 	<title_s tokenized="true">The Incredible Inventions of Intuitive AI</title_s>
-	<youTubeVideo>aR5N2Jl8k14</youTubeVideo>
+	<youTubeVideo_s>aR5N2Jl8k14</youTubeVideo_s>
 	<featured_b>true</featured_b>
 	<summary_s>What do you get when you give a design tool a digital nervous system? Computers that improve our ability to think and imagine, and robotic systems that come up with (and build) radical new designs for bridges, cars, drones and much more -- all by themselves. Take a tour of the Augmented Age with futurist Maurice Conti and preview a time when robots and humans will work side-by-side to accomplish things neither could do alone.</summary_s>
 	<thumbnail_s>/static-assets/images/videos/0060286f-b7b6-a7bc-1b6f-671d8a245658/the-incredible-inventions-of-intuitive-ai.jpg</thumbnail_s>
@@ -21,7 +21,7 @@
 	<channels_o>	<item>	<key>engineering</key>
 	<value_smv>Engineering</value_smv>
 	</item></channels_o>
-	<format>video</format>
+	<format_s>video</format_s>
 	<boxVideo/>
 	<date_dt_tz>EST5EDT</date_dt_tz>
 </component>

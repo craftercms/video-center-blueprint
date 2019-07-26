@@ -8,7 +8,7 @@
 	<folder-name/>
 	<internal-name>How Much Caffeine in Coffee?</internal-name>
 	<title_s tokenized="true">How Much Caffeine in Coffee?</title_s>
-	<youTubeVideo>Xzh-6ZDitQ8</youTubeVideo>
+	<youTubeVideo_s>Xzh-6ZDitQ8</youTubeVideo_s>
 	<summary_s>In our first video about caffeine, Dr Rob Stockman extracts the molecule from six cups of coffee.</summary_s>
 	<featured_b>false</featured_b>
 	<thumbnail_s>/static-assets/images/videos/f94545a8-e8d2-8c60-7e7a-dc4c37ace680/how-much-caffeine-in-coffee.jpg</thumbnail_s>
@@ -21,7 +21,7 @@
 	<channels_o>	<item>	<key>chemistry</key>
 	<value_smv>Chemistry</value_smv>
 	</item></channels_o>
-	<format>video</format>
+	<format_s>video</format_s>
 	<boxVideo/>
 	<date_dt_tz>EST5EDT</date_dt_tz>
 </component>

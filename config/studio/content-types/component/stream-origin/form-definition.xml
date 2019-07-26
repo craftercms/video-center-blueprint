@@ -144,7 +144,7 @@
 				</field>
 				<field>
 					<type>dropdown</type>
-					<id>encoding</id>
+					<id>encoding_s</id>
 					<iceId></iceId>
 					<title>Encoding</title>
 					<description></description>

@@ -8,7 +8,7 @@
 	<folder-name/>
 	<internal-name>Goldbach Conjecture</internal-name>
 	<title_s tokenized="true">Goldbach Conjecture</title_s>
-	<youTubeVideo>MxiTG96QOxw</youTubeVideo>
+	<youTubeVideo_s>MxiTG96QOxw</youTubeVideo_s>
 	<summary_s>Professor David Eisenbud on the famed Goldbach Conjecture.</summary_s>
 	<featured_b>true</featured_b>
 	<thumbnail_s>/static-assets/images/videos/766fea3b-3ba8-e6a7-0d11-88608826a577/goldbach-conjecture.jpg</thumbnail_s>
@@ -21,7 +21,7 @@
 	<channels_o>	<item>	<key>mathematics</key>
 	<value_smv>Mathematics</value_smv>
 	</item></channels_o>
-	<format>video</format>
+	<format_s>video</format_s>
 	<boxVideo/>
 	<date_dt_tz>EST5EDT</date_dt_tz>
 </component>

@@ -8,7 +8,7 @@
 	<folder-name/>
 	<internal-name>How Restaurants Use Psychology to Make You Spend More Money</internal-name>
 	<title_s tokenized="true">How Restaurants Use Psychology to Make You Spend More Money</title_s>
-	<youTubeVideo>I4WzImgnP4w</youTubeVideo>
+	<youTubeVideo_s>I4WzImgnP4w</youTubeVideo_s>
 	<summary_s>Restaurants have a whole bucket-load of tricks up their sleeves to get you to spend more money.</summary_s>
 	<featured_b>true</featured_b>
 	<thumbnail_s>/static-assets/images/videos/0bcdd3f7-40ea-c516-fb75-cf016bcf2bb7/how-restaurants-use-psychology-to-make-you-spend-more-money.jpg</thumbnail_s>
@@ -21,7 +21,7 @@
 	<channels_o>	<item>	<key>psychology</key>
 	<value_smv>Psychology</value_smv>
 	</item></channels_o>
-	<format>video</format>
+	<format_s>video</format_s>
 	<boxVideo/>
 	<date_dt_tz>EST5EDT</date_dt_tz>
 </component>

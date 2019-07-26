@@ -8,7 +8,7 @@
 	<folder-name/>
 	<internal-name>Chemistry of Concrete</internal-name>
 	<title_s tokenized="true">Chemistry of Concrete</title_s>
-	<youTubeVideo>b43Iz2OoUNk</youTubeVideo>
+	<youTubeVideo_s>b43Iz2OoUNk</youTubeVideo_s>
 	<summary_s>The Professor overcomes his fear of heights to bring you this video about concrete.</summary_s>
 	<featured_b>true</featured_b>
 	<thumbnail_s>/static-assets/images/videos/a0db9fdf-5c06-f868-e56e-6441d85c5b18/chemistry-of-concrete.jpg</thumbnail_s>
@@ -21,7 +21,7 @@
 	<channels_o>	<item>	<key>chemistry</key>
 	<value_smv>Chemistry</value_smv>
 	</item></channels_o>
-	<format>video</format>
+	<format_s>video</format_s>
 	<boxVideo/>
 	<date_dt_tz>EST5EDT</date_dt_tz>
 </component>

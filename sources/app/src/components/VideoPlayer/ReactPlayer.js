@@ -131,7 +131,7 @@ class ReactVideoPlayer extends Component {
                 <ReactPlayer 
                     className = "video-player"
                     controls = { false }
-                    url = { `https://www.youtube.com/watch?v=${ video.youTubeVideo }` }
+                    url = { `https://www.youtube.com/watch?v=${ video.youTubeVideo_s }` }
                     playing = { playing }
                     ref = {this.ref}
                     width = "100%"

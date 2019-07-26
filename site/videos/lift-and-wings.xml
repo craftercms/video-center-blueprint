@@ -8,7 +8,7 @@
 	<folder-name/>
 	<internal-name>Lift and Wings</internal-name>
 	<title_s tokenized="true">Lift and Wings</title_s>
-	<youTubeVideo>PF22LM8AbII</youTubeVideo>
+	<youTubeVideo_s>PF22LM8AbII</youTubeVideo_s>
 	<summary_s>Featuring Professor Mike Merrifield. Animation by Pete McPartlan.</summary_s>
 	<featured_b>true</featured_b>
 	<thumbnail_s>/static-assets/images/videos/32226645-0b62-613f-558f-c7c60757ebff/lift-and-wings.jpg</thumbnail_s>
@@ -21,7 +21,7 @@
 	<channels_o>	<item>	<key>physics</key>
 	<value_smv>Physics</value_smv>
 	</item></channels_o>
-	<format>video</format>
+	<format_s>video</format_s>
 	<boxVideo/>
 	<date_dt_tz>EST5EDT</date_dt_tz>
 </component>

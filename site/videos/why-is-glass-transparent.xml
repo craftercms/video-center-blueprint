@@ -8,7 +8,7 @@
 	<folder-name/>
 	<internal-name>Why is Glass Transparent?</internal-name>
 	<title_s tokenized="true">Why is Glass Transparent?</title_s>
-	<youTubeVideo>Omr0JNyDBI0</youTubeVideo>
+	<youTubeVideo_s>Omr0JNyDBI0</youTubeVideo_s>
 	<summary_s>Sixty Symbols regular Professor Phil Moriarty discusses transparent glass and the so-called energy gap.</summary_s>
 	<featured_b>true</featured_b>
 	<thumbnail_s>/static-assets/images/videos/4d12b7de-0c73-e205-cdbb-784e3821f1c0/why-is-glass-transparent.jpg</thumbnail_s>
@@ -21,7 +21,7 @@
 	<channels_o>	<item>	<key>physics</key>
 	<value_smv>Physics</value_smv>
 	</item></channels_o>
-	<format>video</format>
+	<format_s>video</format_s>
 	<boxVideo/>
 	<date_dt_tz>EST5EDT</date_dt_tz>
 </component>

@@ -8,7 +8,7 @@
 	<folder-name/>
 	<internal-name>Will Stress Really Make You Go Gray?</internal-name>
 	<title_s tokenized="true">Will Stress Really Make You Go Gray?</title_s>
-	<youTubeVideo>umPDFJkH3_M</youTubeVideo>
+	<youTubeVideo_s>umPDFJkH3_M</youTubeVideo_s>
 	<summary_s>Just like the myth that plucking one gray hair will make three sprout, stress making your hair white isn't actually a thing. Or is it?!</summary_s>
 	<featured_b>true</featured_b>
 	<thumbnail_s>/static-assets/images/videos/e7080454-5b1d-52a8-40e8-260eddac71e7/will-stress-really-make-you-go-gray.jpg</thumbnail_s>
@@ -21,7 +21,7 @@
 	<channels_o>	<item>	<key>biology</key>
 	<value_smv>Biology</value_smv>
 	</item></channels_o>
-	<format>video</format>
+	<format_s>video</format_s>
 	<boxVideo/>
 	<date_dt_tz>EST5EDT</date_dt_tz>
 </component>

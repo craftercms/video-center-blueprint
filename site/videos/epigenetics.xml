@@ -8,7 +8,7 @@
 	<folder-name/>
 	<internal-name>Epigenetics</internal-name>
 	<title_s tokenized="true">Epigenetics</title_s>
-	<youTubeVideo>kp1bZEUgqVI</youTubeVideo>
+	<youTubeVideo_s>kp1bZEUgqVI</youTubeVideo_s>
 	<summary_s>Hank &amp; his clone Circus Hank explain the power of epigenetics, which studies the factors that determine how much or whether some genes are expressed in your body.</summary_s>
 	<featured_b>true</featured_b>
 	<thumbnail_s>/static-assets/images/videos/470f70f4-06f9-fcd8-cd31-da39119d37a6/epigenetics.jpg</thumbnail_s>
@@ -21,7 +21,7 @@
 	<channels_o>	<item>	<key>biology</key>
 	<value_smv>Biology</value_smv>
 	</item></channels_o>
-	<format>video</format>
+	<format_s>video</format_s>
 	<boxVideo/>
 	<date_dt_tz>EST5EDT</date_dt_tz>
 </component>

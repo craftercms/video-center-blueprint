@@ -8,7 +8,7 @@
 	<folder-name/>
 	<internal-name>SHA: Secure Hashing Algorithm</internal-name>
 	<title_s tokenized="true">SHA: Secure Hashing Algorithm</title_s>
-	<youTubeVideo>DMtFhACPnTY</youTubeVideo>
+	<youTubeVideo_s>DMtFhACPnTY</youTubeVideo_s>
 	<summary_s>Secure Hashing Algorithm (SHA1) explained. Dr Mike Pound explains how files are used to generate seemingly random hash strings.</summary_s>
 	<featured_b>true</featured_b>
 	<thumbnail_s>/static-assets/images/videos/437efd7c-e5c6-5959-322b-1f0a71f43bc2/sha.jpg</thumbnail_s>
@@ -21,7 +21,7 @@
 	<channels_o>	<item>	<key>computer-science</key>
 	<value_smv>Computer Science</value_smv>
 	</item></channels_o>
-	<format>video</format>
+	<format_s>video</format_s>
 	<boxVideo/>
 	<date_dt_tz>EST5EDT</date_dt_tz>
 </component>

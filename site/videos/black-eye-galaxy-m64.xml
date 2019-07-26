@@ -8,7 +8,7 @@
 	<folder-name/>
 	<internal-name>Black Eye Galaxy (M64)</internal-name>
 	<title_s tokenized="true">Black Eye Galaxy (M64)</title_s>
-	<youTubeVideo>slbN5zGxGmQ</youTubeVideo>
+	<youTubeVideo_s>slbN5zGxGmQ</youTubeVideo_s>
 	<summary_s>"The Black Eye Galaxy (also M64 or NGC 4826) had a surprise up its sleeve.
 Featuring Dr Becky Smethurst, the Sixty Symbols Ogden Fellow at the University of Nottingham."</summary_s>
 	<featured_b>true</featured_b>
@@ -22,7 +22,7 @@ Featuring Dr Becky Smethurst, the Sixty Symbols Ogden Fellow at the University o
 	<channels_o>	<item>	<key>astronomy</key>
 	<value_smv>Astronomy</value_smv>
 	</item></channels_o>
-	<format>video</format>
+	<format_s>video</format_s>
 	<boxVideo/>
 	<date_dt_tz>EST5EDT</date_dt_tz>
 </component>
