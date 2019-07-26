@@ -92,7 +92,7 @@ class Cards extends Component {
                                 <Link className="video-card__link" to={ `${componentUrl}${card.objectId}` }>
                                     <div>
                                         <div className="image video-card__image--background" style={{ background: 'transparent' }}>
-                                            <div className="image__image" style={{ backgroundImage: `url(${ card.thumbnail })` }}></div>
+                                            <div className="image__image" style={{ backgroundImage: `url(${ card.thumbnail_s })` }}></div>
                                         </div>
                                         <video className="image preview-video" loop="" preload="auto" playsInline=""></video>
                                     </div>
@@ -160,7 +160,7 @@ class Cards extends Component {
                                 <div className="live-events-item__image">
                                     <div className="live-events-item__background">
                                         <div className="image">
-                                            <div className="image__image" style={{ backgroundImage: `url("${ card.thumbnail }")` }}></div>
+                                            <div className="image__image" style={{ backgroundImage: `url("${ card.thumbnail_s }")` }}></div>
                                         </div>
                                     </div>
                                 </div>

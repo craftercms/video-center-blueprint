@@ -562,7 +562,7 @@
 			<fields>
 				<field>
 					<type>node-selector</type>
-					<id>origin</id>
+					<id>origin_o</id>
 					<iceId></iceId>
 					<title>Origin</title>
 					<description></description>
@@ -610,7 +610,7 @@
 				</field>
 				<field>
 					<type>image-picker</type>
-					<id>thumbnail</id>
+					<id>thumbnail_s</id>
 					<iceId></iceId>
 					<title>Thumbnail</title>
 					<description></description>

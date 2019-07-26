@@ -99,7 +99,7 @@ class Video extends Component {
 
                 upcomingVideoHero.push({
                     url_s: "#",
-                    background_s: video.thumbnail,
+                    background_s: video.thumbnail_s,
                     title_t: video.title_s,
                     subtitle_s: video.description_html,
                     date_dt: video.startDate_dt
