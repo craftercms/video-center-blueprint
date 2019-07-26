@@ -55,10 +55,10 @@ class Channel extends Component {
             categories;
 
         channelHero.push({
-            url: "#",
-            background: channelContent.heroImage_s,
-            title: channelContent['internal-name'],
-            subtitle: channelContent.description_s
+            url_s: "#",
+            background_s: channelContent.heroImage_s,
+            title_t: channelContent['internal-name'],
+            subtitle_s: channelContent.description_s
         });
 
         //get channel tags

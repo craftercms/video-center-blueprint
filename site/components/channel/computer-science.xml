@@ -38,13 +38,13 @@
 	<heroImage_s>/static-assets/images/channels/11945997-d8c6-b053-bd0f-cbe4734e8d14/computer-science.jpg</heroImage_s>
 	<thumbnailImage_s>/static-assets/images/channels/11945997-d8c6-b053-bd0f-cbe4734e8d14/computer-science-thumbnail.jpg</thumbnailImage_s>
 	<featured_b>true</featured_b>
-	<tags item-list="true">	<item>	<value_s>computers</value_s>
+	<tags_o item-list="true">	<item>	<value_s>computers</value_s>
 	</item>	<item>	<value_s>science</value_s>
 	</item>	<item>	<value_s>programming</value_s>
 	</item>	<item>	<value_s>networks</value_s>
 	</item>	<item>	<value_s>information</value_s>
 	</item>	<item>	<value_s>engineering</value_s>
-	</item></tags>
+	</item></tags_o>
 	<maxVideosDisplay_i>6</maxVideosDisplay_i>
 	<maxChannelsDisplay_i>3</maxChannelsDisplay_i>
 	<channelKey_s>computer-science</channelKey_s>

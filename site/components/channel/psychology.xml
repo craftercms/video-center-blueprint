@@ -38,12 +38,12 @@
 	<lastModifiedDate>2019-01-23T16:22:48.405Z</lastModifiedDate>
 	<lastModifiedDate_dt>2019-01-23T16:22:48.405Z</lastModifiedDate_dt>
 	<featured_b>false</featured_b>
-	<tags item-list="true">	<item>	<value_s>psychology</value_s>
+	<tags_o item-list="true">	<item>	<value_s>psychology</value_s>
 	</item>	<item>	<value_s>mind</value_s>
 	</item>	<item>	<value_s>neural</value_s>
 	</item>	<item>	<value_s>emotion</value_s>
 	</item>	<item>	<value_s>personality</value_s>
-	</item></tags>
+	</item></tags_o>
 	<maxVideosDisplay_i>6</maxVideosDisplay_i>
 	<maxChannelsDisplay_i>3</maxChannelsDisplay_i>
 	<channelKey_s>psychology</channelKey_s>

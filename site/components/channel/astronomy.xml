@@ -38,11 +38,11 @@
 	<lastModifiedDate>2019-01-23T16:17:41.674Z</lastModifiedDate>
 	<lastModifiedDate_dt>2019-01-23T16:17:41.674Z</lastModifiedDate_dt>
 	<featured_b>false</featured_b>
-	<tags item-list="true">	<item>	<value_s>astronomy</value_s>
+	<tags_o item-list="true">	<item>	<value_s>astronomy</value_s>
 	</item>	<item>	<value_s>universe</value_s>
 	</item>	<item>	<value_s>stars</value_s>
 	</item>	<item>	<value_s>physics</value_s>
-	</item></tags>
+	</item></tags_o>
 	<maxVideosDisplay_i>6</maxVideosDisplay_i>
 	<maxChannelsDisplay_i>3</maxChannelsDisplay_i>
 	<channelKey_s>astronomy</channelKey_s>
