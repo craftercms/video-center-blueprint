@@ -37,7 +37,6 @@
     "url-search-params-polyfill": "^5.0.0"
   },
   "devDependencies": {
-    "http-proxy-middleware": "^0.19.1",
     "react-scripts": "^3.0.1",
     "ws": "3.3.2"
   },
@@ -58,5 +57,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:8080"
 }
