@@ -8,20 +8,20 @@
 	<folder-name/>
 	<internal-name>Lift and Wings</internal-name>
 	<title_s tokenized="true">Lift and Wings</title_s>
-	<youTubeVideo>PF22LM8AbII</youTubeVideo>
+	<youTubeVideo_s>PF22LM8AbII</youTubeVideo_s>
 	<summary_s>Featuring Professor Mike Merrifield. Animation by Pete McPartlan.</summary_s>
-	<featured>true</featured>
-	<thumbnail>/static-assets/images/videos/32226645-0b62-613f-558f-c7c60757ebff/lift-and-wings.jpg</thumbnail>
+	<featured_b>true</featured_b>
+	<thumbnail_s>/static-assets/images/videos/32226645-0b62-613f-558f-c7c60757ebff/lift-and-wings.jpg</thumbnail_s>
 	<description_html>&lt;p&gt;&lt;span data-sheets-value="{"1":2,"2":"Featuring Professor Mike Merrifield. Animation by Pete McPartlan."}" data-sheets-userformat="{"2":829,"3":[null,0],"5":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"6":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"7":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"8":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"11":4,"12":0}"&gt;Featuring Professor Mike Merrifield. Animation by Pete McPartlan.&lt;/span&gt;&lt;/p&gt;</description_html>
 	<date_dt>2017-09-11T04:00:00.000Z</date_dt>
 	<createdDate>2018-04-24T19:54:18.108Z</createdDate>
 	<createdDate_dt>2018-04-24T19:54:18.108Z</createdDate_dt>
 	<lastModifiedDate>2019-06-28T17:23:06.009Z</lastModifiedDate>
 	<lastModifiedDate_dt>2019-06-28T17:23:06.009Z</lastModifiedDate_dt>
-	<channels>	<item>	<key>physics</key>
+	<channels_o>	<item>	<key>physics</key>
 	<value_smv>Physics</value_smv>
-	</item></channels>
-	<format>video</format>
+	</item></channels_o>
+	<format_s>video</format_s>
 	<boxVideo/>
 	<date_dt_tz>EST5EDT</date_dt_tz>
 </component>

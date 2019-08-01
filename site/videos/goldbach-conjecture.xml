@@ -8,20 +8,20 @@
 	<folder-name/>
 	<internal-name>Goldbach Conjecture</internal-name>
 	<title_s tokenized="true">Goldbach Conjecture</title_s>
-	<youTubeVideo>MxiTG96QOxw</youTubeVideo>
+	<youTubeVideo_s>MxiTG96QOxw</youTubeVideo_s>
 	<summary_s>Professor David Eisenbud on the famed Goldbach Conjecture.</summary_s>
-	<featured>true</featured>
-	<thumbnail>/static-assets/images/videos/766fea3b-3ba8-e6a7-0d11-88608826a577/goldbach-conjecture.jpg</thumbnail>
+	<featured_b>true</featured_b>
+	<thumbnail_s>/static-assets/images/videos/766fea3b-3ba8-e6a7-0d11-88608826a577/goldbach-conjecture.jpg</thumbnail_s>
 	<description_html>&lt;p&gt;&lt;span data-sheets-value="{"1":2,"2":"Professor David Eisenbud on the famed Goldbach Conjecture."}" data-sheets-userformat="{"2":829,"3":[null,0],"5":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"6":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"7":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"8":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"11":4,"12":0}"&gt;Professor David Eisenbud on the famed Goldbach Conjecture.&lt;/span&gt;&lt;/p&gt;</description_html>
 	<date_dt>2017-05-24T04:00:00.000Z</date_dt>
 	<createdDate>2018-04-24T20:20:41.675Z</createdDate>
 	<createdDate_dt>2018-04-24T20:20:41.675Z</createdDate_dt>
 	<lastModifiedDate>2019-06-28T17:20:58.241Z</lastModifiedDate>
 	<lastModifiedDate_dt>2019-06-28T17:20:58.241Z</lastModifiedDate_dt>
-	<channels>	<item>	<key>mathematics</key>
+	<channels_o>	<item>	<key>mathematics</key>
 	<value_smv>Mathematics</value_smv>
-	</item></channels>
-	<format>video</format>
+	</item></channels_o>
+	<format_s>video</format_s>
 	<boxVideo/>
 	<date_dt_tz>EST5EDT</date_dt_tz>
 </component>

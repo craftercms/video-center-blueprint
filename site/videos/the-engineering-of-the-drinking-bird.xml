@@ -8,20 +8,20 @@
 	<folder-name/>
 	<internal-name>The Engineering of the Drinking Bird</internal-name>
 	<title_s tokenized="true">The Engineering of the Drinking Bird</title_s>
-	<youTubeVideo>UCKC-QVcVn0</youTubeVideo>
+	<youTubeVideo_s>UCKC-QVcVn0</youTubeVideo_s>
 	<summary_s>Bill reveals the operation and engineering design underlying the famous drinking bird toy. In this video he explores the role played by the water the bird "drinks," shows what is under the bird's hat and demonstrates that it can operate using heat from a light bulb or by "drinking" whiskey. You can find more of Bill's videos and his books at www.engineerguy.com.</summary_s>
-	<featured>true</featured>
-	<thumbnail>/static-assets/images/videos/e573c98b-aea9-64f3-9e0f-4138bab4561e/the-engineering-of-the-drinking-bird.jpg</thumbnail>
+	<featured_b>true</featured_b>
+	<thumbnail_s>/static-assets/images/videos/e573c98b-aea9-64f3-9e0f-4138bab4561e/the-engineering-of-the-drinking-bird.jpg</thumbnail_s>
 	<description_html>&lt;p&gt;&lt;span data-sheets-value="{"1":2,"2":"Bill reveals the operation and engineering design underlying the famous drinking bird toy. In this video he explores the role played by the water the bird \"drinks,\" shows what is under the bird's hat and demonstrates that it can operate using heat from a light bulb or by \"drinking\" whiskey. You can find more of Bill's videos and his books at www.engineerguy.com."}" data-sheets-userformat="{"2":829,"3":[null,0],"5":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"6":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"7":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"8":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"11":4,"12":0}"&gt;Bill reveals the operation and engineering design underlying the famous drinking bird toy. In this video he explores the role played by the water the bird "drinks," shows what is under the bird's hat and demonstrates that it can operate using heat from a light bulb or by "drinking" whiskey. You can find more of Bill's videos and his books at www.engineerguy.com.&lt;/span&gt;&lt;/p&gt;</description_html>
 	<date_dt>2018-01-30T05:00:00.000Z</date_dt>
 	<createdDate>2018-04-24T20:49:01.200Z</createdDate>
 	<createdDate_dt>2018-04-24T20:49:01.200Z</createdDate_dt>
 	<lastModifiedDate>2019-06-28T17:27:24.235Z</lastModifiedDate>
 	<lastModifiedDate_dt>2019-06-28T17:27:24.235Z</lastModifiedDate_dt>
-	<channels>	<item>	<key>engineering</key>
+	<channels_o>	<item>	<key>engineering</key>
 	<value_smv>Engineering</value_smv>
-	</item></channels>
-	<format>video</format>
+	</item></channels_o>
+	<format_s>video</format_s>
 	<boxVideo/>
 	<date_dt_tz>EST5EDT</date_dt_tz>
 </component>

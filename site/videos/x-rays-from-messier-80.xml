@@ -8,20 +8,20 @@
 	<folder-name/>
 	<internal-name>X-rays from Messier 80</internal-name>
 	<title_s tokenized="true">X-rays from Messier 80</title_s>
-	<youTubeVideo>NCtKmS7s-QE</youTubeVideo>
+	<youTubeVideo_s>NCtKmS7s-QE</youTubeVideo_s>
 	<summary_s>Featuring Dr Becky Smethurst.</summary_s>
-	<featured>true</featured>
-	<thumbnail>/static-assets/images/videos/47521766-bd78-b30a-6cdc-121206e93876/x-rays-from-messier-80.jpg</thumbnail>
+	<featured_b>true</featured_b>
+	<thumbnail_s>/static-assets/images/videos/47521766-bd78-b30a-6cdc-121206e93876/x-rays-from-messier-80.jpg</thumbnail_s>
 	<description_html>&lt;p&gt;&lt;span data-sheets-value="{"1":2,"2":"Featuring Dr Becky Smethurst."}" data-sheets-userformat="{"2":829,"3":[null,0],"5":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"6":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"7":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"8":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"11":4,"12":0}"&gt;Featuring Dr Becky Smethurst.&lt;/span&gt;&lt;/p&gt;</description_html>
 	<date_dt>2018-03-01T05:00:00.000Z</date_dt>
 	<createdDate>2018-04-24T20:09:56.752Z</createdDate>
 	<createdDate_dt>2018-04-24T20:09:56.752Z</createdDate_dt>
 	<lastModifiedDate>2019-06-28T17:28:14.393Z</lastModifiedDate>
 	<lastModifiedDate_dt>2019-06-28T17:28:14.393Z</lastModifiedDate_dt>
-	<channels>	<item>	<key>astronomy</key>
+	<channels_o>	<item>	<key>astronomy</key>
 	<value_smv>Astronomy</value_smv>
-	</item></channels>
-	<format>video</format>
+	</item></channels_o>
+	<format_s>video</format_s>
 	<boxVideo/>
 	<date_dt_tz>EST5EDT</date_dt_tz>
 </component>

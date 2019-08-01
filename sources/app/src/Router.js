@@ -42,7 +42,7 @@ class Router extends Component {
             var navItem = this.props.nav.entries[id];
 
             return (
-                <Route key={ i }  exact path={navItem.url} component={ me[navItem.attributes.reactComponent] }/>
+                <Route key={ i }  exact path={navItem.url} component={ me[navItem.attributes.reactComponent_s] }/>
             );
         });
     }

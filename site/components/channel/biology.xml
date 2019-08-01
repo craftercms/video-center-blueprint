@@ -30,20 +30,20 @@
 	<file-name>biology.xml</file-name>
 	<folder-name/>
 	<internal-name>Biology</internal-name>
-	<description>Lorem ipsum dolor sit amet, consetetur sadipscing elit</description>
-	<heroImage>/static-assets/images/channels/9ab3d1ff-d59c-aadf-012f-e5475ca51d8e/biology.jpg</heroImage>
-	<thumbnailImage>/static-assets/images/channels/9ab3d1ff-d59c-aadf-012f-e5475ca51d8e/biology-thumbnail.jpg</thumbnailImage>
+	<description_s>Lorem ipsum dolor sit amet, consetetur sadipscing elit</description_s>
+	<heroImage_s>/static-assets/images/channels/9ab3d1ff-d59c-aadf-012f-e5475ca51d8e/biology.jpg</heroImage_s>
+	<thumbnailImage_s>/static-assets/images/channels/9ab3d1ff-d59c-aadf-012f-e5475ca51d8e/biology-thumbnail.jpg</thumbnailImage_s>
 	<createdDate>2018-05-25T19:49:59.479Z</createdDate>
 	<createdDate_dt>2018-05-25T19:49:59.479Z</createdDate_dt>
 	<lastModifiedDate>2019-01-23T16:18:29.101Z</lastModifiedDate>
 	<lastModifiedDate_dt>2019-01-23T16:18:29.101Z</lastModifiedDate_dt>
-	<featured>true</featured>
-	<tags item-list="true">	<item>	<value>biology</value>
-	</item>	<item>	<value>science</value>
-	</item>	<item>	<value>cells</value>
-	</item>	<item>	<value>virus</value>
-	</item></tags>
-	<maxVideosDisplay>6</maxVideosDisplay>
-	<maxChannelsDisplay>3</maxChannelsDisplay>
-	<channelKey>biology</channelKey>
+	<featured_b>true</featured_b>
+    <tags_o item-list="true">	<item>	<value_s>biology</value_s>
+	</item>	<item>	<value_s>science</value_s>
+	</item>	<item>	<value_s>cells</value_s>
+	</item>	<item>	<value_s>virus</value_s>
+	</item></tags_o>
+	<maxVideosDisplay_i>6</maxVideosDisplay_i>
+	<maxChannelsDisplay_i>3</maxChannelsDisplay_i>
+	<channelKey_s>biology</channelKey_s>
 </component>

@@ -106,7 +106,7 @@
 				</field>
 				<field>
 					<type>input</type>
-					<id>channelKey</id>
+					<id>channelKey_s</id>
 					<iceId></iceId>
 					<title>Channel Key</title>
 					<description></description>
@@ -156,7 +156,7 @@
 			<fields>
 				<field>
 					<type>checkbox</type>
-					<id>featured</id>
+					<id>featured_b</id>
 					<iceId></iceId>
 					<title>Featured</title>
 					<description></description>
@@ -179,7 +179,7 @@
 				</field>
 				<field>
 					<type>image-picker</type>
-					<id>heroImage</id>
+					<id>heroImage_s</id>
 					<iceId></iceId>
 					<title>Hero Image</title>
 					<description></description>
@@ -227,7 +227,7 @@
 				</field>
 				<field>
 					<type>image-picker</type>
-					<id>thumbnailImage</id>
+					<id>thumbnailImage_s</id>
 					<iceId></iceId>
 					<title>Thumbnail Image</title>
 					<description></description>
@@ -275,7 +275,7 @@
 				</field>
 				<field>
 					<type>input</type>
-					<id>description</id>
+					<id>description_s</id>
 					<iceId></iceId>
 					<title>Description</title>
 					<description></description>
@@ -318,7 +318,7 @@
 				</field>
 				<field>
 					<type>repeat</type>
-					<id>tags</id>
+					<id>tags_o</id>
 					<iceId></iceId>
 					<title>Tags</title>
 					<description></description>
@@ -339,7 +339,7 @@
 					<fields>
 				<field>
 					<type>input</type>
-					<id>value</id>
+					<id>value_s</id>
 					<iceId></iceId>
 					<title>Value</title>
 					<description></description>
@@ -384,7 +384,7 @@
 				</field>
 				<field>
 					<type>input</type>
-					<id>maxVideosDisplay</id>
+					<id>maxVideosDisplay_i</id>
 					<iceId></iceId>
 					<title>Max Videos to Display</title>
 					<description></description>
@@ -427,7 +427,7 @@
 				</field>
 				<field>
 					<type>input</type>
-					<id>maxChannelsDisplay</id>
+					<id>maxChannelsDisplay_i</id>
 					<iceId></iceId>
 					<title>Max Channels to Display</title>
 					<description></description>

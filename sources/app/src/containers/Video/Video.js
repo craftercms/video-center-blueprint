@@ -98,11 +98,11 @@ class Video extends Component {
                 this.props.setHeaderGhost(true);
 
                 upcomingVideoHero.push({
-                    url: "#",
-                    background: video.thumbnail,
-                    title: video.title_s,
-                    subtitle: video.description_html,
-                    date: video.startDate_dt
+                    url_s: "#",
+                    background_s: video.thumbnail_s,
+                    title_t: video.title_s,
+                    subtitle_s: video.description_html,
+                    date_dt: video.startDate_dt
                 })
     
                 // remove video info (if available)
@@ -117,15 +117,15 @@ class Video extends Component {
             }
 
             //get categories for videoCategories component
-            if( video.channels.item.key.constructor === Array ){
-                for (var i = 0, len = video.channels.item.key.length; i < len; i++) {
+            if( video.channels_o.item.key.constructor === Array ){
+                for (var i = 0, len = video.channels_o.item.key.length; i < len; i++) {
                     categories.push( 
-                        { key: video.channels.item.key[i], value: video.channels.item.value_smv[i] } 
+                        { key: video.channels_o.item.key[i], value: video.channels_o.item.value_smv[i] }
                     );
                 }
             }else{
                 categories.push( 
-                    { key: video.channels.item.key, value: video.channels.item.value_smv } 
+                    { key: video.channels_o.item.key, value: video.channels_o.item.value_smv }
                 );
             }
 

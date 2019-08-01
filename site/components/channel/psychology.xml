@@ -28,23 +28,23 @@
 	<objectGroupId>cfde</objectGroupId>
 	<objectId>cfde9dfa-bbfc-68fb-b154-d884c518ebd9</objectId>
 	<internal-name>Psychology</internal-name>
-	<description>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</description>
+	<description_s>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</description_s>
 	<file-name>psychology.xml</file-name>
 	<folder-name/>
-	<heroImage>/static-assets/images/channels/cfde9dfa-bbfc-68fb-b154-d884c518ebd9/psychology.jpg</heroImage>
-	<thumbnailImage>/static-assets/images/channels/cfde9dfa-bbfc-68fb-b154-d884c518ebd9/psychology-thumbnail.jpg</thumbnailImage>
+	<heroImage_s>/static-assets/images/channels/cfde9dfa-bbfc-68fb-b154-d884c518ebd9/psychology.jpg</heroImage_s>
+	<thumbnailImage_s>/static-assets/images/channels/cfde9dfa-bbfc-68fb-b154-d884c518ebd9/psychology-thumbnail.jpg</thumbnailImage_s>
 	<createdDate>2018-05-25T19:50:35.971Z</createdDate>
 	<createdDate_dt>2018-05-25T19:50:35.971Z</createdDate_dt>
 	<lastModifiedDate>2019-01-23T16:22:48.405Z</lastModifiedDate>
 	<lastModifiedDate_dt>2019-01-23T16:22:48.405Z</lastModifiedDate_dt>
-	<featured>false</featured>
-	<tags item-list="true">	<item>	<value>psychology</value>
-	</item>	<item>	<value>mind</value>
-	</item>	<item>	<value>neural</value>
-	</item>	<item>	<value>emotion</value>
-	</item>	<item>	<value>personality</value>
-	</item></tags>
-	<maxVideosDisplay>6</maxVideosDisplay>
-	<maxChannelsDisplay>3</maxChannelsDisplay>
-	<channelKey>psychology</channelKey>
+	<featured_b>false</featured_b>
+	<tags_o item-list="true">	<item>	<value_s>psychology</value_s>
+	</item>	<item>	<value_s>mind</value_s>
+	</item>	<item>	<value_s>neural</value_s>
+	</item>	<item>	<value_s>emotion</value_s>
+	</item>	<item>	<value_s>personality</value_s>
+	</item></tags_o>
+	<maxVideosDisplay_i>6</maxVideosDisplay_i>
+	<maxChannelsDisplay_i>3</maxChannelsDisplay_i>
+	<channelKey_s>psychology</channelKey_s>
 </component>
