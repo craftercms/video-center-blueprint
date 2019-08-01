@@ -101,7 +101,7 @@
 				</field>
 				<field>
 					<type>input</type>
-					<id>url</id>
+					<id>url_s</id>
 					<iceId></iceId>
 					<title>URL</title>
 					<description></description>
@@ -144,7 +144,7 @@
 				</field>
 				<field>
 					<type>dropdown</type>
-					<id>encoding</id>
+					<id>encoding_s</id>
 					<iceId></iceId>
 					<title>Encoding</title>
 					<description></description>

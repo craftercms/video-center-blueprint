@@ -30,21 +30,21 @@
 	<file-name>engineering.xml</file-name>
 	<folder-name/>
 	<internal-name>Engineering</internal-name>
-	<description>Lorem ipsum dolor sit amet, consetetur sadipscing elit</description>
-	<heroImage>/static-assets/images/channels/98e324b3-b333-a1a6-050e-05bdcb913fbd/engineering.jpg</heroImage>
-	<thumbnailImage>/static-assets/images/channels/98e324b3-b333-a1a6-050e-05bdcb913fbd/engineering-thumbnail.jpg</thumbnailImage>
+	<description_s>Lorem ipsum dolor sit amet, consetetur sadipscing elit</description_s>
+	<heroImage_s>/static-assets/images/channels/98e324b3-b333-a1a6-050e-05bdcb913fbd/engineering.jpg</heroImage_s>
+	<thumbnailImage_s>/static-assets/images/channels/98e324b3-b333-a1a6-050e-05bdcb913fbd/engineering-thumbnail.jpg</thumbnailImage_s>
 	<createdDate>2018-05-25T19:50:18.277Z</createdDate>
 	<createdDate_dt>2018-05-25T19:50:18.277Z</createdDate_dt>
 	<lastModifiedDate>2019-01-23T16:21:46.078Z</lastModifiedDate>
 	<lastModifiedDate_dt>2019-01-23T16:21:46.078Z</lastModifiedDate_dt>
-	<featured>true</featured>
-	<tags item-list="true">	<item>	<value>engineering</value>
-	</item>	<item>	<value>software</value>
-	</item>	<item>	<value>physics</value>
-	</item>	<item>	<value>mathematics</value>
-	</item>	<item>	<value>science</value>
-	</item></tags>
-	<maxVideosDisplay>6</maxVideosDisplay>
-	<maxChannelsDisplay>3</maxChannelsDisplay>
-	<channelKey>engineering</channelKey>
+	<featured_b>true</featured_b>
+	<tags_o item-list="true">	<item>	<value_s>engineering</value_s>
+	</item>	<item>	<value_s>software</value_s>
+	</item>	<item>	<value_s>physics</value_s>
+	</item>	<item>	<value_s>mathematics</value_s>
+	</item>	<item>	<value_s>science</value_s>
+	</item></tags_o>
+	<maxVideosDisplay_i>6</maxVideosDisplay_i>
+	<maxChannelsDisplay_i>3</maxChannelsDisplay_i>
+	<channelKey_s>engineering</channelKey_s>
 </component>

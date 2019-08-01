@@ -8,20 +8,20 @@
 	<folder-name/>
 	<internal-name>Epigenetics</internal-name>
 	<title_s tokenized="true">Epigenetics</title_s>
-	<youTubeVideo>kp1bZEUgqVI</youTubeVideo>
+	<youTubeVideo_s>kp1bZEUgqVI</youTubeVideo_s>
 	<summary_s>Hank &amp; his clone Circus Hank explain the power of epigenetics, which studies the factors that determine how much or whether some genes are expressed in your body.</summary_s>
-	<featured>true</featured>
-	<thumbnail>/static-assets/images/videos/470f70f4-06f9-fcd8-cd31-da39119d37a6/epigenetics.jpg</thumbnail>
+	<featured_b>true</featured_b>
+	<thumbnail_s>/static-assets/images/videos/470f70f4-06f9-fcd8-cd31-da39119d37a6/epigenetics.jpg</thumbnail_s>
 	<description_html>&lt;p&gt;&lt;span data-sheets-value="{"1":2,"2":"Hank &amp; his clone Circus Hank explain the power of epigenetics, which studies the factors that determine how much or whether some genes are expressed in your body."}" data-sheets-userformat="{"2":829,"3":[null,0],"5":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"6":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"7":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"8":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"11":4,"12":0}"&gt;Hank &amp; his clone Circus Hank explain the power of epigenetics, which studies the factors that determine how much or whether some genes are expressed in your body.&lt;/span&gt;&lt;/p&gt;</description_html>
 	<date_dt>2012-01-22T05:00:00.000Z</date_dt>
 	<createdDate>2018-04-24T20:23:21.244Z</createdDate>
 	<createdDate_dt>2018-04-24T20:23:21.244Z</createdDate_dt>
 	<lastModifiedDate>2019-06-28T17:21:44.462Z</lastModifiedDate>
 	<lastModifiedDate_dt>2019-06-28T17:21:44.462Z</lastModifiedDate_dt>
-	<channels>	<item>	<key>biology</key>
+	<channels_o>	<item>	<key>biology</key>
 	<value_smv>Biology</value_smv>
-	</item></channels>
-	<format>video</format>
+	</item></channels_o>
+	<format_s>video</format_s>
 	<boxVideo/>
 	<date_dt_tz>EST5EDT</date_dt_tz>
 </component>

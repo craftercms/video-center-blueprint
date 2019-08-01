@@ -31,10 +31,10 @@ class Channel extends Component {
           isKey = false;
 
       try {
-        query = JSON.parse(params.query.replace(/_/g, '/'));
+        query = JSON.parse(params.query.replace(/__/g, '/'));
       } catch (e) {
         isKey = true;
-        query = params.query.replace(/_/g, '/').split(',');
+        query = params.query.replace(/__/g, '/').split(',');
       }
 
       if ( isKey && (query[0].indexOf(":") === -1 && query.length === 1) ) {

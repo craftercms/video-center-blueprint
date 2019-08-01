@@ -34,18 +34,18 @@
 	<createdDate_dt>2018-05-25T19:34:08.558Z</createdDate_dt>
 	<lastModifiedDate>2019-01-23T16:19:10.832Z</lastModifiedDate>
 	<lastModifiedDate_dt>2019-01-23T16:19:10.832Z</lastModifiedDate_dt>
-	<description>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</description>
-	<heroImage>/static-assets/images/channels/11945997-d8c6-b053-bd0f-cbe4734e8d14/computer-science.jpg</heroImage>
-	<thumbnailImage>/static-assets/images/channels/11945997-d8c6-b053-bd0f-cbe4734e8d14/computer-science-thumbnail.jpg</thumbnailImage>
-	<featured>true</featured>
-	<tags item-list="true">	<item>	<value>computers</value>
-	</item>	<item>	<value>science</value>
-	</item>	<item>	<value>programming</value>
-	</item>	<item>	<value>networks</value>
-	</item>	<item>	<value>information</value>
-	</item>	<item>	<value>engineering</value>
-	</item></tags>
-	<maxVideosDisplay>6</maxVideosDisplay>
-	<maxChannelsDisplay>3</maxChannelsDisplay>
-	<channelKey>computer-science</channelKey>
+	<description_s>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</description_s>
+	<heroImage_s>/static-assets/images/channels/11945997-d8c6-b053-bd0f-cbe4734e8d14/computer-science.jpg</heroImage_s>
+	<thumbnailImage_s>/static-assets/images/channels/11945997-d8c6-b053-bd0f-cbe4734e8d14/computer-science-thumbnail.jpg</thumbnailImage_s>
+	<featured_b>true</featured_b>
+	<tags_o item-list="true">	<item>	<value_s>computers</value_s>
+	</item>	<item>	<value_s>science</value_s>
+	</item>	<item>	<value_s>programming</value_s>
+	</item>	<item>	<value_s>networks</value_s>
+	</item>	<item>	<value_s>information</value_s>
+	</item>	<item>	<value_s>engineering</value_s>
+	</item></tags_o>
+	<maxVideosDisplay_i>6</maxVideosDisplay_i>
+	<maxChannelsDisplay_i>3</maxChannelsDisplay_i>
+	<channelKey_s>computer-science</channelKey_s>
 </component>

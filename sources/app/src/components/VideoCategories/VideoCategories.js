@@ -66,8 +66,8 @@ class VideoCategories extends Component {
                   query = category.viewAll
                 }
 
-                query = query.replace(/\//g, '_');
-                sort = !isNull(sort) ? sort.replace(/\//g, '_') : sort;
+                query = query.replace(/\//g, '__');
+                sort = !isNull(sort) ? sort.replace(/\//g, '__') : sort;
 
                 viewAllURL = `/list/${ categoryName }/${ query }`;
                 viewAllURL = sort ? `${ viewAllURL }/${ sort }` : viewAllURL;

@@ -30,7 +30,7 @@
 	<file-name>index.xml</file-name>
 	<folder-name>search</folder-name>
 	<internal-name>Search</internal-name>
-	<reactComponent>Search</reactComponent>
+	<reactComponent_s>Search</reactComponent_s>
 	<placeInNav>false</placeInNav>
 	<orderDefault_f>-1</orderDefault_f>
 	<disabled>false</disabled>
