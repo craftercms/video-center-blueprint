@@ -1,25 +1,36 @@
+<#--
+  ~ MIT License
+  ~
+  ~ Copyright (c) 2018-2019 Crafter Software Corporation. All Rights Reserved.
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  -->
 <#import "/templates/system/common/cstudio-support.ftl" as studio />
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-        <meta name="theme-color" content="#000000">
-        <link rel="manifest" href="/manifest.json">
-        <link rel="shortcut icon" href="/favicon.ico">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <title>Video Center</title>
-        <link href="/static-assets/css/main.css" rel="stylesheet">
-        
-        <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
-        <script type="text/javascript">
-            window.siteName = "${siteContext.siteName}";
-            window.baseUrl = '${request.scheme}://${request.serverName}<#if request.serverPort != 80 && request.serverPort != 443>:${request.serverPort?c}</#if>';
-        </script> 
-    </head>
-    <body>
-        <noscript>You need to enable JavaScript to run this app.</noscript>
-        <div id="root"></div>
-        <script type="text/javascript" src="/static-assets/js/main.js"></script> 
-    </body>
-</html>
+
+<#assign siteName = "null"/>
+<#if siteContext?? && siteContext.siteName??>
+  <#assign siteName = siteContext.siteName />
+</#if>
+
+<#assign baseUrl = request.scheme + '://' + request.serverName />
+<#if request.serverPort != 80 && request.serverPort != 443>
+  <#assign baseUrl += ':' + request.serverPort?c />
+</#if>
+
+<#include "/static-assets/app/index.html" />
