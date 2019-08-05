@@ -249,7 +249,7 @@
 					</constraints>
 				</field>
 				<field>
-					<type>input</type>
+					<type>numeric-input</type>
 					<id>maxVideosDisplay_i</id>
 					<iceId></iceId>
 					<title>Max Videos to Display</title>
@@ -292,7 +292,7 @@
 					</constraints>
 				</field>
 				<field>
-					<type>input</type>
+					<type>numeric-input</type>
 					<id>maxChannelsDisplay_i</id>
 					<iceId></iceId>
 					<title>Max Channels to Display</title>
