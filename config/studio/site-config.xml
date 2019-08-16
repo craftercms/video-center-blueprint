@@ -40,6 +40,10 @@
         <live-environment>live</live-environment>
     </published-repository>
 
+    <form-engine>
+        <field-name-postfix>true</field-name-postfix>
+    </form-engine>
+
     <!--
         Pattern that Studio will use to load plugin from the site repository
         Required placeholders: ${type}, ${name}
