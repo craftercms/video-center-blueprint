@@ -174,15 +174,15 @@
             <control>
                 <name>box-file-upload</name>
                 <icon>
-                    <class>fa-file-o</class>
-                    <stackedclass>fa-magic</stackedclass>
+                    <class>fa-square-o</class>
+                    <stackedclass>fa-upload</stackedclass>
                 </icon>
             </control>
             <control>
                 <name>aws-video-upload</name>
                 <icon>
-                    <class>fa-file-o</class>
-                    <stackedclass>fa-magic</stackedclass>
+                    <class>fa-film</class>
+                    <stackedclass>fa-amazon</stackedclass>
                 </icon>
             </control>
          </controls>
