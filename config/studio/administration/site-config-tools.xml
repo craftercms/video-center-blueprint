@@ -171,6 +171,20 @@
                   <stackedclass>fa-magic</stackedclass>
                </icon>
             </control>
+            <control>
+                <name>box-file-upload</name>
+                <icon>
+                    <class>fa-square-o</class>
+                    <stackedclass>fa-upload</stackedclass>
+                </icon>
+            </control>
+            <control>
+                <name>aws-video-upload</name>
+                <icon>
+                    <class>fa-film</class>
+                    <stackedclass>fa-amazon</stackedclass>
+                </icon>
+            </control>
          </controls>
          <datasources>
             <datasource>
