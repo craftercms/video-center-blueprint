@@ -1,29 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  ~ MIT License
-  ~
-  ~ Copyright (c) 2018-2019 Crafter Software Corporation. All Rights Reserved.
-  ~
-  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
-  ~ of this software and associated documentation files (the "Software"), to deal
-  ~ in the Software without restriction, including without limitation the rights
-  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  ~ copies of the Software, and to permit persons to whom the Software is
-  ~ furnished to do so, subject to the following conditions:
-  ~
-  ~ The above copyright notice and this permission notice shall be included in all
-  ~ copies or substantial portions of the Software.
-  ~
-  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-  ~ SOFTWARE.
-  -->
 <component>
-	<content-type>/component/video</content-type>	<display-template/>
+	<content-type>/component/video</content-type>	<display-template>/templates/web/entry.ftl</display-template>
 	<merge-strategy>inherit-levels</merge-strategy>
 	<objectGroupId>fddc</objectGroupId>
 	<objectId>fddcd236-78ef-01fe-b08f-1d08d57ff200</objectId>
@@ -31,17 +8,20 @@
 	<folder-name/>
 	<internal-name>The Psychology of Evil</internal-name>
 	<title_s tokenized="true">The Psychology of Evil</title_s>
-	<youTubeVideo>OsFEV35tWsg</youTubeVideo>
+	<youTubeVideo_s>OsFEV35tWsg</youTubeVideo_s>
 	<summary_s>Philip Zimbardo knows how easy it is for nice people to turn bad. In this talk, he shares insights and graphic unseen photos from the Abu Ghraib trials. Then he talks about the flip side: how easy it is to be a hero, and how we can rise to the challenge.</summary_s>
-	<featured>false</featured>
-	<thumbnail>/static-assets/images/videos/fddcd236-78ef-01fe-b08f-1d08d57ff200/the-psychology-of-evil.jpg</thumbnail>
+	<featured_b>true</featured_b>
+	<thumbnail_s>/static-assets/images/videos/fddcd236-78ef-01fe-b08f-1d08d57ff200/the-psychology-of-evil.jpg</thumbnail_s>
 	<description_html>&lt;p&gt;Philip Zimbardo knows how easy it is for nice people to turn bad. In this talk, he shares insights and graphic unseen photos from the Abu Ghraib trials. Then he talks about the flip side: how easy it is to be a hero, and how we can rise to the challenge.&lt;/p&gt;</description_html>
 	<date_dt>2008-09-23T05:00:00.000Z</date_dt>
 	<createdDate>2018-04-24T20:57:29.721Z</createdDate>
 	<createdDate_dt>2018-04-24T20:57:29.721Z</createdDate_dt>
-	<lastModifiedDate>2018-05-25T20:16:30.455Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-05-25T20:16:30.455Z</lastModifiedDate_dt>
-	<channels>	<item>	<key>psychology</key>
+	<lastModifiedDate>2019-06-28T17:27:41.709Z</lastModifiedDate>
+	<lastModifiedDate_dt>2019-06-28T17:27:41.709Z</lastModifiedDate_dt>
+	<channels_o>	<item>	<key>psychology</key>
 	<value_smv>Psychology</value_smv>
-	</item></channels>
+	</item></channels_o>
+	<format_s>video</format_s>
+	<boxVideo/>
+	<date_dt_tz>EST5EDT</date_dt_tz>
 </component>

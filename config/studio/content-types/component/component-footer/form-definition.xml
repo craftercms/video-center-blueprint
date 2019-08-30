@@ -28,11 +28,19 @@
 	<objectType>component</objectType>
 	<content-type>/component/component-footer</content-type>
 	<imageThumbnail>undefined</imageThumbnail>
+    <quickCreate>false</quickCreate>
+    <quickCreatePath></quickCreatePath>
 	<properties>		<property>
 			<name>display-template</name>
 			<label>Display Template</label>
 			<value></value>
 			<type>template</type>
+		</property>
+    <property>
+			<name>no-template-required</name>
+			<label>No Template Required</label>
+			<value></value>
+			<type>boolean</type>
 		</property>
 		<property>
 			<name>merge-strategy</name>
@@ -111,7 +119,7 @@
 			<fields>
 				<field>
 					<type>input</type>
-					<id>copyrightLabel</id>
+					<id>copyrightLabel_t</id>
 					<iceId></iceId>
 					<title>Copyright Label</title>
 					<description></description>
@@ -154,7 +162,7 @@
 				</field>
 				<field>
 					<type>repeat</type>
-					<id>nav</id>
+					<id>nav_o</id>
 					<iceId></iceId>
 					<title>Nav</title>
 					<description></description>
@@ -175,7 +183,7 @@
 					<fields>
 				<field>
 					<type>input</type>
-					<id>title</id>
+					<id>title_t</id>
 					<iceId></iceId>
 					<title>Title</title>
 					<description></description>
@@ -218,7 +226,7 @@
 				</field>
 				<field>
 					<type>input</type>
-					<id>link</id>
+					<id>link_s</id>
 					<iceId></iceId>
 					<title>Link</title>
 					<description></description>

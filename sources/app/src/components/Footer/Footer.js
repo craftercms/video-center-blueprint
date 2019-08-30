@@ -17,14 +17,14 @@ class Footer extends Component {
         }
         return nav.item.map((entry, i) => {
             return (
-                <a key={ i } className="footer__link" target="_blank">{ entry.title }</a>
+                <a key={ i } className="footer__link" target="_blank">{ entry.title_t }</a>
             );
         });
     }
 
     renderFooterContent(descriptor) {
         const currentYear = new Date().getFullYear(),
-              updatedCopyright = descriptor.component.copyrightLabel.replace('{year}', currentYear); 
+              updatedCopyright = descriptor.component.copyrightLabel_t.replace('{year}', currentYear); 
 
         return(
             <div className="footer__content">
@@ -33,8 +33,8 @@ class Footer extends Component {
                 </div>
 
                 <div className="footer__nav">
-                    { descriptor.component.nav &&
-                        this.renderFooterNav(descriptor.component.nav)     
+                    { descriptor.component.nav_o &&
+                        this.renderFooterNav(descriptor.component.nav_o)     
                     }
                 </div>
             </div>

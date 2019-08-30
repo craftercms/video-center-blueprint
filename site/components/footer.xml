@@ -30,7 +30,7 @@
 	<file-name>footer.xml</file-name>
 	<folder-name/>
 	<internal-name>Site Footer</internal-name>
-	<copyrightLabel>Copyright © {year} Crafter Software Corporation. All rights reserved.</copyrightLabel>
+	<copyrightLabel_t>Copyright © {year} Crafter Software Corporation. All rights reserved.</copyrightLabel_t>
 	<nav item-list="true"/>
 	<createdDate>2018-05-17T15:49:10.604Z</createdDate>
 	<createdDate_dt>2018-05-17T15:49:10.604Z</createdDate_dt>

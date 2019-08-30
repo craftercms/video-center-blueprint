@@ -1,29 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  ~ MIT License
-  ~
-  ~ Copyright (c) 2018-2019 Crafter Software Corporation. All Rights Reserved.
-  ~
-  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
-  ~ of this software and associated documentation files (the "Software"), to deal
-  ~ in the Software without restriction, including without limitation the rights
-  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  ~ copies of the Software, and to permit persons to whom the Software is
-  ~ furnished to do so, subject to the following conditions:
-  ~
-  ~ The above copyright notice and this permission notice shall be included in all
-  ~ copies or substantial portions of the Software.
-  ~
-  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-  ~ SOFTWARE.
-  -->
 <component>
-	<content-type>/component/video</content-type>	<display-template/>
+	<content-type>/component/video</content-type>	<display-template>/templates/web/entry.ftl</display-template>
 	<merge-strategy>inherit-levels</merge-strategy>
 	<objectGroupId>9f6f</objectGroupId>
 	<objectId>9f6fab76-13fe-2917-1e13-a67f8a2a11b2</objectId>
@@ -31,17 +8,20 @@
 	<folder-name/>
 	<internal-name>James Webb Space Telescope</internal-name>
 	<title_s tokenized="true">James Webb Space Telescope</title_s>
-	<youTubeVideo>pCrntRaolIA</youTubeVideo>
+	<youTubeVideo_s>pCrntRaolIA</youTubeVideo_s>
 	<summary_s>Dr Becky Smethurst discusses the James Webb Space Telescope, often described as the successor to Hubble.</summary_s>
-	<featured>false</featured>
-	<thumbnail>/static-assets/images/videos/9f6fab76-13fe-2917-1e13-a67f8a2a11b2/james-webb-space-telescope.jpg</thumbnail>
-	<description_html>&lt;p&gt;&lt;span data-sheets-value="{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:&amp;quot;Dr Becky Smethurst discusses the James Webb Space Telescope, often described as the successor to Hubble.&amp;quot;}" data-sheets-userformat="{&amp;quot;2&amp;quot;:829,&amp;quot;3&amp;quot;:[null,0],&amp;quot;5&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;6&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;7&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;8&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;11&amp;quot;:4,&amp;quot;12&amp;quot;:0}"&gt;Dr Becky Smethurst discusses the James Webb Space Telescope, often described as the successor to Hubble.&lt;/span&gt;&lt;/p&gt;</description_html>
+	<featured_b>true</featured_b>
+	<thumbnail_s>/static-assets/images/videos/9f6fab76-13fe-2917-1e13-a67f8a2a11b2/james-webb-space-telescope.jpg</thumbnail_s>
+	<description_html>&lt;p&gt;&lt;span data-sheets-value="{"1":2,"2":"Dr Becky Smethurst discusses the James Webb Space Telescope, often described as the successor to Hubble."}" data-sheets-userformat="{"2":829,"3":[null,0],"5":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"6":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"7":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"8":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"11":4,"12":0}"&gt;Dr Becky Smethurst discusses the James Webb Space Telescope, often described as the successor to Hubble.&lt;/span&gt;&lt;/p&gt;</description_html>
 	<date_dt>2017-05-18T04:00:00.000Z</date_dt>
 	<createdDate>2018-04-24T20:12:09.805Z</createdDate>
 	<createdDate_dt>2018-04-24T20:12:09.805Z</createdDate_dt>
-	<lastModifiedDate>2018-05-25T20:15:27.563Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-05-25T20:15:27.563Z</lastModifiedDate_dt>
-	<channels>	<item>	<key>astronomy</key>
+	<lastModifiedDate>2019-06-28T17:30:59.971Z</lastModifiedDate>
+	<lastModifiedDate_dt>2019-06-28T17:30:59.971Z</lastModifiedDate_dt>
+	<channels_o>	<item>	<key>astronomy</key>
 	<value_smv>Astronomy</value_smv>
-	</item></channels>
+	</item></channels_o>
+	<format_s>video</format_s>
+	<boxVideo/>
+	<date_dt_tz>EST5EDT</date_dt_tz>
 </component>

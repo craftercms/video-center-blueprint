@@ -20,37 +20,45 @@ class Channel extends Component {
     }
 
     getInfo(props) {
-        var params = props.match.params,
-            category = {
-                key: '',
-                value: params.categoryName,
-                viewAll: false,
-                numResults: 1000
-            },
-            query = params.query.replace(/_/g, '/').split(',');
+      var params = props.match.params,
+          category = {
+              key: '',
+              value: params.categoryName,
+              viewAll: false,
+              numResults: 1000
+          },
+          query,
+          isKey = false;
 
-        if(query[0].indexOf(":") === -1 && query.length === 1){
-            category.key = query[0];
-        }else{
-            category.query = query;
-        }
-        
-        if(params.sort){
-            category.sort = params.sort;
-        }
+      try {
+        query = JSON.parse(params.query.replace(/__/g, '/'));
+      } catch (e) {
+        isKey = true;
+        query = params.query.replace(/__/g, '/').split(',');
+      }
 
-        this.setState({
-            categories: [
-                category
-            ]
-        })
+      if ( isKey && (query[0].indexOf(":") === -1 && query.length === 1) ) {
+          category.key = query[0];
+      }else{
+          category.query = query;
+      }
+
+      if(params.sort){
+          category.sort = JSON.parse(params.sort);
+      }
+
+      this.setState({
+          categories: [
+              category
+          ]
+      })
     }
 
     render() {
         return (
             <div>
                 { this.state && this.state.categories &&
-                    <VideoCategories 
+                    <VideoCategories
                         categories={ this.state.categories } >
                     </VideoCategories>
                 }
@@ -60,7 +68,7 @@ class Channel extends Component {
 }
 
 function mapStateToProps(store) {
-    return { 
+    return {
     };
 }
 

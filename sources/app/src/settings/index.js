@@ -3,8 +3,8 @@ const common = {
 }
 
 const studioConfig = {
-  baseUrl: window.baseUrl ? window.baseUrl : "http://localhost:8080",
-  site: window.siteName ? window.siteName : "video-center",
+  baseUrl: document.getElementById('studioBaseUrl').innerHTML,
+  site: document.getElementById('studioSiteName').innerHTML,
   navTreeBase: "/site/website"
 }
 

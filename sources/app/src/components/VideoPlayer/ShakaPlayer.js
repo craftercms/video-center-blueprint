@@ -61,7 +61,7 @@ class ShakaPlayer extends Component {
         // new video Info -> load new manifestUri into player
         if(this.props.video && newProps.video){
             if(this.props.video.id !== newProps.video.id){
-                const newManifestUri = newProps.video["origin.item.component.url"];
+                const newManifestUri = newProps.video["origin_o.item.component.url_s"];
                 this.player.load(newManifestUri)
             }
         }
@@ -69,7 +69,7 @@ class ShakaPlayer extends Component {
 
     initPlayer(){
         var me = this;
-        var manifestUri = this.props.video.origin.item.component.url;
+        var manifestUri = this.props.video.origin.item.component.url_s;
         this.video_ = this.refs.video;
 
         player = new shaka.Player(this.refs.video);

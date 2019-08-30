@@ -50,22 +50,22 @@ class Channel extends Component {
         var component = descriptor.component,
             channelHero = [],
             channelContent = descriptor.component,
-            channelTags = channelContent.tags.item,
-            tagsFilter = 'tags.item.value: ',
+            channelTags = channelContent.tags_o.item,
+            tagsFilter = 'tags_o.item.value_s: ',
             categories;
 
         channelHero.push({
-            url: "#",
-            background: channelContent.heroImage,
-            title: channelContent['internal-name'],
-            subtitle: channelContent.description
+            url_s: "#",
+            background_s: channelContent.heroImage_s,
+            title_t: channelContent['internal-name'],
+            subtitle_s: channelContent.description_s
         });
 
         //get channel tags
         for(var x = 0; x < channelTags.length; x++) {
             var tag = channelTags[x];
 
-            tagsFilter += '"' + tag.value + '"';
+            tagsFilter += '"' + tag.value_s + '"';
             tagsFilter += x < channelTags.length - 1 ? ' OR ' : '';
         }
 
@@ -83,18 +83,19 @@ class Channel extends Component {
                             },
                             {
                                 "match": {
-                                    "channels.item.key": channelContent.channelKey
+                                    "channels_o.item.key": channelContent.channelKey_s
                                 }
                             },
                             {
                                 "match": {
-                                    "featured": true
+                                    "featured_b": true
                                 }
                             }
                         ]
                     }
                 },
-                numResults: component.maxVideosDisplay
+                numResults: component.maxVideosDisplay_i,
+                viewAll: channelContent.channelKey_s
             },
             {
                 key: "related-channels",
@@ -103,7 +104,7 @@ class Channel extends Component {
                 query: {
                     "bool": {
                         "must_not" : {
-                            "term" : {"file-name" : channelContent['file-name']} 
+                            "term" : {"file-name" : channelContent['file-name']}
                         },
                         "filter": [
                             {
@@ -114,7 +115,7 @@ class Channel extends Component {
                         ]
                     }
                 },
-                numResults: component.maxChannelsDisplay
+                numResults: component.maxChannelsDisplay_i
             }
         ];
 

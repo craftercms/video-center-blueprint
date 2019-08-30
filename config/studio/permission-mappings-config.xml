@@ -84,7 +84,7 @@
 
 -->
 <permissions>
-    <version>2</version>
+    <version>5</version>
     <role name="author">
         <rule regex="/site/website/.*">
             <allowed-permissions>
@@ -192,6 +192,22 @@
                 <permission>Create Content</permission>
                 <permission>Change Content Type</permission>
                 <permission>audit_log</permission>
+                <permission>list_cmis</permission>
+                <permission>search_cmis</permission>
+                <permission>clone_content_cmis</permission>
+                <permission>upload_content_cmis</permission>
+                <permission>add_remote</permission>
+                <permission>list_remotes</permission>
+                <permission>pull_from_remote</permission>
+                <permission>push_to_remote</permission>
+                <permission>rebuild_database</permission>
+                <permission>remove_remote</permission>
+                <permission>write_configuration</permission>
+                <permission>site_status</permission>
+                <permission>resolve_conflict</permission>
+                <permission>site_diff_conflicted_file</permission>
+                <permission>commit_resolution</permission>
+                <permission>cancel_failed_pull</permission>
             </allowed-permissions>
         </rule>
         <rule regex="^/(?!site/website/index\.xml)(.*)">
@@ -203,6 +219,18 @@
             <allowed-permissions>
                 <permission>Publish</permission>
                 <permission>audit_log</permission>
+                <permission>add_remote</permission>
+                <permission>list_remotes</permission>
+                <permission>pull_from_remote</permission>
+                <permission>push_to_remote</permission>
+                <permission>rebuild_database</permission>
+                <permission>remove_remote</permission>
+                <permission>write_configuration</permission>
+                <permission>site_status</permission>
+                <permission>resolve_conflict</permission>
+                <permission>site_diff_conflicted_file</permission>
+                <permission>commit_resolution</permission>
+                <permission>cancel_failed_pull</permission>
             </allowed-permissions>
         </rule>
         <rule regex=".*">

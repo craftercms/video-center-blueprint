@@ -28,6 +28,8 @@
 	<objectType>page</objectType>
 	<content-type>/page/page-home</content-type>
 	<imageThumbnail>undefined</imageThumbnail>
+    <quickCreate>false</quickCreate>
+    <quickCreatePath></quickCreatePath>
 	<properties>		<property>
 			<name>display-template</name>
 			<label>Display Template</label>
@@ -150,7 +152,7 @@
 				</field>
 				<field>
 					<type>input</type>
-					<id>reactComponent</id>
+					<id>reactComponent_s</id>
 					<iceId></iceId>
 					<title>React Component</title>
 					<description></description>
@@ -200,7 +202,7 @@
 			<fields>
 				<field>
 					<type>node-selector</type>
-					<id>slider</id>
+					<id>slider_o</id>
 					<iceId></iceId>
 					<title>Slider</title>
 					<description></description>
@@ -247,8 +249,8 @@
 					</constraints>
 				</field>
 				<field>
-					<type>input</type>
-					<id>maxVideosDisplay</id>
+					<type>numeric-input</type>
+					<id>maxVideosDisplay_i</id>
 					<iceId></iceId>
 					<title>Max Videos to Display</title>
 					<description>(per category)</description>
@@ -290,8 +292,8 @@
 					</constraints>
 				</field>
 				<field>
-					<type>input</type>
-					<id>maxChannelsDisplay</id>
+					<type>numeric-input</type>
+					<id>maxChannelsDisplay_i</id>
 					<iceId></iceId>
 					<title>Max Channels to Display</title>
 					<description></description>

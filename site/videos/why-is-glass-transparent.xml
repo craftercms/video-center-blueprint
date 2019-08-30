@@ -1,29 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  ~ MIT License
-  ~
-  ~ Copyright (c) 2018-2019 Crafter Software Corporation. All Rights Reserved.
-  ~
-  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
-  ~ of this software and associated documentation files (the "Software"), to deal
-  ~ in the Software without restriction, including without limitation the rights
-  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  ~ copies of the Software, and to permit persons to whom the Software is
-  ~ furnished to do so, subject to the following conditions:
-  ~
-  ~ The above copyright notice and this permission notice shall be included in all
-  ~ copies or substantial portions of the Software.
-  ~
-  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-  ~ SOFTWARE.
-  -->
 <component>
-	<content-type>/component/video</content-type>	<display-template/>
+	<content-type>/component/video</content-type>	<display-template>/templates/web/entry.ftl</display-template>
 	<merge-strategy>inherit-levels</merge-strategy>
 	<objectGroupId>4d12</objectGroupId>
 	<objectId>4d12b7de-0c73-e205-cdbb-784e3821f1c0</objectId>
@@ -31,17 +8,20 @@
 	<folder-name/>
 	<internal-name>Why is Glass Transparent?</internal-name>
 	<title_s tokenized="true">Why is Glass Transparent?</title_s>
-	<youTubeVideo>Omr0JNyDBI0</youTubeVideo>
+	<youTubeVideo_s>Omr0JNyDBI0</youTubeVideo_s>
 	<summary_s>Sixty Symbols regular Professor Phil Moriarty discusses transparent glass and the so-called energy gap.</summary_s>
-	<featured>false</featured>
-	<thumbnail>/static-assets/images/videos/4d12b7de-0c73-e205-cdbb-784e3821f1c0/why-is-glass-transparent.jpg</thumbnail>
-	<description_html>&lt;p&gt;PS MESSAGE FROM PROF MORIARTY: "I misspoke for the last sentence of the video. What I meant to say is that the photons don&amp;#39;t have enough energy to excite electrons across the energy gap and therefore light is transmitted. What I said was precisely the opposite, contradicting everything else in the video. Apologies for any confusion caused."&lt;/p&gt;</description_html>
+	<featured_b>true</featured_b>
+	<thumbnail_s>/static-assets/images/videos/4d12b7de-0c73-e205-cdbb-784e3821f1c0/why-is-glass-transparent.jpg</thumbnail_s>
+	<description_html>&lt;p&gt;PS MESSAGE FROM PROF MORIARTY: "I misspoke for the last sentence of the video. What I meant to say is that the photons don't have enough energy to excite electrons across the energy gap and therefore light is transmitted. What I said was precisely the opposite, contradicting everything else in the video. Apologies for any confusion caused."&lt;/p&gt;</description_html>
 	<date_dt>2011-02-01T05:00:00.000Z</date_dt>
 	<createdDate>2018-04-24T19:49:54.906Z</createdDate>
 	<createdDate_dt>2018-04-24T19:49:54.906Z</createdDate_dt>
-	<lastModifiedDate>2018-05-25T20:16:44.278Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-05-25T20:16:44.278Z</lastModifiedDate_dt>
-	<channels>	<item>	<key>physics</key>
+	<lastModifiedDate>2019-06-28T17:34:00.923Z</lastModifiedDate>
+	<lastModifiedDate_dt>2019-06-28T17:34:00.923Z</lastModifiedDate_dt>
+	<channels_o>	<item>	<key>physics</key>
 	<value_smv>Physics</value_smv>
-	</item></channels>
+	</item></channels_o>
+	<format_s>video</format_s>
+	<boxVideo/>
+	<date_dt_tz>EST5EDT</date_dt_tz>
 </component>

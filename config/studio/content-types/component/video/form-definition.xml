@@ -28,11 +28,19 @@
 	<objectType>component</objectType>
 	<content-type>/component/video</content-type>
 	<imageThumbnail>undefined</imageThumbnail>
+    <quickCreate>false</quickCreate>
+    <quickCreatePath></quickCreatePath>
 	<properties>		<property>
 			<name>display-template</name>
 			<label>Display Template</label>
 			<value>/templates/web/entry.ftl</value>
 			<type>template</type>
+		</property>
+    <property>
+			<name>no-template-required</name>
+			<label>No Template Required</label>
+			<value></value>
+			<type>boolean</type>
 		</property>
 		<property>
 			<name>merge-strategy</name>
@@ -333,7 +341,7 @@
 				</field>
 				<field>
 					<type>checkbox</type>
-					<id>featured</id>
+					<id>featured_b</id>
 					<iceId></iceId>
 					<title>Featured</title>
 					<description></description>
@@ -356,7 +364,7 @@
 				</field>
 				<field>
 					<type>dropdown</type>
-					<id>format</id>
+					<id>format_s</id>
 					<iceId></iceId>
 					<title>Format</title>
 					<description></description>
@@ -389,7 +397,7 @@
 				</field>
 				<field>
 					<type>checkbox-group</type>
-					<id>channels</id>
+					<id>channels_o</id>
 					<iceId></iceId>
 					<title>Channels</title>
 					<description></description>
@@ -422,7 +430,7 @@
 				</field>
 				<field>
 					<type>repeat</type>
-					<id>tags</id>
+					<id>tags_o</id>
 					<iceId></iceId>
 					<title>Tags</title>
 					<description></description>
@@ -495,7 +503,7 @@
 			<fields>
 				<field>
 					<type>image-picker</type>
-					<id>thumbnail</id>
+					<id>thumbnail_s</id>
 					<iceId></iceId>
 					<title>Thumbnail</title>
 					<description></description>
@@ -550,7 +558,7 @@
 			<fields>
 				<field>
 					<type>input</type>
-					<id>youTubeVideo</id>
+					<id>youTubeVideo_s</id>
 					<iceId></iceId>
 					<title>YouTube Video</title>
 					<description></description>
