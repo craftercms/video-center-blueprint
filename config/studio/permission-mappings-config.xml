@@ -84,7 +84,7 @@
 
 -->
 <permissions>
-    <version>5</version>
+    <version>7</version>
     <role name="author">
         <rule regex="/site/website/.*">
             <allowed-permissions>
@@ -130,6 +130,7 @@
         <rule regex="^/site/(?!website/index\.xml)(.*)">
             <allowed-permissions>
                 <permission>Delete</permission>
+                <permission>delete_content</permission>
             </allowed-permissions>
         </rule>
         <rule regex="/(static-assets|templates|scripts)/.*">
@@ -140,6 +141,7 @@
                 <permission>Create Content</permission>
                 <permission>Create Folder</permission>
                 <permission>Publish</permission>
+                <permission>delete_content</permission>
             </allowed-permissions>
         </rule>
         <rule regex="~DASHBOARD~">
@@ -168,6 +170,7 @@
         <rule regex="^/(?!site/website/index\.xml)(.*)">
             <allowed-permissions>
                 <permission>Delete</permission>
+                <permission>delete_content</permission>
             </allowed-permissions>
         </rule>
         <rule regex="~DASHBOARD~">
@@ -213,6 +216,7 @@
         <rule regex="^/(?!site/website/index\.xml)(.*)">
             <allowed-permissions>
                 <permission>Delete</permission>
+                <permission>delete_content</permission>
             </allowed-permissions>
         </rule>
         <rule regex="~DASHBOARD~">
