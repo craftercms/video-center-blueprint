@@ -29,7 +29,7 @@ class Video extends Component {
         this.loadVideo(props);
     }
 
-    componentWillMount() {  
+    componentWillMount() {
         this.props.setVideoStatus( { ...this.props.videoStatus, docked: true, currentVideoUrl: this.props.match.url } );
     }
 
@@ -47,7 +47,7 @@ class Video extends Component {
             pageScrollTop();
         }
 
-        if( 
+        if(
             ( isNullOrUndefined(searchEntry) && !isNullOrUndefined(newSearchEntry) )
             || ( !isNullOrUndefined(searchEntry) && !isNullOrUndefined(newSearchEntry))
             && newProps.searchResults.entries[this.searchId]
@@ -59,7 +59,7 @@ class Video extends Component {
 
     loadVideo(props){
         var videoId = props.match.params.id;
-       
+
         var query = SearchService.createQuery('elasticsearch');
         this.searchId = query.uuid;
         query.query = {
@@ -104,7 +104,7 @@ class Video extends Component {
                     subtitle_s: video.description_html,
                     date_dt: video.startDate_dt
                 })
-    
+
                 // remove video info (if available)
                 setVideoInfo(null);
                 this.setState({ slider: upcomingVideoHero });
@@ -117,14 +117,14 @@ class Video extends Component {
             }
 
             //get categories for videoCategories component
-            if( video.channels_o.item.key.constructor === Array ){
-                for (var i = 0, len = video.channels_o.item.key.length; i < len; i++) {
-                    categories.push( 
-                        { key: video.channels_o.item.key[i], value: video.channels_o.item.value_smv[i] }
-                    );
-                }
+            if( Array.isArray(video.channels_o.item) ){
+              for (var i = 0, len = video.channels_o.item.length; i < len; i++) {
+                  categories.push(
+                      { key: video.channels_o.item[i].key, value: video.channels_o.item[i].value_smv }
+                  );
+              }
             }else{
-                categories.push( 
+                categories.push(
                     { key: video.channels_o.item.key, value: video.channels_o.item.value_smv }
                 );
             }
@@ -143,7 +143,7 @@ class Video extends Component {
     }
 
     renderDetailsSection( video ) {
-        return(     
+        return(
             <div>
                 <div className="segment segment--dark">
                     <div className="video-details">
@@ -164,7 +164,7 @@ class Video extends Component {
                                 <div className="inline-button inline-button__text video-details__links-link">
                                     <ModalDialog ref={(ref) => (this.shareDialog = ref)}>
                                         <input className="share-dialog__field" defaultValue={ window.location.href }/>
-                
+
                                         <div className="share-dialog__social">
                                             {/* http://sharingbuttons.io/ */}
 
@@ -196,14 +196,14 @@ class Video extends Component {
                                                 </div>E-Mail</div>
                                             </a>
                                         </div>
-                                        
-                                    </ModalDialog>  
+
+                                    </ModalDialog>
 
                                     <FontAwesomeIcon className="inline-button__icon" icon={ faShareAlt }/>
                                     <span className="inline-button__text" onClick={ () => this.showShareModal() }>share</span>
                                 </div>
                                 <a href="mailto:mail@mail.com" id="uservoice-video" className="video-details__links-link">
-                                    <div className="inline-button inline-button__text"> 
+                                    <div className="inline-button inline-button__text">
                                         <FontAwesomeIcon className="inline-button__icon" icon={ faComment }/>
                                         <span className="inline-button__text">feedback</span>
                                     </div>
@@ -243,20 +243,20 @@ class Video extends Component {
 
                     { this.state && this.state.categories &&
                         <VideoCategories categories={ this.state.categories }
-                                        exclude= { videoInfo }    
+                                        exclude= { videoInfo }
                         ></VideoCategories>
                     }
-                    
+
                     {/* <VideoSidebar/>  */}
                 </VideoHolder>
             </div>
-            
+
         );
     }
 }
 
 function mapStateToProps(store) {
-    return { 
+    return {
         videoInfo: store.video.videoInfo,
         videoStatus: store.video.videoStatus,
         items: store.craftercms.items,
