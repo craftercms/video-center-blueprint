@@ -84,7 +84,7 @@
 
 -->
 <permissions>
-    <version>7</version>
+    <version>8</version>
     <role name="author">
         <rule regex="/site/website/.*">
             <allowed-permissions>
@@ -92,6 +92,10 @@
                 <permission>Write</permission>
                 <permission>Create Content</permission>
                 <permission>Create Folder</permission>
+                <permission>list_cmis</permission>
+                <permission>search_cmis</permission>
+                <permission>clone_content_cmis</permission>
+                <permission>upload_content_cmis</permission>
             </allowed-permissions>
         </rule>
         <rule regex="/site/components|/site/components/.*">
@@ -100,6 +104,10 @@
                 <permission>Write</permission>
                 <permission>Create Content</permission>
                 <permission>Create Folder</permission>
+                <permission>list_cmis</permission>
+                <permission>search_cmis</permission>
+                <permission>clone_content_cmis</permission>
+                <permission>upload_content_cmis</permission>
             </allowed-permissions>
         </rule>
         <rule regex="/static-assets|/static-assets/.*">
@@ -108,12 +116,18 @@
                 <permission>Write</permission>
                 <permission>Create Content</permission>
                 <permission>Create Folder</permission>
+                <permission>list_cmis</permission>
+                <permission>search_cmis</permission>
+                <permission>clone_content_cmis</permission>
+                <permission>upload_content_cmis</permission>
             </allowed-permissions>
         </rule>
         <rule regex=".*">
             <allowed-permissions>
                 <permission>S3 Read</permission>
                 <permission>S3 Write</permission>
+                <permission>webdav_read</permission>
+                <permission>webdav_write</permission>
             </allowed-permissions>
         </rule>
     </role>
@@ -125,6 +139,10 @@
                 <permission>Create Content</permission>
                 <permission>Create Folder</permission>
                 <permission>Publish</permission>
+                <permission>list_cmis</permission>
+                <permission>search_cmis</permission>
+                <permission>clone_content_cmis</permission>
+                <permission>upload_content_cmis</permission>
             </allowed-permissions>
         </rule>
         <rule regex="^/site/(?!website/index\.xml)(.*)">
@@ -141,6 +159,10 @@
                 <permission>Create Content</permission>
                 <permission>Create Folder</permission>
                 <permission>Publish</permission>
+                <permission>list_cmis</permission>
+                <permission>search_cmis</permission>
+                <permission>clone_content_cmis</permission>
+                <permission>upload_content_cmis</permission>
                 <permission>delete_content</permission>
             </allowed-permissions>
         </rule>
@@ -153,6 +175,8 @@
             <allowed-permissions>
                 <permission>S3 Read</permission>
                 <permission>S3 Write</permission>
+                <permission>webdav_read</permission>
+                <permission>webdav_write</permission>
             </allowed-permissions>
         </rule>
     </role>
@@ -165,6 +189,10 @@
                 <permission>Create Folder</permission>
                 <permission>Create Content</permission>
                 <permission>Change Content Type</permission>
+                <permission>list_cmis</permission>
+                <permission>search_cmis</permission>
+                <permission>clone_content_cmis</permission>
+                <permission>upload_content_cmis</permission>
             </allowed-permissions>
         </rule>
         <rule regex="^/(?!site/website/index\.xml)(.*)">
@@ -182,6 +210,8 @@
             <allowed-permissions>
                 <permission>S3 Read</permission>
                 <permission>S3 Write</permission>
+                <permission>webdav_read</permission>
+                <permission>webdav_write</permission>
             </allowed-permissions>
         </rule>
     </role>
@@ -194,7 +224,6 @@
                 <permission>Create Folder</permission>
                 <permission>Create Content</permission>
                 <permission>Change Content Type</permission>
-                <permission>audit_log</permission>
                 <permission>list_cmis</permission>
                 <permission>search_cmis</permission>
                 <permission>clone_content_cmis</permission>
@@ -222,7 +251,6 @@
         <rule regex="~DASHBOARD~">
             <allowed-permissions>
                 <permission>Publish</permission>
-                <permission>audit_log</permission>
                 <permission>add_remote</permission>
                 <permission>list_remotes</permission>
                 <permission>pull_from_remote</permission>
@@ -241,6 +269,8 @@
             <allowed-permissions>
                 <permission>S3 Read</permission>
                 <permission>S3 Write</permission>
+                <permission>webdav_read</permission>
+                <permission>webdav_write</permission>
             </allowed-permissions>
         </rule>
     </role>
@@ -259,6 +289,7 @@
         <rule regex=".*">
             <allowed-permissions>
                 <permission>S3 Read</permission>
+                <permission>webdav_read</permission>
             </allowed-permissions>
         </rule>
     </role>
@@ -271,6 +302,7 @@
         <rule regex=".*">
             <allowed-permissions>
                 <permission>S3 Read</permission>
+                <permission>webdav_read</permission>
             </allowed-permissions>
         </rule>
     </role>
