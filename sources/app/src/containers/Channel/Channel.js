@@ -5,7 +5,7 @@ import { getDescriptor } from "@craftercms/redux";
 
 import { setVideoDocked } from "../../actions/videoPlayerActions";
 import { setHeaderGhost } from '../../actions/headerActions';
-import Slider from '../../components/Slider/Slider.js';
+import Hero from '../../components/Hero/Hero.js';
 import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
 import NotFound from '../Errors/404';
 
@@ -121,10 +121,10 @@ class Channel extends Component {
 
         return (
             <div>
-                <Slider data={ channelHero }
+                <Hero data={ channelHero }
                     localData={ true }
                 >
-                </Slider>
+                </Hero>
                 <VideoCategories
                     categories={ categories } >
                 </VideoCategories>

@@ -11,9 +11,8 @@ import { SearchService } from '@craftercms/search';
 import NotFound from '../Errors/404';
 import VideoCategories from '../../components/VideoCategories/VideoCategories';
 import VideoHolder from './VideoStyle';
-import Slider from '../../components/Slider/Slider';
+import Hero from '../../components/Hero/Hero';
 import ModalDialog from '../../components/Modal/Modal';
-// import VideoSidebar from './VideoSidebar.js';
 import { setVideoInfo, setVideoStatus } from "../../actions/videoPlayerActions";
 import { setHeaderGhost } from '../../actions/headerActions';
 import { pageScrollTop } from '../../utils';
@@ -108,11 +107,11 @@ class Video extends Component {
 
                 // remove video info (if available)
                 setVideoInfo(null);
-                this.setState({ slider: upcomingVideoHero });
+                this.setState({ hero: upcomingVideoHero });
             }else{
                 //is a video (regular video or stream) - will load player
-                // remove upcoming stream slider info (if available)
-                this.setState({ slider: null })
+                // remove upcoming stream hero info (if available)
+                this.setState({ hero: null })
                 this.props.setHeaderGhost(false);
                 setVideoInfo(video);
             }
@@ -223,12 +222,12 @@ class Video extends Component {
 
                 <VideoHolder>
 
-                    { this.state && this.state.slider &&
-                        <Slider data={ this.state.slider }
+                    { this.state && this.state.hero &&
+                        <Hero data={ this.state.hero }
                             localData={ true }
                             hero={ true }
                         >
-                        </Slider>
+                        </Hero>
                     }
 
                     { videoInfo &&
