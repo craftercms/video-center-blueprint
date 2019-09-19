@@ -88,7 +88,8 @@ class Video extends Component {
         if(searchResult.totalHits > 0){
             var video = searchResult.hits[0].sourceAsMap,
                 categories = [],
-                upcomingVideoHero = [];
+                upcomingVideoHero = [],
+                channels = Array.isArray(video.channels_o.item) ? video.channels_o.item : [video.channels_o.item];
 
             var videoStartDate = new Date(video.startDate_dt),
                 now = new Date();
@@ -116,18 +117,11 @@ class Video extends Component {
                 setVideoInfo(video);
             }
 
-            //get categories for videoCategories component
-            if( Array.isArray(video.channels_o.item) ){
-              for (var i = 0, len = video.channels_o.item.length; i < len; i++) {
-                  categories.push(
-                      { key: video.channels_o.item[i].key, value: video.channels_o.item[i].value_smv }
-                  );
-              }
-            }else{
-                categories.push(
-                    { key: video.channels_o.item.key, value: video.channels_o.item.value_smv }
-                );
-            }
+            channels.forEach((channel) => {
+              categories.push(
+                { key: channel.key, value: channel.value_smv }
+              );
+            });
 
             this.setState({ categories: categories });
         }else{

@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/static-assets/app/static/css/main.75e8ad94.chunk.css",
-    "main.js": "/static-assets/app/static/js/main.404c13e2.chunk.js",
-    "main.js.map": "/static-assets/app/static/js/main.404c13e2.chunk.js.map",
+    "main.js": "/static-assets/app/static/js/main.a3623206.chunk.js",
+    "main.js.map": "/static-assets/app/static/js/main.a3623206.chunk.js.map",
     "runtime~main.js": "/static-assets/app/static/js/runtime~main.c02028ff.js",
     "runtime~main.js.map": "/static-assets/app/static/js/runtime~main.c02028ff.js.map",
     "static/css/2.a317ec87.chunk.css": "/static-assets/app/static/css/2.a317ec87.chunk.css",
     "static/js/2.4515b6e1.chunk.js": "/static-assets/app/static/js/2.4515b6e1.chunk.js",
     "static/js/2.4515b6e1.chunk.js.map": "/static-assets/app/static/js/2.4515b6e1.chunk.js.map",
     "index.html": "/static-assets/app/index.html",
-    "precache-manifest.1dc85734c64b30c8baadc688d53415bf.js": "/static-assets/app/precache-manifest.1dc85734c64b30c8baadc688d53415bf.js",
+    "precache-manifest.ddceae3394db1ddaec4c2b72ca57be65.js": "/static-assets/app/precache-manifest.ddceae3394db1ddaec4c2b72ca57be65.js",
     "service-worker.js": "/static-assets/app/service-worker.js",
     "static/css/2.a317ec87.chunk.css.map": "/static-assets/app/static/css/2.a317ec87.chunk.css.map",
     "static/css/main.75e8ad94.chunk.css.map": "/static-assets/app/static/css/main.75e8ad94.chunk.css.map"
