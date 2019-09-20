@@ -5,16 +5,14 @@ import ReactHtmlParser from 'react-html-parser';
 import { formatDate } from '../../utils';
 
 class Slide extends Component {
-  componentWillMount() {
-    const { hero, slide } = this.props;
-
-    if (hero && slide.date_dt) {
-      this.formattedDate = formatDate(slide.date_dt);
-    }
-  }
-
   render() {
     const { hero, slide } = this.props;
+    let formattedDate;
+
+    if (hero && slide.date_dt) {
+      formattedDate = formatDate(slide.date_dt);
+    }
+
     return (
       <div className="discover-slider__inner">
         <Link className="discover-slider__link" to={slide.url_s}>
@@ -30,7 +28,7 @@ class Slide extends Component {
               </div>
             </div>
           </div>
-          <div className={"discover-slider__inner--content" + ((hero && slide.date_dt) ? ' hero_content' : '')}>
+          <div className={`discover-slider__inner--content ${ (hero && slide.date_dt ? 'hero_content' : '') }`}>
             {slide.vod_s &&
               <div className="discover-slider__inner--vod">
                 <span className="discover-slider__inner--vod-label">
@@ -53,13 +51,13 @@ class Slide extends Component {
               {ReactHtmlParser(slide.subtitle_s)}
             </div>
 
-            {this.props.hero && this.formattedDate &&
+            {this.props.hero && formattedDate &&
               <div className="hero__countdown">
                 <div className="countdown-container__content" id="countdown">
                   <div className="countdown--pre countdown--text">
                     <div className="countdown__label">Upcoming</div>
-                    <div className="countdown__heading">{this.formattedDate.month} {this.formattedDate.monthDay}</div>
-                    <div className="countdown__live-time"> Live at {this.formattedDate.time} {this.formattedDate.timezone}</div>
+                    <div className="countdown__heading">{formattedDate.month} {formattedDate.monthDay}</div>
+                    <div className="countdown__live-time"> Live at {formattedDate.time} {formattedDate.timezone}</div>
                   </div>
                 </div>
               </div>

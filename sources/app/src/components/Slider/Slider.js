@@ -12,7 +12,7 @@ class Slider extends Component {
       descriptorKey = data[0].key;    // data is the list of descriptors (only 1 for this component)
                                       // Studio may return an array but studio's item selector is configured to be
                                       // max 1 item. So it'll always be first item of array
-    this.setState({ descriptorKey: descriptorKey });
+    this.setState({ descriptorKey });
     this.props.getDescriptor(descriptorKey);
   }
 
