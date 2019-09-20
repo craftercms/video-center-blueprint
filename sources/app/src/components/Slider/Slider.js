@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { Carousel } from 'antd';
-import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import ReactHtmlParser from 'react-html-parser';
 
 import SliderHolder from './SliderStyle';
+import Slide from '../Slide/Slide';
 
 class Slider extends Component {
   componentDidMount() {
@@ -15,54 +14,6 @@ class Slider extends Component {
                                       // max 1 item. So it'll always be first item of array
     this.setState({ descriptorKey: descriptorKey });
     this.props.getDescriptor(descriptorKey);
-  }
-
-  renderSlides(slides) {
-    return slides.map((slide, i) => {
-      return (
-        <div key={i}>
-          <div className="discover-slider__inner">
-            <Link className="discover-slider__link" to={slide.url_s}>
-              <div>
-                <div className="image discover-slider__inner--background discover-slider__inner--background-mobile">
-                  <div className="image__image"
-                    style={{ backgroundImage: `url(${slide.background_s})` }}>
-                  </div>
-                </div>
-                <div className="image discover-slider__inner--background discover-slider__inner--background-desktop">
-                  <div className="image__image"
-                    style={{ backgroundImage: `url(${slide.background_s})` }}>
-                  </div>
-                </div>
-              </div>
-              <div className={"discover-slider__inner--content"}>
-                {slide.vod_s &&
-                  <div className="discover-slider__inner--vod">
-                    <span className="discover-slider__inner--vod-label">
-                      {slide.vod_s}
-                    </span>
-                  </div>
-                }
-
-                <h1 className="heading discover-slider__inner--title heading--medium heading--slider">
-                  {slide.title_t}
-                </h1>
-
-                {slide.logo_s &&
-                  <div className="discover-slider__inner--title discover-slider__inner--title--logo"
-                    style={{ backgroundImage: `url(${slide.logo_s})` }}>
-                  </div>
-                }
-
-                <div className="discover-slider__inner--subtitle">
-                  {ReactHtmlParser(slide.subtitle_s)}
-                </div>
-              </div>
-            </Link>
-          </div>
-        </div>
-      );
-    });
   }
 
   changeSlide(direction) {
@@ -102,7 +53,9 @@ class Slider extends Component {
           effect="fade"
           ref={node => (this.slider = node)}
           autoplay>
-          {this.renderSlides(slides)}
+          {
+            slides.map((slide, i) => <Slide key={i} slide={slide}/>)
+          }
         </Carousel>
 
         {slides.length > 1 &&
