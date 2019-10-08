@@ -7,18 +7,18 @@ descriptorVersion: 2
 plugin:
   type: blueprint
   id: org.craftercms.blueprint.videoCenter
-  name: Video Center Blueprint
+  name: Video Center
   tags:
     - blueprint
     - video center
   version:
     major: 1
     minor: 0
-    patch: 2
+    patch: 3
   description: |
-    Video center blueprint
+    Video Center webapp built with React atop Crafter CMS that is backed by YouTube, AWS Media Service, or Box.
   website:
-    name: Video Center Blueprint
+    name: Video Center
     url: https://github.com/craftercms/video-center-blueprint
   media:
     screenshots:
