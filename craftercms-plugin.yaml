@@ -14,7 +14,7 @@ plugin:
   version:
     major: 1
     minor: 0
-    patch: 0
+    patch: 1
   description: |
     Video center blueprint
   website:
@@ -24,16 +24,16 @@ plugin:
     screenshots:
       - title: Home page
         description: Screenshot of the home page
-        url: /studio/static-assets/images/blueprints/video-center/vc1.png
+        url: https://raw.githubusercontent.com/craftercms/video-center-blueprint/master/static-assets/images/screenshots/vc1.png
       - title: Featured videos page
         description: Screenshot of the featured videos page
-        url: /studio/static-assets/images/blueprints/video-center/vc2.png
+        url: https://raw.githubusercontent.com/craftercms/video-center-blueprint/master/static-assets/images/screenshots/vc2.png
       - title: Player page
         description: Screenshot of the player page
-        url: /studio/static-assets/images/blueprints/video-center/vc3.png
+        url: https://raw.githubusercontent.com/craftercms/video-center-blueprint/master/static-assets/images/screenshots/vc3.png
       - title: Search page
         description: Screenshot of the search page
-        url: /studio/static-assets/images/blueprints/video-center/vc4.png
+        url: https://raw.githubusercontent.com/craftercms/video-center-blueprint/master/static-assets/images/screenshots/vc4.png
   developer:
     company:
       name: Crafter Software
