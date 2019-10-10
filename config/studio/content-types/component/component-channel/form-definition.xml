@@ -36,6 +36,12 @@
 			<value>/templates/web/entry.ftl</value>
 			<type>template</type>
 		</property>
+        <property>
+            <name>no-template-required</name>
+            <label>No Template Required</label>
+            <value>false</value>
+            <type>boolean</type>
+        </property>
 		<property>
 			<name>merge-strategy</name>
 			<label>Merge Strategy</label>
