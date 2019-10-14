@@ -692,7 +692,7 @@
 					</properties>
 				</datasource>
 				<datasource>
-					<type>child-content</type>
+					<type>shared-content</type>
 					<id>origins</id>
 					<title>Origins</title>
 					<interface>item</interface>
