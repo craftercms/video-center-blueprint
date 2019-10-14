@@ -338,7 +338,7 @@
 		</section>
 	</sections>
 	<datasources>				<datasource>
-					<type>child-content</type>
+					<type>shared-content</type>
 					<id>componentsSlider</id>
 					<title>Components Slider</title>
 					<interface>item</interface>
