@@ -27,7 +27,7 @@
 	<!-- SPA -->
     <spa>
     	<enabled>true</enabled>
-        <viewName>/templates/web/entry.ftl</viewName>
+        <viewName>/</viewName>
     </spa>
 
 	<!-- CORS Properties -->
