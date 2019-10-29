@@ -38,11 +38,6 @@ class ReactVideoPlayer extends Component {
             }else{
                 fscreen.requestFullscreen(videoContainer_);
             }
-        } else {
-          // videoContainer_.webkitEnterFullscreen();
-          // videoContainer_.enterFullscreen();
-
-          alert('entered');
         }
 
     }
