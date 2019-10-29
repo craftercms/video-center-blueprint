@@ -38,6 +38,11 @@ class ReactVideoPlayer extends Component {
             }else{
                 fscreen.requestFullscreen(videoContainer_);
             }
+        } else {
+          // videoContainer_.webkitEnterFullscreen();
+          // videoContainer_.enterFullscreen();
+
+          alert('entered');
         }
 
     }
@@ -71,7 +76,7 @@ class ReactVideoPlayer extends Component {
 
         formatted += "" + mins + ":" + (secs < 10 ? "0" : "");
         formatted += "" + secs;
-    
+
         state.playedSeconds = formatted;
 
         // We only want to update time slider if we are not currently seeking
@@ -124,56 +129,68 @@ class ReactVideoPlayer extends Component {
     }
     render() {
         const { video } = this.props;
-        const { playing, volume, muted, played, loaded, playedSeconds } = this.state
+        const { playing, volume, muted, played, loaded, playedSeconds } = this.state;
+        const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
-        return (
+        if(iOS) {
+          return (
             <div id="videoContainer" className="player-container stream-player" style={{ margin: '0 auto' }}>
-                <ReactPlayer 
-                    className = "video-player"
-                    controls = { false }
-                    url = { `https://www.youtube.com/watch?v=${ video.youTubeVideo_s }` }
-                    playing = { playing }
-                    ref = {this.ref}
-                    width = "100%"
-                    height = "100%"
-                    volume = { volume }
-                    muted = { muted }
-                    onReady = { (e) => { this.onStart(e) } }
-                    onPlay = { (e) => { this.onPlaying(e) } }
-                    onPause = { (e) => { this.onStopped(e) } }
-                    onEnded = { (e) => { this.onStopped(e) } }
-                    onProgress = { (e) => { this.onProgress(e) } }
-                />
+              <iframe className={'video-player'} width="100%" height="100%" src={ `https://www.youtube.com/embed/${ video.youTubeVideo_s }?playsinline=1&autoplay=1` } frameBorder="0"
+                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen/>
+            </div>
+          );
+        } else {
+          return (
+            <div id="videoContainer" className="player-container stream-player" style={{ margin: '0 auto' }}>
+              <ReactPlayer
+                className = "video-player"
+                controls = { false }
+                url = { `https://www.youtube.com/watch?v=${ video.youTubeVideo_s }` }
+                playing = { playing }
+                ref = {this.ref}
+                width = "100%"
+                height = "100%"
+                volume = { volume }
+                muted = { muted }
+                onReady = { (e) => { this.onStart(e) } }
+                onPlay = { (e) => { this.onPlaying(e) } }
+                onPause = { (e) => { this.onStopped(e) } }
+                onEnded = { (e) => { this.onStopped(e) } }
+                onProgress = { (e) => { this.onProgress(e) } }
+              />
 
-                <div id="controlsContainer" className="overlay">
-                    <div id="controls">
-                        <button id="playPauseButton" className="material-icons" onClick={ this.playPause }>{playing ? 'pause' : 'play_arrow'}</button>
-                        <label htmlFor="seekBar" className="for-screen-readers">seek</label>
-                        <input id="seekBar" type="range" step="any" min="0" max="1" 
-                            value={played}
-                            onMouseDown={this.onSeekMouseDown}
-                            onChange={this.onSeekChange}
-                            onMouseUp={this.onSeekMouseUp}
-                            style= {{ background: `linear-gradient(to right, 
+              <div id="controlsContainer" className="overlay">
+                <div id="controls">
+                  <button id="playPauseButton" className="material-icons" onClick={ this.playPause }>{playing ? 'pause' : 'play_arrow'}</button>
+                  <label htmlFor="seekBar" className="for-screen-readers">seek</label>
+                  <input id="seekBar" type="range" step="any" min="0" max="1"
+                         value={played}
+                         onMouseDown={this.onSeekMouseDown}
+                         onChange={this.onSeekChange}
+                         onMouseUp={this.onSeekMouseUp}
+                         style= {{ background: `linear-gradient(to right, 
                                 rgb(0, 0, 0) 0%, 
                                 rgb(204, 204, 204) 0%, 
                                 rgb(204, 204, 204) ${ played * 100 }%, 
                                 rgb(68, 68, 68) ${ played * 100 }%, 
                                 rgb(68, 68, 68) ${ loaded * 100 }%, 
-                                rgb(0, 0, 0) ${ loaded * 100 }%)` 
-                            }}
-                        />
-                        <div id="currentTime" onClick={ this.currentTimeClick }>{ playedSeconds }</div>
-                        <button id="fastForwardButton" className="material-icons">fast_forward</button>
-                        <button id="muteButton" className="material-icons" onClick={ this.toggleMuted }>{muted ? 'volume_off' : 'volume_up'}</button>
-                        <label htmlFor="volumeBar" className="for-screen-readers">volume</label>
-                        <input id="volumeBar" type='range' min="0" max="1" step='any' value={volume} onChange={this.setVolume} 
-                        style={{ background: `linear-gradient(to right, rgb(204, 204, 204) ${ volume * 100 }%, rgb(0, 0, 0) ${ volume * 100 }%, rgb(0, 0, 0) 100%)` }}/>
-                        <button id="fullscreenButton" className="material-icons" onClick={ this.onClickFullscreen }>fullscreen</button>
-                    </div>
+                                rgb(0, 0, 0) ${ loaded * 100 }%)`
+                         }}
+                  />
+                  <div id="currentTime" onClick={ this.currentTimeClick }>{ playedSeconds }</div>
+                  <button id="fastForwardButton" className="material-icons">fast_forward</button>
+                  <button id="muteButton" className="material-icons" onClick={ this.toggleMuted }>{muted ? 'volume_off' : 'volume_up'}</button>
+                  <label htmlFor="volumeBar" className="for-screen-readers">volume</label>
+                  <input id="volumeBar" type='range' min="0" max="1" step='any' value={volume} onChange={this.setVolume}
+                         style={{ background: `linear-gradient(to right, rgb(204, 204, 204) ${ volume * 100 }%, rgb(0, 0, 0) ${ volume * 100 }%, rgb(0, 0, 0) 100%)` }}/>
+                  <button id="fullscreenButton" className="material-icons" onClick={ this.onClickFullscreen }>fullscreen</button>
                 </div>
+              </div>
+
             </div>
-        );
+          );
+        }
     }
 }
 
