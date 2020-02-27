@@ -31,11 +31,11 @@
 	<internal-name>Teaching Your Kid to Code</internal-name>
 	<title_s tokenized="true">Teaching Your Kid to Code</title_s>
 	<summary_s>Computer programming is becoming an essential skill in most fields of study and work. We cover 3 different approaches to introducing programming to children.</summary_s>
-	<origin item-list="true">	<item>	<key>/site/origins/416d952c-92a8-e0e9-178e-23c43734facb.xml</key>
+	<origin_o item-list="true">	<item>	<key>/site/origins/416d952c-92a8-e0e9-178e-23c43734facb.xml</key>
 	<value>ShakaDemo</value>
 	<include>/site/origins/416d952c-92a8-e0e9-178e-23c43734facb.xml</include>
 	<disableFlattening>false</disableFlattening>
-	</item></origin>
+	</item></origin_o>
 	<thumbnail_s>/static-assets/images/videos/6f1b063a-cb5d-6afd-ce79-02972ba88fb9/auditorium-benches-chairs-207691.jpg</thumbnail_s>
 	<description_html>&lt;p&gt;&lt;span data-sheets-value="{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:&amp;quot;Computer programming is becoming an essential skill in most fields of study and work. We cover 3 different approaches to introducing programming to children.&amp;quot;}" data-sheets-userformat="{&amp;quot;2&amp;quot;:829,&amp;quot;3&amp;quot;:[null,0],&amp;quot;5&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;6&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;7&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;8&amp;quot;:{&amp;quot;1&amp;quot;:[{&amp;quot;1&amp;quot;:2,&amp;quot;2&amp;quot;:0,&amp;quot;5&amp;quot;:[null,2,0]},{&amp;quot;1&amp;quot;:0,&amp;quot;2&amp;quot;:0,&amp;quot;3&amp;quot;:3},{&amp;quot;1&amp;quot;:1,&amp;quot;2&amp;quot;:0,&amp;quot;4&amp;quot;:1}]},&amp;quot;11&amp;quot;:4,&amp;quot;12&amp;quot;:0}"&gt;Computer programming is becoming an essential skill in most fields of study and work. We cover 3 different approaches to introducing programming to children.&lt;/span&gt;&lt;/p&gt;</description_html>
 	<date_dt>2021-03-01T05:00:00.000Z</date_dt>
