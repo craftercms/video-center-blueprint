@@ -39,9 +39,10 @@ class LiveEvents extends Component {
                     numResults: 6
                 },
                 {
-                    key: "past-events", 
+                    key: "past-events",
                     value: "Past Events",
                     type: "live-event-item",
+                    noLinks: true,
                     query: {
                         "bool": {
                             "filter": [
@@ -76,7 +77,7 @@ class LiveEvents extends Component {
     render() {
         return (
         <div>
-            <VideoCategories 
+            <VideoCategories
                 categories={ this.state.categories }>
             </VideoCategories>
         </div>
@@ -85,7 +86,7 @@ class LiveEvents extends Component {
 }
 
 function mapStateToProps(store) {
-    return { 
+    return {
         videoInfo: store.video.videoInfo,
         videoStatus: store.video.videoStatus
     };
