@@ -218,7 +218,6 @@ class Video extends Component {
       this.loadVideo(this.props);
 
       this.setState({
-        ...this.state,
         hero: false
       });
     }

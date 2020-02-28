@@ -209,7 +209,7 @@ class CardContainer extends Component {
   render() {
     const { category, card, children } = this.props;
     let videoName = card.title_s ? (card.title_s).toLowerCase().replace(/ /g, '-') : '';
-    videoName = encodeURI(videoName);
+    videoName = encodeURIComponent(videoName);
 
     return category.noLinks ?
       <div className="live-events-item__link">
