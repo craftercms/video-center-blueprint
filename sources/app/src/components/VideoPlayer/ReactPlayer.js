@@ -18,16 +18,39 @@ class ReactVideoPlayer extends Component {
 
     componentDidMount() {
         window.addEventListener("resize", updateDimensions);
+      window.addEventListener('keypress', this.onSpaceKeyPress);
     }
 
     componentWillUnmount() {
         window.removeEventListener("resize", updateDimensions);
+        window.removeEventListener('keypress', this.onSpaceKeyPress);
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        const currentDockedState = this.props.videoStatus.docked;
+        const prevDockedState = prevProps.videoStatus.docked;
+
+        // if changing to docked -> add space event
+        if (!prevDockedState && currentDockedState) {
+            window.addEventListener('keypress', this.onSpaceKeyPress);
+        }
+        // if changing to undocked -> remove space event
+        if (prevDockedState && !currentDockedState) {
+            window.removeEventListener('keypress', this.onSpaceKeyPress);
+        }
     }
 
     // Custom controls methods
     playPause = () => {
         this.setState({ playing: !this.state.playing })
-    }
+    };
+
+    onSpaceKeyPress = (e) => {
+        if((e || window.event).keyCode === 32){
+            e.preventDefault();
+            this.playPause();
+        }
+    };
 
     onClickFullscreen = () => {
         var videoContainer_ = document.getElementById("videoContainer");
@@ -153,6 +176,7 @@ class ReactVideoPlayer extends Component {
                 onPause = { (e) => { this.onStopped(e) } }
                 onEnded = { (e) => { this.onStopped(e) } }
                 onProgress = { (e) => { this.onProgress(e) } }
+                onClick = { this.playPause }
               />
 
               <div id="controlsContainer" className="overlay">
@@ -164,12 +188,12 @@ class ReactVideoPlayer extends Component {
                          onMouseDown={this.onSeekMouseDown}
                          onChange={this.onSeekChange}
                          onMouseUp={this.onSeekMouseUp}
-                         style= {{ background: `linear-gradient(to right, 
-                                rgb(0, 0, 0) 0%, 
-                                rgb(204, 204, 204) 0%, 
-                                rgb(204, 204, 204) ${ played * 100 }%, 
-                                rgb(68, 68, 68) ${ played * 100 }%, 
-                                rgb(68, 68, 68) ${ loaded * 100 }%, 
+                         style= {{ background: `linear-gradient(to right,
+                                rgb(0, 0, 0) 0%,
+                                rgb(204, 204, 204) 0%,
+                                rgb(204, 204, 204) ${ played * 100 }%,
+                                rgb(68, 68, 68) ${ played * 100 }%,
+                                rgb(68, 68, 68) ${ loaded * 100 }%,
                                 rgb(0, 0, 0) ${ loaded * 100 }%)`
                          }}
                   />
