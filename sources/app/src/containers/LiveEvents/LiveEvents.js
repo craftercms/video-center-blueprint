@@ -11,6 +11,41 @@ class LiveEvents extends Component {
             searchId: this.props.match.params.query,
             categories: [
                 {
+                    key: "active-events",
+                    value: "Active Events",
+                    type: "live-event-item",
+                    query: {
+                        "bool": {
+                            "filter": [
+                                {
+                                    "match": {
+                                        "content-type": "/component/stream"
+                                    }
+                                },
+                                {
+                                    "range" : {
+                                        "startDate_dt" : {
+                                            "lt" : "now"
+                                        }
+                                    }
+                                },
+                                {
+                                  "range" : {
+                                      "endDate_dt" : {
+                                          "gt" : "now"
+                                      }
+                                  }
+                                }
+                            ]
+                        }
+                    },
+                    sort: {
+                        by: "startDate_dt",
+                        order: "asc"
+                    },
+                    numResults: 6
+                },
+                {
                     key: "upcoming-events",
                     value: "Upcoming Events",
                     type: "live-event-item",

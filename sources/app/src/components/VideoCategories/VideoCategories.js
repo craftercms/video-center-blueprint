@@ -41,16 +41,13 @@ class VideoCategories extends Component {
 
             switch( categoryType ) {
                 case "video-card":
-                  console.log("videoCard");
                     gridElClass = "static-grid static-grid--3 static-grid--break-at-480";
                     break;
                 case "channel-card-alt":
-                  console.log("channelCard");
                     gridElClass = "static-grid static-grid--3 static-grid--break-at-480";
                     // gridElClass = "static-grid static-grid--4 static-grid--standard static-grid--break-at-480";
                     break;
                 case "standard-card":
-                  console.log("standardCard");
                     gridElClass = "static-grid static-grid--4 static-grid--standard static-grid--break-at-480";
                     break;
                 default:
