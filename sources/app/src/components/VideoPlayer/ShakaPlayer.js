@@ -69,7 +69,7 @@ class ShakaPlayer extends Component {
 
     initPlayer(){
         var me = this;
-        var manifestUri = this.props.video.origin.item.component.url_s;
+        var manifestUri = this.props.video.origin_o.item.component.url_s;
         this.video_ = this.refs.video;
 
         player = new shaka.Player(this.refs.video);
@@ -96,12 +96,12 @@ class ShakaPlayer extends Component {
             'play', this.onPlayStateChange_.bind(this));
         this.video_.addEventListener(
             'pause', this.onPlayStateChange_.bind(this));
-      
+
         // Since videos go into a paused state at the end, Chrome and Edge both fire
         // the 'pause' event when a video ends.  IE 11 only fires the 'ended' event.
         this.video_.addEventListener(
             'ended', this.onPlayStateChange_.bind(this));
-      
+
 
         this.onVolumeStateChange_();
 	}
@@ -110,7 +110,7 @@ class ShakaPlayer extends Component {
 		// Extract the shaka.util.Error object from the event.
 		this.onError(event.detail);
 	}
-	
+
 	onError(error) {
 		// Log the error.
 		console.error('Error code', error.code, 'object', error);
@@ -142,7 +142,7 @@ class ShakaPlayer extends Component {
     updateTimeAndSeekRange_ = function() {
         var seekBar_ = document.getElementById("seekBar"),
             currentTime_ = document.getElementById("currentTime");
-      
+
         let displayTime = this.isSeeking_ ?
             seekBar_.value : this.video_.currentTime;
         let duration = this.video_.duration;
@@ -152,17 +152,17 @@ class ShakaPlayer extends Component {
             bufferedLength ? this.video_.buffered.end(bufferedLength - 1) : 0;
         let seekRange = this.player.seekRange();
         let seekRangeSize = seekRange.end - seekRange.start;
-      
+
         seekBar_.min = seekRange.start;
         seekBar_.max = seekRange.end;
-      
+
         if (this.player.isLive()) {
             // The amount of time we are behind the live edge.
             let behindLive = Math.floor(seekRange.end - displayTime);
             displayTime = Math.max(0, behindLive);
-        
+
             let showHour = seekRangeSize >= 3600;
-        
+
             // Consider "LIVE" when less than 1 second behind the live-edge.  Always
             // show the full time string when seeking, including the leading '-';
             // otherwise, the time string "flickers" near the live-edge.
@@ -174,39 +174,39 @@ class ShakaPlayer extends Component {
                 currentTime_.textContent = 'LIVE';
                 currentTime_.style.cursor = '';
             }
-        
+
             if (!this.isSeeking_) {
                 this.seekBar_.value = seekRange.end - displayTime;
             }
             } else {
                 let showHour = duration >= 3600;
-            
+
                 currentTime_.textContent =
                     this.buildTimeString_(displayTime, showHour);
-            
+
                 if (!this.isSeeking_) {
                     this.seekBar_.value = displayTime;
                 }
-            
+
                 currentTime_.style.cursor = '';
             }
-        
+
             let gradient = ['to right'];
             if (bufferedLength === 0) {
             gradient.push('#000 0%');
             } else {
             let clampedBufferStart = Math.max(bufferedStart, seekRange.start);
             let clampedBufferEnd = Math.min(bufferedEnd, seekRange.end);
-        
+
             let bufferStartDistance = clampedBufferStart - seekRange.start;
             let bufferEndDistance = clampedBufferEnd - seekRange.start;
             let playheadDistance = displayTime - seekRange.start;
-        
+
             // NOTE: the fallback to zero eliminates NaN.
             let bufferStartFraction = (bufferStartDistance / seekRangeSize) || 0;
             let bufferEndFraction = (bufferEndDistance / seekRangeSize) || 0;
             let playheadFraction = (playheadDistance / seekRangeSize) || 0;
-        
+
             gradient.push('#000 ' + (bufferStartFraction * 100) + '%');
             gradient.push('#ccc ' + (bufferStartFraction * 100) + '%');
             gradient.push('#ccc ' + (playheadFraction * 100) + '%');
@@ -217,8 +217,8 @@ class ShakaPlayer extends Component {
         seekBar_.style.background =
             'linear-gradient(' + gradient.join(',') + ')';
     };
-    
-    _playPause(e) {        
+
+    _playPause(e) {
         if (!this.video_.duration) {
             // Can't play yet.  Ignore.
             return;
@@ -241,7 +241,7 @@ class ShakaPlayer extends Component {
           this.video_.pause();
           this.props.dispatch(setVideoStatus( { ...this.props.videoStatus, playing: false } ));
         }
-      
+
         // Video is paused during seek, so don't show the play arrow while seeking:
         if (this.video_.paused && !this.isSeeking_) {
             this.playPauseButton_.textContent = 'play_arrow';
@@ -252,7 +252,7 @@ class ShakaPlayer extends Component {
         }
       };
 
-    
+
       /**
      * @param {Event} event
      */
@@ -271,10 +271,10 @@ class ShakaPlayer extends Component {
             // Can't seek yet.  Ignore.
             return;
         }
-        
+
         // Update the UI right away.
         this.updateTimeAndSeekRange_();
-        
+
         // Collect input events and seek when things have been stable for 125ms.
         if (this.seekTimeoutId_ != null) {
             window.clearTimeout(this.seekTimeoutId_);
@@ -308,7 +308,7 @@ class ShakaPlayer extends Component {
 
     _volumeInput(e){
         this.video_.volume = parseFloat(this.volumeBar_.value);
-        
+
         if(this.video_.volume === 0){
             this.video_.muted = true;
             this.muteButton_.innerHTML = "volume_off";
@@ -328,7 +328,7 @@ class ShakaPlayer extends Component {
           this.muteButton_.textContent = 'volume_up';
           this.volumeBar_.value = this.video_.volume;
         }
-      
+
         let gradient = ['to right'];
         gradient.push('#ccc ' + (this.volumeBar_.value * 100) + '%');
         gradient.push('#000 ' + (this.volumeBar_.value * 100) + '%');
@@ -391,7 +391,7 @@ class ShakaPlayer extends Component {
                         <button id="fullscreenButton" className="material-icons" onClick={ this.fullscreenClick }>fullscreen</button>
                     </div>
                 </div>
-            </div>      
+            </div>
         );
     }
 }

@@ -18,6 +18,10 @@ const HeaderHolder = styled.div`
             content: "";
         }
 
+        &.ios .navigation__link {
+            margin-right: 1em !important;
+        }
+
         @media (min-width: 48em){
             height: 9rem;
             border-bottom: 1px solid ${ palette('primary', 2) };
@@ -128,7 +132,7 @@ const HeaderHolder = styled.div`
                     overflow: hidden;
 
                     @media (min-width: 60em){
-                        text-align: left; 
+                        text-align: left;
                     }
 
                     @media (min-width: 48em){

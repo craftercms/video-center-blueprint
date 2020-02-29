@@ -69,6 +69,8 @@ class Cards extends Component {
     }
 
     renderCards() {
+        const { category } = this.props;
+
         return this.state.hits.map((hit, i) => {
             var card = hit.sourceAsMap,
                 componentUrl = card["content-type"] === "/component/stream" ? "/stream/" : "/video/",
@@ -152,11 +154,9 @@ class Cards extends Component {
                 case "live-event-item":
                     var dateFormatted = formatDate(card.startDate_dt);
 
-                    videoName = card.title_s ? (card.title_s).toLowerCase().replace(/ /g, '-') : '';
-                    videoName = encodeURI(videoName);
                     return (
                         <div className="live-events-item" key={ hit.id }>
-                            <Link className="live-events-item__link" to={`/stream/${ card.objectId }/${ videoName }`}>
+                            <CardContainer card={card} category={category}>
                                 <div className="live-events-item__image">
                                     <div className="live-events-item__background">
                                         <div className="image">
@@ -176,7 +176,7 @@ class Cards extends Component {
                                         </div>
                                     </div>
                                 </div>
-                            </Link>
+                            </CardContainer>
                         </div>
                     );
                 default:
@@ -203,6 +203,23 @@ class Cards extends Component {
             </div>
         );
     }
+}
+
+class CardContainer extends Component {
+  render() {
+    const { category, card, children } = this.props;
+    let videoName = card.title_s ? (card.title_s).toLowerCase().replace(/ /g, '-') : '';
+    videoName = encodeURIComponent(videoName);
+
+    return category.noLinks ?
+      <div className="live-events-item__link">
+        { children }
+      </div>
+      :
+      <Link className="live-events-item__link" to={`/stream/${ card.objectId }/${ videoName }`}>
+        { children }
+      </Link>
+  }
 }
 
 export default Cards;

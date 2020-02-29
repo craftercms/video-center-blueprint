@@ -214,6 +214,14 @@ class Video extends Component {
         );
     }
 
+    autoLoadVideo() {
+      this.loadVideo(this.props);
+
+      this.setState({
+        hero: false
+      });
+    }
+
     render() {
         var { videoInfo } = this.props;
         return (
@@ -226,6 +234,7 @@ class Video extends Component {
                         <Hero data={ this.state.hero }
                             localData={ true }
                             hero={ true }
+                            onChange={ () => (this.autoLoadVideo())}
                         >
                         </Hero>
                     }

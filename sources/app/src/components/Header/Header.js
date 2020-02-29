@@ -41,28 +41,31 @@ class Header extends Component {
         const logo = descriptor.component.siteLogo
 
         return (
-            <Link className="header__logo active" to="/" 
+            <Link className="header__logo active" to="/"
                   style={{ backgroundImage: `url(${ logo })` }}>
                 Video Center
-            </Link>  
+            </Link>
         );
     }
- 
+
     render() {
         const { nav, descriptors } = this.props;
+        const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
         return (
             <HeaderHolder>
                 {/* https://2018.ar.al/scribbles/fork-me-on-github-retina-ribbons/ */}
                 <a href={ common.repoUrl } target="_blank" rel="noopener noreferrer">
-                    <img style={{ position: "absolute", top: 0, left: 0, border: 0, width: "100px", height: "100px", zIndex: 997 }} 
+                    <img style={{ position: "absolute", top: 0, left: 0, border: 0, width: "100px", height: "100px", zIndex: 997 }}
                          src="http://aral.github.com/fork-me-on-github-retina-ribbons/left-graphite@2x.png" alt="Fork me on GitHub"/>
                 </a>
 
-                <header id="mainHeader" className={"header " + ( this.props.headerGhost ? 'header--ghost' : '' )}>
+              <header
+                id="mainHeader"
+                className={"header " + ( this.props.headerGhost ? 'header--ghost ' : ' ' ) + (iOS ? 'ios' : '')}>
                     <div className="header__container">
                         <div className="header__overlay"></div>
-        
+
                         { descriptors && descriptors[this.levelDescriptorUrl] &&
                             this.renderHeaderLogo(descriptors[this.levelDescriptorUrl])
                         }
@@ -91,8 +94,8 @@ class Header extends Component {
                                             </span>
                                         </Link>
                                     </li> */}
-                                    { 
-                                        nav 
+                                    {
+                                        nav
                                         && nav.entries['/']
                                         && this.renderNavItems()
                                     }

@@ -10,6 +10,8 @@ class Hero extends Component {
   }
 
   render() {
+    const { onChange } = this.props;
+
     return (
       <div>
         {this.state && this.state.heroContent &&
@@ -18,7 +20,7 @@ class Hero extends Component {
               effect="fade"
               ref={node => (this.hero = node)}
               autoplay>
-              <Slide slide={ this.state.heroContent[0] } hero={true}/>  {/* Hero content is always size 1, but comes into an array */}
+              <Slide slide={ this.state.heroContent[0] } hero={true} onChange={onChange}/>  {/* Hero content is always size 1, but comes into an array */}
             </Carousel>
           </HeroHolder>
         }
