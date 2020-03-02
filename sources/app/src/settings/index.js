@@ -8,7 +8,7 @@ const site = document.getElementById('studioSiteName').innerHTML || Cookies.get(
 
 const studioConfig = {
   site,
-  baseUrl: document.getElementById('studioBaseUrl').innerHTML || '',
+  baseUrl: document.getElementById('studioBaseUrl').innerHTML || window.location.origin,
   navTreeBase: '/site/website'
 };
 
