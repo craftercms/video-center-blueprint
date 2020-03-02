@@ -7,7 +7,6 @@ echo ""
 
 # Build the app
 react-scripts build
-#react-scripts-ts build
 
 echo "Deleting prior build"
 rm -rf ../../static-assets/app/*

@@ -2,7 +2,7 @@
 <!--
   ~ MIT License
   ~
-  ~ Copyright (c) 2018-2019 Crafter Software Corporation. All Rights Reserved.
+  ~ Copyright (c) 2018-2020 Crafter Software Corporation. All Rights Reserved.
   ~
   ~ Permission is hereby granted, free of charge, to any person obtaining a copy
   ~ of this software and associated documentation files (the "Software"), to deal
@@ -22,26 +22,23 @@
   ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   ~ SOFTWARE.
   -->
-
 <site>
-	<!-- SPA -->
-    <spa>
-    	<enabled>true</enabled>
-        <viewName>/</viewName>
-    </spa>
-
-	<!-- CORS Properties -->
-    <cors>
-        <enable>true</enable>
-        <accessControlMaxAge>3600</accessControlMaxAge>
-        <accessControlAllowOrigin>*</accessControlAllowOrigin>
-        <accessControlAllowMethods>GET\, POST\, PUT</accessControlAllowMethods>
-        <accessControlAllowHeaders>Content-Type</accessControlAllowHeaders>
-        <accessControlAllowCredentials>true</accessControlAllowCredentials>
-    </cors>
-
-    <!-- Navigation properties -->
-   	<navigation>
-        <additionalFields>reactComponent_s</additionalFields>
-    </navigation>
+  <!-- SPA -->
+  <spa>
+    <enabled>true</enabled>
+    <viewName>/</viewName>
+  </spa>
+  <!-- CORS Properties -->
+  <cors>
+    <enable>true</enable>
+    <accessControlMaxAge>3600</accessControlMaxAge>
+    <accessControlAllowOrigin>*</accessControlAllowOrigin>
+    <accessControlAllowMethods>GET\, POST\, PUT\, OPTIONS</accessControlAllowMethods>
+    <accessControlAllowHeaders>Content-Type</accessControlAllowHeaders>
+    <accessControlAllowCredentials>true</accessControlAllowCredentials>
+  </cors>
+  <!-- Navigation properties -->
+  <navigation>
+    <additionalFields>reactComponent_s</additionalFields>
+  </navigation>
 </site>

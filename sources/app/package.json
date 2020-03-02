@@ -42,7 +42,7 @@
     "ws": "3.3.2"
   },
   "scripts": {
-    "start": "./start.sh",
+    "start": "react-scripts start",
     "build": "./build.sh",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
