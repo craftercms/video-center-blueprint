@@ -1,207 +1,131 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-  ~ MIT License
-  ~
-  ~ Copyright (c) 2018-2019 Crafter Software Corporation. All Rights Reserved.
-  ~
-  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
-  ~ of this software and associated documentation files (the "Software"), to deal
-  ~ in the Software without restriction, including without limitation the rights
-  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  ~ copies of the Software, and to permit persons to whom the Software is
-  ~ furnished to do so, subject to the following conditions:
-  ~
-  ~ The above copyright notice and this permission notice shall be included in all
-  ~ copies or substantial portions of the Software.
-  ~
-  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-  ~ SOFTWARE.
-  -->
 <form>
-   <title>Stream Origin</title>
-   <description/>
-   <objectType>component</objectType>
-   <content-type>/component/stream-origin</content-type>
-   <imageThumbnail>undefined</imageThumbnail>
-   <quickCreate>false</quickCreate>
-   <quickCreatePath/>
-   <properties>
-      <property>
-         <name>display-template</name>
-         <label>Display Template</label>
-         <value/>
-         <type>template</type>
-      </property>
-      <property>
-         <name>no-template-required</name>
-         <label>No Template Required</label>
-         <value/>
-         <type>boolean</type>
-      </property>
-      <property>
-         <name>merge-strategy</name>
-         <label>Merge Strategy</label>
-         <value>inherit-levels</value>
-         <type>string</type>
-      </property>
-   </properties>
-   <sections>
-      <section>
-         <title>Stream Origin Properties</title>
-         <description/>
-         <defaultOpen>true</defaultOpen>
-         <fields>
-            <field>
-               <type>auto-filename</type>
-               <id>file-name</id>
-               <iceId/>
-               <title>Component ID</title>
-               <description/>
-               <defaultValue/>
-               <help/>
-               <properties/>
-               <constraints/>
-            </field>
-            <field>
-               <type>input</type>
-               <id>internal-name</id>
-               <iceId/>
-               <title>Internal Name</title>
-               <description/>
-               <defaultValue/>
-               <help/>
-               <properties>
-                  <property>
-                     <name>size</name>
-                     <value>40</value>
-                     <type>int</type>
-                  </property>
-                  <property>
-                     <name>maxlength</name>
-                     <value>50</value>
-                     <type>int</type>
-                  </property>
-                  <property>
-                     <name>readonly</name>
-                     <value/>
-                     <type>boolean</type>
-                  </property>
-                  <property>
-                     <name>tokenize</name>
-                     <value>false</value>
-                     <type>boolean</type>
-                  </property>
-               </properties>
-               <constraints>
-                  <constraint>
-                     <name>required</name>
-                     <value>true</value>
-                     <type>boolean</type>
-                  </constraint>
-               </constraints>
-            </field>
-            <field>
-               <type>input</type>
-               <id>url_s</id>
-               <iceId/>
-               <title>URL</title>
-               <description/>
-               <defaultValue/>
-               <help/>
-               <properties>
-                  <property>
-                     <name>size</name>
-                     <value>80</value>
-                     <type>int</type>
-                  </property>
-                  <property>
-                     <name>maxlength</name>
-                     <value>250</value>
-                     <type>int</type>
-                  </property>
-                  <property>
-                     <name>readonly</name>
-                     <value/>
-                     <type>boolean</type>
-                  </property>
-                  <property>
-                     <name>tokenize</name>
-                     <value>false</value>
-                     <type>boolean</type>
-                  </property>
-               </properties>
-               <constraints>
-                  <constraint>
-                     <name>required</name>
-                     <value>true</value>
-                     <type>boolean</type>
-                  </constraint>
-                  <constraint>
-                     <name>pattern</name>
-                     <value/>
-                     <type>string</type>
-                  </constraint>
-               </constraints>
-            </field>
-            <field>
-               <type>dropdown</type>
-               <id>encoding_s</id>
-               <iceId/>
-               <title>Encoding</title>
-               <description/>
-               <defaultValue/>
-               <help/>
-               <properties>
-                  <property>
-                     <name>datasource</name>
-                     <value>encodings</value>
-                     <type>datasource:item</type>
-                  </property>
-                  <property>
-                     <name>emptyvalue</name>
-                     <value/>
-                     <type>boolean</type>
-                  </property>
-                  <property>
-                     <name>readonly</name>
-                     <value/>
-                     <type>boolean</type>
-                  </property>
-               </properties>
-               <constraints>
-                  <constraint>
-                     <name>required</name>
-                     <value>true</value>
-                     <type>boolean</type>
-                  </constraint>
-               </constraints>
-            </field>
-         </fields>
-      </section>
-   </sections>
-   <datasources>
-      <datasource>
-         <type>site-component</type>
-         <id>encodings</id>
-         <title>Encodings</title>
-         <interface>item</interface>
-         <properties>
-            <property>
-               <name>dataType</name>
-               <value>[{"value":"value","label":"","selected":false},{"value":"value_s","label":"String","selected":true},{"value":"value_i","label":"Integer","selected":false},{"value":"value_f","label":"Float","selected":false},{"value":"value_dt","label":"Date","selected":false},{"value":"value_html","label":"HTML","selected":false}]</value>
-               <type>undefined</type>
-            </property>
-            <property>
-               <name>componentPath</name>
-               <value>/site/taxonomies/encodings.xml</value>
-               <type>undefined</type>
-            </property>
-         </properties>
-      </datasource>
-   </datasources>
+	<title>Stream Origin</title>
+	<description></description>
+	<objectType>component</objectType>
+	<content-type>/component/stream-origin</content-type>
+	<imageThumbnail>undefined</imageThumbnail>
+	<quickCreate>false</quickCreate>
+	<quickCreatePath></quickCreatePath>
+	<properties>		<property>
+			<name>display-template</name>
+			<label>Display Template</label>
+			<value></value>
+			<type>template</type>
+		</property>
+		<property>
+			<name>no-template-required</name>
+			<label>No Template Required</label>
+			<value></value>
+			<type>boolean</type>
+		</property>
+		<property>
+			<name>merge-strategy</name>
+			<label>Merge Strategy</label>
+			<value>inherit-levels</value>
+			<type>string</type>
+		</property>
+	</properties>
+	<sections>		<section>
+			<title>Stream Origin Properties</title>
+			<description></description>
+			<defaultOpen>true</defaultOpen>
+			<fields>
+				<field>
+					<type>auto-filename</type>
+					<id>file-name</id>
+					<iceId></iceId>
+					<title>Component ID</title>
+					<description></description>
+					<defaultValue></defaultValue>
+					<help></help>
+					<properties>
+					</properties>
+					<constraints>
+					</constraints>
+				</field>
+				<field>
+					<type>input</type>
+					<id>internal-name</id>
+					<iceId></iceId>
+					<title>Internal Name</title>
+					<description></description>
+					<defaultValue></defaultValue>
+					<help></help>
+					<properties>
+						<property>
+							<name>size</name>
+							<value>40</value>
+							<type>int</type>
+						</property>
+						<property>
+							<name>maxlength</name>
+							<value>50</value>
+							<type>int</type>
+						</property>
+						<property>
+							<name>readonly</name>
+							<value></value>
+							<type>boolean</type>
+						</property>
+						<property>
+							<name>tokenize</name>
+							<value>false</value>
+							<type>boolean</type>
+						</property>
+					</properties>
+					<constraints>
+						<constraint>
+							<name>required</name>
+							<value><![CDATA[true]]></value>
+							<type>boolean</type>
+						</constraint>
+					</constraints>
+				</field>
+				<field>
+					<type>input</type>
+					<id>url_s</id>
+					<iceId></iceId>
+					<title>URL</title>
+					<description></description>
+					<defaultValue></defaultValue>
+					<help></help>
+					<properties>
+						<property>
+							<name>size</name>
+							<value>80</value>
+							<type>int</type>
+						</property>
+						<property>
+							<name>maxlength</name>
+							<value>250</value>
+							<type>int</type>
+						</property>
+						<property>
+							<name>readonly</name>
+							<value></value>
+							<type>boolean</type>
+						</property>
+						<property>
+							<name>tokenize</name>
+							<value>false</value>
+							<type>boolean</type>
+						</property>
+					</properties>
+					<constraints>
+						<constraint>
+							<name>required</name>
+							<value><![CDATA[true]]></value>
+							<type>boolean</type>
+						</constraint>
+						<constraint>
+							<name>pattern</name>
+							<value><![CDATA[]]></value>
+							<type>string</type>
+						</constraint>
+					</constraints>
+				</field>
+			</fields>
+		</section>
+	</sections>
+	<datasources>	</datasources>
 </form>
