@@ -1,38 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  ~ MIT License
-  ~
-  ~ Copyright (c) 2018-2019 Crafter Software Corporation. All Rights Reserved.
-  ~
-  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
-  ~ of this software and associated documentation files (the "Software"), to deal
-  ~ in the Software without restriction, including without limitation the rights
-  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  ~ copies of the Software, and to permit persons to whom the Software is
-  ~ furnished to do so, subject to the following conditions:
-  ~
-  ~ The above copyright notice and this permission notice shall be included in all
-  ~ copies or substantial portions of the Software.
-  ~
-  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-  ~ SOFTWARE.
-  -->
 <component>
-	<content-type>/component/stream-origin</content-type>	<display-template/>
+	<content-type>/component/stream-origin</content-type>
+	<display-template/>
+	<no-template-required/>
 	<merge-strategy>inherit-levels</merge-strategy>
 	<objectGroupId>18eb</objectGroupId>
 	<objectId>18eb0b74-a67d-e814-6714-e5b17419edcd</objectId>
 	<file-name>18eb0b74-a67d-e814-6714-e5b17419edcd.xml</file-name>
 	<internal-name>CBS News</internal-name>
 	<url_s>https://www.cbsnews.com/common/video/dai_prod.m3u8</url_s>
-	<encoding_s>application/x-mpegURL</encoding_s>
 	<createdDate>2018-04-24T21:26:37.372Z</createdDate>
 	<createdDate_dt>2018-04-24T21:26:37.372Z</createdDate_dt>
-	<lastModifiedDate>2018-04-24T21:26:37.372Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-04-24T21:26:37.372Z</lastModifiedDate_dt>
+	<lastModifiedDate>2020-03-10T22:44:20.909Z</lastModifiedDate>
+	<lastModifiedDate_dt>2020-03-10T22:44:20.909Z</lastModifiedDate_dt>
 </component>
