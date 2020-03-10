@@ -15,11 +15,13 @@
   ~ You should have received a copy of the GNU General Public License
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
-
 <code-editor-config>
-  <!-- <theme>light</theme> -->      <!-- default theme: light | dark -->
-  <snippets>
-    <!--
+	<version>2</version>
+   <enable-basic-autocompletion>true</enable-basic-autocompletion>
+   <enable-live-autocompletion>true</enable-live-autocompletion>
+   <font-size>11pt</font-size>
+   <tab-size>4</tab-size>
+   <!-- <theme>light</theme> -->   <!-- default theme: light | dark -->   <snippets><!--
     <snippet>
       <key>freemarker-example</key>
       <label>Freemarker Example</label>
@@ -30,6 +32,5 @@
         ]]>
       </content>
     </snippet>
-    -->
-  </snippets>
+    --></snippets>
 </code-editor-config>
