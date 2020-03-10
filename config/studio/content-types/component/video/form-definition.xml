@@ -568,6 +568,34 @@
 						</constraint>
 					</constraints>
 				</field>
+				<field>
+					<type>video-picker</type>
+					<id>video_s</id>
+					<iceId></iceId>
+					<title>Video</title>
+					<description></description>
+					<defaultValue></defaultValue>
+					<help></help>
+					<properties>
+						<property>
+							<name>videoManager</name>
+							<value>uploadVideoToS3,browseS3Videos</value>
+							<type>datasource:video</type>
+						</property>
+						<property>
+							<name>readonly</name>
+							<value></value>
+							<type>boolean</type>
+						</property>
+					</properties>
+					<constraints>
+						<constraint>
+							<name>required</name>
+							<value><![CDATA[]]></value>
+							<type>boolean</type>
+						</constraint>
+					</constraints>
+				</field>
 			</fields>
 		</section>
 	</sections>
@@ -629,6 +657,42 @@
 						<property>
 							<name>componentPath</name>
 							<value>/site/taxonomies/formats.xml</value>
+								<type>undefined</type>
+						</property>
+					</properties>
+				</datasource>
+				<datasource>
+					<type>video-S3-upload</type>
+					<id>uploadVideoToS3</id>
+					<title>Upload Video to S3</title>
+					<interface>video</interface>
+					<properties>
+						<property>
+							<name>repoPath</name>
+							<value>/videos</value>
+								<type>undefined</type>
+						</property>
+						<property>
+							<name>profileId</name>
+							<value>s3-default</value>
+								<type>undefined</type>
+						</property>
+					</properties>
+				</datasource>
+				<datasource>
+					<type>video-S3-repo</type>
+					<id>browseS3Videos</id>
+					<title>Browse S3 Videos</title>
+					<interface>video</interface>
+					<properties>
+						<property>
+							<name>path</name>
+							<value>/videos</value>
+								<type>undefined</type>
+						</property>
+						<property>
+							<name>profileId</name>
+							<value>s3-default</value>
 								<type>undefined</type>
 						</property>
 					</properties>
