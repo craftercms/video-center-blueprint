@@ -16,6 +16,7 @@
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 <code-editor-config>
+	<version>2</version>
    <enable-basic-autocompletion>true</enable-basic-autocompletion>
    <enable-live-autocompletion>true</enable-live-autocompletion>
    <font-size>11pt</font-size>
