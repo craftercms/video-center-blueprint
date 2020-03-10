@@ -579,7 +579,7 @@
 					<properties>
 						<property>
 							<name>videoManager</name>
-							<value>uploadVideoToS3,browseS3Videos</value>
+							<value>uploadVideoToS3,browseS3Videos,uploadAndTranscodeVideo</value>
 							<type>datasource:video</type>
 						</property>
 						<property>
