@@ -526,13 +526,41 @@
 					</constraints>
 				</field>
 				<field>
+					<type>video-picker</type>
+					<id>video_s</id>
+					<iceId></iceId>
+					<title>Video</title>
+					<description></description>
+					<defaultValue></defaultValue>
+					<help>&lt;p&gt;You can upload a video to S3 or browse previously uploaded S3 videos&lt;/p&gt;</help>
+					<properties>
+						<property>
+							<name>videoManager</name>
+							<value>uploadVideoToS3,browseS3Videos,uploadAndTranscodeVideo</value>
+							<type>datasource:video</type>
+						</property>
+						<property>
+							<name>readonly</name>
+							<value></value>
+							<type>boolean</type>
+						</property>
+					</properties>
+					<constraints>
+						<constraint>
+							<name>required</name>
+							<value><![CDATA[]]></value>
+							<type>boolean</type>
+						</constraint>
+					</constraints>
+				</field>
+				<field>
 					<type>input</type>
 					<id>youTubeVideo_s</id>
 					<iceId></iceId>
 					<title>YouTube Video</title>
 					<description></description>
 					<defaultValue></defaultValue>
-					<help></help>
+					<help>&lt;p&gt;Or you can specify the ID of a YouTube video&lt;/p&gt;</help>
 					<properties>
 						<property>
 							<name>size</name>
@@ -565,34 +593,6 @@
 							<name>pattern</name>
 							<value><![CDATA[]]></value>
 							<type>string</type>
-						</constraint>
-					</constraints>
-				</field>
-				<field>
-					<type>video-picker</type>
-					<id>video_s</id>
-					<iceId></iceId>
-					<title>Video</title>
-					<description></description>
-					<defaultValue></defaultValue>
-					<help></help>
-					<properties>
-						<property>
-							<name>videoManager</name>
-							<value>uploadVideoToS3,browseS3Videos,uploadAndTranscodeVideo</value>
-							<type>datasource:video</type>
-						</property>
-						<property>
-							<name>readonly</name>
-							<value></value>
-							<type>boolean</type>
-						</property>
-					</properties>
-					<constraints>
-						<constraint>
-							<name>required</name>
-							<value><![CDATA[]]></value>
-							<type>boolean</type>
 						</constraint>
 					</constraints>
 				</field>
