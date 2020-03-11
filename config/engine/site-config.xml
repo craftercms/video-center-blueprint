@@ -23,6 +23,7 @@
   ~ SOFTWARE.
   -->
 <site>
+	<version>2</version>
 <!-- SPA -->
    <spa>
       <enabled>true</enabled>
