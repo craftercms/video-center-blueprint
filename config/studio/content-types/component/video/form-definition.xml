@@ -529,10 +529,10 @@
 					<type>video-picker</type>
 					<id>video_s</id>
 					<iceId></iceId>
-					<title>Video</title>
+					<title>Upload a video to S3 or browse previously uploaded videos</title>
 					<description></description>
 					<defaultValue></defaultValue>
-					<help>&lt;p&gt;You can upload a video to S3 or browse previously uploaded S3 videos&lt;/p&gt;</help>
+					<help></help>
 					<properties>
 						<property>
 							<name>videoManager</name>
@@ -557,10 +557,10 @@
 					<type>input</type>
 					<id>youTubeVideo_s</id>
 					<iceId></iceId>
-					<title>YouTube Video</title>
+					<title>Or specify the ID of a YouTube video</title>
 					<description></description>
 					<defaultValue></defaultValue>
-					<help>&lt;p&gt;Or you can specify the ID of a YouTube video&lt;/p&gt;</help>
+					<help></help>
 					<properties>
 						<property>
 							<name>size</name>
