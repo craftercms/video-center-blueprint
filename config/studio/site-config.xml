@@ -29,7 +29,7 @@
 
 -->
 <site-config>
-   <version>4</version>
+   <version>6</version>
    <wem-project>videocenter</wem-project>
    <display-name>videocenter</display-name>
    <default-timezone>EST5EDT</default-timezone>

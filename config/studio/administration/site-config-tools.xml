@@ -48,7 +48,7 @@
     </config>
 -->
 <config>
-   <version>9</version>
+   <version>10</version>
    <tools>
       <tool>
          <name>content-types</name>
@@ -183,6 +183,12 @@
                <icon>
                   <class>fa-film</class>
                   <stackedclass>fa-amazon</stackedclass>
+               </icon>
+            </control>
+            <control>
+               <name>internal-name</name>
+               <icon>
+                  <class>fa-font</class>
                </icon>
             </control>
          </controls>
@@ -376,13 +382,6 @@
                <name>site-component</name>
                <icon>
                   <class>fa-puzzle-piece</class>
-               </icon>
-            </datasource>
-            <datasource>
-               <name>video-S3-transcoding</name>
-               <icon>
-                  <class>fa-film</class>
-                  <stackedclass>fa-amazon</stackedclass>
                </icon>
             </datasource>
          </datasources>
