@@ -530,7 +530,7 @@
 					<id>video_s</id>
 					<iceId></iceId>
 					<title>Upload a video to S3 or browse previously uploaded videos</title>
-					<description></description>
+					<description>Upload a video to S3 or browse previously uploaded videos</description>
 					<defaultValue></defaultValue>
 					<help></help>
 					<properties>
@@ -558,7 +558,7 @@
 					<id>transcodedVideo_o</id>
 					<iceId></iceId>
 					<title>Or transcode video</title>
-					<description></description>
+					<description>Or transcode video</description>
 					<defaultValue></defaultValue>
 					<help></help>
 					<properties>
@@ -586,7 +586,7 @@
 					<id>youTubeVideo_s</id>
 					<iceId></iceId>
 					<title>Or specify the ID of a YouTube video</title>
-					<description></description>
+					<description>Or specify the ID of a YouTube video</description>
 					<defaultValue></defaultValue>
 					<help></help>
 					<properties>
