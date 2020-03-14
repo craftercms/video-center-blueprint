@@ -554,6 +554,34 @@
 					</constraints>
 				</field>
 				<field>
+					<type>video-picker</type>
+					<id>transcodedVideo_o</id>
+					<iceId></iceId>
+					<title>Or transcode video</title>
+					<description></description>
+					<defaultValue></defaultValue>
+					<help></help>
+					<properties>
+						<property>
+							<name>videoManager</name>
+							<value>uploadAndTranscodeVideo</value>
+							<type>datasource:video</type>
+						</property>
+						<property>
+							<name>readonly</name>
+							<value></value>
+							<type>boolean</type>
+						</property>
+					</properties>
+					<constraints>
+						<constraint>
+							<name>required</name>
+							<value><![CDATA[]]></value>
+							<type>boolean</type>
+						</constraint>
+					</constraints>
+				</field>
+				<field>
 					<type>input</type>
 					<id>youTubeVideo_s</id>
 					<iceId></iceId>
@@ -700,8 +728,8 @@
 				<datasource>
 					<type>video-S3-transcoding</type>
 					<id>uploadAndTranscodeVideo</id>
-					<title>Upload and Transcode Video</title>
-					<interface>transcoded-video</interface>
+					<title>Upload And Transcode Video</title>
+					<interface>video</interface>
 					<properties>
 						<property>
 							<name>inputProfileId</name>
