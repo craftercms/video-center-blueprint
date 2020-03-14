@@ -699,7 +699,7 @@
 				</datasource>
 				<datasource>
 					<type>video-S3-transcoding</type>
-					<id>uploadandTranscodeVideo</id>
+					<id>uploadAndTranscodeVideo</id>
 					<title>Upload and Transcode Video</title>
 					<interface>transcoded-video</interface>
 					<properties>
