@@ -529,7 +529,7 @@
 					<type>video-picker</type>
 					<id>video_s</id>
 					<iceId></iceId>
-					<title>Upload a video to S3 or browse previously uploaded videos</title>
+					<title>S3 Video</title>
 					<description>Upload a video to S3 or browse previously uploaded videos</description>
 					<defaultValue></defaultValue>
 					<help></help>
@@ -557,7 +557,7 @@
 					<type>video-picker</type>
 					<id>transcodedVideo_o</id>
 					<iceId></iceId>
-					<title>Or transcode video</title>
+					<title>Transcoded Video</title>
 					<description>Or transcode video</description>
 					<defaultValue></defaultValue>
 					<help></help>
@@ -585,7 +585,7 @@
 					<type>input</type>
 					<id>youTubeVideo_s</id>
 					<iceId></iceId>
-					<title>Or specify the ID of a YouTube video</title>
+					<title>YouTube Video ID</title>
 					<description>Or specify the ID of a YouTube video</description>
 					<defaultValue></defaultValue>
 					<help></help>
