@@ -633,59 +633,5 @@
 						</property>
 					</properties>
 				</datasource>
-				<datasource>
-					<type>video-S3-upload</type>
-					<id>uploadVideoToS3</id>
-					<title>Upload Video to S3</title>
-					<interface>video</interface>
-					<properties>
-						<property>
-							<name>repoPath</name>
-							<value>/videos</value>
-								<type>undefined</type>
-						</property>
-						<property>
-							<name>profileId</name>
-							<value>s3-default</value>
-								<type>undefined</type>
-						</property>
-					</properties>
-				</datasource>
-				<datasource>
-					<type>video-S3-repo</type>
-					<id>browseS3Videos</id>
-					<title>Browse S3 Videos</title>
-					<interface>video</interface>
-					<properties>
-						<property>
-							<name>path</name>
-							<value>/videos</value>
-								<type>undefined</type>
-						</property>
-						<property>
-							<name>profileId</name>
-							<value>s3-default</value>
-								<type>undefined</type>
-						</property>
-					</properties>
-				</datasource>
-				<datasource>
-					<type>video-S3-transcoding</type>
-					<id>uploadAndTranscodeVideo</id>
-					<title>Upload And Transcode Video</title>
-					<interface>video</interface>
-					<properties>
-						<property>
-							<name>inputProfileId</name>
-							<value>mediaconvert-default</value>
-								<type>undefined</type>
-						</property>
-						<property>
-							<name>outputProfileId</name>
-							<value>s3-default</value>
-								<type>undefined</type>
-						</property>
-					</properties>
-				</datasource>
 	</datasources>
 </form>
