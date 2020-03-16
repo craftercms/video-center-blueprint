@@ -1,6 +1,6 @@
-<content-type name="/component/video" is-wcm-type="true">
+<content-type name="/component/youtube-video" is-wcm-type="true">
 	<label>YouTube Video</label>
-	<form>/component/video</form>
+	<form>/component/youtube-video</form>
 	<form-path>simple</form-path>
 	<model-instance-path>NOT-USED-BY-SIMPLE-FORM-ENGINE</model-instance-path>
 	<file-extension>xml</file-extension>
