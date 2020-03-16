@@ -23,7 +23,7 @@
   ~ SOFTWARE.
   -->
 <component>
-	<content-type>/component/video</content-type>	<display-template/>
+	<content-type>/component/youtube-video</content-type>	<display-template/>
 	<merge-strategy>inherit-levels</merge-strategy>
 	<objectGroupId>e55f</objectGroupId>
 	<objectId>e55f68aa-3599-f060-1726-75b6734f7abc</objectId>

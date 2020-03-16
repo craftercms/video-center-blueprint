@@ -1,5 +1,5 @@
 <form>
-	<title>Video</title>
+	<title>YouTube Video</title>
 	<description></description>
 	<objectType>component</objectType>
 	<content-type>/component/video</content-type>
@@ -26,7 +26,7 @@
 		</property>
 	</properties>
 	<sections>		<section>
-			<title>Video Properties</title>
+			<title>YouTube Video Properties</title>
 			<description></description>
 			<defaultOpen>true</defaultOpen>
 			<fields>

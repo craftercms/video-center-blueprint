@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component>
-	<content-type>/component/video</content-type>	<display-template>/templates/web/entry.ftl</display-template>
+	<content-type>/component/youtube-video</content-type>	<display-template>/templates/web/entry.ftl</display-template>
 	<merge-strategy>inherit-levels</merge-strategy>
 	<objectGroupId>3222</objectGroupId>
 	<objectId>32226645-0b62-613f-558f-c7c60757ebff</objectId>
