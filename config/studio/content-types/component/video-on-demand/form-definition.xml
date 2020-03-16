@@ -525,6 +525,34 @@
 						</constraint>
 					</constraints>
 				</field>
+				<field>
+					<type>video-picker</type>
+					<id>video_s</id>
+					<iceId></iceId>
+					<title>Video</title>
+					<description></description>
+					<defaultValue></defaultValue>
+					<help></help>
+					<properties>
+						<property>
+							<name>videoManager</name>
+							<value>uploadAndTranscodeVideo</value>
+							<type>datasource:video</type>
+						</property>
+						<property>
+							<name>readonly</name>
+							<value></value>
+							<type>boolean</type>
+						</property>
+					</properties>
+					<constraints>
+						<constraint>
+							<name>required</name>
+							<value><![CDATA[]]></value>
+							<type>boolean</type>
+						</constraint>
+					</constraints>
+				</field>
 			</fields>
 		</section>
 	</sections>
@@ -586,6 +614,24 @@
 						<property>
 							<name>componentPath</name>
 							<value>/site/taxonomies/formats.xml</value>
+								<type>undefined</type>
+						</property>
+					</properties>
+				</datasource>
+				<datasource>
+					<type>video-S3-transcoding</type>
+					<id>uploadAndTranscodeVideo</id>
+					<title>Upload And Transcode Video</title>
+					<interface>video</interface>
+					<properties>
+						<property>
+							<name>inputProfileId</name>
+							<value>mediaconvert-default</value>
+								<type>undefined</type>
+						</property>
+						<property>
+							<name>outputProfileId</name>
+							<value>s3-default</value>
 								<type>undefined</type>
 						</property>
 					</properties>
