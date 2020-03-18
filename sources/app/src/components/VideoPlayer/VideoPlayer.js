@@ -25,7 +25,7 @@ class VideoPlayer extends Component {
 
         //If video is not playing, and view is not docked (so is fixed) -> unload video
         if(newProps.videoStatus && ( newProps.videoStatus.loaded === true )
-            && ( newProps.videoStatus.playing === false) 
+            && ( newProps.videoStatus.playing === false)
             &&  (newProps.videoStatus.docked === false )){
             this.unloadVideo();
         }
@@ -43,7 +43,10 @@ class VideoPlayer extends Component {
     }
 
     loadVideo(videoInfo) {
-        var videoType = videoInfo['content-type'] === '/component/youtube-video' ? "video" : "stream";
+        const contentType = videoInfo['content-type'];
+        const videoType = contentType === '/component/youtube-video' || contentType === '/component/video-on-demand'
+          ? "video"
+          : "stream";
 
         Player = videoType === "video" ? ReactVideoPlayer : ShakaPlayer;
         this.props.dispatch(setVideoStatus( { ...this.props.videoStatus, loaded: true } ));
@@ -87,7 +90,7 @@ class VideoPlayer extends Component {
 }
 
 function mapStateToProps(store) {
-    return { 
+    return {
         videoInfo: store.video.videoInfo,
         videoStatus: store.video.videoStatus
     };

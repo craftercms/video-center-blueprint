@@ -45,12 +45,19 @@ class Home extends Component {
                     value: "Featured Videos",
                     query: {
                         "bool": {
+                            "should": [
+                              {
+                                "match": {
+                                  "content-type": "/component/youtube-video"
+                                }
+                              },
+                              {
+                                "match": {
+                                  "content-type": "/component/video-on-demand"
+                                }
+                              }
+                            ],
                             "filter": [
-                                {
-                                    "match": {
-                                        "content-type": "/component/youtube-video"
-                                    }
-                                },
                                 {
                                     "match": {
                                         "featured_b": true
@@ -66,13 +73,24 @@ class Home extends Component {
                     value: "Latest Videos",
                     query: {
                         "bool": {
-                            "filter": [
-                                {
+                          "filter": [
+                            {
+                              "bool": {
+                                "should": [
+                                  {
                                     "match": {
                                         "content-type": "/component/youtube-video"
                                     }
-                                }
-                            ]
+                                  },
+                                  {
+                                      "match": {
+                                          "content-type": "/component/video-on-demand"
+                                      }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
                         },
                     },
                     sort: {
@@ -108,7 +126,7 @@ class Home extends Component {
         return (
             <div>
                 { this.renderSlider(descriptor) }
-                
+
                 <VideoCategories categories={ categories }>
                 </VideoCategories>
             </div>
@@ -122,14 +140,14 @@ class Home extends Component {
             <div>
                 { descriptors && descriptors[this.descriptorUrl] &&
                     this.renderHomeContent(descriptors[this.descriptorUrl])
-                }   
+                }
             </div>
         );
     }
 }
 
 function mapStateToProps(store) {
-    return { 
+    return {
         videoStatus: store.video.videoStatus,
         descriptors: store.craftercms.descriptors.entries
     };
