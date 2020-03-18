@@ -590,5 +590,23 @@
 						</property>
 					</properties>
 				</datasource>
+				<datasource>
+					<type>video-S3-transcoding</type>
+					<id>uploadAndTranscodeVideo</id>
+					<title>Upload And Transcode Video</title>
+					<interface>transcoded-video</interface>
+					<properties>
+						<property>
+							<name>inputProfileId</name>
+							<value>mediaconvert-default</value>
+								<type>undefined</type>
+						</property>
+						<property>
+							<name>outputProfileId</name>
+							<value>s3-default</value>
+								<type>undefined</type>
+						</property>
+					</properties>
+				</datasource>
 	</datasources>
 </form>
