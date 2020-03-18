@@ -70,7 +70,7 @@ class Search extends Component {
                         ],
                         "should": {
                             "match": {
-                                "content-type": "/component/video"
+                                "content-type": "/component/youtube-video"
                             }
                         },
                         "should": {

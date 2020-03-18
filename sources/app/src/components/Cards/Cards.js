@@ -49,7 +49,7 @@ class Cards extends Component {
                         "filter": [
                             {
                                 "match": {
-                                    "content-type": "/component/video"
+                                    "content-type": "/component/youtube-video"
                                 },
                                 "match": {
                                     "channels_o.item.key": category

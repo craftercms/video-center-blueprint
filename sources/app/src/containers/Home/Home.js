@@ -48,7 +48,7 @@ class Home extends Component {
                             "filter": [
                                 {
                                     "match": {
-                                        "content-type": "/component/video"
+                                        "content-type": "/component/youtube-video"
                                     }
                                 },
                                 {
@@ -69,7 +69,7 @@ class Home extends Component {
                             "filter": [
                                 {
                                     "match": {
-                                        "content-type": "/component/video"
+                                        "content-type": "/component/youtube-video"
                                     }
                                 }
                             ]

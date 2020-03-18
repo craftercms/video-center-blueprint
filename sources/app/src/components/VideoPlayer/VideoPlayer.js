@@ -31,8 +31,8 @@ class VideoPlayer extends Component {
         }
 
         if(this.props.videoInfo && newProps.videoInfo){
-            var currentType = this.props.videoInfo['content-type'] === '/component/video' ? "video" : "stream",
-                newType = newProps.videoInfo['content-type'] === '/component/video' ? "video" : "stream";
+            var currentType = this.props.videoInfo['content-type'] === '/component/youtube-video' ? "video" : "stream",
+                newType = newProps.videoInfo['content-type'] === '/component/youtube-video' ? "video" : "stream";
 
             //If new props contains a different type of video than current (stream, video) => load new one
             if( currentType !== newType ){
@@ -43,7 +43,7 @@ class VideoPlayer extends Component {
     }
 
     loadVideo(videoInfo) {
-        var videoType = videoInfo['content-type'] === '/component/video' ? "video" : "stream";
+        var videoType = videoInfo['content-type'] === '/component/youtube-video' ? "video" : "stream";
 
         Player = videoType === "video" ? ReactVideoPlayer : ShakaPlayer;
         this.props.dispatch(setVideoStatus( { ...this.props.videoStatus, loaded: true } ));
