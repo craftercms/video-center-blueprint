@@ -67,7 +67,7 @@ class Video extends Component {
                     "filter": [
                         {
                             "match": {
-                                "content-type": "/component/video"
+                                "content-type": "/component/youtube-video"
                             },
                             "match": {
                                 "objectId": videoId
