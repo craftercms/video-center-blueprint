@@ -45,12 +45,19 @@ class Home extends Component {
                     value: "Featured Videos",
                     query: {
                         "bool": {
-                            "filter": [
+                            "should": [
                                 {
                                     "match": {
-                                        "content-type": "/component/youtube-video"
+                                      "content-type": "/component/youtube-video"
                                     }
                                 },
+                                {
+                                    "match": {
+                                      "content-type": "/component/video-on-demand"
+                                    }
+                                }
+                            ],
+                            "filter": [
                                 {
                                     "match": {
                                         "featured_b": true
@@ -68,8 +75,19 @@ class Home extends Component {
                         "bool": {
                             "filter": [
                                 {
-                                    "match": {
-                                        "content-type": "/component/youtube-video"
+                                    "bool": {
+                                        "should": [
+                                            {
+                                                "match": {
+                                                    "content-type": "/component/youtube-video"
+                                                }
+                                            },
+                                            {
+                                                "match": {
+                                                    "content-type": "/component/video-on-demand"
+                                                }
+                                            }
+                                        ]
                                     }
                                 }
                             ]
@@ -108,7 +126,7 @@ class Home extends Component {
         return (
             <div>
                 { this.renderSlider(descriptor) }
-                
+
                 <VideoCategories categories={ categories }>
                 </VideoCategories>
             </div>
@@ -122,14 +140,14 @@ class Home extends Component {
             <div>
                 { descriptors && descriptors[this.descriptorUrl] &&
                     this.renderHomeContent(descriptors[this.descriptorUrl])
-                }   
+                }
             </div>
         );
     }
 }
 
 function mapStateToProps(store) {
-    return { 
+    return {
         videoStatus: store.video.videoStatus,
         descriptors: store.craftercms.descriptors.entries
     };

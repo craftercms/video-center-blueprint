@@ -19,7 +19,7 @@ class Search extends Component {
         this.state = {
             categories: this.setCategories(this.searchId)
         };
-    
+
     }
 
     componentWillMount() {
@@ -46,7 +46,7 @@ class Search extends Component {
 
     setCategories(searchId){
         const searchKeyword = isNullOrUndefined(searchId) ? '' : searchId,
-              searchFilter = searchKeyword.replace(/\s/g,'') === '' ? 
+              searchFilter = searchKeyword.replace(/\s/g,'') === '' ?
                 {
                     "regexp": {
                         "title_t": ".*" + searchKeyword + ".*"
@@ -66,18 +66,29 @@ class Search extends Component {
                 query: {
                     "bool": {
                         "filter": [
+                            {
+                                "bool": {
+                                    "should": [
+                                        {
+                                            "match": {
+                                                "content-type": "/component/youtube-video"
+                                            }
+                                        },
+                                        {
+                                            "match": {
+                                                "content-type": "/component/video-on-demand"
+                                            }
+                                        },
+                                        {
+                                            "match": {
+                                                "content-type": "/component/stream"
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
                             searchFilter
-                        ],
-                        "should": {
-                            "match": {
-                                "content-type": "/component/youtube-video"
-                            }
-                        },
-                        "should": {
-                            "match": {
-                                "content-type": "/component/stream"
-                            }
-                        }
+                        ]
                     }
                 },
                 viewAll: false,
@@ -92,8 +103,8 @@ class Search extends Component {
         clearTimeout(this.timer);
         this.timer = setTimeout(function() {
             var newCategories = me.setCategories(value);
-        
-            me.setState({categories: newCategories });      
+
+            me.setState({categories: newCategories });
         }, WAIT_INTERVAL);
 
     }
@@ -108,7 +119,7 @@ class Search extends Component {
                                 <div className="search-bar__icon">
                                     <FontAwesomeIcon className="search__icon" icon={ faSearch }/>
                                 </div>
-                                <input type="text" className="search-bar__input" placeholder="Start Typing..." 
+                                <input type="text" className="search-bar__input" placeholder="Start Typing..."
                                     ref={ r => this.searchInput = r }
                                     defaultValue={ this.searchId }
                                     onChange={this.onChange.bind(this)}/>
@@ -117,16 +128,14 @@ class Search extends Component {
                     </div>
                 </div>
 
-                <VideoCategories 
-                    categories={ this.state.categories }>
-                </VideoCategories>
+                <VideoCategories categories={ this.state.categories }/>
             </SearchHolder>
         );
     }
 }
 
 function mapStateToProps(store) {
-    return { 
+    return {
         videoInfo: store.video.videoInfo,
         videoStatus: store.video.videoStatus
     };

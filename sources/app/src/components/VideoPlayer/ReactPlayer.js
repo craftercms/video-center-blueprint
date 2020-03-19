@@ -149,6 +149,7 @@ class ReactVideoPlayer extends Component {
         const { video } = this.props;
         const { playing, volume, muted, played, loaded, playedSeconds } = this.state;
         const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        let url;
 
         if(iOS) {
           return (
@@ -159,12 +160,16 @@ class ReactVideoPlayer extends Component {
             </div>
           );
         } else {
+          url = video['content-type'] === '/component/youtube-video'
+            ? `https://www.youtube.com/watch?v=${ video.youTubeVideo_s }`
+            : video.video_o.item.url;
+
           return (
             <div id="videoContainer" className="player-container stream-player" style={{ margin: '0 auto' }}>
               <ReactPlayer
                 className = "video-player"
                 controls = { false }
-                url = { `https://www.youtube.com/watch?v=${ video.youTubeVideo_s }` }
+                url = { url }
                 playing = { playing }
                 ref = {this.ref}
                 width = "100%"
