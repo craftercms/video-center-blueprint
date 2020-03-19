@@ -128,9 +128,7 @@ class Search extends Component {
                     </div>
                 </div>
 
-                <VideoCategories
-                    categories={ this.state.categories }>
-                </VideoCategories>
+                <VideoCategories categories={ this.state.categories }/>
             </SearchHolder>
         );
     }
