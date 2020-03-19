@@ -46,17 +46,26 @@ class Cards extends Component {
             query.query = {
                 "query": {
                     "bool": {
-                        "filter": [
+                        "should": [
                             {
                                 "match": {
                                     "content-type": "/component/youtube-video"
-                                },
+                                }
+                            },
+                            {
+                                "match": {
+                                    "content-type": "/component/video-on-demand"
+                                }
+                            }
+                        ],
+                        "filter": [
+                            {
                                 "match": {
                                     "channels_o.item.key": category
                                 }
                             }
                         ]
-                    },
+                    }
                 }
             };
         }

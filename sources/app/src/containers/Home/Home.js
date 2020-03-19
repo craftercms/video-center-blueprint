@@ -46,16 +46,16 @@ class Home extends Component {
                     query: {
                         "bool": {
                             "should": [
-                              {
-                                "match": {
-                                  "content-type": "/component/youtube-video"
+                                {
+                                    "match": {
+                                      "content-type": "/component/youtube-video"
+                                    }
+                                },
+                                {
+                                    "match": {
+                                      "content-type": "/component/video-on-demand"
+                                    }
                                 }
-                              },
-                              {
-                                "match": {
-                                  "content-type": "/component/video-on-demand"
-                                }
-                              }
                             ],
                             "filter": [
                                 {
@@ -73,24 +73,24 @@ class Home extends Component {
                     value: "Latest Videos",
                     query: {
                         "bool": {
-                          "filter": [
-                            {
-                              "bool": {
-                                "should": [
-                                  {
-                                    "match": {
-                                        "content-type": "/component/youtube-video"
+                            "filter": [
+                                {
+                                    "bool": {
+                                        "should": [
+                                            {
+                                                "match": {
+                                                    "content-type": "/component/youtube-video"
+                                                }
+                                            },
+                                            {
+                                                "match": {
+                                                    "content-type": "/component/video-on-demand"
+                                                }
+                                            }
+                                        ]
                                     }
-                                  },
-                                  {
-                                      "match": {
-                                          "content-type": "/component/video-on-demand"
-                                      }
-                                  }
-                                ]
-                              }
-                            }
-                          ]
+                                }
+                            ]
                         },
                     },
                     sort: {
