@@ -42,31 +42,69 @@ class Cards extends Component {
 
             query.query = queryObj;
         }else{
+            let sort = {};
+            if( !isNullOrUndefined(category.sort) ){
+              sort = {
+                [category.sort.by]: category.sort.order
+              }
+            }
             category = props.category.key
             query.query = {
                 "query": {
                     "bool": {
-                        "should": [
+                        "filter": [
                             {
-                                "match": {
-                                    "content-type": "/component/youtube-video"
+                                "bool": {
+                                    "should": [
+                                        // matches 'youtube-video' or 'video-on-demand'
+                                        {
+                                            "match": {
+                                                "content-type": "/component/youtube-video"
+                                            }
+                                        },
+                                        {
+                                            "match": {
+                                                "content-type": "/component/video-on-demand"
+                                            }
+                                        },
+                                        // or matches 'stream' and active
+                                        {
+                                            "bool": {
+                                                "filter": [
+                                                    {
+                                                        "match": {
+                                                           "content-type": "/component/stream",
+                                                        }
+                                                    },
+                                                    {
+                                                        "range" : {
+                                                            "startDate_dt" : {
+                                                                "lt" : "now"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "range" : {
+                                                            "endDate_dt" : {
+                                                               "gt" : "now"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                              }
+                                          },
+                                    ]
                                 }
                             },
-                            {
-                                "match": {
-                                    "content-type": "/component/video-on-demand"
-                                }
-                            }
-                        ],
-                        "filter": [
                             {
                                 "match": {
                                     "channels_o.item.key": category
                                 }
                             }
                         ]
-                    }
-                }
+                    },
+                },
+                "sort": sort
             };
         }
 

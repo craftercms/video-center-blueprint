@@ -77,8 +77,24 @@ class Channel extends Component {
                     "bool": {
                         "filter": [
                             {
-                                "match": {
-                                    "content-type": "/component/youtube-video"
+                                "bool": {
+                                    "should": [
+                                        {
+                                            "match": {
+                                              "content-type": "/component/youtube-video"
+                                            }
+                                        },
+                                        {
+                                            "match": {
+                                              "content-type": "/component/video-on-demand"
+                                            }
+                                        },
+                                        {
+                                            "match": {
+                                               "content-type": "/component/stream"
+                                            }
+                                        }
+                                    ]
                                 }
                             },
                             {
@@ -93,6 +109,10 @@ class Channel extends Component {
                             }
                         ]
                     }
+                },
+                sort: {
+                    by: "createdDate_dt",
+                    order: "desc"
                 },
                 numResults: component.maxVideosDisplay_i,
                 viewAll: channelContent.channelKey_s
