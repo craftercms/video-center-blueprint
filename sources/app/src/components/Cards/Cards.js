@@ -91,8 +91,27 @@ class Cards extends Component {
                                                         }
                                                     }
                                                 ]
-                                              }
-                                          },
+                                            }
+                                        },
+                                        // or matches 'stream' and upcoming
+                                        {
+                                            "bool": {
+                                                "filter": [
+                                                    {
+                                                        "match": {
+                                                            "content-type": "/component/stream",
+                                                        }
+                                                    },
+                                                    {
+                                                        "range" : {
+                                                            "startDate_dt" : {
+                                                               "gt" : "now"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
                                     ]
                                 }
                             },
