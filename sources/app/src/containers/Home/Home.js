@@ -45,19 +45,23 @@ class Home extends Component {
                     value: "Featured Videos",
                     query: {
                         "bool": {
-                            "should": [
+                            "filter": [
                                 {
-                                    "match": {
-                                      "content-type": "/component/youtube-video"
+                                    "bool": {
+                                        "should": [
+                                            {
+                                                "match": {
+                                                    "content-type": "/component/youtube-video"
+                                                }
+                                            },
+                                            {
+                                                "match": {
+                                                    "content-type": "/component/video-on-demand"
+                                                }
+                                            }
+                                        ],
                                     }
                                 },
-                                {
-                                    "match": {
-                                      "content-type": "/component/video-on-demand"
-                                    }
-                                }
-                            ],
-                            "filter": [
                                 {
                                     "match": {
                                         "featured_b": true
