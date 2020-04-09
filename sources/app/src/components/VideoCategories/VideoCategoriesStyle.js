@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { palette } from 'styled-theme';
 
 const VideoCategoriesHolder = styled.div`
-    
+
     .inline-nav__sticky{
         position: -webkit-sticky;
         position: sticky;
@@ -13,9 +13,9 @@ const VideoCategoriesHolder = styled.div`
             .inline-nav{
                 -webkit-transition: background-color .2s cubic-bezier(0,1,.75,1);
                 transition: background-color .2s cubic-bezier(0,1,.75,1);
-                background-color: ${ palette('primary', 1) };
-                -webkit-box-shadow: 0 0 20px ${ palette('primary', 2) };
-                box-shadow: 0 0 20px ${ palette('primary', 2) };
+                background-color: ${palette('primary', 1)};
+                -webkit-box-shadow: 0 0 20px ${palette('primary', 2)};
+                box-shadow: 0 0 20px ${palette('primary', 2)};
 
                 .inline-nav__inner{
                     &:before, :after {
@@ -41,11 +41,11 @@ const VideoCategoriesHolder = styled.div`
                         }
                     }
                 }
-            }   
-        }        
+            }
+        }
 
         .inline-nav {
-            background: ${ palette('primary', 0) };
+            background: ${palette('primary', 0)};
             height: 6.8rem;
             position: relative;
             z-index: 996;
@@ -69,7 +69,7 @@ const VideoCategoriesHolder = styled.div`
                 font-size: 1.4rem;
                 letter-spacing: 0;
             }
-            
+
             @media (min-width: 48em){
                 font-size: 1.6rem;
             }
@@ -77,7 +77,7 @@ const VideoCategoriesHolder = styled.div`
             &.inline-nav--align-left {
                 text-align: left;
             }
-        
+
             .inline-nav__inner {
                 position: relative;
                 margin: 0 auto;
@@ -109,7 +109,7 @@ const VideoCategoriesHolder = styled.div`
                     z-index: 996;
                     -webkit-transition: background transition-curve 1s;
                     transition: background transition-curve 1s;
-                }                
+                }
 
                 &:before {
                     width: 6.5rem;
@@ -123,7 +123,7 @@ const VideoCategoriesHolder = styled.div`
                     background: -webkit-gradient(linear,right top,left top,color-stop(35%,#141519),color-stop(90%,rgba(20,21,25,.5)),to(rgba(20,21,25,0)));
                     background: linear-gradient(270deg,#141519 35%,rgba(20,21,25,.5) 90%,rgba(20,21,25,0));
                 }
-    
+
                 .inline-nav__ul {
                     margin: 0;
                     padding: 0;
@@ -187,7 +187,7 @@ const VideoCategoriesHolder = styled.div`
                         @media (min-width: 28.125em){
                             padding-left: .5rem;
                         }
-                        
+
                         @media (min-width: 28.125em){
                             padding-left: 0;
                         }
@@ -205,7 +205,7 @@ const VideoCategoriesHolder = styled.div`
                             cursor: pointer;
 
                             &.inline-nav__link--active {
-                                
+
                             }
                         }
 
@@ -255,7 +255,7 @@ const VideoCategoriesHolder = styled.div`
                 .content-container__block {
                     .heading--section {
                     }
-                }    
+                }
             }
 
             .content-container__block {
@@ -284,8 +284,8 @@ const VideoCategoriesHolder = styled.div`
                         }
                     }
                 }
-            }    
-                
+            }
+
             .static-grid {
                 position: relative;
 
@@ -298,7 +298,7 @@ const VideoCategoriesHolder = styled.div`
                     -ms-flex-flow: row wrap;
                     flex-flow: row wrap;
                     margin: 0 -1rem;
-                  
+
                     .static-grid__item {
 
                         @media (min-width: 60em){
@@ -406,7 +406,7 @@ const VideoCategoriesHolder = styled.div`
                                         transition-duration: .15s;
                                         -webkit-transition-timing-function: cubic-bezier(0,1,.75,1);
                                         transition-timing-function: cubic-bezier(0,1,.75,1);
-                                        background: ${ palette('primary', 2) };
+                                        background: ${palette('primary', 2)};
                                     }
 
                                     .video-card__time {
@@ -450,7 +450,7 @@ const VideoCategoriesHolder = styled.div`
                                             font-size: 1.6rem;
                                         }
                                     }
-                                    
+
                                     .video-card__long-description {
                                         position: absolute;
                                         left: 0;
@@ -598,18 +598,18 @@ const VideoCategoriesHolder = styled.div`
                             overflow: hidden;
                             line-height: 1;
                             cursor: pointer;
-                            background: ${ palette('primary', 2) };
-                    
+                            background: ${palette('primary', 2)};
+
                             @media (min-width: 60em) {
                                 height: 0;
                                 padding-bottom: 56.25%;
                             }
-                    
+
                             @media (min-width: 75em){
                                 height: 0;
                                 padding-bottom: 66.667%;
                             }
-                    
+
                             .channel-card-alt__link {
                                 color: inherit;
                                 text-decoration: none;
@@ -627,7 +627,7 @@ const VideoCategoriesHolder = styled.div`
                                 bottom: 0;
                                 left: 0;
                                 right: 0;
-                    
+
                                 .channel-card-alt__image {
                                     overflow: hidden;
                                     -webkit-transition-property: -webkit-transform;
@@ -640,7 +640,7 @@ const VideoCategoriesHolder = styled.div`
                                     transition-timing-function: cubic-bezier(0,1,.75,1);
                                     min-width: 101%;
                                     margin: auto;
-                    
+
                                     &:before {
                                         content: "";
                                         position: absolute;
@@ -652,7 +652,7 @@ const VideoCategoriesHolder = styled.div`
                                         background: linear-gradient(0deg,rgba(17,22,31,.5),rgba(17,22,31,0));
                                         z-index: 9;
                                     }
-                    
+
                                     .channel-card-alt__overlay {
                                         position: absolute;
                                         z-index: 1;
@@ -666,7 +666,7 @@ const VideoCategoriesHolder = styled.div`
                                         transition: opacity .15s cubic-bezier(0,1,.75,1);
                                     }
                                 }
-                                
+
                                 .channel-card-alt__heading {
                                     margin: 0;
                                     padding: 0;
@@ -685,7 +685,7 @@ const VideoCategoriesHolder = styled.div`
                                     font-weight: 800;
                                     text-transform: uppercase;
                                     text-align: center;
-                    
+
                                     &:after {
                                         display: block;
                                         content: "";
@@ -698,41 +698,41 @@ const VideoCategoriesHolder = styled.div`
                                         -webkit-transition: all .15s;
                                         transition: all .15s;
                                     }
-                    
+
                                     @media (min-width: 60em){
                                         font-size: 2rem;
                                     }
-                    
+
                                     @media (min-width: 75em){
                                         font-size: 2.5rem;
                                     }
-                    
+
                                     @media (min-width: 114.0625em) {
                                         font-size: 3rem;
                                     }
                                 }
-                    
-                            }   
-                    
+
+                            }
+
                             &:hover{
-                    
+
                                 .channel-card-alt__link{
                                     .channel-card-alt__image {
                                         -webkit-transform: scale3d(1.1,1.1,1);
                                         transform: scale3d(1.1,1.1,1);
-                    
+
                                         .channel-card-alt__overlay {
                                             opacity: .6;
                                         }
                                     }
-                    
+
                                     .channel-card-alt__heading:after {
                                         opacity: 1;
                                         -webkit-transform: translateY(0);
                                         transform: translateY(0);
                                     }
                                 }
-                    
+
                             }
                         }
 
@@ -810,7 +810,7 @@ const VideoCategoriesHolder = styled.div`
                     text-decoration: none;
                     position: relative;
                     margin: 3rem 0;
-                    background: ${ palette('primary', 2) };
+                    background: ${palette('primary', 2)};
                     -webkit-transition: background .15s;
                     transition: background .15s;
 
@@ -1006,7 +1006,7 @@ const VideoCategoriesHolder = styled.div`
                                         color: #db0a40;
                                     }
                                 }
-                            }   
+                            }
                         }
                     }
                 }

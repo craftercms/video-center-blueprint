@@ -6,11 +6,11 @@ const FooterHolder = styled.div`
 
     .footer {
         position: relative;
-        background: ${ palette('primary', 1) };
+        background: ${palette('primary', 1)};
         margin-top: 10rem;
         width: 100%;
         padding: 50px;
-        
+
         .footer__content {
             display: -webkit-box;
             display: -ms-flexbox;

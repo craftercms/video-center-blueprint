@@ -8,7 +8,7 @@ const HeaderHolder = styled.div`
         height: 5.6rem;
         position: relative;
         z-index: 996;
-        background: ${ palette('primary', 0) };
+        background: ${palette('primary', 0)};
         color: hsla(0,0%,100%,.5);
         text-align: right;
         overflow: hidden;
@@ -24,7 +24,7 @@ const HeaderHolder = styled.div`
 
         @media (min-width: 48em){
             height: 9rem;
-            border-bottom: 1px solid ${ palette('primary', 2) };
+            border-bottom: 1px solid ${palette('primary', 2)};
         }
 
         .header__logo {

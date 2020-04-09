@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 import { getDescriptor } from '@craftercms/redux';
 import { isNullOrUndefined } from 'util';
 
@@ -9,71 +9,85 @@ import HeaderSearch from './HeaderSearch';
 import { common } from '../../settings';
 
 class Header extends Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.levelDescriptorUrl = '/site/website/crafter-level-descriptor.level.xml';
+    this.levelDescriptorUrl = '/site/website/crafter-level-descriptor.level.xml';
 
-        if(isNullOrUndefined(props.descriptors[this.levelDescriptorUrl])){
-            this.props.getDescriptor(this.levelDescriptorUrl);
-        }
+    if (isNullOrUndefined(props.descriptors[this.levelDescriptorUrl])) {
+      this.props.getDescriptor(this.levelDescriptorUrl);
     }
+  }
 
-    renderNavItems() {
-        var rootId = '/';
+  renderNavItems() {
+    var rootId = '/';
 
-        return this.props.nav.childIds[rootId].map((id, i) => {
-            var navItem = this.props.nav.entries[id];
+    return this.props.nav.childIds[rootId].map((id, i) => {
+      var navItem = this.props.nav.entries[id];
 
-            return (
-                <li key={ i } className="navigation__item">
-                    <Link className="navigation__link navigation__link--apps" to={ navItem.url }>
-                        <span className="navigation__link--text">
-                            { navItem.label }
-                        </span>
-                    </Link>
-                </li>
-            );
-        });
-    }
+      return (
+        <li key={i} className="navigation__item">
+          <Link className="navigation__link navigation__link--apps" to={navItem.url}>
+            <span className="navigation__link--text">
+              {navItem.label}
+            </span>
+          </Link>
+        </li>
+      );
+    });
+  }
 
-    renderHeaderLogo(descriptor) {
-        const logo = descriptor.component.siteLogo
+  renderHeaderLogo(descriptor) {
+    const logo = descriptor.component.siteLogo;
 
-        return (
-            <Link className="header__logo active" to="/"
-                  style={{ backgroundImage: `url(${ logo })` }}>
-                Video Center
-            </Link>
-        );
-    }
+    return (
+      <Link
+        className="header__logo active" to="/"
+        style={{ backgroundImage: `url(${logo})` }}
+      >
+        Video Center
+      </Link>
+    );
+  }
 
-    render() {
-        const { nav, descriptors } = this.props;
-        const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  render() {
+    const { nav, descriptors } = this.props;
+    const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
-        return (
-            <HeaderHolder>
-                {/* https://2018.ar.al/scribbles/fork-me-on-github-retina-ribbons/ */}
-                <a href={ common.repoUrl } target="_blank" rel="noopener noreferrer">
-                    <img style={{ position: "absolute", top: 0, left: 0, border: 0, width: "100px", height: "100px", zIndex: 997 }}
-                         src="http://aral.github.com/fork-me-on-github-retina-ribbons/left-graphite@2x.png" alt="Fork me on GitHub"/>
-                </a>
+    return (
+      <HeaderHolder>
+        {/* https://2018.ar.al/scribbles/fork-me-on-github-retina-ribbons/ */}
+        <a href={common.repoUrl} target="_blank" rel="noopener noreferrer">
+          <img
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              border: 0,
+              width: '100px',
+              height: '100px',
+              zIndex: 997
+            }}
+            src="http://aral.github.com/fork-me-on-github-retina-ribbons/left-graphite@2x.png"
+            alt="Fork me on GitHub"
+          />
+        </a>
 
-              <header
-                id="mainHeader"
-                className={"header " + ( this.props.headerGhost ? 'header--ghost ' : ' ' ) + (iOS ? 'ios' : '')}>
-                    <div className="header__container">
-                        <div className="header__overlay"></div>
+        <header
+          id="mainHeader"
+          className={'header ' + (this.props.headerGhost ? 'header--ghost ' : ' ') + (iOS ? 'ios' : '')}
+        >
+          <div className="header__container">
+            <div className="header__overlay"></div>
 
-                        { descriptors && descriptors[this.levelDescriptorUrl] &&
-                            this.renderHeaderLogo(descriptors[this.levelDescriptorUrl])
-                        }
+            {descriptors && descriptors[this.levelDescriptorUrl] &&
+            this.renderHeaderLogo(descriptors[this.levelDescriptorUrl])
+            }
 
-                        <div className="header__navigation">
-                            <nav className="navigation">
-                                <ul className="navigation__list">
-                                    {/* <li className="navigation__item">
+            <div className="header__navigation">
+              <nav className="navigation">
+                <ul className="navigation__list">
+                  {/* <li className="navigation__item">
                                         <Link className="navigation__link navigation__link--apps" to="/channels">
                                             <span className="navigation__link--text">
                                                 Channels
@@ -94,34 +108,34 @@ class Header extends Component {
                                             </span>
                                         </Link>
                                     </li> */}
-                                    {
-                                        nav
-                                        && nav.entries['/']
-                                        && this.renderNavItems()
-                                    }
-                                </ul>
-                            </nav>
-                        </div>
-                        <div className="header__search">
-                            <div>
-                                <HeaderSearch />
-                            </div>
-                        </div>
-                    </div>
-                </header>
-            </HeaderHolder>
-        );
-    }
+                  {
+                    nav
+                    && nav.entries['/']
+                    && this.renderNavItems()
+                  }
+                </ul>
+              </nav>
+            </div>
+            <div className="header__search">
+              <div>
+                <HeaderSearch />
+              </div>
+            </div>
+          </div>
+        </header>
+      </HeaderHolder>
+    );
+  }
 }
 
 const mapDispatchToProps = dispatch => ({
-    getDescriptor: url => dispatch(getDescriptor(url))
-})
+  getDescriptor: url => dispatch(getDescriptor(url))
+});
 
 const mapStateToProps = store => ({
-    nav: store.craftercms.navigation,
-    descriptors: store.craftercms.descriptors.entries,
-    headerGhost: store.header.headerGhost
-})
+  nav: store.craftercms.navigation,
+  descriptors: store.craftercms.descriptors.entries,
+  headerGhost: store.header.headerGhost
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
 import moment from 'moment';
@@ -93,18 +93,28 @@ class Slide extends Component {
       <div className="discover-slider__inner">
         <Link className="discover-slider__link" to={slide.url_s}>
           <div>
-            <div className="image discover-slider__inner--background discover-slider__inner--background-mobile">
-              <div className="image__image"
-                   style={{ backgroundImage: `url(${slide.background_s})` }}>
+            <div
+              className="image discover-slider__inner--background discover-slider__inner--background-mobile"
+            >
+              <div
+                className="image__image"
+                style={{ backgroundImage: `url(${slide.background_s})` }}
+              >
               </div>
             </div>
-            <div className="image discover-slider__inner--background discover-slider__inner--background-desktop">
-              <div className="image__image"
-                   style={{ backgroundImage: `url(${slide.background_s})` }}>
+            <div
+              className="image discover-slider__inner--background discover-slider__inner--background-desktop"
+            >
+              <div
+                className="image__image"
+                style={{ backgroundImage: `url(${slide.background_s})` }}
+              >
               </div>
             </div>
           </div>
-          <div className={`discover-slider__inner--content ${(hero && slide.date_dt ? 'hero_content' : '')}`}>
+          <div
+            className={`discover-slider__inner--content ${(hero && slide.date_dt ? 'hero_content' : '')}`}
+          >
             {slide.vod_s &&
             <div className="discover-slider__inner--vod">
               <span className="discover-slider__inner--vod-label">
@@ -118,8 +128,10 @@ class Slide extends Component {
             </h1>
 
             {slide.logo_s &&
-            <div className="discover-slider__inner--title discover-slider__inner--title--logo"
-                 style={{ backgroundImage: `url(${slide.logo_s})` }}>
+            <div
+              className="discover-slider__inner--title discover-slider__inner--title--logo"
+              style={{ backgroundImage: `url(${slide.logo_s})` }}
+            >
             </div>
             }
 
@@ -140,8 +152,11 @@ class Slide extends Component {
                         </div>
                       ) : (
                         <>
-                          <div className="countdown__heading">{eventDate.month} {eventDate.monthDay}</div>
-                          <div className="countdown__live-time">Live at {eventDate.time} {eventDate.timezone}</div>
+                          <div
+                            className="countdown__heading"
+                          >{eventDate.month} {eventDate.monthDay}</div>
+                          <div className="countdown__live-time">Live
+                            at {eventDate.time} {eventDate.timezone}</div>
                         </>
                       )
                   }
