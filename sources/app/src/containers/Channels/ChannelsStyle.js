@@ -11,7 +11,7 @@ const ChannelsHolder = styled.div`
         overflow: hidden;
         line-height: 1;
         cursor: pointer;
-        background: ${ palette('primary', 2) };
+        background: ${palette('primary', 2)};
 
         @media (min-width: 60em) {
             height: 0;
@@ -79,7 +79,7 @@ const ChannelsHolder = styled.div`
                     transition: opacity .15s cubic-bezier(0,1,.75,1);
                 }
             }
-            
+
             .channel-card-alt__heading {
                 margin: 0;
                 padding: 0;
@@ -125,7 +125,7 @@ const ChannelsHolder = styled.div`
                 }
             }
 
-        }   
+        }
 
         &:hover{
 

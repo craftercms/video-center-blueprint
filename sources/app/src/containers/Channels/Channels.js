@@ -1,87 +1,90 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import ChannelsHolder from './ChannelsStyle';
 
-import { setVideoDocked } from "../../actions/videoPlayerActions";
+import { setVideoDocked } from '../../actions/videoPlayerActions';
 
 import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
 
 class Channels extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            searchId: this.props.match.params.query,
-            categories: [
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchId: this.props.match.params.query,
+      categories: [
+        {
+          key: 'featured-channels',
+          value: 'Featured Channels',
+          type: 'channel-card-alt',
+          query: {
+            'bool': {
+              'filter': [
                 {
-                    key: "featured-channels",
-                    value: "Featured Channels",
-                    type: "channel-card-alt",
-                    query: {
-                        "bool": {
-                            "filter": [
-                                {
-                                    "match": {
-                                        "content-type": "/component/component-channel"
-                                    }
-                                },
-                                {
-                                    "match": {
-                                        "featured_b": true
-                                    }
-                                }
-                            ]
-                        }
-                    }
+                  'match': {
+                    'content-type': '/component/component-channel'
+                  }
                 },
                 {
-                    key: "all-channels", 
-                    value: "All Channels",
-                    type: "channel-card-alt",   //TO RENDER CHANNEL CARD STYLING    
-                    query: {
-                        "bool": {
-                            "filter": [
-                                {
-                                    "match": {
-                                        "content-type": "/component/component-channel"
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    numResults: 100
+                  'match': {
+                    'featured_b': true
+                  }
                 }
-            ]
-        };
-    }
+              ]
+            }
+          }
+        },
+        {
+          key: 'all-channels',
+          value: 'All Channels',
+          type: 'channel-card-alt',   //TO RENDER CHANNEL CARD STYLING
+          query: {
+            'bool': {
+              'filter': [
+                {
+                  'match': {
+                    'content-type': '/component/component-channel'
+                  }
+                }
+              ]
+            }
+          },
+          numResults: 100
+        }
+      ]
+    };
+  }
 
-    componentWillMount() {
-        this.props.setVideoDocked( false );
-    }
+  componentWillMount() {
+    this.props.setVideoDocked(false);
+  }
 
-    render() {
-        return (
-            <ChannelsHolder>
-                <div className="">
-                    <VideoCategories 
-                        categories={ this.state.categories }>
-                    </VideoCategories>
-                </div>
-            </ChannelsHolder>
-        );
-    }
+  render() {
+    return (
+      <ChannelsHolder>
+        <div className="">
+          <VideoCategories
+            categories={this.state.categories}
+          >
+          </VideoCategories>
+        </div>
+      </ChannelsHolder>
+    );
+  }
 }
 
 function mapStateToProps(store) {
-    return { 
-        videoInfo: store.video.videoInfo,
-        videoStatus: store.video.videoStatus
-    };
+  return {
+    videoInfo: store.video.videoInfo,
+    videoStatus: store.video.videoStatus
+  };
 }
 
 function mapDispatchToProps(dispatch) {
-    return({
-        setVideoDocked: (docked) => { dispatch(setVideoDocked(docked)) }
-    })
+  return ({
+    setVideoDocked: (docked) => {
+      dispatch(setVideoDocked(docked));
+    }
+  });
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Channels);

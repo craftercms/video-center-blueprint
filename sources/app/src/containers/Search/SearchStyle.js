@@ -13,7 +13,7 @@ const SearchHolder = styled.div`
             position: relative;
             overflow: hidden;
             z-index: 998;
-            background: ${ palette('primary', 2) };
+            background: ${palette('primary', 2)};
             pointer-events: none;
             opacity: 0;
             -webkit-transition: opacity 225ms;
@@ -23,7 +23,7 @@ const SearchHolder = styled.div`
                 opacity: 1;
                 pointer-events: all;
             }
-    
+
             .search-bar__container {
                 position: relative;
                 margin: 0 auto;

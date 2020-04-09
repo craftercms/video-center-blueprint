@@ -5,7 +5,7 @@ const SliderHolder = styled.div`
     height: calc(100vh - 220px);
     margin: 0;
     overflow: hidden;
-    background-color: ${ palette('primary', 1) };
+    background-color: ${palette('primary', 1)};
     position: relative;
 
     &.hero-container__ghost {
@@ -396,10 +396,10 @@ const SliderHolder = styled.div`
             &:hover {
                 -webkit-transition: all .15s cubic-bezier(0,1,.75,1);
                 transition: all .15s cubic-bezier(0,1,.75,1);
-                background: ${ palette('primary', 3) };
+                background: ${palette('primary', 3)};
 
                 .nav-icon {
-                    color: ${ palette('primary', 4) };
+                    color: ${palette('primary', 4)};
                 }
             }
 
@@ -414,7 +414,7 @@ const SliderHolder = styled.div`
             }
 
             .nav-icon {
-                color: ${ palette('primary', 3) };
+                color: ${palette('primary', 3)};
                 font-size: 1.5em;
                 font-weight: bold;
             }

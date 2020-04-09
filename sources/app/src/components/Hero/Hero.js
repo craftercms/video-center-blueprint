@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { Carousel } from 'antd';
 
 import Slide from '../Slide/Slide';
@@ -15,14 +15,19 @@ class Hero extends Component {
     return (
       <div>
         {this.state && this.state.heroContent &&
-          <HeroHolder className="hero-container hero-container__ghost">
-            <Carousel className="discover-slider"
-              effect="fade"
-              ref={node => (this.hero = node)}
-              autoplay>
-              <Slide slide={ this.state.heroContent[0] } hero={true} onChange={onChange}/>  {/* Hero content is always size 1, but comes into an array */}
-            </Carousel>
-          </HeroHolder>
+        <HeroHolder className="hero-container hero-container__ghost">
+          <Carousel
+            className="discover-slider"
+            effect="fade"
+            ref={node => (this.hero = node)}
+            autoplay
+          >
+            <Slide
+              slide={this.state.heroContent[0]} hero={true}
+              onChange={onChange}
+            /> {/* Hero content is always size 1, but comes into an array */}
+          </Carousel>
+        </HeroHolder>
         }
       </div>
     );

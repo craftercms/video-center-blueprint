@@ -4,4 +4,4 @@ import header from './headerReducer';
 export const allReducers = {
   video,
   header
-}
+};

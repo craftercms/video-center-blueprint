@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { Carousel } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
@@ -18,20 +18,26 @@ class Slider extends Component {
 
   changeSlide(direction) {
 
-    if ("previous" === direction) {
-      this.slider.prev()
+    if ('previous' === direction) {
+      this.slider.prev();
     } else {
-      this.slider.next()
+      this.slider.next();
     }
   }
 
   renderSliderControls() {
     return (
       <div className="discover-slider__inner--nav">
-        <label className="discover-slider__inner--nav-button discover-slider__inner--nav-prev" onClick={() => this.changeSlide("previous")}>
+        <label
+          className="discover-slider__inner--nav-button discover-slider__inner--nav-prev"
+          onClick={() => this.changeSlide('previous')}
+        >
           <FontAwesomeIcon className="nav-icon" icon={faAngleLeft} />
         </label>
-        <label className="discover-slider__inner--nav-button discover-slider__inner--nav-next" onClick={() => this.changeSlide("next")}>
+        <label
+          className="discover-slider__inner--nav-button discover-slider__inner--nav-next"
+          onClick={() => this.changeSlide('next')}
+        >
           <FontAwesomeIcon className="nav-icon" icon={faAngleRight} />
         </label>
       </div>
@@ -49,27 +55,29 @@ class Slider extends Component {
 
     return (
       <SliderHolder className="hero-container hero-container__ghost">
-        <Carousel className="discover-slider"
+        <Carousel
+          className="discover-slider"
           effect="fade"
           ref={node => (this.slider = node)}
-          autoplay>
+          autoplay
+        >
           {
-            slides.map((slide, i) => <Slide key={i} slide={slide}/>)
+            slides.map((slide, i) => <Slide key={i} slide={slide} />)
           }
         </Carousel>
 
         {slides.length > 1 &&
-          this.renderSliderControls()
+        this.renderSliderControls()
         }
       </SliderHolder>
-    )
+    );
   }
 
   render() {
     return (
       <div>
         {this.props.descriptors && this.state && this.state.descriptorKey && this.props.descriptors[this.state.descriptorKey] &&
-          this.renderSlider(this.props.descriptors[this.state.descriptorKey])
+        this.renderSlider(this.props.descriptors[this.state.descriptorKey])
         }
       </div>
     );
