@@ -28,9 +28,10 @@
 	<objectType>component</objectType>
 	<content-type>/component/stream-origin</content-type>
 	<imageThumbnail>undefined</imageThumbnail>
-	<quickCreate>false</quickCreate>
-	<quickCreatePath></quickCreatePath>
-	<properties>		<property>
+	<quickCreate>true</quickCreate>
+	<quickCreatePath>/site/origins</quickCreatePath>
+	<properties>		
+	    <property>
 			<name>display-template</name>
 			<label>Display Template</label>
 			<value></value>
