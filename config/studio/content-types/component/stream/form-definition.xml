@@ -28,8 +28,8 @@
    <objectType>component</objectType>
    <content-type>/component/stream</content-type>
    <imageThumbnail>undefined</imageThumbnail>
-   <quickCreate>false</quickCreate>
-   <quickCreatePath/>
+   <quickCreate>true</quickCreate>
+   <quickCreatePath>/site/streams</quickCreatePath>
    <properties>
       <property>
          <name>display-template</name>
