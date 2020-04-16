@@ -185,13 +185,6 @@
                </icon>
             </control>
             <control>
-               <name>aws-video-upload</name>
-               <icon>
-                  <class>fa-film</class>
-                  <stackedclass>fa-amazon</stackedclass>
-               </icon>
-            </control>
-            <control>
                <name>internal-name</name>
                <icon>
                   <class>fa-font</class>
