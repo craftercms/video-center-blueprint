@@ -89,7 +89,7 @@ class Video extends Component {
     var { setVideoInfo } = this.props;
 
     if (searchResult.totalHits > 0) {
-      var video = searchResult.hits[0].sourceAsMap,
+      var video = searchResult.hits[0]._source,
         categories = [],
         upcomingVideoHero = [],
         channels = Array.isArray(video.channels_o.item) ? video.channels_o.item : [video.channels_o.item];
@@ -146,12 +146,6 @@ class Video extends Component {
           <div className="video-details">
             <div className="video-details__header">
               <div className="video-details__titles">
-                {/* <div className="video-details__thumbnail">
-                                    <div className="image">
-                                        <div className="image__image">
-                                        </div>
-                                    </div>
-                                </div> */}
                 <div className="video-details__titles-content">
                   <h1
                     className="heading video-details__heading heading--smaller"

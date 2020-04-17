@@ -48,7 +48,7 @@
     </config>
 -->
 <config>
-   <version>10</version>
+   <version>11</version>
    <tools>
       <tool>
          <name>content-types</name>
@@ -147,10 +147,10 @@
                </icon>
             </control>
             <control>
-                <name>transcoded-video-picker</name>
-                <icon>
-                    <class>fa-video-camera</class>
-                </icon>
+               <name>transcoded-video-picker</name>
+               <icon>
+                  <class>fa-video-camera</class>
+               </icon>
             </control>
             <control>
                <name>label</name>

@@ -138,7 +138,7 @@ class Cards extends Component {
     const { category } = this.props;
 
     return this.state.hits.map((hit, i) => {
-      var card = hit.sourceAsMap,
+      var card = hit._source,
         componentUrl = card['content-type'] === '/component/stream' ? '/stream/' : '/video/',
         categoryType = this.props.category.type ? this.props.category.type : 'video-card',
         videoName;
