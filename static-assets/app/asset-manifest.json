@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/static-assets/app/static/css/main.75e8ad94.chunk.css",
-    "main.js": "/static-assets/app/static/js/main.a91fecf3.chunk.js",
-    "main.js.map": "/static-assets/app/static/js/main.a91fecf3.chunk.js.map",
+    "main.css": "/static-assets/app/static/css/main.7471be1a.chunk.css",
+    "main.js": "/static-assets/app/static/js/main.293dcb42.chunk.js",
+    "main.js.map": "/static-assets/app/static/js/main.293dcb42.chunk.js.map",
     "runtime-main.js": "/static-assets/app/static/js/runtime-main.ecf31c5f.js",
     "runtime-main.js.map": "/static-assets/app/static/js/runtime-main.ecf31c5f.js.map",
     "static/css/2.c726b981.chunk.css": "/static-assets/app/static/css/2.c726b981.chunk.css",
     "static/js/2.cc5d3386.chunk.js": "/static-assets/app/static/js/2.cc5d3386.chunk.js",
     "static/js/2.cc5d3386.chunk.js.map": "/static-assets/app/static/js/2.cc5d3386.chunk.js.map",
     "index.html": "/static-assets/app/index.html",
-    "precache-manifest.369d4f80a13c6866819592097141fd85.js": "/static-assets/app/precache-manifest.369d4f80a13c6866819592097141fd85.js",
+    "precache-manifest.ee7e1195ed06e6d11223ea92e09830d0.js": "/static-assets/app/precache-manifest.ee7e1195ed06e6d11223ea92e09830d0.js",
     "service-worker.js": "/static-assets/app/service-worker.js",
     "static/css/2.c726b981.chunk.css.map": "/static-assets/app/static/css/2.c726b981.chunk.css.map",
-    "static/css/main.75e8ad94.chunk.css.map": "/static-assets/app/static/css/main.75e8ad94.chunk.css.map",
+    "static/css/main.7471be1a.chunk.css.map": "/static-assets/app/static/css/main.7471be1a.chunk.css.map",
     "static/js/2.cc5d3386.chunk.js.LICENSE": "/static-assets/app/static/js/2.cc5d3386.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.ecf31c5f.js",
     "static/css/2.c726b981.chunk.css",
     "static/js/2.cc5d3386.chunk.js",
-    "static/css/main.75e8ad94.chunk.css",
-    "static/js/main.a91fecf3.chunk.js"
+    "static/css/main.7471be1a.chunk.css",
+    "static/js/main.293dcb42.chunk.js"
   ]
 }
