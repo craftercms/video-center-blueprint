@@ -137,25 +137,23 @@ class Cards extends Component {
   renderCards() {
     const { category } = this.props;
 
-    return this.state.hits.map((hit, i) => {
+    return this.state.hits.map((hit) => {
       var card = hit._source,
         componentUrl = card['content-type'] === '/component/stream' ? '/stream/' : '/video/',
-        categoryType = this.props.category.type ? this.props.category.type : 'video-card',
-        videoName;
+        categoryType = this.props.category.type ? this.props.category.type : 'video-card';
 
       switch (categoryType) {
         case 'video-card':
-          videoName = card.title_s ? (card.title_s).toLowerCase().replace(/ /g, '-') : '';
-          videoName = encodeURI(videoName);
 
           if (card.startDate_dt) {
-            var videoStartDate = new Date(card.startDate_dt),
+            var
+              videoStartDate = new Date(card.startDate_dt),
               now = new Date(),
               formattedDate = formatDate(card.startDate_dt);
           }
 
           return (
-            <div className="static-grid__item" key={hit.id}>
+            <div className="static-grid__item" key={hit._id}>
               <div className="video-card video-card--has-description">
                 <Link className="video-card__link" to={`${componentUrl}${card.objectId}`}>
                   <div>
@@ -205,7 +203,7 @@ class Cards extends Component {
           var url = card['file-name'].replace('.xml', '');
 
           return (
-            <div className="static-grid__item" key={hit.id}>
+            <div className="static-grid__item" key={hit._id}>
               <div className="channel-card-alt">
                 <Link className="channel-card-alt__link" to={`/channel/${url}`}>
                   <div className="image channel-card-alt__image">
@@ -223,13 +221,13 @@ class Cards extends Component {
           );
         case 'standard-card':
           return (
-            <div className="static-grid__item" key={hit.id} />
+            <div className="static-grid__item" key={hit._id} />
           );
         case 'live-event-item':
           var dateFormatted = formatDate(card.startDate_dt);
 
           return (
-            <div className="live-events-item" key={hit.id}>
+            <div className="live-events-item" key={hit._id}>
               <CardContainer card={card} category={category}>
                 <div className="live-events-item__image">
                   <div className="live-events-item__background">

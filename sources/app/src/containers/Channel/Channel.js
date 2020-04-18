@@ -50,8 +50,6 @@ class Channel extends Component {
     var component = descriptor.component,
       channelHero = [],
       channelContent = descriptor.component,
-      channelTags = channelContent.tags_o.item,
-      tagsFilter = 'tags_o.item.value_s: ',
       categories;
 
     channelHero.push({
@@ -60,14 +58,6 @@ class Channel extends Component {
       title_t: channelContent['internal-name'],
       subtitle_s: channelContent.description_s
     });
-
-    //get channel tags
-    for (var x = 0; x < channelTags.length; x++) {
-      var tag = channelTags[x];
-
-      tagsFilter += '"' + tag.value_s + '"';
-      tagsFilter += x < channelTags.length - 1 ? ' OR ' : '';
-    }
 
     categories = [
       {

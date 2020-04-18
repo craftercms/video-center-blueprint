@@ -159,6 +159,7 @@ class ReactVideoPlayer extends Component {
           style={{ margin: '0 auto' }}
         >
           <iframe
+            title="YouTube Player"
             className={'video-player'} width="100%" height="100%"
             src={`https://www.youtube.com/embed/${video.youTubeVideo_s}?playsinline=1&autoplay=1`}
             frameBorder="0"

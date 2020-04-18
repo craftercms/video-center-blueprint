@@ -9,6 +9,7 @@ import ReactVideoPlayer from './ReactPlayer';
 import ShakaPlayer from './ShakaPlayer';
 
 import { setVideoInfo, setVideoStatus } from '../../actions/videoPlayerActions';
+import VideoJSPlayer from './VideoJSPlayer';
 
 var Player = {};
 
@@ -44,13 +45,22 @@ class VideoPlayer extends Component {
   }
 
   loadVideo(videoInfo) {
-    const contentType = videoInfo['content-type'];
-    const videoType = contentType === '/component/youtube-video' || contentType === '/component/video-on-demand'
-      ? 'video'
-      : 'stream';
 
-    Player = videoType === 'video' ? ReactVideoPlayer : ShakaPlayer;
+    const contentType = videoInfo['content-type'];
+    const videoType = (
+      contentType === '/component/youtube-video' ||
+      contentType === '/component/video-on-demand'
+    ) ? 'video' : 'stream';
+
+    Player = (videoType === 'video') ? ReactVideoPlayer : ShakaPlayer;
+    try {
+      Player = videoInfo.origin_o.item.component.url_s.includes('m3u8') ? VideoJSPlayer : Player;
+    } catch {
+
+    }
+
     this.props.dispatch(setVideoStatus({ ...this.props.videoStatus, loaded: true }));
+
   }
 
   unloadVideo() {

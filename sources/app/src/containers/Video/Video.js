@@ -51,9 +51,10 @@ class Video extends Component {
     }
 
     if (
-      (isNullOrUndefined(searchEntry) && !isNullOrUndefined(newSearchEntry))
-      || (!isNullOrUndefined(searchEntry) && !isNullOrUndefined(newSearchEntry))
-      && newProps.searchResults.entries[this.searchId]
+      (
+        (isNullOrUndefined(searchEntry) && !isNullOrUndefined(newSearchEntry)) ||
+        (!isNullOrUndefined(searchEntry) && !isNullOrUndefined(newSearchEntry))
+      ) && newProps.searchResults.entries[this.searchId]
     ) {
       this.setVideo(newProps.searchResults.entries[this.searchId]);
     }
@@ -167,7 +168,7 @@ class Video extends Component {
                       <a
                         className="resp-sharing-button__link"
                         href={`https://facebook.com/sharer/sharer.php?u=${window.location.href}`}
-                        target="_blank" aria-label="Share on Facebook"
+                        target="_blank" aria-label="Share on Facebook" rel="noopener noreferrer"
                       >
                         <div
                           className="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--large"
@@ -190,7 +191,7 @@ class Video extends Component {
                       <a
                         className="resp-sharing-button__link"
                         href={`https://twitter.com/intent/tweet/?text=${video.title_s}&amp;url=${window.location.href}`}
-                        target="_blank" aria-label="Share on Twitter"
+                        target="_blank" aria-label="Share on Twitter" rel="noopener noreferrer"
                       >
                         <div
                           className="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--large"
@@ -213,7 +214,7 @@ class Video extends Component {
                       <a
                         className="resp-sharing-button__link"
                         href={`https://plus.google.com/share?url=${window.location.href}`}
-                        target="_blank" aria-label="Share on Google+"
+                        target="_blank" aria-label="Share on Google+" rel="noopener noreferrer"
                       >
                         <div
                           className="resp-sharing-button resp-sharing-button--google resp-sharing-button--large"

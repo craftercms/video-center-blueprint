@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+	<content-type>/component/stream</content-type>
+	<display-template/>
+	<no-template-required/>
+	<merge-strategy>inherit-levels</merge-strategy>
+	<objectGroupId>0c55</objectGroupId>
+	<objectId>0c55101e-142a-8e3f-1e0e-5f25e592c8f1</objectId>
+	<channels_o>	<item>	<key>psychology</key>
+	<value_smv>Psychology</value_smv>
+	</item>	<item>	<key>biology</key>
+	<value_smv>Biology</value_smv>
+	</item>	<item>	<key>chemistry</key>
+	<value_smv>Chemistry</value_smv>
+	</item></channels_o>
+	<origin_o item-list="true">	<item datasource="origins">	<key>/site/origins/18eb0b74-a67d-e814-6714-e5b17419edcd.xml</key>
+	<value>CBS News</value>
+	<include>/site/origins/18eb0b74-a67d-e814-6714-e5b17419edcd.xml</include>
+	<disableFlattening>false</disableFlattening>
+	</item></origin_o>
+	<thumbnail_s>/static-assets/images/videos/0c55101e-142a-8e3f-1e0e-5f25e592c8f1/cbsn2-logo-1920x1080.jpg</thumbnail_s>
+	<file-name>0c55101e-142a-8e3f-1e0e-5f25e592c8f1.xml</file-name>
+	<internal-name>CBS News</internal-name>
+	<title_s tokenized="true">CBS News</title_s>
+	<summary_s>CBS News</summary_s>
+	<description_html>&lt;p&gt;CBS News&lt;/p&gt;</description_html>
+	<date_dt>2020-05-15T04:00:00.000Z</date_dt>
+	<startDate_dt>2020-04-18T06:00:00.000Z</startDate_dt>
+	<endDate_dt>2022-04-18T21:59:00.000Z</endDate_dt>
+	<startDate_dt_tz>Europe/Paris</startDate_dt_tz>
+	<endDate_dt_tz>Europe/Paris</endDate_dt_tz>
+	<createdDate>2020-04-18T06:44:55.472Z</createdDate>
+	<createdDate_dt>2020-04-18T06:44:55.472Z</createdDate_dt>
+	<lastModifiedDate>2020-04-18T06:44:55.472Z</lastModifiedDate>
+	<lastModifiedDate_dt>2020-04-18T06:44:55.472Z</lastModifiedDate_dt>
+	<date_dt_tz>EST5EDT</date_dt_tz>
+</component>
