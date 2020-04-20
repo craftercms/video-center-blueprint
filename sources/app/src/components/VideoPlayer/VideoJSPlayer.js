@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { setVideoStatus } from '../../state/actions/videoPlayerActions';
+import { setVideoStatus } from '../../actions/videoPlayerActions';
 import { updateDimensions } from './Common';
 import videojs from 'video.js';
 import 'video.js/dist/video-js.min.css';
