@@ -28,8 +28,7 @@ class VideoJSPlayer extends Component {
         const newManifestUri = newProps.video.origin_o.item.component.url_s;
         this.player.src({
           src: newManifestUri,
-          type: 'application/x-mpegURL',
-          withCredentials: true
+          type: 'application/x-mpegURL'
         });
       }
     }
@@ -46,8 +45,11 @@ class VideoJSPlayer extends Component {
 
     player.src({
       src: manifestUri,
-      type: 'application/x-mpegURL',
-      withCredentials: true
+      type: 'application/x-mpegURL'
+    });
+
+    player.one('play', () => {
+      updateDimensions();
     });
 
     const playPause = (type) => {
