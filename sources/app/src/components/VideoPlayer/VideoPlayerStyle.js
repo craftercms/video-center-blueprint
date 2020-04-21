@@ -145,6 +145,7 @@ const VideoPlayerHolder = styled.div`
         opacity: 0;
         -webkit-transform: translateY(10%);
         transform: translateY(10%);
+        border: none;
     }
 
     .global-video-player--fixed .global-video-player__close {

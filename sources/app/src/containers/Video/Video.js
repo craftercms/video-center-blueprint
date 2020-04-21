@@ -71,15 +71,33 @@ class Video extends Component {
         'bool': {
           'filter': [
             {
-              'match': {
-                'content-type': '/component/youtube-video'
-              },
+              'bool': {
+                'should': [
+                  {
+                    'match': {
+                      'content-type': '/component/youtube-video'
+                    }
+                  },
+                  {
+                    'match': {
+                      'content-type': '/component/video-on-demand'
+                    }
+                  },
+                  {
+                    'match': {
+                      'content-type': '/component/stream'
+                    }
+                  }
+                ],
+              }
+            },
+            {
               'match': {
                 'objectId': videoId
               }
             }
           ]
-        },
+        }
       }
     };
 

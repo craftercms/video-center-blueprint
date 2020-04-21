@@ -96,9 +96,9 @@ class VideoPlayer extends Component {
                   >
                   </Link>
 
-                  <a className="global-video-player__close" onClick={this.unloadVideo.bind(this)}>
+                  <button className="global-video-player__close" onClick={this.unloadVideo.bind(this)}>
                     <FontAwesomeIcon icon={faTimes} />
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
