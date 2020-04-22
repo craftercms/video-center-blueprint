@@ -20,6 +20,9 @@ import { updateDimensions } from './Common';
 import videojs from 'video.js';
 import 'video.js/dist/video-js.min.css';
 import './videojs-theme.css';
+import 'videojs-youtube/dist/Youtube.min';
+import 'dashjs/dist/dash.all.min';
+import 'videojs-contrib-dash/dist/videojs-dash.min';
 
 class VideoJSPlayer extends Component {
 
@@ -37,29 +40,42 @@ class VideoJSPlayer extends Component {
     // new video Info -> load new manifestUri into player
     if (this.props.video && newProps.video) {
       if (this.props.video.id !== newProps.video.id) {
-        const newManifestUri = newProps.video.origin_o.item.component.url_s;
-        this.player.src({
-          src: newManifestUri,
-          type: 'application/x-mpegURL'
-        });
+        this.setPlayerSrc(this.player, newProps.video);
       }
     }
   }
 
+  setPlayerSrc(player, video) {
+    const contentType = video['content-type'];
+    let src, type;
+
+    if (contentType === '/component/youtube-video') {   // YOUTUBE
+      src = `https://www.youtube.com/watch?v=${video.youTubeVideo_s}`
+      type = 'video/youtube'
+    } else {
+      if (video.origin_o.item.component.url_s.includes('m3u8')) {   // HLS
+        src = video.origin_o.item.component.url_s;
+        type = 'application/x-mpegURL'
+      } else if(video.origin_o.item.component.url_s.includes('mpd')) {  // DASH
+        src = video.origin_o.item.component.url_s;
+        type = 'application/dash+xml'
+      }
+    }
+
+    player.src({
+      src,
+      type
+    });
+
+  }
+
   initPlayer() {
-
-    var manifestUri = this.props.video.origin_o.item.component.url_s;
-
     const player = videojs(this.refs.video, {
       controls: true,
       liveui: true
     });
 
-    player.src({
-      src: manifestUri,
-      type: 'application/x-mpegURL'
-    });
-
+    this.setPlayerSrc(player, this.props.video);
     player.one('play', () => {
       updateDimensions();
     });
@@ -91,7 +107,6 @@ class VideoJSPlayer extends Component {
           preload="auto"
           width="640"
           height="264"
-          muted
           autoPlay
           style={{ width: '100%', height: '100%', margin: 'auto' }}
           ref="video"
