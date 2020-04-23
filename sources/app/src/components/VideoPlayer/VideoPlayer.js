@@ -5,13 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 import VideoPlayerHolder from './VideoPlayerStyle';
-import ReactVideoPlayer from './ReactPlayer';
-import ShakaPlayer from './ShakaPlayer';
 
 import { setVideoInfo, setVideoStatus } from '../../actions/videoPlayerActions';
 import VideoJSPlayer from './VideoJSPlayer';
-
-var Player = {};
 
 class VideoPlayer extends Component {
   componentWillReceiveProps(newProps) {
@@ -44,23 +40,8 @@ class VideoPlayer extends Component {
     }
   }
 
-  loadVideo(videoInfo) {
-
-    const contentType = videoInfo['content-type'];
-    const videoType = (
-      contentType === '/component/youtube-video' ||
-      contentType === '/component/video-on-demand'
-    ) ? 'video' : 'stream';
-
-    Player = (videoType === 'video') ? ReactVideoPlayer : ShakaPlayer;
-    try {
-      Player = videoInfo.origin_o.item.component.url_s.includes('m3u8') ? VideoJSPlayer : Player;
-    } catch {
-
-    }
-
+  loadVideo() {
     this.props.dispatch(setVideoStatus({ ...this.props.videoStatus, loaded: true }));
-
   }
 
   unloadVideo() {
@@ -83,7 +64,7 @@ class VideoPlayer extends Component {
             >
               <div id="videoPlayerAspect" className="global-video-player__aspect">
                 <div className="global-video-player__inner">
-                  <Player
+                  <VideoJSPlayer
                     video={this.props.videoInfo}
                     videoStatus={this.props.videoStatus}
                     dispatch={this.props.dispatch}
@@ -96,9 +77,9 @@ class VideoPlayer extends Component {
                   >
                   </Link>
 
-                  <a className="global-video-player__close" onClick={this.unloadVideo.bind(this)}>
+                  <button className="global-video-player__close" onClick={this.unloadVideo.bind(this)}>
                     <FontAwesomeIcon icon={faTimes} />
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>

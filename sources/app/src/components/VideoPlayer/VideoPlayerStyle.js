@@ -145,6 +145,7 @@ const VideoPlayerHolder = styled.div`
         opacity: 0;
         -webkit-transform: translateY(10%);
         transform: translateY(10%);
+        border: none;
     }
 
     .global-video-player--fixed .global-video-player__close {
@@ -550,6 +551,14 @@ const VideoPlayerHolder = styled.div`
             stroke: #ffa700;
             }
         }
+    }
+
+    .video-js {
+      .vjs-control-bar {
+        .vjs-picture-in-picture-control, .vjs-audio-button {
+          display: none;*
+        }
+      }
     }
 `;
 
