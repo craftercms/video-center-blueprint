@@ -41,7 +41,7 @@ class Search extends Component {
     let value = newProps.match.params.query,
       newCategories = this.setCategories(value);
 
-    this.searchInput.value = value;
+    this.searchInput.value = value ?? '';
     this.setState({ categories: newCategories });
   }
 
