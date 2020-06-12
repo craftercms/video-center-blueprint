@@ -105,9 +105,10 @@ class Video extends Component {
   }
 
   setVideo(searchResult) {
-    var { setVideoInfo } = this.props;
+    const { setVideoInfo } = this.props;
+    const totalResults = Number.isInteger(searchResult.total) ?  searchResult.total : searchResult.total.value;
 
-    if (searchResult.total > 0) {
+    if (totalResults > 0) {
       var video = searchResult.hits[0]._source,
         categories = [],
         upcomingVideoHero = [],
