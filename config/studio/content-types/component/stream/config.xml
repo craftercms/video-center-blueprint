@@ -30,8 +30,8 @@
 	<file-extension>xml</file-extension>
 	<content-as-folder>false</content-as-folder>
 	<previewable>false</previewable>
-    <quickCreate>false</quickCreate>
-    <quickCreatePath></quickCreatePath>
+	<quickCreate>true</quickCreate>
+	<quickCreatePath>/site/streams</quickCreatePath>
 	<noThumbnail>true</noThumbnail>
 	<image-thumbnail></image-thumbnail>
 	<paths>
