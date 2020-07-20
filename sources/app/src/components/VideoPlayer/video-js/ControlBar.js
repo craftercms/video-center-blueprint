@@ -2,6 +2,7 @@
  * @file control-bar.js
  */
 import videojs from 'video.js';
+import './AdvanceUIButton';
 
 const Component = videojs.getComponent('ControlBar');
 
@@ -22,7 +23,8 @@ ControlBar.prototype.options_ = {
     'descriptionsButton',
     'subsCapsButton',
     'audioTrackButton',
-    'fullscreenToggle'
+    'fullscreenToggle',
+    'advanceUIButton'
   ]
 };
 
@@ -33,6 +35,8 @@ if ('exitPictureInPicture' in document) {
     'pictureInPictureToggle'
   );
 }
+
+console.log('holita');
 
 Component.registerComponent('CustomControlBar', ControlBar);
 
