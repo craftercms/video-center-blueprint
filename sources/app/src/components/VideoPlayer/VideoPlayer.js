@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-
 import VideoPlayerHolder from './VideoPlayerStyle';
-
 import { setVideoInfo, setVideoStatus } from '../../actions/videoPlayerActions';
 import VideoJSPlayer from './VideoJSPlayer';
 
