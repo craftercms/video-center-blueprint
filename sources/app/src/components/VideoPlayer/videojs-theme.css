@@ -25,7 +25,11 @@
 }
 
 .vjs-theme-vc .vjs-big-play-button .vjs-icon-placeholder {
-  display: none
+  /*display: none*/
+}
+
+.video-js .vjs-current-time, .vjs-no-flex .vjs-current-time {
+  display: inherit;
 }
 
 .vjs-theme-vc .vjs-button > .vjs-icon-placeholder:before {
@@ -144,7 +148,7 @@
 }
 
 .vjs-theme-vc .vjs-play-progress:before {
-  display: none
+  top: -2px
 }
 
 .vjs-theme-vc .vjs-progress-holder {

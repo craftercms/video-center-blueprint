@@ -18,11 +18,13 @@ import React, { Component } from 'react';
 import { setVideoStatus } from '../../actions/videoPlayerActions';
 import { updateDimensions } from './Common';
 import videojs from 'video.js';
+import AdvancedControlsBar from './AdvancedControlsBar';
 import 'video.js/dist/video-js.min.css';
 import './videojs-theme.css';
 import 'videojs-youtube/dist/Youtube.min';
 import 'dashjs/dist/dash.all.min';
 import 'videojs-contrib-dash/dist/videojs-dash.min';
+import './video-js/ControlBar';
 
 class VideoJSPlayer extends Component {
 
@@ -72,7 +74,20 @@ class VideoJSPlayer extends Component {
   initPlayer() {
     const player = videojs(this.refs.video, {
       controls: true,
-      liveui: true
+      liveui: true,
+      // responsive: true,
+      children: [
+        'mediaLoader',
+        'posterImage',
+        'textTrackDisplay',
+        'loadingSpinner',
+        'bigPlayButton',
+        'liveTracker',
+        'customControlBar',
+        'errorDisplay',
+        'textTrackSettings',
+        'resizeManager'
+      ]
     });
 
     this.setPlayerSrc(player, this.props.video);
@@ -96,28 +111,31 @@ class VideoJSPlayer extends Component {
 
   render() {
     return (
-      <div
-        id="videoContainer"
-        className="player-container stream-player"
-        style={{ margin: '0 auto' }}
-      >
-        <video
-          className="video-js vjs-theme-vc"
-          controls
-          preload="auto"
-          width="640"
-          height="264"
-          autoPlay
-          style={{ width: '100%', height: '100%', margin: 'auto' }}
-          ref="video"
+      <>
+        <div
+          id="videoContainer"
+          className="player-container stream-player"
+          style={{ margin: '0 auto' }}
         >
-          <p className="vjs-no-js">
-            To view this video please enable JavaScript, and consider upgrading to a
-            web browser that
-            <a href="https://videojs.com/html5-video-support/" target="_blank" rel="noopener noreferrer">supports HTML5 video</a>
-          </p>
-        </video>
-      </div>
+          <video
+            className="video-js vjs-theme-vc"
+            controls
+            preload="auto"
+            width="640"
+            height="264"
+            autoPlay
+            style={{ width: '100%', height: '100%', margin: 'auto' }}
+            ref="video"
+          >
+            <p className="vjs-no-js">
+              To view this video please enable JavaScript, and consider upgrading to a
+              web browser that
+              <a href="https://videojs.com/html5-video-support/" target="_blank" rel="noopener noreferrer">supports HTML5 video</a>
+            </p>
+          </video>
+        </div>
+        <AdvancedControlsBar />
+      </>
     );
   }
 }
