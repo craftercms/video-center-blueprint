@@ -12,7 +12,7 @@ const Component = videojs.getComponent('Component');
  *
  * @extends Button
  */
-class AdvanceUIButton extends Button {
+class AdvancedUIButton extends Button {
 
   /**
    * Creates an instance of this class.
@@ -49,7 +49,7 @@ class AdvanceUIButton extends Button {
    * @listens click
    */
   handleClick(event) {
-    console.log('clicked')
+    this.player_.trigger('openAdvancedUI');
   }
 
 }
@@ -60,8 +60,8 @@ class AdvanceUIButton extends Button {
  * @type {string}
  * @private
  */
-AdvanceUIButton.prototype.controlText_ = 'AdvanceUIButton';
+AdvancedUIButton.prototype.controlText_ = 'AdvancedUIButton';
 
-Component.registerComponent('AdvanceUIButton', AdvanceUIButton);
+Component.registerComponent('AdvancedUIButton', AdvancedUIButton);
 
-export default AdvanceUIButton;
+export default AdvancedUIButton;

@@ -2,7 +2,7 @@
  * @file control-bar.js
  */
 import videojs from 'video.js';
-import './AdvanceUIButton';
+import './AdvancedUIButton';
 
 const Component = videojs.getComponent('ControlBar');
 
@@ -24,7 +24,7 @@ ControlBar.prototype.options_ = {
     'subsCapsButton',
     'audioTrackButton',
     'fullscreenToggle',
-    'advanceUIButton'
+    'advancedUIButton'
   ]
 };
 

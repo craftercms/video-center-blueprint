@@ -173,3 +173,7 @@
   cursor: pointer;
 }
 
+.vjs-theme-vc .hidden {
+  display: none
+}
+

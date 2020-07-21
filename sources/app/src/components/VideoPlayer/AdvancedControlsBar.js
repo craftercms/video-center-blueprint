@@ -137,13 +137,35 @@ export default function (props) {
           </IconButton>
           <section className={classes.grow}>
             <div className={classes.fabButtons}>
-              <Fab color="primary" aria-label="" size="small" className={classes.fabButton}>
+              <Fab
+                color="primary"
+                aria-label=""
+                size="small"
+                className={classes.fabButton}
+                onClick={onSkipBack}
+              >
                 <Replay10Rounded />
               </Fab>
-              <Fab color="primary" aria-label="" size="medium" className={classes.fabButton}>
-                {isPlaying ? <PauseRounded /> : <PlayArrowRounded />}
+              <Fab
+                color="primary"
+                aria-label=""
+                size="medium"
+                className={classes.fabButton}
+                onClick={onTogglePlay}
+              >
+                {
+                  isPlaying
+                    ? <PauseRounded />
+                    : <PlayArrowRounded />
+                }
               </Fab>
-              <Fab color="primary" aria-label="" size="small" className={classes.fabButton}>
+              <Fab
+                color="primary"
+                aria-label=""
+                size="small"
+                className={classes.fabButton}
+                onClick={onSkipForward}
+              >
                 <Forward10Rounded />
               </Fab>
             </div>
@@ -173,7 +195,11 @@ export default function (props) {
         {playbackSpeeds.map(speed =>
           <MenuItem
             key={speed.value}
-            onClick={closePlaybackSpeedMenu}
+            selected={speed.value === playbackSpeed}
+            onClick={() => {
+              onSetPlaybackSpeed(speed.value);
+              closePlaybackSpeedMenu();
+            }}
             children={speed.label}
           />
         )}
@@ -191,6 +217,7 @@ export default function (props) {
           min={0}
           step={1}
           max={100}
+          onChange={(e, volume) => onSetVolume(volume)}
         />
       </Menu>
     </ThemeProvider>

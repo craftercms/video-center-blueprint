@@ -52,15 +52,15 @@ class VideoJSPlayer extends Component {
     let src, type;
 
     if (contentType === '/component/youtube-video') {   // YOUTUBE
-      src = `https://www.youtube.com/watch?v=${video.youTubeVideo_s}`
-      type = 'video/youtube'
+      src = `https://www.youtube.com/watch?v=${video.youTubeVideo_s}`;
+      type = 'video/youtube';
     } else {
       if (video.origin_o.item.component.url_s.includes('m3u8')) {   // HLS
         src = video.origin_o.item.component.url_s;
-        type = 'application/x-mpegURL'
-      } else if(video.origin_o.item.component.url_s.includes('mpd')) {  // DASH
+        type = 'application/x-mpegURL';
+      } else if (video.origin_o.item.component.url_s.includes('mpd')) {  // DASH
         src = video.origin_o.item.component.url_s;
-        type = 'application/dash+xml'
+        type = 'application/dash+xml';
       }
     }
 
@@ -97,6 +97,7 @@ class VideoJSPlayer extends Component {
 
     const playPause = (type) => {
       const playing = (type === 'play');
+      this.setState({ ...this.state, isPlaying: playing });
       this.props.dispatch(setVideoStatus({ ...this.props.videoStatus, playing }));
     };
 
@@ -104,9 +105,41 @@ class VideoJSPlayer extends Component {
       player.on(e, () => playPause(e));
     });
 
+    player.on('openAdvancedUI', () => {
+      player.customControlBar.addClass('hidden');
+      this.setState({ ...this.state, openAdvancedUI: true });
+    });
+
+    player.on('volumechange', () => {
+      this.setState({ ...this.state, volume: this.player.volume() * 100 });
+    });
+
     this.props.dispatch(setVideoStatus({ ...this.props.videoStatus, playing: true }));
     this.player = player;
 
+  }
+
+  onTogglePlay() {
+    if (this.player.paused()) {
+      this.player.play();
+    } else {
+      this.player.pause();
+    }
+  }
+
+  seek(secs) {
+    let time = this.player.currentTime() + secs;
+    this.player.currentTime(time < 0 ? 0 : time);
+  }
+
+  onSetVolume(nextVolume) {
+    let volume = nextVolume / 100;
+    this.player.volume(volume);
+  }
+
+  onSetPlaybackSpeed(speed) {
+    this.setState({ ...this.state, playbackSpeed: speed });
+    this.player.playbackRate(speed);
   }
 
   render() {
@@ -130,11 +163,24 @@ class VideoJSPlayer extends Component {
             <p className="vjs-no-js">
               To view this video please enable JavaScript, and consider upgrading to a
               web browser that
-              <a href="https://videojs.com/html5-video-support/" target="_blank" rel="noopener noreferrer">supports HTML5 video</a>
+              <a
+                href="https://videojs.com/html5-video-support/" target="_blank"
+                rel="noopener noreferrer"
+              >supports HTML5 video</a>
             </p>
           </video>
         </div>
-        <AdvancedControlsBar />
+        {/*this.state?.openAdvancedUI &&*/}
+        <AdvancedControlsBar
+          onSkipForward={() => this.seek(10)}
+          onSkipBack={() => this.seek(-10)}
+          isPlaying={this.state?.isPlaying}
+          onTogglePlay={() => this.onTogglePlay()}
+          onSetVolume={(volume) => this.onSetVolume(volume)}
+          volume={this.state?.volume ? this.state.volume : this.player?.volume() * 100}
+          onSetPlaybackSpeed={(speed) => this.onSetPlaybackSpeed(speed)}
+          playbackSpeed={this.state?.playbackSpeed ? this.state.playbackSpeed : this.player?.playbackSpeed}
+        />
       </>
     );
   }
