@@ -11,6 +11,7 @@ import Slider from '@material-ui/core/Slider';
 import Replay10Rounded from '@material-ui/icons/Replay10Rounded';
 import Forward10Rounded from '@material-ui/icons/Forward10Rounded';
 import ContentCutRounded from '../Icons/ContentCutRounded';
+import FullscreenRoundedIcon from '@material-ui/icons/FullscreenRounded';
 import PhotoCameraRoundedIcon from '@material-ui/icons/PhotoCameraRounded';
 import FiberManualRecordRoundedIcon from '@material-ui/icons/FiberManualRecordRounded';
 import SpeedRoundedIcon from '@material-ui/icons/SpeedRounded';
@@ -31,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   fabButtons: {
-    width: 150,
+    width: 260,
     display: 'flex',
     margin: '0 auto',
     alignItems: 'center',
@@ -84,11 +85,13 @@ export default function (props) {
     onTogglePlay,
     onSkipForward,
     onSkipBack,
+    onFullScreen,
     onSeekTo,
     onClip,
     onScreenCapture,
     onRecord,
     onSetVolume,
+    onSetTime,
     onSetPlaybackSpeed,
     isRecording = 1,
     isPlaying,
@@ -96,7 +99,8 @@ export default function (props) {
     volume = 60,
     playbackSpeed = 1,
     playbackSpeeds = SPEEDS,
-    time = 60
+    time = 60,
+    duration,
   } = props;
   const classes = useStyles();
   const theme = useMemo(() => createMuiTheme({
@@ -113,6 +117,7 @@ export default function (props) {
   const [volumeMenu, setVolumeMenu] = useState(null);
   const closePlaybackSpeedMenu = () => setPlaybackSpeedMenu(null);
   const closeVolumeMenu = () => setVolumeMenu(null);
+
   return (
     <ThemeProvider theme={theme}>
       <AppBar color="default" position={position} className={classes.appBar}>
@@ -120,11 +125,12 @@ export default function (props) {
           <Slider
             min={0}
             step={1}
-            max={100}
+            max={duration}
             value={time}
             valueLabelDisplay="auto"
             ValueLabelComponent={ValueLabelComponent}
             className={classes.slider}
+            onChange={(e, time) => onSetTime(time)}
           />
           <IconButton aria-label="">
             <PhotoCameraRoundedIcon />
@@ -137,6 +143,9 @@ export default function (props) {
           </IconButton>
           <section className={classes.grow}>
             <div className={classes.fabButtons}>
+              <IconButton aria-label="" onClick={(e) => setVolumeMenu(e.currentTarget)}>
+                <VolumeUpRoundedIcon />
+              </IconButton>
               <Fab
                 color="primary"
                 aria-label=""
@@ -168,11 +177,11 @@ export default function (props) {
               >
                 <Forward10Rounded />
               </Fab>
+              <IconButton aria-label="" onClick={onFullScreen}>
+                <FullscreenRoundedIcon />
+              </IconButton>
             </div>
           </section>
-          <IconButton aria-label="" onClick={(e) => setVolumeMenu(e.currentTarget)}>
-            <VolumeUpRoundedIcon />
-          </IconButton>
           <IconButton aria-label="" onClick={(e) => setPlaybackSpeedMenu(e.currentTarget)}>
             <SpeedRoundedIcon />
           </IconButton>
@@ -233,7 +242,7 @@ function ValueLabelComponent(props) {
       classes={{ tooltip: classes.tooltip }}
       title={
         <>
-          <img className={classes.img} src="https://placekitten.com/g/200/150" alt="" />
+          {/*<img className={classes.img} src="https://placekitten.com/g/200/150" alt="" />*/}
           <Typography className={classes.label}>{value}</Typography>
         </>
       }

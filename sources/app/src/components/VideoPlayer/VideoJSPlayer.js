@@ -28,6 +28,16 @@ import './video-js/ControlBar';
 
 class VideoJSPlayer extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      volume: 1,
+      playbackSpeed: 1,
+      isPlaying: props.videoStatus.playing,
+      time: 0
+    };
+  }
+
   componentDidMount() {
     this.props.video && this.initPlayer();
     window.addEventListener('resize', updateDimensions);
@@ -110,10 +120,16 @@ class VideoJSPlayer extends Component {
       this.setState({ openAdvancedUI: true });
     });
 
-    //player.on timeChange?
+    player.on('timeupdate', () => {
+      this.setState({ time: this.player.currentTime() });
+    });
 
     player.on('volumechange', () => {
       this.setState({ volume: this.player.volume() });
+    });
+
+    player.on('loadedmetadata', () => {
+      this.setState({ duration: player.duration() });
     });
 
     this.props.dispatch(setVideoStatus({ ...this.props.videoStatus, playing: true }));
@@ -129,6 +145,14 @@ class VideoJSPlayer extends Component {
     }
   };
 
+  onFullScreen = () => {
+    if (!this.player.isFullscreen()) {
+      this.player.requestFullscreen();
+    } else {
+      this.player.exitFullscreen();
+    }
+  };
+
   seek(secs) {
     let time = this.player.currentTime() + secs;
     this.player.currentTime(time < 0 ? 0 : time);
@@ -141,6 +165,11 @@ class VideoJSPlayer extends Component {
   onSetPlaybackSpeed = (speed) => {
     this.setState({ playbackSpeed: speed });
     this.player.playbackRate(speed);
+  };
+
+  onSetTime = (time) => {
+    this.setState({ time });
+    this.player.currentTime(time);
   };
 
   render() {
@@ -177,10 +206,14 @@ class VideoJSPlayer extends Component {
           onSkipBack={() => this.seek(-10)}
           isPlaying={this.state?.isPlaying}
           onTogglePlay={this.onTogglePlay}
+          onFullScreen={this.onFullScreen}
           onSetVolume={this.onSetVolume}
-          volume={this.state?.volume ? this.state.volume : this.player?.volume()}
+          onSetTime={this.onSetTime}
+          volume={this.state.volume}
           onSetPlaybackSpeed={this.onSetPlaybackSpeed}
-          playbackSpeed={this.state?.playbackSpeed ? this.state.playbackSpeed : this.player?.playbackSpeed}
+          playbackSpeed={this.state.playbackSpeed}
+          duration={this.state.duration}
+          time={this.state.time}
         />
       </>
     );
