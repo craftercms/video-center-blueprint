@@ -36,8 +36,6 @@ if ('exitPictureInPicture' in document) {
   );
 }
 
-console.log('holita');
-
 Component.registerComponent('CustomControlBar', ControlBar);
 
 export default ControlBar;
