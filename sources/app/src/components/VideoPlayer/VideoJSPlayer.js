@@ -97,7 +97,7 @@ class VideoJSPlayer extends Component {
 
     const playPause = (type) => {
       const playing = (type === 'play');
-      this.setState({ ...this.state, isPlaying: playing });
+      this.setState({ isPlaying: playing });
       this.props.dispatch(setVideoStatus({ ...this.props.videoStatus, playing }));
     };
 
@@ -107,11 +107,13 @@ class VideoJSPlayer extends Component {
 
     player.on('openAdvancedUI', () => {
       player.customControlBar.addClass('hidden');
-      this.setState({ ...this.state, openAdvancedUI: true });
+      this.setState({ openAdvancedUI: true });
     });
 
+    //player.on timeChange?
+
     player.on('volumechange', () => {
-      this.setState({ ...this.state, volume: this.player.volume() * 100 });
+      this.setState({ volume: this.player.volume() });
     });
 
     this.props.dispatch(setVideoStatus({ ...this.props.videoStatus, playing: true }));
@@ -119,28 +121,27 @@ class VideoJSPlayer extends Component {
 
   }
 
-  onTogglePlay() {
+  onTogglePlay = () => {
     if (this.player.paused()) {
       this.player.play();
     } else {
       this.player.pause();
     }
-  }
+  };
 
   seek(secs) {
     let time = this.player.currentTime() + secs;
     this.player.currentTime(time < 0 ? 0 : time);
   }
 
-  onSetVolume(nextVolume) {
-    let volume = nextVolume / 100;
+  onSetVolume = (volume) => {
     this.player.volume(volume);
-  }
+  };
 
-  onSetPlaybackSpeed(speed) {
-    this.setState({ ...this.state, playbackSpeed: speed });
+  onSetPlaybackSpeed = (speed) => {
+    this.setState({ playbackSpeed: speed });
     this.player.playbackRate(speed);
-  }
+  };
 
   render() {
     return (
@@ -175,10 +176,10 @@ class VideoJSPlayer extends Component {
           onSkipForward={() => this.seek(10)}
           onSkipBack={() => this.seek(-10)}
           isPlaying={this.state?.isPlaying}
-          onTogglePlay={() => this.onTogglePlay()}
-          onSetVolume={(volume) => this.onSetVolume(volume)}
-          volume={this.state?.volume ? this.state.volume : this.player?.volume() * 100}
-          onSetPlaybackSpeed={(speed) => this.onSetPlaybackSpeed(speed)}
+          onTogglePlay={this.onTogglePlay}
+          onSetVolume={this.onSetVolume}
+          volume={this.state?.volume ? this.state.volume : this.player?.volume()}
+          onSetPlaybackSpeed={this.onSetPlaybackSpeed}
           playbackSpeed={this.state?.playbackSpeed ? this.state.playbackSpeed : this.player?.playbackSpeed}
         />
       </>

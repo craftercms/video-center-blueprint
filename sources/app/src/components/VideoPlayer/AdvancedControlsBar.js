@@ -215,8 +215,8 @@ export default function (props) {
           orientation="vertical"
           value={volume}
           min={0}
-          step={1}
-          max={100}
+          step={0.1}
+          max={1}
           onChange={(e, volume) => onSetVolume(volume)}
         />
       </Menu>
