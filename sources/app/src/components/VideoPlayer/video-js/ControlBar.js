@@ -6,7 +6,8 @@ import './AdvancedUIButton';
 
 const Component = videojs.getComponent('ControlBar');
 
-class ControlBar extends Component {}
+class ControlBar extends Component {
+}
 
 ControlBar.prototype.options_ = {
   children: [
