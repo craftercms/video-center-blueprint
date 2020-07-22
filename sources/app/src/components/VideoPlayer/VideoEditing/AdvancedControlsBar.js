@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -16,6 +16,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import ChatRoundedIcon from '@material-ui/icons/ChatRounded';
 import { Tooltip } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
+import videojs from 'video.js';
 import ClipDialog from './ClipDialog';
 import BasicControls from './BasicControls';
 
@@ -97,166 +98,110 @@ export default function (props) {
   const [openClipDialog, setOpenClipDialog] = useState(false);
 
   return (
-    < ThemeProvider;
-  theme = { theme } >
-    < AppBar;
-  color = 'default';
-  position = { position };
-  className = { classes.appBar } >
-    < Toolbar >
-    < Slider;
-  min = { 0 };
-  step = { 1 };
-  max = { duration };
-  value = { time };
-  valueLabelDisplay = 'auto';
-  ValueLabelComponent = { ValueLabelComponent };
-  className = { classes.slider };
-  onChange = {(e, time);
-=>
-  onSetTime(time);
-}
-  />
-  < IconButton;
-  aria - label = '' >
-    < PhotoCameraRoundedIcon / >
-    < /IconButton>
-    < IconButton;
-  aria - label = '';
-  className = { isRecording ? classes.recordingActive : null } >
-    < FiberManualRecordRoundedIcon / >
-    < /IconButton>
-    < IconButton;
-  aria - label = '';
-  onClick = {();
-=>
-  setOpenClipDialog(true);
-}>
-<
-  ContentCutRounded / >
-  < /IconButton>
-  < IconButton;
-  aria - label = '' >
-    < LocalOfferOutlinedIcon / >
-    < /IconButton>
-    < BasicControls;
-  onSkipBack = { onSkipBack };
-  onTogglePlay = { onTogglePlay };
-  isPlaying = { isPlaying };
-  onSkipForward = { onSkipForward };
-  onFullScreen = { onFullScreen };
-  volume = { volume };
-  onSetVolume = { onSetVolume };
-  />
-  < IconButton;
-  aria - label = '';
-  onClick = {(e);
-=>
-  setPlaybackSpeedMenu(e.currentTarget);
-}>
-<
-  SpeedRoundedIcon / >
-  < /IconButton>
-  < IconButton;
-  aria - label = '' >
-    < SearchRounded / >
-    < /IconButton>
-    < IconButton;
-  aria - label = '' >
-    < ChatRoundedIcon / >
-    < /IconButton>
-    < IconButton;
-  aria - label = '';
-  onClick = {(e);
-=>
-  setSettingsMenu(e.currentTarget);
-}>
-<
-  MoreVertRounded / >
-  < /IconButton>
-  < /Toolbar>
-  < /AppBar>
-  < Menu;
-  anchorEl = { settingsMenu };
-  open = { Boolean(settingsMenu) };
-  onClose = { closeSettingsMenu }
-    >
-    < MenuItem;
-  onClick = {();
-=>
-  {
-    onBackToSimpleMenu();
-    closeSettingsMenu();
-  }
-}
->
-  Back;
-  to;
-  simple;
-  menu
-  < /MenuItem>
-  < /Menu>
-  < Menu;
-  anchorEl = { playbackSpeedMenu };
-  open = { Boolean(playbackSpeedMenu) };
-  onClose = { closePlaybackSpeedMenu }
-    >
-    {
-      playbackSpeeds.map(speed =>
-        < MenuItem
-      key = { speed.value }
-      selected = { speed.value === playbackSpeed }
-      onClick = {()
-=>
-  {
-    onSetPlaybackSpeed(speed.value);
-    closePlaybackSpeedMenu();
-  }
-}
-  children = { speed.label };
-  />;
-)
-}
-<
-  /Menu>
-  < ClipDialog;
-  open = { true };
-  onClose = {();
-=>
-  setOpenClipDialog(false);
-}
-  video = { video };
-  />
-  < /ThemeProvider>;
-)
-  ;
+    <ThemeProvider theme={theme}>
+      <AppBar color="default" position={position} className={classes.appBar}>
+        <Toolbar>
+          <Slider
+            min={0}
+            step={1}
+            max={duration}
+            value={time}
+            valueLabelDisplay="auto"
+            ValueLabelComponent={ValueLabelComponent}
+            className={classes.slider}
+            onChange={(e, time) => onSetTime(time)}
+          />
+          <IconButton aria-label="">
+            <PhotoCameraRoundedIcon />
+          </IconButton>
+          <IconButton aria-label="" className={isRecording ? classes.recordingActive : null}>
+            <FiberManualRecordRoundedIcon />
+          </IconButton>
+          <IconButton aria-label="" onClick={() => setOpenClipDialog(true)}>
+            <ContentCutRounded />
+          </IconButton>
+          <IconButton aria-label="">
+            <LocalOfferOutlinedIcon />
+          </IconButton>
+          <BasicControls
+            onSkipBack={onSkipBack}
+            onTogglePlay={onTogglePlay}
+            isPlaying={isPlaying}
+            onSkipForward={onSkipForward}
+            onFullScreen={onFullScreen}
+            volume={volume}
+            onSetVolume={onSetVolume}
+          />
+          <IconButton aria-label="" onClick={(e) => setPlaybackSpeedMenu(e.currentTarget)}>
+            <SpeedRoundedIcon />
+          </IconButton>
+          <IconButton aria-label="">
+            <SearchRounded />
+          </IconButton>
+          <IconButton aria-label="">
+            <ChatRoundedIcon />
+          </IconButton>
+          <IconButton aria-label="" onClick={(e) => setSettingsMenu(e.currentTarget)}>
+            <MoreVertRounded />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+      <Menu
+        anchorEl={settingsMenu}
+        open={Boolean(settingsMenu)}
+        onClose={closeSettingsMenu}
+      >
+        <MenuItem
+          onClick={() => {
+            onBackToSimpleMenu();
+            closeSettingsMenu();
+          }}
+        >
+          Back to simple menu
+        </MenuItem>
+      </Menu>
+      <Menu
+        anchorEl={playbackSpeedMenu}
+        open={Boolean(playbackSpeedMenu)}
+        onClose={closePlaybackSpeedMenu}
+      >
+        {playbackSpeeds.map(speed =>
+          <MenuItem
+            key={speed.value}
+            selected={speed.value === playbackSpeed}
+            onClick={() => {
+              onSetPlaybackSpeed(speed.value);
+              closePlaybackSpeedMenu();
+            }}
+            children={speed.label}
+          />
+        )}
+      </Menu>
+      <ClipDialog
+        open={true}
+        onClose={() => setOpenClipDialog(false)}
+        video={video}
+      />
+    </ThemeProvider>
+  );
 }
 
 function ValueLabelComponent(props) {
   const { children, open, value } = props;
   const classes = valueLabelStyles();
   return (
-    < Tooltip;
-  open = { open };
-  classes = {
-  {
-    tooltip: classes.tooltip;
-  }
-}
-  title = {
-    < >
-    < Typography;
-  className = { classes.label } > { videojs.formatTime(value) } < /Typography>
-    < />;
-}
->
-  {
-    children;
-  }
-<
-  /Tooltip>;
-)
-  ;
+    <Tooltip
+      open={open}
+      classes={{ tooltip: classes.tooltip }}
+      title={
+        <>
+          <Typography className={classes.label}>{videojs.formatTime(value)}</Typography>
+        </>
+      }
+    >
+      {children}
+    </Tooltip>
+  );
 }
 
 

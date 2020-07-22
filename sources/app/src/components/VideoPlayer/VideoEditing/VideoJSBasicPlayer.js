@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import videojs from 'video.js';
 import { setPlayerSrc } from '../VideoJSPlayer';
 import makeStyles from '@material-ui/core/styles/makeStyles';
@@ -65,74 +65,38 @@ export default function VideoJSBasicPlayer(props) {
   };
 
   return (
-    < div >
-    < div;
-  className = { classes.videoWrapper } >
-    < video;
-  className = 'video-js vjs-theme-vc';
-  //controls
-  preload = 'auto';
-  width = '580';
-  height = '380';
-  //autoPlay
-  style = {
-  {
-    width: '100%', height;
-  :
-    '100%', margin;
-  :
-    'auto';
-  }
-}
-  ref = { ref }
-    >
-    < p;
-  className = 'vjs-no-js' >
-    To;
-  view;
-  this;
-  video;
-  please;
-  enable;
-  JavaScript, and;
-  consider;
-  upgrading;
-  to;
-  a;
-  web;
-  browser;
-  that
-  < a;
-  href = 'https://videojs.com/html5-video-support/';
-  target = '_blank';
-  rel = 'noopener noreferrer'
-    > supports;
-  HTML5;
-  video < /a>
-  < /p>
-  < /video>
-  < /div>
-  < BasicControls;
-  classes = {
-  {
-    grow: classes.grow;
-  }
-}
-  onSkipBack = {();
-=>
-  seek(-10);
-}
-  onTogglePlay = { onTogglePlay };
-  isPlaying = { isPlaying };
-  onSkipForward = {();
-=>
-  seek(10);
-}
-  onFullScreen = { onFullScreen };
-  volume = { volume };
-  onSetVolume = { onSetVolume };
-  />
-  < /div>;
-)
-  ;
+    <div>
+      <div className={classes.videoWrapper}>
+        <video
+          className="video-js vjs-theme-vc"
+          //controls
+          preload="auto"
+          width="580"
+          height="380"
+          //autoPlay
+          style={{ width: '100%', height: '100%', margin: 'auto' }}
+          ref={ref}
+        >
+          <p className="vjs-no-js">
+            To view this video please enable JavaScript, and consider upgrading to a
+            web browser that
+            <a
+              href="https://videojs.com/html5-video-support/" target="_blank"
+              rel="noopener noreferrer"
+            >supports HTML5 video</a>
+          </p>
+        </video>
+      </div>
+      <BasicControls
+        classes={{ grow: classes.grow }}
+        onSkipBack={() => seek(-10)}
+        onTogglePlay={onTogglePlay}
+        isPlaying={isPlaying}
+        onSkipForward={() => seek(10)}
+        onFullScreen={onFullScreen}
+        volume={volume}
+        onSetVolume={onSetVolume}
+      />
+    </div>
+  );
 }
