@@ -555,9 +555,7 @@ const VideoPlayerHolder = styled.div`
 
 .video-js {
   .vjs-control-bar {
-    .vjs-picture-in-picture-control, .vjs-audio-button {
-      display: none;
-    }
+
   }
 }
 `;

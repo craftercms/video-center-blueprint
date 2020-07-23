@@ -10,7 +10,7 @@ import PhotoCameraRoundedIcon from '@material-ui/icons/PhotoCameraRounded';
 import FiberManualRecordRoundedIcon from '@material-ui/icons/FiberManualRecordRounded';
 import SpeedRoundedIcon from '@material-ui/icons/SpeedRounded';
 import LocalOfferOutlinedIcon from '@material-ui/icons/LocalOfferOutlined';
-import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme, makeStyles } from '@material-ui/core/styles';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import ChatRoundedIcon from '@material-ui/icons/ChatRounded';
@@ -66,16 +66,6 @@ export default function (props) {
     video
   } = props;
   const classes = useStyles();
-  const theme = useMemo(() => createMuiTheme({
-    typography: { fontSize: 18 },
-    palette: {
-      type: 'dark',
-      primary: {
-        main: '#f00',
-        contrastText: '#FFFFFF'
-      }
-    }
-  }), []);
   const [playbackSpeedMenu, setPlaybackSpeedMenu] = useState(null);
   const [settingsMenu, setSettingsMenu] = useState(null);
   const closePlaybackSpeedMenu = () => setPlaybackSpeedMenu(null);
@@ -83,7 +73,7 @@ export default function (props) {
   const [openClipDialog, setOpenClipDialog] = useState(false);
 
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <AppBar color="default" position={position} className={classes.appBar}>
         <Toolbar>
           <Slider
@@ -151,6 +141,20 @@ export default function (props) {
         </MenuItem>
       </Menu>
       <Menu
+        anchorEl={settingsMenu}
+        open={Boolean(settingsMenu)}
+        onClose={closeSettingsMenu}
+      >
+        <MenuItem
+          onClick={() => {
+            onBackToSimpleMenu();
+            closeSettingsMenu();
+          }}
+        >
+          Back to simple menu
+        </MenuItem>
+      </Menu>
+      <Menu
         anchorEl={playbackSpeedMenu}
         open={Boolean(playbackSpeedMenu)}
         onClose={closePlaybackSpeedMenu}
@@ -168,12 +172,14 @@ export default function (props) {
         )}
       </Menu>
       <ClipDialog
-        open={true}
+        open={openClipDialog}
         onClose={() => setOpenClipDialog(false)}
         video={video}
       />
-    </ThemeProvider>
+    </>
   );
 }
+
+
 
 

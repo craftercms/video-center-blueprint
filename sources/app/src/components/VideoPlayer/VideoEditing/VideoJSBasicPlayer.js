@@ -1,53 +1,56 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import videojs from 'video.js';
-import { setPlayerSrc } from '../VideoJSPlayer';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   videoWrapper: {
-    width: '580px',
-    height: '380px',
-    margin: 'auto'
+    width: '100%',
+    minHeight: '380px',
+    margin: 'auto',
+    background: '#000'
   },
+  video: {
+    maxWidth: '100%'
+  }
 }));
 
 export default function VideoJSBasicPlayer(props) {
-  const ref = useRef(null);
-  const { id, video } = props;
+  const { id, options = {} } = props;
   const classes = useStyles();
 
   useEffect(() => {
-    if (id && video) {
-      const player = videojs(id, {});
-      setPlayerSrc(player, video);
-      return () => {
-        player.dispose();
-      };
-    }
-  }, [id, video]);
+    videojs(id, {
+      liveui: true,
+      responsive: true,
+      ...options
+    });
+    return () => {
+      const p = videojs.getPlayer(id);
+      p && p.dispose();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className={classes.videoWrapper}>
       <video
         id={id}
-        className="video-js vjs-theme-vc"
+        className={`video-js vjs-theme-vc ${classes.video}`}
         preload="auto"
         autoPlay
-        width="580"
-        height="380"
-        style={{ width: '100%', height: '100%', margin: 'auto' }}
-        ref={ref}
       >
         <p className="vjs-no-js">
           To view this video please enable JavaScript, and consider upgrading to a
           web browser that
           <a
-            href="https://videojs.com/html5-video-support/" target="_blank"
+            target="_blank"
+            href="https://videojs.com/html5-video-support/"
             rel="noopener noreferrer"
-          >supports HTML5 video</a>
+          >
+            supports HTML5 video
+          </a>
         </p>
       </video>
     </div>
-
   );
 }

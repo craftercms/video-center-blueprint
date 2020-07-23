@@ -196,7 +196,7 @@ class VideoJSPlayer extends Component {
             preload="auto"
             width="640"
             height="264"
-            //autoPlay
+            autoPlay
             style={{ width: '100%', height: '100%', margin: 'auto' }}
             ref="video"
           >
@@ -210,7 +210,7 @@ class VideoJSPlayer extends Component {
             </p>
           </video>
         </div>
-        {this.state?.openAdvancedUI || true &&
+        {this.state?.openAdvancedUI &&
         <AdvancedControlsBar
           onSkipForward={() => this.seek(10)}
           onSkipBack={() => this.seek(-10)}
