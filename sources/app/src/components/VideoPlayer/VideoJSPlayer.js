@@ -210,7 +210,7 @@ class VideoJSPlayer extends Component {
             </p>
           </video>
         </div>
-        {this.state?.openAdvancedUI &&
+        {this.state?.openAdvancedUI || true &&
         <AdvancedControlsBar
           onSkipForward={() => this.seek(10)}
           onSkipBack={() => this.seek(-10)}

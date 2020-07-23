@@ -1,11 +1,12 @@
 import Typography from '@material-ui/core/Typography';
-import Slider from '@material-ui/core/Slider';
 import React, { useEffect, useState } from 'react';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import { Tooltip } from '@material-ui/core';
 import moment from 'moment';
 import VideoDurationControl from './VideoDurationControl';
 import videojs from 'video.js';
+import BoundsControl from './BoundsControl';
+import PlayBackTimeControl from './playBackTimeControl';
 
 const useStyles = makeStyles((theme) => ({
   controls: {
@@ -84,42 +85,29 @@ export default function ClipControlsAdapter(props) {
         <VideoDurationControl duration={formatSeconds(duration)} />
       </div>
       <div className={classes.control}>
-        <Typography gutterBottom>
-          Working bounds
-        </Typography>
-        <Slider
-          value={[workingBounds.start, workingBounds.end ?? duration]}
-          step={1}
+        <BoundsControl
+          start={workingBounds.start}
+          end={workingBounds.end ?? duration}
           max={duration}
-          onChange={(e, value) => onSetWorkingBounds(value)}
-          valueLabelDisplay="auto"
-          ValueLabelComponent={ValueLabelComponent}
-        />
-        <div className={classes.timeSelection}>
-        </div>
-      </div>
-      <div className={classes.control}>
-        <Typography gutterBottom>
-          Playback Time
-        </Typography>
-        <Slider
-          value={currentTime}
-          max={duration}
-          onChange={(e, time) => onSetTime(time)}
-          valueLabelDisplay="auto"
-          ValueLabelComponent={ValueLabelComponent}
+          onChange={onSetWorkingBounds}
+          label="Working bounds"
         />
       </div>
       <div className={classes.control}>
-        <Typography gutterBottom>
-          Clip bounds
-        </Typography>
-        <Slider
-          value={[clipBounds.start, clipBounds.end ?? duration]}
+        <PlayBackTimeControl
+          currentTime={currentTime}
+          max={duration}
+          onChange={onSetTime}
+          label="Playback Time"
+        />
+      </div>
+      <div className={classes.control}>
+        <BoundsControl
+          start={clipBounds.start}
+          end={clipBounds.end ?? duration}
           max={(workingBounds.end ?? duration) - workingBounds.start}
-          onChange={(e, value) => onSetClipBounds(value)}
-          valueLabelDisplay="auto"
-          ValueLabelComponent={ValueLabelComponent}
+          onChange={onSetClipBounds}
+          label="Clip bounds"
         />
       </div>
     </section>

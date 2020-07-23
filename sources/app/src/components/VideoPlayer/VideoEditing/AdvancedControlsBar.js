@@ -33,20 +33,6 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const valueLabelStyles = makeStyles(() => ({
-  tooltip: {
-    padding: 4
-  },
-  img: {
-    width: 200,
-    height: 150,
-    objectFit: 'fill'
-  },
-  label: {
-    textAlign: 'center'
-  }
-}));
-
 const SPEEDS = [
   { value: .5, label: '0.5x' },
   { value: 1, label: '1.0x' },
@@ -182,7 +168,7 @@ export default function (props) {
         )}
       </Menu>
       <ClipDialog
-        open={openClipDialog}
+        open={true}
         onClose={() => setOpenClipDialog(false)}
         video={video}
       />
