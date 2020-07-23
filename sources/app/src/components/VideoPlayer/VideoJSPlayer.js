@@ -145,6 +145,10 @@ class VideoJSPlayer extends Component {
     }
   };
 
+  onPause = () => {
+    this.player.pause();
+  };
+
   onFullScreen = () => {
     if (!this.player.isFullscreen()) {
       this.player.requestFullscreen();
@@ -206,11 +210,12 @@ class VideoJSPlayer extends Component {
             </p>
           </video>
         </div>
-        {this.state?.openAdvancedUI || true &&
+        {this.state?.openAdvancedUI &&
         <AdvancedControlsBar
           onSkipForward={() => this.seek(10)}
           onSkipBack={() => this.seek(-10)}
           isPlaying={this.state?.isPlaying}
+          onPause={this.onPause}
           onTogglePlay={this.onTogglePlay}
           onFullScreen={this.onFullScreen}
           onSetVolume={this.onSetVolume}

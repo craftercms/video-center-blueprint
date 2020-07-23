@@ -64,6 +64,7 @@ export default function (props) {
     onSeekTo,
     onScreenCapture,
     onRecord,
+    onPause,
     onSetVolume,
     onSetTime,
     onSetPlaybackSpeed,
@@ -115,7 +116,12 @@ export default function (props) {
           <IconButton aria-label="" className={isRecording ? classes.recordingActive : null}>
             <FiberManualRecordRoundedIcon />
           </IconButton>
-          <IconButton aria-label="" onClick={() => setOpenClipDialog(true)}>
+          <IconButton
+            aria-label="" onClick={() => {
+            onPause();
+            setOpenClipDialog(true);
+          }}
+          >
             <ContentCutRounded />
           </IconButton>
           <IconButton aria-label="">
@@ -176,7 +182,7 @@ export default function (props) {
         )}
       </Menu>
       <ClipDialog
-        open={true}
+        open={openClipDialog}
         onClose={() => setOpenClipDialog(false)}
         video={video}
       />
