@@ -14,11 +14,9 @@ import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/sty
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import ChatRoundedIcon from '@material-ui/icons/ChatRounded';
-import { Tooltip } from '@material-ui/core';
-import Typography from '@material-ui/core/Typography';
-import videojs from 'video.js';
 import ClipDialog from './ClipDialog';
 import BasicControls from './BasicControls';
+import { ValueLabelComponent } from './ClipControlsAdapter';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -178,29 +176,11 @@ export default function (props) {
         )}
       </Menu>
       <ClipDialog
-        open={openClipDialog}
+        open={true}
         onClose={() => setOpenClipDialog(false)}
         video={video}
       />
     </ThemeProvider>
-  );
-}
-
-function ValueLabelComponent(props) {
-  const { children, open, value } = props;
-  const classes = valueLabelStyles();
-  return (
-    <Tooltip
-      open={open}
-      classes={{ tooltip: classes.tooltip }}
-      title={
-        <>
-          <Typography className={classes.label}>{videojs.formatTime(value)}</Typography>
-        </>
-      }
-    >
-      {children}
-    </Tooltip>
   );
 }
 

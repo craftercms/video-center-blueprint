@@ -4,7 +4,7 @@ import React from 'react';
 export default function VideoDurationControl(props) {
   return (
     <Typography gutterBottom>
-      Video duration: 1 day
+      Video duration: {props.duration}
     </Typography>
   );
 }

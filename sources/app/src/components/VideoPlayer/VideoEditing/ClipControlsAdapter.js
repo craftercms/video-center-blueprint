@@ -37,31 +37,62 @@ export default function ClipControlsAdapter(props) {
   const classes = useStyles();
   const player = videojs.getPlayer(props.id);
   const [duration, setDuration] = useState(null);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [workingBounds, setWorkingBounds] = useState({
+    start: null,
+    end: null
+  });
+  const [clipBounds, setClipBounds] = useState({
+    start: null,
+    end: null
+  });
 
   useEffect(() => {
     if (player) {
+
       player.on('loadedmetadata', () => {
         setDuration(player.duration());
+      });
+
+      player.on('play', () => {
+        setDuration(player.duration());
+      });
+
+      player.on('timeupdate', () => {
+        setCurrentTime(player.currentTime());
       });
     }
   }, [player]);
 
+
+  const onSetTime = (time) => {
+    setCurrentTime(time);
+    player.currentTime(time);
+  };
+
+  const onSetWorkingBounds = (value) => {
+    setWorkingBounds({ start: value[0], end: value[1] });
+  };
+
+  const onSetClipBounds = (value) => {
+    setClipBounds({ start: value[0], end: value[1] });
+  };
+
   return (
     <section className={classes.controls}>
       <div className={classes.control}>
-        <VideoDurationControl />
+        <VideoDurationControl duration={formatSeconds(duration)} />
       </div>
       <div className={classes.control}>
         <Typography gutterBottom>
           Working bounds
         </Typography>
         <Slider
-          value={[1, duration]}
+          value={[workingBounds.start, workingBounds.end ?? duration]}
           step={1}
           max={duration}
-          onChange={() => console.log('changes')}
+          onChange={(e, value) => onSetWorkingBounds(value)}
           valueLabelDisplay="auto"
-          aria-labelledby="range-slider"
           ValueLabelComponent={ValueLabelComponent}
         />
         <div className={classes.timeSelection}>
@@ -72,10 +103,11 @@ export default function ClipControlsAdapter(props) {
           Playback Time
         </Typography>
         <Slider
-          value={[0, 30]}
-          onChange={() => console.log('changes')}
+          value={currentTime}
+          max={duration}
+          onChange={(e, time) => onSetTime(time)}
           valueLabelDisplay="auto"
-          aria-labelledby="range-slider"
+          ValueLabelComponent={ValueLabelComponent}
         />
       </div>
       <div className={classes.control}>
@@ -83,10 +115,11 @@ export default function ClipControlsAdapter(props) {
           Clip bounds
         </Typography>
         <Slider
-          value={[30, 50]}
-          onChange={() => console.log('changes')}
+          value={[clipBounds.start, clipBounds.end ?? duration]}
+          max={(workingBounds.end ?? duration) - workingBounds.start}
+          onChange={(e, value) => onSetClipBounds(value)}
           valueLabelDisplay="auto"
-          aria-labelledby="range-slider"
+          ValueLabelComponent={ValueLabelComponent}
         />
       </div>
     </section>
@@ -94,7 +127,7 @@ export default function ClipControlsAdapter(props) {
 }
 
 
-function ValueLabelComponent(props) {
+export function ValueLabelComponent(props) {
   const { children, open, value } = props;
   const classes = valueLabelStyles();
 
@@ -120,7 +153,7 @@ const formatSeconds = (value) => {
   let hours = addZero(duration.hours());
   let minutes = addZero(duration.minutes());
   let seconds = addZero(duration.seconds());
-  return `${days}d ${hours}:${minutes}:${seconds}`;
+  return days ? `${days}d ${hours}:${minutes}:${seconds}` : `${hours}:${minutes}:${seconds}`;
 };
 
 function addZero(number) {
