@@ -178,7 +178,7 @@ export default function (props) {
         )}
       </Menu>
       <ClipDialog
-        open={true}
+        open={openClipDialog}
         onClose={() => setOpenClipDialog(false)}
         video={video}
       />
