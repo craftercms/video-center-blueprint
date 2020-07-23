@@ -2,55 +2,31 @@ import React, { useMemo, useState } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
-import PlayArrowRounded from '@material-ui/icons/PlayArrowRounded';
-import PauseRounded from '@material-ui/icons/PauseRounded';
 import MoreVertRounded from '@material-ui/icons/MoreVertRounded';
 import SearchRounded from '@material-ui/icons/SearchRounded';
-import Fab from '@material-ui/core/Fab';
 import Slider from '@material-ui/core/Slider';
-import Replay10Rounded from '@material-ui/icons/Replay10Rounded';
-import Forward10Rounded from '@material-ui/icons/Forward10Rounded';
-import ContentCutRounded from '../Icons/ContentCutRounded';
+import ContentCutRounded from '../../Icons/ContentCutRounded';
 import PhotoCameraRoundedIcon from '@material-ui/icons/PhotoCameraRounded';
 import FiberManualRecordRoundedIcon from '@material-ui/icons/FiberManualRecordRounded';
 import SpeedRoundedIcon from '@material-ui/icons/SpeedRounded';
-import VolumeUpRoundedIcon from '@material-ui/icons/VolumeUpRounded';
-import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import LocalOfferOutlinedIcon from '@material-ui/icons/LocalOfferOutlined';
+import { createMuiTheme, makeStyles } from '@material-ui/core/styles';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import ChatRoundedIcon from '@material-ui/icons/ChatRounded';
-import { Tooltip } from '@material-ui/core';
-import Typography from '@material-ui/core/Typography';
+import ClipDialog from './ClipDialog';
+import BasicControls from './BasicControls';
+import { ValueLabelComponent } from './ClipControlsAdapter';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
     top: 'auto',
     bottom: 0,
   },
-  grow: {
-    flexGrow: 1,
-  },
-  fabButtons: {
-    width: 150,
-    display: 'flex',
-    margin: '0 auto',
-    alignItems: 'center',
-    justifyContent: 'space-between'
-  },
-  fabButton: {},
   slider: {
     left: 0,
     top: '-13px',
     position: 'absolute'
-  },
-  volumeMenu: {
-    height: 122
-  },
-  volumeMenuList: {
-    padding: '10px 0 0 0'
-  },
-  volumeSlider: {
-    height: '100px !important'
   },
   recordingActive: {
     color: 'red'
@@ -84,19 +60,24 @@ export default function (props) {
     onTogglePlay,
     onSkipForward,
     onSkipBack,
+    onFullScreen,
     onSeekTo,
-    onClip,
     onScreenCapture,
     onRecord,
+    onPause,
     onSetVolume,
+    onSetTime,
     onSetPlaybackSpeed,
+    onBackToSimpleMenu,
     isRecording = 1,
     isPlaying,
     isClipping,
     volume = 60,
     playbackSpeed = 1,
     playbackSpeeds = SPEEDS,
-    time = 60
+    time = 60,
+    duration,
+    video
   } = props;
   const classes = useStyles();
   const theme = useMemo(() => createMuiTheme({
@@ -110,21 +91,24 @@ export default function (props) {
     }
   }), []);
   const [playbackSpeedMenu, setPlaybackSpeedMenu] = useState(null);
-  const [volumeMenu, setVolumeMenu] = useState(null);
+  const [settingsMenu, setSettingsMenu] = useState(null);
   const closePlaybackSpeedMenu = () => setPlaybackSpeedMenu(null);
-  const closeVolumeMenu = () => setVolumeMenu(null);
+  const closeSettingsMenu = () => setSettingsMenu(null);
+  const [openClipDialog, setOpenClipDialog] = useState(false);
+
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <AppBar color="default" position={position} className={classes.appBar}>
         <Toolbar>
           <Slider
             min={0}
             step={1}
-            max={100}
+            max={duration}
             value={time}
             valueLabelDisplay="auto"
             ValueLabelComponent={ValueLabelComponent}
             className={classes.slider}
+            onChange={(e, time) => onSetTime(time)}
           />
           <IconButton aria-label="">
             <PhotoCameraRoundedIcon />
@@ -132,25 +116,26 @@ export default function (props) {
           <IconButton aria-label="" className={isRecording ? classes.recordingActive : null}>
             <FiberManualRecordRoundedIcon />
           </IconButton>
-          <IconButton aria-label="">
+          <IconButton
+            aria-label="" onClick={() => {
+            onPause();
+            setOpenClipDialog(true);
+          }}
+          >
             <ContentCutRounded />
           </IconButton>
-          <section className={classes.grow}>
-            <div className={classes.fabButtons}>
-              <Fab color="primary" aria-label="" size="small" className={classes.fabButton}>
-                <Replay10Rounded />
-              </Fab>
-              <Fab color="primary" aria-label="" size="medium" className={classes.fabButton}>
-                {isPlaying ? <PauseRounded /> : <PlayArrowRounded />}
-              </Fab>
-              <Fab color="primary" aria-label="" size="small" className={classes.fabButton}>
-                <Forward10Rounded />
-              </Fab>
-            </div>
-          </section>
-          <IconButton aria-label="" onClick={(e) => setVolumeMenu(e.currentTarget)}>
-            <VolumeUpRoundedIcon />
+          <IconButton aria-label="">
+            <LocalOfferOutlinedIcon />
           </IconButton>
+          <BasicControls
+            onSkipBack={onSkipBack}
+            onTogglePlay={onTogglePlay}
+            isPlaying={isPlaying}
+            onSkipForward={onSkipForward}
+            onFullScreen={onFullScreen}
+            volume={volume}
+            onSetVolume={onSetVolume}
+          />
           <IconButton aria-label="" onClick={(e) => setPlaybackSpeedMenu(e.currentTarget)}>
             <SpeedRoundedIcon />
           </IconButton>
@@ -160,11 +145,25 @@ export default function (props) {
           <IconButton aria-label="">
             <ChatRoundedIcon />
           </IconButton>
-          <IconButton aria-label="">
+          <IconButton aria-label="" onClick={(e) => setSettingsMenu(e.currentTarget)}>
             <MoreVertRounded />
           </IconButton>
         </Toolbar>
       </AppBar>
+      <Menu
+        anchorEl={settingsMenu}
+        open={Boolean(settingsMenu)}
+        onClose={closeSettingsMenu}
+      >
+        <MenuItem
+          onClick={() => {
+            onBackToSimpleMenu();
+            closeSettingsMenu();
+          }}
+        >
+          Back to simple menu
+        </MenuItem>
+      </Menu>
       <Menu
         anchorEl={playbackSpeedMenu}
         open={Boolean(playbackSpeedMenu)}
@@ -173,45 +172,22 @@ export default function (props) {
         {playbackSpeeds.map(speed =>
           <MenuItem
             key={speed.value}
-            onClick={closePlaybackSpeedMenu}
+            selected={speed.value === playbackSpeed}
+            onClick={() => {
+              onSetPlaybackSpeed(speed.value);
+              closePlaybackSpeedMenu();
+            }}
             children={speed.label}
           />
         )}
       </Menu>
-      <Menu
-        anchorEl={volumeMenu}
-        open={Boolean(volumeMenu)}
-        onClose={closeVolumeMenu}
-        classes={{ paper: classes.volumeMenu, list: classes.volumeMenuList }}
-      >
-        <Slider
-          className={classes.volumeSlider}
-          orientation="vertical"
-          value={volume}
-          min={0}
-          step={1}
-          max={100}
-        />
-      </Menu>
-    </ThemeProvider>
+      <ClipDialog
+        open={openClipDialog}
+        onClose={() => setOpenClipDialog(false)}
+        video={video}
+      />
+    </>
   );
 }
 
-function ValueLabelComponent(props) {
-  const { children, open, value } = props;
-  const classes = valueLabelStyles();
-  return (
-    <Tooltip
-      open={open}
-      classes={{ tooltip: classes.tooltip }}
-      title={
-        <>
-          <img className={classes.img} src="https://placekitten.com/g/200/150" alt="" />
-          <Typography className={classes.label}>{value}</Typography>
-        </>
-      }
-    >
-      {children}
-    </Tooltip>
-  );
-}
+

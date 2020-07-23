@@ -11,6 +11,7 @@ import LiveEvents from './containers/LiveEvents/LiveEvents.js';
 import Search from './containers/Search/Search.js';
 import List from './containers/List/List.js';
 import ErrorPage from './containers/Errors/errorPage';
+import AdvancedPlayer from './components/VideoPlayer/AdvancedPlayer';
 
 // The Main component renders one of the provided Routes
 class Router extends Component {
@@ -52,10 +53,10 @@ class Router extends Component {
 
   render() {
     const { nav } = this.props;
-
     return (
       <Switch>
         <Route exact path='/' component={Home} />
+        <Route exact path='/player' component={AdvancedPlayer} />
         <Route exact path='/video/:id/:videoName?' component={Video} />
         <Route exact path='/stream/:id/:videoName?' component={Video} />
         <Route exact path='/search' component={Search} />
@@ -63,8 +64,10 @@ class Router extends Component {
         <Route exact path='/channel/:name' component={Channel} />
         <Route exact path='/list/:id' component={List} />
         <Route exact path='/list/:categoryName/:query/:sort?' component={List} />
-        {nav && nav.entries['/'] &&
-        this.renderRouteEntries()
+        {
+          nav &&
+          nav.entries['/'] &&
+          this.renderRouteEntries()
         }
         <Route component={ErrorPage} />
       </Switch>

@@ -2,10 +2,12 @@
  * @file control-bar.js
  */
 import videojs from 'video.js';
+import './AdvancedUIButton';
 
 const Component = videojs.getComponent('ControlBar');
 
-class ControlBar extends Component {}
+class ControlBar extends Component {
+}
 
 ControlBar.prototype.options_ = {
   children: [
@@ -22,7 +24,8 @@ ControlBar.prototype.options_ = {
     'descriptionsButton',
     'subsCapsButton',
     'audioTrackButton',
-    'fullscreenToggle'
+    'fullscreenToggle',
+    'advancedUIButton'
   ]
 };
 
