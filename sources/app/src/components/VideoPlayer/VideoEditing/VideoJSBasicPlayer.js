@@ -17,10 +17,15 @@ export default function VideoJSBasicPlayer(props) {
   const classes = useStyles();
 
   useEffect(() => {
+    let player;
     if (id && video) {
-      const player = videojs(id, {});
+      player = videojs(id, {});
       setPlayerSrc(player, video);
     }
+
+    return () => {
+      player.dispose();
+    };
   }, [id, video]);
 
   return (
