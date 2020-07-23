@@ -8,18 +8,6 @@ import videojs from 'video.js';
 import BoundsControl from './BoundsControl';
 import PlayBackTimeControl from './playBackTimeControl';
 
-const useStyles = makeStyles((theme) => ({
-  controls: {
-    minWidth: '600px',
-    flexGrow: 1,
-    paddingLeft: '24px'
-  },
-  control: {
-    width: '100%',
-    marginBottom: '25px'
-  }
-}));
-
 const valueLabelStyles = makeStyles(() => ({
   tooltip: {
     padding: 4
@@ -35,16 +23,15 @@ const valueLabelStyles = makeStyles(() => ({
 }));
 
 export default function ClipControlsAdapter(props) {
-  const classes = useStyles();
   const player = videojs.getPlayer(props.id);
   const [duration, setDuration] = useState(null);
   const [currentTime, setCurrentTime] = useState(0);
   const [workingBounds, setWorkingBounds] = useState({
-    start: null,
+    start: 0,
     end: null
   });
   const [clipBounds, setClipBounds] = useState({
-    start: null,
+    start: 0,
     end: null
   });
 
@@ -80,11 +67,11 @@ export default function ClipControlsAdapter(props) {
   };
 
   return (
-    <section className={classes.controls}>
-      <div className={classes.control}>
+    <section className={props.classes?.controls}>
+      <div className={props.classes?.control}>
         <VideoDurationControl duration={formatSeconds(duration)} />
       </div>
-      <div className={classes.control}>
+      <div className={props.classes?.control}>
         <BoundsControl
           start={workingBounds.start}
           end={workingBounds.end ?? duration}
@@ -93,7 +80,7 @@ export default function ClipControlsAdapter(props) {
           label="Working bounds"
         />
       </div>
-      <div className={classes.control}>
+      <div className={props.classes?.control}>
         <PlayBackTimeControl
           currentTime={currentTime}
           max={duration}
@@ -101,7 +88,7 @@ export default function ClipControlsAdapter(props) {
           label="Playback Time"
         />
       </div>
-      <div className={classes.control}>
+      <div className={props.classes?.control}>
         <BoundsControl
           start={clipBounds.start}
           end={clipBounds.end ?? duration}

@@ -21,6 +21,7 @@ export function LocalVideoChooserVideoJSAdapter(props) {
     const file = e.target.files[0];
     const type = file.type;
     const fileURL = URL.createObjectURL(file);
+    props.onChange({ type, src: fileURL });
     player().src({ type, src: fileURL });
   };
   return (

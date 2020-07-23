@@ -8,9 +8,6 @@ const useStyles = makeStyles(() => ({
     minHeight: '380px',
     margin: 'auto',
     background: '#000'
-  },
-  video: {
-    maxWidth: '100%'
   }
 }));
 
@@ -32,10 +29,10 @@ export default function VideoJSBasicPlayer(props) {
   }, []);
 
   return (
-    <div className={classes.videoWrapper}>
+    <div className={`${classes.videoWrapper} ${props.classes?.root}`}>
       <video
         id={id}
-        className={`video-js vjs-theme-vc ${classes.video}`}
+        className={`video-js vjs-theme-vc ${props.classes?.video}`}
         preload="auto"
         autoPlay
       >

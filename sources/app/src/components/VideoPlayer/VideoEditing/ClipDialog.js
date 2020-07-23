@@ -2,7 +2,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogActions from '@material-ui/core/DialogActions';
-import React from 'react';
+import React, { useEffect } from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import makeStyles from '@material-ui/core/styles/makeStyles';
@@ -11,6 +11,7 @@ import VideoJSBasicPlayer from './VideoJSBasicPlayer';
 import BasicControlsAdapter from './BasicControlsAdapter';
 import Grid from '@material-ui/core/Grid';
 import ClipControlsAdapter from './ClipControlsAdapter';
+import { usePlayer } from './util';
 
 const useStyles = makeStyles((theme) => ({
   closeButton: {
@@ -21,6 +22,23 @@ const useStyles = makeStyles((theme) => ({
   },
   grow: {
     marginTop: '10px'
+  },
+  root: {
+    width: '580px',
+  },
+  video: {
+    width: '580px',
+    height: '380px',
+    maxWidth: '100%'
+  },
+  controls: {
+    minWidth: '600px',
+    flexGrow: 1,
+    paddingLeft: '24px'
+  },
+  control: {
+    width: '100%',
+    marginBottom: '25px'
   }
 }));
 
@@ -40,6 +58,15 @@ export default function ClipDialog(props) {
 function ClipDialogWrapper(props) {
   const classes = useStyles();
   const { onClose, video, onCreate } = props;
+  const { type, src } = props.src;
+  const id = 'basicPlayer';
+  const player = usePlayer(id);
+
+  useEffect(() => {
+    if (player()) {
+      player().src({ type, src });
+    }
+  }, [player]);
 
   return (
     <>
@@ -53,13 +80,17 @@ function ClipDialogWrapper(props) {
         <Grid container spacing={3}>
           <Grid item xs>
             <VideoJSBasicPlayer
-              id="basicPlayer"
+              id={id}
               video={video}
+              classes={{ root: classes.root, video: classes.video }}
             />
-            <BasicControlsAdapter id="basicPlayer" classes={{ grow: classes.grow }} />
+            <BasicControlsAdapter id={id} classes={{ grow: classes.grow }} />
           </Grid>
           <Grid item xs>
-            <ClipControlsAdapter id="basicPlayer" />
+            <ClipControlsAdapter
+              id={id}
+              classes={{ controls: classes.controls, control: classes.control }}
+            />
           </Grid>
         </Grid>
       </DialogContent>

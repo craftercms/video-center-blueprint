@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -10,7 +10,7 @@ import PhotoCameraRoundedIcon from '@material-ui/icons/PhotoCameraRounded';
 import FiberManualRecordRoundedIcon from '@material-ui/icons/FiberManualRecordRounded';
 import SpeedRoundedIcon from '@material-ui/icons/SpeedRounded';
 import LocalOfferOutlinedIcon from '@material-ui/icons/LocalOfferOutlined';
-import { createMuiTheme, makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import ChatRoundedIcon from '@material-ui/icons/ChatRounded';
@@ -63,7 +63,7 @@ export default function (props) {
     playbackSpeeds = SPEEDS,
     time = 60,
     duration,
-    video
+    src
   } = props;
   const classes = useStyles();
   const [playbackSpeedMenu, setPlaybackSpeedMenu] = useState(null);
@@ -131,28 +131,17 @@ export default function (props) {
         open={Boolean(settingsMenu)}
         onClose={closeSettingsMenu}
       >
-        <MenuItem
-          onClick={() => {
-            onBackToSimpleMenu();
-            closeSettingsMenu();
-          }}
-        >
-          Back to simple menu
-        </MenuItem>
-      </Menu>
-      <Menu
-        anchorEl={settingsMenu}
-        open={Boolean(settingsMenu)}
-        onClose={closeSettingsMenu}
-      >
-        <MenuItem
-          onClick={() => {
-            onBackToSimpleMenu();
-            closeSettingsMenu();
-          }}
-        >
-          Back to simple menu
-        </MenuItem>
+        {
+          onBackToSimpleMenu &&
+          <MenuItem
+            onClick={() => {
+              onBackToSimpleMenu();
+              closeSettingsMenu();
+            }}
+          >
+            Back to simple menu
+          </MenuItem>
+        }
       </Menu>
       <Menu
         anchorEl={playbackSpeedMenu}
@@ -174,7 +163,7 @@ export default function (props) {
       <ClipDialog
         open={openClipDialog}
         onClose={() => setOpenClipDialog(false)}
-        video={video}
+        src={src}
       />
     </>
   );
