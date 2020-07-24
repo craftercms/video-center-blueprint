@@ -1,4 +1,20 @@
-import React, { useMemo, useState } from 'react';
+/*
+ * Copyright (C) 2007-2020 Crafter Software Corporation. All Rights Reserved.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 3 as published by
+ * the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+import React, { useEffect, useState } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -10,15 +26,16 @@ import PhotoCameraRoundedIcon from '@material-ui/icons/PhotoCameraRounded';
 import FiberManualRecordRoundedIcon from '@material-ui/icons/FiberManualRecordRounded';
 import SpeedRoundedIcon from '@material-ui/icons/SpeedRounded';
 import LocalOfferOutlinedIcon from '@material-ui/icons/LocalOfferOutlined';
-import { createMuiTheme, makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import ChatRoundedIcon from '@material-ui/icons/ChatRounded';
 import ClipDialog from './ClipDialog';
 import BasicControls from './BasicControls';
-import { ValueLabelComponent } from './ClipControlsAdapter';
+import { SliderValueLabel } from './SliderValueLabel';
+import { usePlayer } from './util';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   appBar: {
     top: 'auto',
     bottom: 0,
@@ -30,31 +47,20 @@ const useStyles = makeStyles((theme) => ({
   },
   recordingActive: {
     color: 'red'
-  }
-}));
-
-const valueLabelStyles = makeStyles(() => ({
-  tooltip: {
-    padding: 4
   },
-  img: {
-    width: 200,
-    height: 150,
-    objectFit: 'fill'
-  },
-  label: {
-    textAlign: 'center'
+  selectedMenuItem: {
+    fontWeight: 'bold'
   }
 }));
 
 const SPEEDS = [
-  { value: .5, label: '0.5x' },
-  { value: 1, label: '1.0x' },
+  { value: 2, label: '2.0x' },
   { value: 1.5, label: '1.5x' },
-  { value: 2, label: '2.0x' }
+  { value: 1, label: '1.0x' },
+  { value: .5, label: '0.5x' }
 ];
 
-export default function (props) {
+export function AdvancedControlsBar(props) {
   const {
     position = 'fixed',
     onTogglePlay,
@@ -66,30 +72,19 @@ export default function (props) {
     onRecord,
     onPause,
     onSetVolume,
-    onSetTime,
     onSetPlaybackSpeed,
     onBackToSimpleMenu,
-    isRecording = 1,
+    isRecording = false,
     isPlaying,
-    isClipping,
+    isClipping = false,
     volume = 60,
-    playbackSpeed = 1,
+    playbackSpeed = SPEEDS[2],
     playbackSpeeds = SPEEDS,
     time = 60,
     duration,
-    video
+    src
   } = props;
   const classes = useStyles();
-  const theme = useMemo(() => createMuiTheme({
-    typography: { fontSize: 18 },
-    palette: {
-      type: 'dark',
-      primary: {
-        main: '#f00',
-        contrastText: '#FFFFFF'
-      }
-    }
-  }), []);
   const [playbackSpeedMenu, setPlaybackSpeedMenu] = useState(null);
   const [settingsMenu, setSettingsMenu] = useState(null);
   const closePlaybackSpeedMenu = () => setPlaybackSpeedMenu(null);
@@ -106,25 +101,31 @@ export default function (props) {
             max={duration}
             value={time}
             valueLabelDisplay="auto"
-            ValueLabelComponent={ValueLabelComponent}
+            ValueLabelComponent={SliderValueLabel}
             className={classes.slider}
-            onChange={(e, time) => onSetTime(time)}
+            onChange={(e, time) => onSeekTo(time)}
           />
-          <IconButton aria-label="">
+          <IconButton aria-label="Screenshot" onClick={onScreenCapture}>
             <PhotoCameraRoundedIcon />
           </IconButton>
-          <IconButton aria-label="" className={isRecording ? classes.recordingActive : null}>
+          <IconButton
+            aria-label="Record"
+            className={isRecording ? classes.recordingActive : null}
+            onClick={onRecord}
+          >
             <FiberManualRecordRoundedIcon />
           </IconButton>
           <IconButton
-            aria-label="" onClick={() => {
-            onPause();
-            setOpenClipDialog(true);
-          }}
+            disabled={isClipping}
+            aria-label="Clip"
+            onClick={() => {
+              onPause();
+              setOpenClipDialog(true);
+            }}
           >
             <ContentCutRounded />
           </IconButton>
-          <IconButton aria-label="">
+          <IconButton aria-label="Tags">
             <LocalOfferOutlinedIcon />
           </IconButton>
           <BasicControls
@@ -136,16 +137,16 @@ export default function (props) {
             volume={volume}
             onSetVolume={onSetVolume}
           />
-          <IconButton aria-label="" onClick={(e) => setPlaybackSpeedMenu(e.currentTarget)}>
+          <IconButton aria-label="Set playback rate" onClick={(e) => setPlaybackSpeedMenu(e.currentTarget)}>
             <SpeedRoundedIcon />
           </IconButton>
-          <IconButton aria-label="">
+          <IconButton aria-label="Search">
             <SearchRounded />
           </IconButton>
-          <IconButton aria-label="">
+          <IconButton aria-label="Text">
             <ChatRoundedIcon />
           </IconButton>
-          <IconButton aria-label="" onClick={(e) => setSettingsMenu(e.currentTarget)}>
+          <IconButton aria-label="Options" onClick={(e) => setSettingsMenu(e.currentTarget)}>
             <MoreVertRounded />
           </IconButton>
         </Toolbar>
@@ -155,14 +156,20 @@ export default function (props) {
         open={Boolean(settingsMenu)}
         onClose={closeSettingsMenu}
       >
-        <MenuItem
-          onClick={() => {
-            onBackToSimpleMenu();
-            closeSettingsMenu();
-          }}
-        >
-          Back to simple menu
+        <MenuItem>
+          Settings
         </MenuItem>
+        {
+          onBackToSimpleMenu &&
+          <MenuItem
+            onClick={() => {
+              onBackToSimpleMenu();
+              closeSettingsMenu();
+            }}
+          >
+            Back to simple menu
+          </MenuItem>
+        }
       </Menu>
       <Menu
         anchorEl={playbackSpeedMenu}
@@ -172,6 +179,7 @@ export default function (props) {
         {playbackSpeeds.map(speed =>
           <MenuItem
             key={speed.value}
+            className={speed.value === playbackSpeed ? classes.selectedMenuItem : null}
             selected={speed.value === playbackSpeed}
             onClick={() => {
               onSetPlaybackSpeed(speed.value);
@@ -184,10 +192,97 @@ export default function (props) {
       <ClipDialog
         open={openClipDialog}
         onClose={() => setOpenClipDialog(false)}
-        video={video}
+        src={src}
       />
     </>
   );
 }
 
+export function AdvancedControlsBarAdapter(props) {
+  const { skip, volume, setVolume } = props;
+  const player = usePlayer(props.id);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [playbackSpeed, setPlaybackSpeed] = useState(1);
+  const [duration, setDuration] = useState(null);
+  const [time, setTime] = useState(null);
 
+  useEffect(() => {
+    if (player()) {
+      player().on('timeupdate', () => {
+        setTime(player().currentTime());
+      });
+
+      player().on('loadedmetadata', () => {
+        setDuration(player().duration());
+      });
+
+      ['play', 'pause'].forEach((e) => {
+        player().on(e, () => {
+          setIsPlaying(!player().paused());
+        });
+      });
+    }
+  }, [player]);
+
+  const onTogglePlay = () => {
+    if (player().paused()) {
+      player().play();
+    } else {
+      player().pause();
+    }
+  };
+
+  const onPause = () => {
+    player().pause();
+  };
+
+  const onFullScreen = () => {
+    if (!player().isFullscreen()) {
+      player().requestFullscreen();
+    } else {
+      player().exitFullscreen();
+    }
+  };
+
+  const seek = (secs) => {
+    let time = player().currentTime() + parseFloat(secs);
+    player().currentTime(time < 0 ? 0 : time);
+  };
+
+  const onSetVolume = (volume) => {
+    setVolume(volume);
+    player().muted(false);
+    player().volume(volume);
+  };
+
+  const onSetPlaybackSpeed = (speed) => {
+    setPlaybackSpeed(speed);
+    player().playbackRate(speed);
+  };
+
+  const onSetTime = (time) => {
+    setTime(time);
+    player().currentTime(time);
+  };
+
+  return (
+    <AdvancedControlsBar
+      src={props.src}
+      onSkipForward={() => seek(skip)}
+      onSkipBack={() => seek(-skip)}
+      isPlaying={isPlaying}
+      onPause={onPause}
+      onTogglePlay={onTogglePlay}
+      onFullScreen={onFullScreen}
+      onSetVolume={onSetVolume}
+      onSeekTo={onSetTime}
+      volume={volume}
+      onSetPlaybackSpeed={onSetPlaybackSpeed}
+      playbackSpeed={playbackSpeed}
+      duration={duration}
+      time={time}
+    />
+  );
+}
+
+export default AdvancedControlsBar;

@@ -14,23 +14,22 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import { useCallback } from 'react';
-import videojs from 'video.js';
-import moment from 'moment';
+import TextField from '@material-ui/core/TextField';
+import React from 'react';
+import FieldSet from './FieldSet';
 
-export function usePlayer(id) {
-  return useCallback(() => videojs.getPlayer(id), [id]);
-}
-
-export const formatSeconds = (value) => {
-  let duration = moment.duration(value, 'seconds');
-  let days = duration.days();
-  let hours = addZero(duration.hours());
-  let minutes = addZero(duration.minutes());
-  let seconds = addZero(duration.seconds());
-  return days ? `${days}d ${hours}:${minutes}:${seconds}` : `${hours}:${minutes}:${seconds}`;
-};
-
-function addZero(number) {
-  return (number < 10 ? '0' : '') + number;
+export default function (props) {
+  const { skip, onSetSkip } = props;
+  return (
+    <FieldSet label="Skip Amount">
+      <TextField
+        type="number"
+        size="small"
+        label="Seconds"
+        variant="outlined"
+        value={skip}
+        onChange={(e) => onSetSkip(e.target.value)}
+      />
+    </FieldSet>
+  );
 }

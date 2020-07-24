@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2007-2020 Crafter Software Corporation. All Rights Reserved.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 3 as published by
+ * the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 import IconButton from '@material-ui/core/IconButton';
 import VolumeUpRoundedIcon from '@material-ui/icons/VolumeUpRounded';
 import Fab from '@material-ui/core/Fab';
@@ -25,17 +41,16 @@ const useStyles = makeStyles((theme) => ({
   },
   fabButton: {},
   volumeMenu: {
-    height: 122,
+    height: 130,
     overflow: 'hidden'
   },
   volumeMenuList: {
-    padding: '10px 0 0 0'
+    padding: '15px 0 0 0'
   },
   volumeSlider: {
     height: '100px !important'
   },
 }));
-
 
 export default function BasicControls(props) {
   const {

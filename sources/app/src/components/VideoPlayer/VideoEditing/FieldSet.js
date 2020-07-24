@@ -14,23 +14,27 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import { useCallback } from 'react';
-import videojs from 'video.js';
-import moment from 'moment';
+import React from 'react';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import clsx from 'clsx';
 
-export function usePlayer(id) {
-  return useCallback(() => videojs.getPlayer(id), [id]);
-}
+const getClasses = makeStyles((theme) => ({
+  align: {
+    display: 'flex',
+    alignItems: 'center',
+    padding: `${theme.spacing(1)}px 0 0 0`,
+    margin: `0 0 ${theme.spacing(2)}px 0`
+  }
+}));
 
-export const formatSeconds = (value) => {
-  let duration = moment.duration(value, 'seconds');
-  let days = duration.days();
-  let hours = addZero(duration.hours());
-  let minutes = addZero(duration.minutes());
-  let seconds = addZero(duration.seconds());
-  return days ? `${days}d ${hours}:${minutes}:${seconds}` : `${hours}:${minutes}:${seconds}`;
-};
-
-function addZero(number) {
-  return (number < 10 ? '0' : '') + number;
+export default function (props) {
+  const { children, label, classes } = props;
+  const cls = getClasses();
+  return (
+    <>
+      <Typography color="inherit" component="h3" variant="subtitle1" children={label} />
+      <div className={clsx(cls.align, classes?.content)} children={children} />
+    </>
+  );
 }

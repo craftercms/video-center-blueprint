@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2007-2020 Crafter Software Corporation. All Rights Reserved.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 3 as published by
+ * the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -9,20 +25,23 @@ import VideoJSPlayer from './VideoJSPlayer';
 
 class VideoPlayer extends Component {
   componentWillReceiveProps(newProps) {
-    //Video info removed - unload video
+    // Video info removed - unload video
     if (!newProps.videoInfo && this.props.videoInfo) {
       this.unloadVideo();
     }
 
-    //If video not loaded and it has new video Info -> load video
+    // If video not loaded and it has new video Info -> load video
     if (newProps.videoInfo !== null && (!this.props.videoStatus.loaded)) {
       this.loadVideo(newProps.videoInfo);
     }
 
-    //If video is not playing, and view is not docked (so is fixed) -> unload video
-    if (newProps.videoStatus && (newProps.videoStatus.loaded === true)
+    // If video is not playing, and view is not docked (so is fixed) -> unload video
+    if (
+      newProps.videoStatus &&
+      (newProps.videoStatus.loaded === true)
       && (newProps.videoStatus.playing === false)
-      && (newProps.videoStatus.docked === false)) {
+      && (newProps.videoStatus.docked === false)
+    ) {
       this.unloadVideo();
     }
 
@@ -30,7 +49,7 @@ class VideoPlayer extends Component {
       var currentType = this.props.videoInfo['content-type'] === '/component/youtube-video' ? 'video' : 'stream',
         newType = newProps.videoInfo['content-type'] === '/component/youtube-video' ? 'video' : 'stream';
 
-      //If new props contains a different type of video than current (stream, video) => load new one
+      // If new props contains a different type of video than current (stream, video) => load new one
       if (currentType !== newType) {
         this.unloadVideo();
         this.loadVideo(newProps.videoInfo);

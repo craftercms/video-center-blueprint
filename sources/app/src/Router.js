@@ -12,6 +12,7 @@ import Search from './containers/Search/Search.js';
 import List from './containers/List/List.js';
 import ErrorPage from './containers/Errors/errorPage';
 import AdvancedPlayer from './components/VideoPlayer/AdvancedPlayer';
+import Multiplayer from './components/VideoPlayer/Multiplayer';
 
 // The Main component renders one of the provided Routes
 class Router extends Component {
@@ -57,6 +58,7 @@ class Router extends Component {
       <Switch>
         <Route exact path='/' component={Home} />
         <Route exact path='/player' component={AdvancedPlayer} />
+        <Route exact path='/multiplayer' component={Multiplayer} />
         <Route exact path='/video/:id/:videoName?' component={Video} />
         <Route exact path='/stream/:id/:videoName?' component={Video} />
         <Route exact path='/search' component={Search} />

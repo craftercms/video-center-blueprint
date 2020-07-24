@@ -14,23 +14,27 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import { useCallback } from 'react';
-import videojs from 'video.js';
-import moment from 'moment';
+import React from 'react';
+import Transcript from './Transcript';
+import { makeStyles } from '@material-ui/core/styles';
+import Slider from '@material-ui/core/Slider';
 
-export function usePlayer(id) {
-  return useCallback(() => videojs.getPlayer(id), [id]);
-}
+const getClasses = makeStyles(() => ({
+  slider: {}
+}));
 
-export const formatSeconds = (value) => {
-  let duration = moment.duration(value, 'seconds');
-  let days = duration.days();
-  let hours = addZero(duration.hours());
-  let minutes = addZero(duration.minutes());
-  let seconds = addZero(duration.seconds());
-  return days ? `${days}d ${hours}:${minutes}:${seconds}` : `${hours}:${minutes}:${seconds}`;
-};
-
-function addZero(number) {
-  return (number < 10 ? '0' : '') + number;
+export default function (props) {
+  // const {  } = props;
+  const classes = getClasses();
+  return (
+    <>
+      <Slider
+        track={false}
+        defaultValue={[20, 37, 50, 70, 80, 95]}
+        valueLabelDisplay="auto"
+        className={classes.slider}
+      />
+      <Transcript />
+    </>
+  );
 }

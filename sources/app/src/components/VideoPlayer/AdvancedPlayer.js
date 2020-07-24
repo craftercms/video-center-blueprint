@@ -1,107 +1,170 @@
-import React, { useMemo } from 'react';
+/*
+ * Copyright (C) 2007-2020 Crafter Software Corporation. All Rights Reserved.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 3 as published by
+ * the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+import React, { useMemo, useReducer, useState } from 'react';
 import videojs from 'video.js';
 import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
-import AdvancedControlsBar from './VideoEditing/AdvancedControlsBar';
-import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import VideoJSBasicPlayer from './VideoEditing/VideoJSBasicPlayer';
+import Player from './VideoEditing/Player';
 import { GoToVideoJSAdapter } from './VideoEditing/SeekTo';
 import { LocalVideoChooserVideoJSAdapter } from './VideoEditing/LocalVideoChooser';
 import { LooperVideoJSAdapter } from './VideoEditing/Looper';
 import { ReversePlaybackVideoJSAdapter } from './VideoEditing/ReversePlayback';
+import BasicControlsAdapter from './VideoEditing/BasicControlsAdapter';
+import ClippingControlsVideoJSAdapter from './VideoEditing/ClippingControls';
+import SkipSetter from './VideoEditing/SkipSetter';
+import Transcript from './VideoEditing/Transcript';
+import { AdvancedControlsBarAdapter } from './VideoEditing/AdvancedControlsBar';
+import Markers from './VideoEditing/Markers';
+import ArtificialIntelligence from './VideoEditing/ArtificialIntelligence';
+import { StreamListFetcherVideoJSAdapter } from './VideoEditing/StreamsList';
+import Root from './VideoEditing/Root';
 
 window.videojs = videojs;
 
 const getClasses = makeStyles((theme) => ({
-  root: {
-    position: 'fixed',
-    top: 90,
-    bottom: 65,
-    right: 0,
-    left: 0,
-    background: '#141519',
-    zIndex: 1
-  },
   content: {
     height: '100%',
     display: 'flex',
-    padding: '2em 1em'
+    padding: '2em 4em'
   },
   video: {
+    flex: '1',
     display: 'flex',
     alignItems: 'center',
-    paddingRight: '2em',
-    width: '65%'
+    paddingRight: '2em'
   },
   ui: {
-    flex: '1'
+    zIndex: 1,
+    width: 520
   },
   tab: {
-    minWidth: 90
+    minWidth: 80
   },
   tabPanel: {
     padding: theme.spacing(1)
   },
   tabPanelItem: {
     marginBottom: theme.spacing(1)
+  },
+  videoRoot: {
+    width: '100%',
+  },
+  videoVideo: {
+    width: '100%'
+  },
+  controls: {
+    padding: '25px'
+  },
+  control: {
+    width: '100%',
+    marginBottom: '25px'
   }
 }));
 
 export default function (props) {
+
   const id = 'mainPlayer';
   const classes = getClasses();
-  const theme = useMemo(() => createMuiTheme({
-    typography: { fontSize: 18 },
-    palette: {
-      type: 'dark',
-      primary: {
-        main: '#f00',
-        contrastText: '#FFFFFF'
-      }
-    }
-  }), []);
+  const [tab, setTab] = React.useState(0);
+  const [src, setSrc] = useState({});
+  const [context, setContext] = useReducer(
+    (state, nextState) => ({ ...state, ...nextState }),
+    { skip: 10, volume: 0, muted: true }
+  );
+
+  const onTabClick = (e, nextTab) => setTab(nextTab);
+
   return (
-    <ThemeProvider theme={theme}>
-      <section className={classes.root}>
-        <div className={classes.content}>
-          <div className={classes.video}>
-            <VideoJSBasicPlayer id={id} />
+    <Root>
+      <div className={classes.content}>
+        <div className={classes.video}>
+          <Player
+            id={id}
+            options={{ volume: context.volume, muted: context.muted }}
+            classes={{ root: classes.videoRoot, video: classes.videoVideo }}
+          />
+        </div>
+        <div className={classes.ui}>
+          <Tabs
+            value={tab}
+            onChange={onTabClick}
+            indicatorColor="primary"
+            textColor="primary"
+            centered
+          >
+            <Tab label="Home" className={classes.tab} />
+            <Tab label="Clip" className={classes.tab} />
+            <Tab label="Streams" className={classes.tab} />
+            <Tab label="Transcript" className={classes.tab} />
+            <Tab label="Notes" className={classes.tab} />
+            <Tab label="AI" className={classes.tab} />
+          </Tabs>
+          <div className={classes.tabPanel} hidden={tab !== 0}>
+            <div className={classes.tabPanelItem}>
+              <LocalVideoChooserVideoJSAdapter id={id} onChange={(value) => setSrc(value)} />
+            </div>
+            <div className={classes.tabPanelItem}>
+              <LooperVideoJSAdapter id={id} />
+            </div>
+            <div className={classes.tabPanelItem}>
+              <ReversePlaybackVideoJSAdapter id={id} />
+            </div>
+            <div className={classes.tabPanelItem}>
+              <GoToVideoJSAdapter id={id} />
+            </div>
+            <div className={classes.tabPanelItem}>
+              <SkipSetter skip={context.skip} onSetSkip={(skip) => setContext({ skip })} />
+            </div>
           </div>
-          <div className={classes.ui}>
-            <Paper>
-              <Tabs
-                value={0}
-                indicatorColor="primary"
-                textColor="primary"
-                centered
-              >
-                <Tab label="Home" className={classes.tab} />
-                <Tab label="Streams" className={classes.tab} />
-                <Tab label="Transcript" className={classes.tab} />
-                <Tab label="Notes" className={classes.tab} />
-                <Tab label="AI" className={classes.tab} />
-              </Tabs>
-              <div className={classes.tabPanel}>
-                <div className={classes.tabPanelItem}>
-                  <LocalVideoChooserVideoJSAdapter id={id} />
-                </div>
-                <div className={classes.tabPanelItem}>
-                  <LooperVideoJSAdapter id={id} />
-                </div>
-                <div className={classes.tabPanelItem}>
-                  <ReversePlaybackVideoJSAdapter id={id} />
-                </div>
-                <div className={classes.tabPanelItem}>
-                  <GoToVideoJSAdapter id={id} />
-                </div>
-              </div>
-            </Paper>
+          <div className={classes.tabPanel} hidden={tab !== 1}>
+            <div className={classes.tabPanelItem}>
+              <ClippingControlsVideoJSAdapter
+                id={id}
+                classes={{ controls: classes.controls, control: classes.control }}
+              />
+            </div>
+            <div className={classes.tabPanelItem}>
+              <BasicControlsAdapter id={id} />
+            </div>
+          </div>
+          <div className={classes.tabPanel} hidden={tab !== 2}>
+            <StreamListFetcherVideoJSAdapter id={id} />
+          </div>
+          <div className={classes.tabPanel} hidden={tab !== 3}>
+            <Transcript />
+          </div>
+          <div className={classes.tabPanel} hidden={tab !== 4}>
+            <Markers />
+          </div>
+          <div className={classes.tabPanel} hidden={tab !== 5}>
+            <ArtificialIntelligence />
           </div>
         </div>
-        <AdvancedControlsBar />
-      </section>
-    </ThemeProvider>
+      </div>
+      <AdvancedControlsBarAdapter
+        id={id}
+        src={src}
+        skip={context.skip}
+        volume={context.volume}
+        setVolume={(volume) => setContext({ volume })}
+      />
+    </Root>
   );
+
 }
 

@@ -1,57 +1,51 @@
+/*
+ * Copyright (C) 2007-2020 Crafter Software Corporation. All Rights Reserved.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 3 as published by
+ * the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 import React, { useState } from 'react';
-import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import IconButton from '@material-ui/core/IconButton';
 import LocationOnRounded from '@material-ui/icons/LocationOnRounded';
 import { usePlayer } from './util';
-import { makeStyles } from '@material-ui/core/styles';
-
-const getGoToClasses = makeStyles(() => ({
-  align: {
-    display: 'flex',
-    alignItems: 'center'
-  }
-}));
+import FieldSet from './FieldSet';
 
 export function GoToVideoJSAdapter(props) {
   const { id } = props;
   const player = usePlayer(id);
   return <GoTo
-    onSeek={(time) => {
-      player().currentTime(time);
-    }}
+    onSeek={(time) => player().currentTime(time)}
   />;
 }
 
-function GoTo(props) {
+export function GoTo(props) {
   const { onSeek } = props;
   const [value, setValue] = useState('');
-  const seek = () => {
-    onSeek(parseFloat(value));
-  };
-  const classes = getGoToClasses();
+  const seek = () => !isNaN(parseFloat(value)) && onSeek(parseFloat(value));
   return (
-    <>
-      <Typography variant="subtitle1" color="inherit">Go To</Typography>
-      <div className={classes.align}>
-        <TextField
-          size="small"
-          label="Seconds"
-          variant="outlined"
-          value={value}
-          onKeyPress={(e) => {
-            if (e.key === 'Enter') {
-              seek();
-            }
-          }}
-          onChange={(e) => {
-            setValue(e.target.value);
-          }}
-        />
-        <IconButton onClick={seek}>
-          <LocationOnRounded />
-        </IconButton>
-      </div>
-    </>
+    <FieldSet label="Seek To">
+      <TextField
+        size="small"
+        label="Seconds"
+        variant="outlined"
+        value={value}
+        onKeyPress={(e) => (e.key === 'Enter') && seek()}
+        onChange={(e) => setValue(e.target.value)}
+      />
+      <IconButton onClick={seek}>
+        <LocationOnRounded />
+      </IconButton>
+    </FieldSet>
   );
 }
