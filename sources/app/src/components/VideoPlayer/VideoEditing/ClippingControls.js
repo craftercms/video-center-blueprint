@@ -16,13 +16,14 @@
 
 import React, { useEffect, useState } from 'react';
 import VideoDurationControl from './VideoDurationControl';
-import videojs from 'video.js';
 import BoundsControl from './BoundsControl';
 import PlayBackTimeControl from './PlayBackTimeControl';
-import { formatSeconds } from './util';
+import { formatSeconds, usePlayer } from './util';
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import MomentUtils from '@date-io/moment';
 
 export default function ClippingControlsVideoJSAdapter(props) {
-  const player = videojs.getPlayer(props.id);
+  const player = usePlayer(props.id);
   const [duration, setDuration] = useState(null);
   const [currentTime, setCurrentTime] = useState(0);
   const [workingBounds, setWorkingBounds] = useState({
@@ -35,25 +36,33 @@ export default function ClippingControlsVideoJSAdapter(props) {
   });
 
   useEffect(() => {
-    if (player) {
+    if (player()) {
 
-      player.on('loadedmetadata', () => {
-        setDuration(player.duration());
+      player().on('loadedmetadata', () => {
+        setDuration(player().duration());
       });
 
-      player.on('play', () => {
-        setDuration(player.duration());
+      player().on('play', () => {
+        setDuration(player().duration());
       });
 
-      player.on('timeupdate', () => {
-        setCurrentTime(player.currentTime());
+      player().on('timeupdate', () => {
+        setCurrentTime(player().currentTime());
       });
     }
   }, [player]);
 
   const onSetTime = (time) => {
     setCurrentTime(time);
-    player.currentTime(time);
+    player().currentTime(time);
+  };
+
+  const onStartHere = (time) => {
+    console.log(time);
+  };
+
+  const onEndHere = (time) => {
+    console.log(time);
   };
 
   const onSetWorkingBounds = (value) => {
@@ -65,36 +74,40 @@ export default function ClippingControlsVideoJSAdapter(props) {
   };
 
   return (
-    <section className={props.classes?.controls}>
-      <div className={props.classes?.control}>
-        <VideoDurationControl duration={formatSeconds(duration)} />
-      </div>
-      <div className={props.classes?.control}>
-        <BoundsControl
-          start={workingBounds.start}
-          end={workingBounds.end ?? duration}
-          max={duration}
-          onChange={onSetWorkingBounds}
-          label="Working bounds"
-        />
-      </div>
-      <div className={props.classes?.control}>
-        <PlayBackTimeControl
-          currentTime={currentTime}
-          max={duration}
-          onChange={onSetTime}
-          label="Playback Time"
-        />
-      </div>
-      <div className={props.classes?.control}>
-        <BoundsControl
-          start={clipBounds.start}
-          end={clipBounds.end ?? duration}
-          max={(workingBounds.end ?? duration) - workingBounds.start}
-          onChange={onSetClipBounds}
-          label="Clip bounds"
-        />
-      </div>
-    </section>
+    <MuiPickersUtilsProvider utils={MomentUtils}>
+      <section className={props.classes?.controls}>
+        <div className={props.classes?.control}>
+          <VideoDurationControl duration={formatSeconds(duration)} />
+        </div>
+        <div className={props.classes?.control}>
+          <BoundsControl
+            start={workingBounds.start}
+            end={workingBounds.end ?? duration}
+            max={duration}
+            onChange={onSetWorkingBounds}
+            label="Working bounds"
+          />
+        </div>
+        <div className={props.classes?.control}>
+          <PlayBackTimeControl
+            currentTime={currentTime}
+            max={duration}
+            onChange={onSetTime}
+            onStartHere={onStartHere}
+            onEndHere={onEndHere}
+            label="Playback Time"
+          />
+        </div>
+        <div className={props.classes?.control}>
+          <BoundsControl
+            start={clipBounds.start}
+            end={clipBounds.end ?? duration}
+            max={(workingBounds.end ?? duration) - workingBounds.start}
+            onChange={onSetClipBounds}
+            label="Clip bounds"
+          />
+        </div>
+      </section>
+    </MuiPickersUtilsProvider>
   );
 }

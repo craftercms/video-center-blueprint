@@ -27,7 +27,7 @@ import Player from './Player';
 import BasicControlsAdapter from './BasicControlsAdapter';
 import Grid from '@material-ui/core/Grid';
 import ClippingControlsVideoJSAdapter from './ClippingControls';
-import { usePlayer } from './util';
+import { usePlayer, useVideoJSVolume } from './util';
 
 const useStyles = makeStyles((theme) => ({
   closeButton: {
@@ -77,6 +77,7 @@ function ClipDialogWrapper(props) {
   const { type, src } = props.src;
   const id = 'clipperPlayer';
   const getPlayer = usePlayer(id);
+  const [volume] = useVideoJSVolume(id);
 
   useEffect(() => {
     const player = getPlayer();
@@ -98,6 +99,10 @@ function ClipDialogWrapper(props) {
           <Grid item xs>
             <Player
               id={id}
+              options={{
+                volume,
+                muted: volume === 0
+              }}
               video={video}
               classes={{ root: classes.root, video: classes.video }}
             />

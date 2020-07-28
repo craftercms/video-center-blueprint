@@ -30,7 +30,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import ChatRoundedIcon from '@material-ui/icons/ChatRounded';
-import ClipDialog from './ClipDialog';
 import BasicControls from './BasicControls';
 import { SliderValueLabel } from './SliderValueLabel';
 import { usePlayer } from './util';
@@ -71,6 +70,7 @@ export function AdvancedControlsBar(props) {
     onSeekTo,
     onScreenCapture,
     onRecord,
+    onClip,
     onPause,
     onSetVolume,
     onSetPlaybackSpeed,
@@ -82,15 +82,13 @@ export function AdvancedControlsBar(props) {
     playbackSpeed = SPEEDS[2],
     playbackSpeeds = SPEEDS,
     time = 60,
-    duration,
-    src
+    duration
   } = props;
   const classes = useStyles();
   const [playbackSpeedMenu, setPlaybackSpeedMenu] = useState(null);
   const [settingsMenu, setSettingsMenu] = useState(null);
   const closePlaybackSpeedMenu = () => setPlaybackSpeedMenu(null);
   const closeSettingsMenu = () => setSettingsMenu(null);
-  const [openClipDialog, setOpenClipDialog] = useState(false);
 
   return (
     <>
@@ -121,7 +119,7 @@ export function AdvancedControlsBar(props) {
             aria-label="Clip"
             onClick={() => {
               onPause();
-              setOpenClipDialog(true);
+              onClip(true);
             }}
           >
             <ContentCutRounded />
@@ -193,17 +191,12 @@ export function AdvancedControlsBar(props) {
           />
         )}
       </Menu>
-      <ClipDialog
-        open={openClipDialog}
-        onClose={() => setOpenClipDialog(false)}
-        src={src}
-      />
     </>
   );
 }
 
 export function AdvancedControlsBarAdapter(props) {
-  const { skip, volume, setVolume } = props;
+  const { skip, volume, setVolume, onClip } = props;
   const player = usePlayer(props.id);
   const [isPlaying, setIsPlaying] = useState(false);
   const [playbackSpeed, setPlaybackSpeed] = useState(1);
@@ -283,6 +276,7 @@ export function AdvancedControlsBarAdapter(props) {
         onFullScreen={onFullScreen}
         onSetVolume={onSetVolume}
         onSeekTo={onSetTime}
+        onClip={onClip}
         volume={volume}
         onSetPlaybackSpeed={onSetPlaybackSpeed}
         playbackSpeed={playbackSpeed}

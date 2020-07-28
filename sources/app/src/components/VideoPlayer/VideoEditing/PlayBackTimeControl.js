@@ -19,14 +19,27 @@ import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import { SliderValueLabel } from './SliderValueLabel';
+import { TimePicker } from '@material-ui/pickers';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import IconButton from '@material-ui/core/IconButton';
+import ScheduleRoundedIcon from '@material-ui/icons/ScheduleRounded';
+import { useSlider } from './BoundsControl';
+import Link from '@material-ui/core/Link';
 
-const useStyles = makeStyles((theme) => ({
-  timeSelection: {}
+const useStyles = makeStyles(() => ({
+  timeSelection: {
+    display: 'flex',
+    alignContent: 'center'
+  },
+  link: {
+    marginLeft: '20px'
+  }
 }));
 
 export default function PlayBackTimeControl(props) {
-  const { currentTime, max, onChange, label } = props;
+  const { currentTime, max, onChange, label, onStartHere, onEndHere } = props;
   const classes = useStyles();
+  const sliderClasses = useSlider();
 
   return (
     <>
@@ -36,11 +49,46 @@ export default function PlayBackTimeControl(props) {
       <Slider
         value={currentTime}
         max={max}
+        classes={sliderClasses}
         onChange={(e, time) => onChange(time)}
         valueLabelDisplay="auto"
         ValueLabelComponent={SliderValueLabel}
       />
       <div className={classes.timeSelection}>
+        <TimePicker
+          ampm={false}
+          openTo="hours"
+          views={['hours', 'minutes', 'seconds']}
+          format="HH:mm:ss"
+          onChange={(e, value) => console.log(e, value)}
+          InputProps={{
+            endAdornment: <InputAdornment position="end">
+              <IconButton>
+                <ScheduleRoundedIcon />
+              </IconButton>
+            </InputAdornment>,
+          }}
+        />
+        <Link
+          component="button"
+          variant="body2"
+          color="textPrimary"
+          underline="always"
+          className={classes.link}
+          onClick={() => onStartHere(currentTime)}
+        >
+          Start Here
+        </Link>
+        <Link
+          component="button"
+          variant="body2"
+          color="textPrimary"
+          underline="always"
+          className={classes.link}
+          onClick={() => onEndHere(currentTime)}
+        >
+          End Here
+        </Link>
       </div>
     </>
   );

@@ -33,6 +33,7 @@ import ArtificialIntelligence from './VideoEditing/ArtificialIntelligence';
 import { StreamListFetcherVideoJSAdapter } from './VideoEditing/StreamsList';
 import Root from './VideoEditing/Root';
 import { useVideoJSControlsOnFullScreen, useVideoJSVolume } from './VideoEditing/util';
+import ClipDialog from './VideoEditing/ClipDialog';
 
 window.videojs = videojs;
 
@@ -81,13 +82,13 @@ export default function () {
   const id = 'mainPlayer';
   const classes = getClasses();
   const [tab, setTab] = React.useState(0);
-  // TODO: Move clip dialog out of advanced bar — then, it needn't receive "src" prop
   const [src, setSrc] = useState({});
   const [volume, setVolume] = useVideoJSVolume(id);
   const [context, setContext] = useReducer(
     (state, nextState) => ({ ...state, ...nextState }),
     { skip: 10 }
   );
+  const [openClipDialog, setOpenClipDialog] = useState(false);
 
   const onTabClick = (e, nextTab) => setTab(nextTab);
 
@@ -163,6 +164,12 @@ export default function () {
         skip={context.skip}
         volume={volume}
         setVolume={setVolume}
+        onClip={setOpenClipDialog}
+      />
+      <ClipDialog
+        open={openClipDialog}
+        onClose={() => setOpenClipDialog(false)}
+        src={src}
       />
     </Root>
   );

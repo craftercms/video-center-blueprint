@@ -15,15 +15,18 @@
  */
 
 import React, { useEffect, useState } from 'react';
-import videojs from 'video.js';
 import BasicControls from './BasicControls';
+import { usePlayer, useVideoJSIsFullScreen, useVideoJSVolume } from './util';
 
 export default function BasicControlsAdapter(props) {
-  const player = videojs.getPlayer(props.id);
-  const [volume, setVolume] = useState(1);
+  const { id } = props;
+  const getPlayer = usePlayer(id);
+  const [volume, setVolume] = useVideoJSVolume(id);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isFullScreen, setFullScreen] = useVideoJSIsFullScreen(id);
 
   useEffect(() => {
+    const player = getPlayer();
     if (player) {
       ['play', 'pause'].forEach((e) => {
         player.on(e, () => {
@@ -31,9 +34,10 @@ export default function BasicControlsAdapter(props) {
         });
       });
     }
-  }, [player]);
+  }, [getPlayer]);
 
   const onTogglePlay = () => {
+    const player = getPlayer();
     if (player.paused()) {
       player.play();
     } else {
@@ -42,21 +46,13 @@ export default function BasicControlsAdapter(props) {
   };
 
   const onFullScreen = () => {
-    if (!player.isFullscreen()) {
-      player.requestFullscreen();
-    } else {
-      player.exitFullscreen();
-    }
+    setFullScreen(!isFullScreen);
   };
 
   const seek = (secs) => {
+    const player = getPlayer();
     let time = player.currentTime() + secs;
     player.currentTime(time < 0 ? 0 : time);
-  };
-
-  const onSetVolume = (volume) => {
-    setVolume(volume);
-    player.volume(volume);
   };
 
   return (
@@ -68,7 +64,7 @@ export default function BasicControlsAdapter(props) {
       onSkipForward={() => seek(10)}
       onFullScreen={onFullScreen}
       volume={volume}
-      onSetVolume={onSetVolume}
+      onSetVolume={setVolume}
     />
   );
 }

@@ -19,14 +19,45 @@ import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import { SliderValueLabel } from './SliderValueLabel';
+import { TimePicker } from '@material-ui/pickers';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import IconButton from '@material-ui/core/IconButton';
+import ScheduleRoundedIcon from '@material-ui/icons/ScheduleRounded';
+import { formatSeconds } from './util';
 
 const useStyles = makeStyles(() => ({
-  timeSelection: {}
+  timeSelection: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignContent: 'center'
+  }
+}));
+
+export const useSlider = makeStyles(() => ({
+  root: {
+    height: '4px'
+  },
+  rail: {
+    color: 'white',
+    opacity: 1,
+    height: '4px',
+    borderRadius: '2px'
+  },
+  track: {
+    height: '4px',
+    borderRadius: '2px'
+  },
+  thumb: {
+    bottom: '10px',
+    height: '10px',
+    width: '10px'
+  }
 }));
 
 export default function BoundsControl(props) {
   const { start, end, max, onChange, label } = props;
   const classes = useStyles();
+  const sliderClasses = useSlider();
 
   return (
     <>
@@ -37,11 +68,44 @@ export default function BoundsControl(props) {
         value={[start, end]}
         step={1}
         max={max}
+        classes={sliderClasses}
         onChange={(e, value) => onChange(value)}
         valueLabelDisplay="auto"
         ValueLabelComponent={SliderValueLabel}
       />
       <div className={classes.timeSelection}>
+        <TimePicker
+          ampm={false}
+          openTo="hours"
+          views={['hours', 'minutes', 'seconds']}
+          format="HH:mm:ss"
+          onChange={(e, value) => console.log(e, value)}
+          InputProps={{
+            endAdornment: <InputAdornment position="end">
+              <IconButton>
+                <ScheduleRoundedIcon />
+              </IconButton>
+            </InputAdornment>,
+          }}
+        />
+        <div>
+          <Typography>{formatSeconds(10000)}</Typography>
+          <Typography>duration</Typography>
+        </div>
+        <TimePicker
+          ampm={false}
+          openTo="hours"
+          views={['hours', 'minutes', 'seconds']}
+          format="HH:mm:ss"
+          onChange={(e, value) => console.log(e, value)}
+          InputProps={{
+            endAdornment: <InputAdornment position="end">
+              <IconButton>
+                <ScheduleRoundedIcon />
+              </IconButton>
+            </InputAdornment>,
+          }}
+        />
       </div>
     </>
   );
