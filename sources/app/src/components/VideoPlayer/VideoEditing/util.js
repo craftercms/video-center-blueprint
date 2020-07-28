@@ -14,7 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import { useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import videojs from 'video.js';
 import moment from 'moment';
 
@@ -33,4 +33,63 @@ export const formatSeconds = (value) => {
 
 function addZero(number) {
   return (number < 10 ? '0' : '') + number;
+}
+
+export function useVideoJSIsFullScreen(id) {
+  const getPlayer = usePlayer(id);
+  const [isFullScreen, setIsFullScreen] = useState(false);
+  const setter = useCallback((value) => getPlayer().isFullscreen(value), [getPlayer]);
+  useEffect(() => {
+    const player = getPlayer();
+    const onChange = () => setIsFullScreen(player.isFullscreen());
+    player.on('fullscreenchange', onChange);
+    return () => player.off('fullscreenchange', onChange);
+  }, [getPlayer]);
+  useEffect(() => {
+    const player = getPlayer();
+    const playerIsFullScreen = player.isFullscreen();
+    (playerIsFullScreen !== isFullScreen) && setIsFullScreen(playerIsFullScreen);
+  }, [getPlayer, isFullScreen]);
+  return [isFullScreen, setter];
+}
+
+export function useVideoJSVolume(id) {
+  const getPlayer = usePlayer(id);
+  const [volume, setVolume] = useState(0);
+  const setter = useCallback((value) => getPlayer().volume(value), [getPlayer]);
+  useEffect(() => {
+    const player = getPlayer();
+    const _volume = player.volume();
+    if (_volume !== volume) {
+      setVolume(_volume);
+    }
+    const onChange = () => setVolume(player.volume());
+    player.on('volumechange', onChange);
+    return () => player.off('volumechange', onChange);
+  }, [getPlayer, volume]);
+  return [volume, setter];
+}
+
+export function useVideoJSMuted(id) {
+  const getPlayer = usePlayer(id);
+  const [muted, setMuted] = useState(true);
+  const setter = useCallback((value) => {
+    setMuted(value);
+    getPlayer().volume(value);
+  }, [getPlayer]);
+  useEffect(() => {
+    setMuted(getPlayer.muted());
+  }, [getPlayer]);
+  return [muted, setter];
+}
+
+export function useVideoJSControlsOnFullScreen(id) {
+  const getPlayer = usePlayer(id);
+  const [isFullScreen, setFullScreen] = useVideoJSIsFullScreen(id);
+  useEffect(() => {
+    const player = getPlayer();
+    player.controls(isFullScreen);
+    return () => player.controls(false);
+  }, [isFullScreen, getPlayer]);
+  return [isFullScreen, setFullScreen];
 }

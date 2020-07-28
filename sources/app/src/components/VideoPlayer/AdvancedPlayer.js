@@ -14,9 +14,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React, { useMemo, useReducer, useState } from 'react';
+import React, { useReducer, useState } from 'react';
 import videojs from 'video.js';
-import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Player from './VideoEditing/Player';
@@ -24,7 +24,6 @@ import { GoToVideoJSAdapter } from './VideoEditing/SeekTo';
 import { LocalVideoChooserVideoJSAdapter } from './VideoEditing/LocalVideoChooser';
 import { LooperVideoJSAdapter } from './VideoEditing/Looper';
 import { ReversePlaybackVideoJSAdapter } from './VideoEditing/ReversePlayback';
-import BasicControlsAdapter from './VideoEditing/BasicControlsAdapter';
 import ClippingControlsVideoJSAdapter from './VideoEditing/ClippingControls';
 import SkipSetter from './VideoEditing/SkipSetter';
 import Transcript from './VideoEditing/Transcript';
@@ -33,6 +32,7 @@ import Markers from './VideoEditing/Markers';
 import ArtificialIntelligence from './VideoEditing/ArtificialIntelligence';
 import { StreamListFetcherVideoJSAdapter } from './VideoEditing/StreamsList';
 import Root from './VideoEditing/Root';
+import { useVideoJSControlsOnFullScreen, useVideoJSVolume } from './VideoEditing/util';
 
 window.videojs = videojs;
 
@@ -76,18 +76,22 @@ const getClasses = makeStyles((theme) => ({
   }
 }));
 
-export default function (props) {
+export default function () {
 
   const id = 'mainPlayer';
   const classes = getClasses();
   const [tab, setTab] = React.useState(0);
+  // TODO: Move clip dialog out of advanced bar — then, it needn't receive "src" prop
   const [src, setSrc] = useState({});
+  const [volume, setVolume] = useVideoJSVolume(id);
   const [context, setContext] = useReducer(
     (state, nextState) => ({ ...state, ...nextState }),
-    { skip: 10, volume: 0, muted: true }
+    { skip: 10 }
   );
 
   const onTabClick = (e, nextTab) => setTab(nextTab);
+
+  useVideoJSControlsOnFullScreen(id);
 
   return (
     <Root>
@@ -95,7 +99,7 @@ export default function (props) {
         <div className={classes.video}>
           <Player
             id={id}
-            options={{ volume: context.volume, muted: context.muted }}
+            options={{ volume, muted: volume === 0 }}
             classes={{ root: classes.videoRoot, video: classes.videoVideo }}
           />
         </div>
@@ -138,9 +142,6 @@ export default function (props) {
                 classes={{ controls: classes.controls, control: classes.control }}
               />
             </div>
-            <div className={classes.tabPanelItem}>
-              <BasicControlsAdapter id={id} />
-            </div>
           </div>
           <div className={classes.tabPanel} hidden={tab !== 2}>
             <StreamListFetcherVideoJSAdapter id={id} />
@@ -160,8 +161,8 @@ export default function (props) {
         id={id}
         src={src}
         skip={context.skip}
-        volume={context.volume}
-        setVolume={(volume) => setContext({ volume })}
+        volume={volume}
+        setVolume={setVolume}
       />
     </Root>
   );

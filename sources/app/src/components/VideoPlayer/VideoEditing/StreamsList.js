@@ -47,7 +47,7 @@ export function StreamListFetcherVideoJSAdapter({ id, onStreamSelected: onStream
       const source = { src, type };
       player().src(src);
       player().play();
-      onStreamSelectedProp(source);
+      onStreamSelectedProp && onStreamSelectedProp(source);
     } else {
       alert('Stream format not recognized.');
     }

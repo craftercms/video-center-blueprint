@@ -19,6 +19,8 @@ import videojs from 'video.js';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import '../video-js/ControlBar';
 
+let UND;
+
 const useStyles = makeStyles(() => ({
   videoWrapper: {
     // width: '100%',
@@ -58,8 +60,14 @@ export default React.forwardRef(function Player(props, ref) {
       ],
       ...options
     });
+    if (options.volume !== UND) {
+      player.volume(options.volume);
+    }
     if (ref) {
-      const result = { player, video: videoRef.current };
+      const result = {
+        player,
+        video: videoRef.current
+      };
       if (typeof ref === 'function') {
         ref(result);
       } else {
@@ -71,13 +79,28 @@ export default React.forwardRef(function Player(props, ref) {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
   return (
-    <div className={`${classes.videoWrapper} ${props.classes?.root}`}>
+    <div
+      className={`${classes.videoWrapper} ${props.classes?.root}`}
+      onClick={() => {
+        const player = videojs(id);
+        // If videojs' full screen controls are enabled, this would
+        // cause the click to seem not to be doing anything as they
+        // "cancel" each other.
+        if (!player.isFullscreen()) {
+          if (player.paused()) {
+            player.play();
+          } else {
+            player.pause();
+          }
+        }
+      }}
+    >
       <video
         id={id}
         ref={videoRef}
         className={`video-js vjs-theme-vc ${classes.video} ${props.classes?.video}`}
+        muted={options.muted !== UND ? options.muted : true}
         preload="auto"
         autoPlay
       >

@@ -7,7 +7,6 @@ const HeaderHolder = styled.div`
     .header {
         height: 5.6rem;
         position: relative;
-        z-index: 996;
         background: ${palette('primary', 0)};
         color: hsla(0,0%,100%,.5);
         text-align: right;

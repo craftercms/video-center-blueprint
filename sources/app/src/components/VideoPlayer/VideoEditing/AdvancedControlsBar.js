@@ -34,6 +34,7 @@ import ClipDialog from './ClipDialog';
 import BasicControls from './BasicControls';
 import { SliderValueLabel } from './SliderValueLabel';
 import { usePlayer } from './util';
+import Snackbar from '@material-ui/core/Snackbar';
 
 const useStyles = makeStyles(() => ({
   appBar: {
@@ -137,7 +138,10 @@ export function AdvancedControlsBar(props) {
             volume={volume}
             onSetVolume={onSetVolume}
           />
-          <IconButton aria-label="Set playback rate" onClick={(e) => setPlaybackSpeedMenu(e.currentTarget)}>
+          <IconButton
+            aria-label="Set playback rate"
+            onClick={(e) => setPlaybackSpeedMenu(e.currentTarget)}
+          >
             <SpeedRoundedIcon />
           </IconButton>
           <IconButton aria-label="Search">
@@ -205,6 +209,8 @@ export function AdvancedControlsBarAdapter(props) {
   const [playbackSpeed, setPlaybackSpeed] = useState(1);
   const [duration, setDuration] = useState(null);
   const [time, setTime] = useState(null);
+  const [recording, setRecording] = useState(false);
+  const [snack, setSnack] = useState(false);
 
   useEffect(() => {
     if (player()) {
@@ -266,22 +272,38 @@ export function AdvancedControlsBarAdapter(props) {
   };
 
   return (
-    <AdvancedControlsBar
-      src={props.src}
-      onSkipForward={() => seek(skip)}
-      onSkipBack={() => seek(-skip)}
-      isPlaying={isPlaying}
-      onPause={onPause}
-      onTogglePlay={onTogglePlay}
-      onFullScreen={onFullScreen}
-      onSetVolume={onSetVolume}
-      onSeekTo={onSetTime}
-      volume={volume}
-      onSetPlaybackSpeed={onSetPlaybackSpeed}
-      playbackSpeed={playbackSpeed}
-      duration={duration}
-      time={time}
-    />
+    <>
+      <AdvancedControlsBar
+        src={props.src}
+        onSkipForward={() => seek(skip)}
+        onSkipBack={() => seek(-skip)}
+        isPlaying={isPlaying}
+        onPause={onPause}
+        onTogglePlay={onTogglePlay}
+        onFullScreen={onFullScreen}
+        onSetVolume={onSetVolume}
+        onSeekTo={onSetTime}
+        volume={volume}
+        onSetPlaybackSpeed={onSetPlaybackSpeed}
+        playbackSpeed={playbackSpeed}
+        duration={duration}
+        time={time}
+        isRecording={recording}
+        onRecord={() => {
+          setRecording(!recording);
+          if (recording) {
+            setSnack(true);
+          }
+        }}
+      />
+      <Snackbar
+        open={snack}
+        autoHideDuration={3000}
+        onClose={() => setSnack(false)}
+        message="Clip created successfully."
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      />
+    </>
   );
 }
 

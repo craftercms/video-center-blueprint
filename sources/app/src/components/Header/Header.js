@@ -78,41 +78,25 @@ class Header extends Component {
           className={'header ' + (this.props.headerGhost ? 'header--ghost ' : ' ') + (iOS ? 'ios' : '')}
         >
           <div className="header__container">
-            <div className="header__overlay"></div>
-
-            {descriptors && descriptors[this.levelDescriptorUrl] &&
-            this.renderHeaderLogo(descriptors[this.levelDescriptorUrl])
+            <div className="header__overlay"/>
+            {
+              descriptors &&
+              descriptors[this.levelDescriptorUrl] &&
+              this.renderHeaderLogo(descriptors[this.levelDescriptorUrl])
             }
-
             <div className="header__navigation">
               <nav className="navigation">
                 <ul className="navigation__list">
-                  {/* <li className="navigation__item">
-                                        <Link className="navigation__link navigation__link--apps" to="/channels">
-                                            <span className="navigation__link--text">
-                                                Channels
-                                            </span>
-                                        </Link>
-                                    </li>
-                                    <li className="navigation__item">
-                                        <a className="navigation__link navigation__link--tv" href="/tv">
-                                            <span className="navigation__link--text">
-                                                TV
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li className="navigation__item">
-                                        <Link className="navigation__link navigation__link--apps" to="/live-events">
-                                            <span className="navigation__link--text">
-                                                Live Events
-                                            </span>
-                                        </Link>
-                                    </li> */}
-                  {
-                    nav
-                    && nav.entries['/']
-                    && this.renderNavItems()
-                  }
+                  <li className="navigation__item">
+                    <Link className="navigation__link navigation__link--apps" to="/player">
+                      <span className="navigation__link--text">Player</span>
+                    </Link>
+                  </li>
+                  <li className="navigation__item">
+                    <Link className="navigation__link navigation__link--apps" to="/multiplayer">
+                      <span className="navigation__link--text">Multiplayer</span>
+                    </Link>
+                  </li>
                 </ul>
               </nav>
             </div>
