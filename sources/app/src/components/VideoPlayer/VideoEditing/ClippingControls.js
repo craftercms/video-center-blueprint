@@ -21,10 +21,12 @@ import PlayBackTimeControl from './PlayBackTimeControl';
 import { formatSeconds, usePlayer } from './util';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import MomentUtils from '@date-io/moment';
+import FiberSmartRecordIcon from '@material-ui/icons/FiberSmartRecord';
 
 export default function ClippingControlsVideoJSAdapter(props) {
   const player = usePlayer(props.id);
   const [duration, setDuration] = useState(null);
+  const [isLive, setIsLive] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [workingBounds, setWorkingBounds] = useState({
     start: 0,
@@ -39,6 +41,10 @@ export default function ClippingControlsVideoJSAdapter(props) {
     if (player()) {
 
       player().on('loadedmetadata', () => {
+        const _duration = player().duration();
+        if (_duration === Infinity) {
+          setIsLive(true);
+        }
         setDuration(player().duration());
       });
 
@@ -77,10 +83,15 @@ export default function ClippingControlsVideoJSAdapter(props) {
     <MuiPickersUtilsProvider utils={MomentUtils}>
       <section className={props.classes?.controls}>
         <div className={props.classes?.control}>
-          <VideoDurationControl duration={formatSeconds(duration)} />
+          <VideoDurationControl
+            duration={isLive ? <span
+              className={props.classes?.live}
+            >Live <FiberSmartRecordIcon /></span> : formatSeconds(duration)}
+          />
         </div>
         <div className={props.classes?.control}>
           <BoundsControl
+            disabled={isLive}
             start={workingBounds.start}
             end={workingBounds.end ?? duration}
             max={duration}
@@ -90,8 +101,9 @@ export default function ClippingControlsVideoJSAdapter(props) {
         </div>
         <div className={props.classes?.control}>
           <PlayBackTimeControl
+            disabled={isLive}
             currentTime={currentTime}
-            max={duration}
+            max={isLive ? currentTime : duration}
             onChange={onSetTime}
             onStartHere={onStartHere}
             onEndHere={onEndHere}
@@ -100,6 +112,7 @@ export default function ClippingControlsVideoJSAdapter(props) {
         </div>
         <div className={props.classes?.control}>
           <BoundsControl
+            disabled={isLive}
             start={clipBounds.start}
             end={clipBounds.end ?? duration}
             max={(workingBounds.end ?? duration) - workingBounds.start}

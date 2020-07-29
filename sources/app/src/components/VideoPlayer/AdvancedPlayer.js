@@ -74,6 +74,15 @@ const getClasses = makeStyles((theme) => ({
   control: {
     width: '100%',
     marginBottom: '25px'
+  },
+  live: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    '& svg': {
+      marginLeft: '5px',
+      color: 'red',
+      fontSize: '1.5rem'
+    }
   }
 }));
 
@@ -140,7 +149,11 @@ export default function () {
             <div className={classes.tabPanelItem}>
               <ClippingControlsVideoJSAdapter
                 id={id}
-                classes={{ controls: classes.controls, control: classes.control }}
+                classes={{
+                  controls: classes.controls,
+                  control: classes.control,
+                  live: classes.live
+                }}
               />
             </div>
           </div>

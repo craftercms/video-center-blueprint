@@ -37,7 +37,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 export default function PlayBackTimeControl(props) {
-  const { currentTime, max, onChange, label, onStartHere, onEndHere } = props;
+  const { currentTime, max, onChange, label, onStartHere, onEndHere, disabled } = props;
   const classes = useStyles();
   const sliderClasses = useSlider();
 
@@ -50,12 +50,13 @@ export default function PlayBackTimeControl(props) {
         value={currentTime}
         max={max}
         classes={sliderClasses}
-        onChange={(e, time) => onChange(time)}
+        onChange={(e, time) => disabled ? null : onChange(time)}
         valueLabelDisplay="auto"
         ValueLabelComponent={SliderValueLabel}
       />
       <div className={classes.timeSelection}>
         <TimePicker
+          disabled={disabled}
           ampm={false}
           openTo="hours"
           views={['hours', 'minutes', 'seconds']}
@@ -63,29 +64,31 @@ export default function PlayBackTimeControl(props) {
           onChange={(e, value) => console.log(e, value)}
           InputProps={{
             endAdornment: <InputAdornment position="end">
-              <IconButton>
+              <IconButton disabled={disabled}>
                 <ScheduleRoundedIcon />
               </IconButton>
             </InputAdornment>,
           }}
         />
         <Link
+          disabled={disabled}
           component="button"
           variant="body2"
-          color="textPrimary"
+          color={disabled ? 'textSecondary' : 'textPrimary'}
           underline="always"
           className={classes.link}
-          onClick={() => onStartHere(currentTime)}
+          onClick={() => disabled ? null : onStartHere(currentTime)}
         >
           Start Here
         </Link>
         <Link
+          disabled={disabled}
           component="button"
           variant="body2"
-          color="textPrimary"
+          color={disabled ? 'textSecondary' : 'textPrimary'}
           underline="always"
           className={classes.link}
-          onClick={() => onEndHere(currentTime)}
+          onClick={() => disabled ? null : onEndHere(currentTime)}
         >
           End Here
         </Link>

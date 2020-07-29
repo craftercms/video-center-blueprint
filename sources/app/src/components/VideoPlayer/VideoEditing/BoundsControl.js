@@ -51,11 +51,21 @@ export const useSlider = makeStyles(() => ({
     bottom: '10px',
     height: '10px',
     width: '10px'
+  },
+  disabled: {
+    '& $rail': {
+      opacity: '0.38'
+    },
+    '& $thumb': {
+      bottom: '10px',
+      height: '10px',
+      width: '10px'
+    }
   }
 }));
 
 export default function BoundsControl(props) {
-  const { start, end, max, onChange, label } = props;
+  const { start, end, max, onChange, label, disabled } = props;
   const classes = useStyles();
   const sliderClasses = useSlider();
 
@@ -65,6 +75,7 @@ export default function BoundsControl(props) {
         {label}
       </Typography>
       <Slider
+        disabled={disabled}
         value={[start, end]}
         step={1}
         max={max}
@@ -75,6 +86,7 @@ export default function BoundsControl(props) {
       />
       <div className={classes.timeSelection}>
         <TimePicker
+          disabled={disabled}
           ampm={false}
           openTo="hours"
           views={['hours', 'minutes', 'seconds']}
@@ -82,17 +94,20 @@ export default function BoundsControl(props) {
           onChange={(e, value) => console.log(e, value)}
           InputProps={{
             endAdornment: <InputAdornment position="end">
-              <IconButton>
+              <IconButton disabled={disabled}>
                 <ScheduleRoundedIcon />
               </IconButton>
             </InputAdornment>,
           }}
         />
         <div>
-          <Typography>{formatSeconds(10000)}</Typography>
-          <Typography>duration</Typography>
+          <Typography
+            color={disabled ? 'textSecondary' : 'textPrimary'}
+          >{formatSeconds(10000)}</Typography>
+          <Typography color={disabled ? 'textSecondary' : 'textPrimary'}>duration</Typography>
         </div>
         <TimePicker
+          disabled={disabled}
           ampm={false}
           openTo="hours"
           views={['hours', 'minutes', 'seconds']}
@@ -100,7 +115,7 @@ export default function BoundsControl(props) {
           onChange={(e, value) => console.log(e, value)}
           InputProps={{
             endAdornment: <InputAdornment position="end">
-              <IconButton>
+              <IconButton disabled={disabled}>
                 <ScheduleRoundedIcon />
               </IconButton>
             </InputAdornment>,
