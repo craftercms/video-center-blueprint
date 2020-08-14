@@ -59,6 +59,9 @@ plugin:
       minor: 1
       patch: 9
     - major: 3
+      minor: 1
+      patch: 10
+    - major: 3
       minor: 2
       patch: 0
   crafterCmsEditions:
