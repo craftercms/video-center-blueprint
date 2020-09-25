@@ -4,11 +4,19 @@ const common = {
   repoUrl: 'https://github.com/craftercms/video-center-blueprint'
 };
 
-const site = document.getElementById('studioSiteName').innerHTML || Cookies.get('crafterSite');
+let site = document.getElementById('studioSiteName').innerHTML;
+if(site === 'null') {
+  site = Cookies.get('crafterSite');
+}
+
+let baseUrl = document.getElementById('studioBaseUrl').innerHTML;
+if (baseUrl === 'null') {
+  baseUrl = window.location.origin;
+}
 
 const studioConfig = {
   site,
-  baseUrl: document.getElementById('studioBaseUrl').innerHTML || window.location.origin,
+  baseUrl,
   navTreeBase: '/site/website'
 };
 
