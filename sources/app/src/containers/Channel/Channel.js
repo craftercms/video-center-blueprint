@@ -101,7 +101,7 @@ class Channel extends Component {
           }
         },
         sort: {
-          by: 'createdDate_dt',
+          by: 'date_dt',
           order: 'desc'
         },
         numResults: component.maxVideosDisplay_i,

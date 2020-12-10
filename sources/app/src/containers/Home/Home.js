@@ -101,7 +101,7 @@ class Home extends Component {
             },
           },
           sort: {
-            by: 'createdDate_dt',
+            by: 'date_dt',
             order: 'desc'
           },
           numResults: page.maxVideosDisplay_i
