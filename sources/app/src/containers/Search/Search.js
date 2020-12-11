@@ -47,13 +47,12 @@ class Search extends Component {
 
   setCategories(searchId) {
     const searchKeyword = isNullOrUndefined(searchId) ? '' : searchId,
-      searchFilter = searchKeyword.replace(/\s/g, '') === '' ?
-        {
+      searchFilter = searchKeyword.replace(/\s/g, '') === ''
+        ? {
           'regexp': {
-            'title_t': '.*' + searchKeyword + '.*'
+            'title_t': `.*${searchKeyword}.*`
           }
-        } :
-        {
+        } : {
           'match_phrase_prefix': {
             'title_t': searchKeyword
           }
@@ -88,7 +87,18 @@ class Search extends Component {
                   ]
                 }
               },
-              searchFilter
+              {
+                'bool': {
+                  'should': [
+                    {
+                      'regexp': {
+                        'tags_o.item.value_smv': `.*${searchKeyword}.*`
+                      }
+                    },
+                    searchFilter
+                  ]
+                }
+              }
             ]
           }
         },

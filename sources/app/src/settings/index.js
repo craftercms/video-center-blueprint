@@ -5,12 +5,12 @@ const common = {
 };
 
 let site = document.getElementById('studioSiteName').innerHTML;
-if(site === 'null') {
+if(site === '' || site === 'null') {
   site = Cookies.get('crafterSite');
 }
 
 let baseUrl = document.getElementById('studioBaseUrl').innerHTML;
-if (baseUrl === 'null') {
+if (baseUrl === '' || baseUrl === 'null') {
   baseUrl = window.location.origin;
 }
 
