@@ -42,8 +42,8 @@
         </rteStyleOverride>
 
         <plugins>
-            print preview searchreplace autolink directionality visualblocks visualchars fullscreen image link media template 
-			codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount 
+            print preview searchreplace autolink directionality visualblocks visualchars fullscreen image link media template
+			codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount
 			textpattern help acecode
         </plugins>
 
@@ -53,5 +53,7 @@
         <toolbarItems2></toolbarItems2>
         <toolbarItems3></toolbarItems3>
         <toolbarItems4></toolbarItems4>
+
+        <codeEditorWrap>false</codeEditorWrap>
     </setup>
 </config>
