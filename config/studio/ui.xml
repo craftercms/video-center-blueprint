@@ -52,7 +52,7 @@
                 <configuration>
                   <id>Videos</id>
                   <label>Videos</label>
-                  <icon baseClass="fa fa-puzzle-piece"/>
+                  <icon baseClass="fa fa-video-camera"/>
                   <rootPath>/site/videos</rootPath>
                   <locale>en</locale>
                 </configuration>
@@ -61,7 +61,7 @@
                 <configuration>
                   <id>Streams</id>
                   <label>Streams</label>
-                  <icon baseClass="fa fa-puzzle-piece"/>
+                  <icon baseClass="fa fa-video-camera"/>
                   <rootPath>/site/streams</rootPath>
                   <locale>en</locale>
                 </configuration>
@@ -97,7 +97,7 @@
                 <configuration>
                   <id>Sources</id>
                   <label>Sources</label>
-                  <icon baseClass="fa fa-image"/>
+                  <icon baseClass="fa fa-file-code-o"/>
                   <rootPath>/sources</rootPath>
                   <locale>en</locale>
                 </configuration>
