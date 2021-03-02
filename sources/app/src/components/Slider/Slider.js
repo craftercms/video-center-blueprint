@@ -5,6 +5,7 @@ import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 import SliderHolder from './SliderStyle';
 import Slide from '../Slide/Slide';
+import { parseDescriptor } from '@craftercms/content';
 
 class Slider extends Component {
   componentDidMount() {
@@ -46,6 +47,7 @@ class Slider extends Component {
 
   renderSlider(descriptor) {
     var slides = descriptor.component.slides_o;
+    const model = parseDescriptor(descriptor);
 
     if (!(slides.item instanceof Array)) {
       slides = [slides.item];
@@ -62,7 +64,7 @@ class Slider extends Component {
           autoplay
         >
           {
-            slides.map((slide, i) => <Slide key={i} slide={slide} />)
+            slides.map((slide, i) => <Slide key={i} slide={slide} model={model} index={i} fieldId="slides_o"/>)
           }
         </Carousel>
 

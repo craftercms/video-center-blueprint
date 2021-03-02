@@ -21,8 +21,6 @@
 ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 ~ SOFTWARE.
 -->
-<#import "/templates/system/common/cstudio-support.ftl" as studio />
-
 <#assign siteName = "null"/>
 <#if siteContext?? && siteContext.siteName??>
   <#assign siteName = siteContext.siteName />

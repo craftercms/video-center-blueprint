@@ -16,7 +16,6 @@
 
 import React, { useEffect, useState } from 'react';
 import { reportNavigation } from '@craftercms/ice';
-import Home from '../containers/Home/Home';
 import { urlTransform, getItem, parseDescriptor } from '@craftercms/content';
 import { map } from 'rxjs/operators';
 import { isAuthoring } from './utils';
@@ -26,19 +25,21 @@ import contentTypeMap from './contentTypeMap';
 export default function DynamicRoute(props) {
   const { match, location } = props;
   const [ state, setState ] = useState(null);
-  let url = match.url;
+  let url = match.path.replace(new RegExp(":.+","gm"), '');
 
   useEffect(() => {
     let destroyed = false;
-    // reportNavigation(url);
+    reportNavigation(url);
 
     urlTransform('renderUrlToStoreUrl', url).subscribe((path) => {
       getItem(path).pipe(
         map(parseDescriptor)
       ).subscribe((model) => {
-        setState({
-          model
-        });
+        if (!destroyed) {
+          setState({
+            model
+          });
+        }
       });
       return () => {
         destroyed = true;

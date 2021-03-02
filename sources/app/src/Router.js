@@ -3,12 +3,10 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getNav } from '@craftercms/redux';
 
-import Home from './containers/Home/Home.js';
 import Video from './containers/Video/Video.js';
 import Channels from './containers/Channels/Channels.js';
 import Channel from './containers/Channel/Channel.js';
 import LiveEvents from './containers/LiveEvents/LiveEvents.js';
-import Search from './containers/Search/Search.js';
 import List from './containers/List/List.js';
 import ErrorPage from './containers/Errors/errorPage';
 import DynamicRoute from './components/DynamicRoute';
@@ -56,15 +54,18 @@ class Router extends Component {
 
     return (
       <Switch>
-        {/*<Route exact path='/' component={Home} />*/}
         <Route exact path="/" component={DynamicRoute} />
         <Route exact path='/video/:id/:videoName?' component={Video} />
         <Route exact path='/stream/:id/:videoName?' component={Video} />
-        <Route exact path='/search' component={Search} />
-        <Route exact path='/search/:query' component={Search} />
+        <Route exact path='/search' component={DynamicRoute} />
+        <Route exact path='/search/:query' component={DynamicRoute} />
         <Route exact path='/channel/:name' component={Channel} />
         <Route exact path='/list/:id' component={List} />
         <Route exact path='/list/:categoryName/:query/:sort?' component={List} />
+
+        <Route exact path='/channels' component={DynamicRoute} />
+        <Route exact path='/live-events' component={DynamicRoute} />
+
         {nav && nav.entries['/'] &&
         this.renderRouteEntries()
         }

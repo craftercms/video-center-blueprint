@@ -17,7 +17,8 @@
 import { lazy } from 'react';
 
 const map = {
-  '/page/page-home': lazy(() => import('../containers/Home/Home'))
+  '/page/page-home': lazy(() => import('../containers/Home/Home')),
+  '/page/entry': lazy(() => import('../containers/Entry/Entry'))
 };
 
 export default map;

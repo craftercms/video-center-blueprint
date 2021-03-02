@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
 import moment from 'moment';
+import { Field } from '@craftercms/studio-guest/react';
 
 import { formatDate } from '../../utils';
 
@@ -86,12 +87,19 @@ class Slide extends Component {
   }
 
   render() {
-    const { hero, slide } = this.props;
+    const { model, index, fieldId, hero, slide } = this.props;
     const { eventDate, showCountdown, countdown } = this.state;
 
     return (
       <div className="discover-slider__inner">
-        <Link className="discover-slider__link" to={slide.url_s}>
+        <Field
+          component={Link}
+          model={model}
+          fieldId={fieldId}
+          index={index}
+          className="discover-slider__link"
+          to={slide.url_s}
+        >
           <div>
             <div
               className="image discover-slider__inner--background discover-slider__inner--background-mobile"
@@ -117,15 +125,27 @@ class Slide extends Component {
           >
             {slide.vod_s &&
             <div className="discover-slider__inner--vod">
-              <span className="discover-slider__inner--vod-label">
+              <Field
+                component="span"
+                className="discover-slider__inner--vod-label"
+                model={model}
+                index={index}
+                fieldId={`${fieldId}.vod_s`}
+              >
                 {slide.vod_s}
-              </span>
+              </Field>
             </div>
             }
 
-            <h1 className="heading discover-slider__inner--title heading--medium heading--slider">
+            <Field
+              component="h1"
+              className="heading discover-slider__inner--title heading--medium heading--slider"
+              model={model}
+              index={index}
+              fieldId={`${fieldId}.title_t`}
+            >
               {slide.title_t}
-            </h1>
+            </Field>
 
             {slide.logo_s &&
             <div
@@ -135,9 +155,14 @@ class Slide extends Component {
             </div>
             }
 
-            <div className="discover-slider__inner--subtitle">
+            <Field
+              className="discover-slider__inner--subtitle"
+              model={model}
+              index={index}
+              fieldId={`${fieldId}.subtitle_s`}
+            >
               {ReactHtmlParser(slide.subtitle_s)}
-            </div>
+            </Field>
 
             {this.props.hero && eventDate &&
             <div className="hero__countdown">
@@ -165,7 +190,7 @@ class Slide extends Component {
             </div>
             }
           </div>
-        </Link>
+        </Field>
       </div>
     );
   }
