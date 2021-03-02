@@ -1,0 +1,71 @@
+/*
+ * Copyright (C) 2007-2021 Crafter Software Corporation. All Rights Reserved.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 3 as published by
+ * the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+import React, { useEffect, useState } from 'react';
+import { reportNavigation } from '@craftercms/ice';
+import Home from '../containers/Home/Home';
+import { urlTransform, getItem, parseDescriptor } from '@craftercms/content';
+import { map } from 'rxjs/operators';
+import { isAuthoring } from './utils';
+// import { Guest, ContentType } from '@craftercms/studio-guest/react';
+import contentTypeMap from './contentTypeMap';
+
+export default function DynamicRoute(props) {
+  const { match, location } = props;
+  const [ state, setState ] = useState(null);
+  let url = match.url;
+
+  useEffect(() => {
+    let destroyed = false;
+    // reportNavigation(url);
+
+    urlTransform('renderUrlToStoreUrl', url).subscribe((path) => {
+      getItem(path).pipe(
+        map(parseDescriptor)
+      ).subscribe((model) => {
+        setState({
+          model,
+          meta: {}
+        });
+      });
+      return () => {
+        destroyed = true;
+      };
+    });
+
+  }, [url, location.search]);
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [url]);
+
+  if (state === null) {
+    return <div></div>
+  } else {
+    return <Home {...state} {...props} />
+    // return <Guest
+    //   isAuthoring={isAuthoring()}
+    //   path={state.model?.craftercms.path}
+    // >
+    //   <ContentType
+    //     {...state}
+    //     {...props}
+    //     contentTypeMap={contentTypeMap}
+    //   />
+    // </Guest>
+
+  }
+}

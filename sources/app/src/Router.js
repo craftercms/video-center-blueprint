@@ -11,6 +11,7 @@ import LiveEvents from './containers/LiveEvents/LiveEvents.js';
 import Search from './containers/Search/Search.js';
 import List from './containers/List/List.js';
 import ErrorPage from './containers/Errors/errorPage';
+import DynamicRoute from './components/DynamicRoute';
 
 // The Main component renders one of the provided Routes
 class Router extends Component {
@@ -55,7 +56,8 @@ class Router extends Component {
 
     return (
       <Switch>
-        <Route exact path='/' component={Home} />
+        {/*<Route exact path='/' component={Home} />*/}
+        <Route exact path="/" component={DynamicRoute} />
         <Route exact path='/video/:id/:videoName?' component={Video} />
         <Route exact path='/stream/:id/:videoName?' component={Video} />
         <Route exact path='/search' component={Search} />
