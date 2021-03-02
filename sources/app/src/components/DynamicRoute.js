@@ -20,7 +20,7 @@ import Home from '../containers/Home/Home';
 import { urlTransform, getItem, parseDescriptor } from '@craftercms/content';
 import { map } from 'rxjs/operators';
 import { isAuthoring } from './utils';
-// import { Guest, ContentType } from '@craftercms/studio-guest/react';
+import { Guest, ContentType } from '@craftercms/studio-guest/react';
 import contentTypeMap from './contentTypeMap';
 
 export default function DynamicRoute(props) {
@@ -37,8 +37,7 @@ export default function DynamicRoute(props) {
         map(parseDescriptor)
       ).subscribe((model) => {
         setState({
-          model,
-          meta: {}
+          model
         });
       });
       return () => {
@@ -55,17 +54,15 @@ export default function DynamicRoute(props) {
   if (state === null) {
     return <div></div>
   } else {
-    return <Home {...state} {...props} />
-    // return <Guest
-    //   isAuthoring={isAuthoring()}
-    //   path={state.model?.craftercms.path}
-    // >
-    //   <ContentType
-    //     {...state}
-    //     {...props}
-    //     contentTypeMap={contentTypeMap}
-    //   />
-    // </Guest>
-
+    return <Guest
+      isAuthoring={isAuthoring()}
+      path={state.model?.craftercms.path}
+    >
+      <ContentType
+        {...state}
+        {...props}
+        contentTypeMap={contentTypeMap}
+      />
+    </Guest>
   }
 }

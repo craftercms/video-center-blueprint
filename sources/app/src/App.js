@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Suspense, Component } from 'react';
 import Router from './Router';
 import { ThemeProvider } from 'styled-components';
 import themes from './settings/themes';
@@ -26,7 +26,13 @@ class App extends Component {
                     <VideoPlayer />
                   </div>
 
-                  <Router />
+                  <Suspense
+                    fallback={
+                      <div />
+                    }
+                  >
+                    <Router />
+                  </Suspense>
 
                   <Footer />
                 </div>
