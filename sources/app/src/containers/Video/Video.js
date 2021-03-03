@@ -17,6 +17,9 @@ import { setVideoInfo, setVideoStatus } from '../../actions/videoPlayerActions';
 import { setHeaderGhost } from '../../actions/headerActions';
 import { pageScrollTop } from '../../utils';
 import { parseDescriptor } from '@craftercms/content';
+import { isAuthoring } from '../../components/utils';
+import { Guest } from '@craftercms/studio-guest/react';
+import { reportNavigation } from '@craftercms/ice';
 
 class Video extends Component {
   state = {
@@ -114,6 +117,10 @@ class Video extends Component {
         categories = [],
         channels = Array.isArray(video.channels_o.item) ? video.channels_o.item : [video.channels_o.item];
 
+      const videoModel = parseDescriptor(video);
+      this.setState({ videoModel });
+      reportNavigation(videoModel.craftercms.path);
+
       var videoStartDate = new Date(video.startDate_dt),
         now = new Date();
 
@@ -142,7 +149,7 @@ class Video extends Component {
 
         // remove video info (if available)
         setVideoInfo(null);
-        this.setState({ hero: upcomingVideoHeroData, videoModel: parseDescriptor(video) });
+        this.setState({ hero: upcomingVideoHeroData });
       } else {
         //is a video (regular video or stream) - will load player
         // remove upcoming stream hero info (if available)
@@ -331,32 +338,38 @@ class Video extends Component {
       <div>
         {this.state.notFound && <NotFound />}
 
-        <VideoHolder>
-
-          {this.state && this.state.hero &&
-          <Hero
-            model={this.state.videoModel}
-            data={this.state.hero}
-            localData={true}
-            hero={true}
-            onChange={() => (this.autoLoadVideo())}
+        {this.state.videoModel &&
+          <Guest
+            isAuthoring={isAuthoring()}
+            path={this.state.videoModel.craftercms.path}
           >
-          </Hero>
-          }
+            <VideoHolder>
+              {this.state && this.state.hero &&
+              <Hero
+                model={this.state.videoModel}
+                data={this.state.hero}
+                localData={true}
+                hero={true}
+                onChange={() => (this.autoLoadVideo())}
+              >
+              </Hero>
+              }
 
-          {videoInfo &&
-          this.renderDetailsSection(videoInfo)
-          }
+              {videoInfo &&
+              this.renderDetailsSection(videoInfo)
+              }
 
-          {this.state && this.state.categories &&
-          <VideoCategories
-            categories={this.state.categories}
-            exclude={videoInfo}
-          ></VideoCategories>
-          }
+              {this.state && this.state.categories &&
+              <VideoCategories
+                categories={this.state.categories}
+                exclude={videoInfo}
+              ></VideoCategories>
+              }
 
-          {/* <VideoSidebar/>  */}
-        </VideoHolder>
+              {/* <VideoSidebar/>  */}
+            </VideoHolder>
+          </Guest>
+        }
       </div>
 
     );
