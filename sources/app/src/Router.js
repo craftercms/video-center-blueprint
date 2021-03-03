@@ -66,9 +66,9 @@ class Router extends Component {
         <Route exact path='/channels' component={DynamicRoute} />
         <Route exact path='/live-events' component={DynamicRoute} />
 
-        {nav && nav.entries['/'] &&
-        this.renderRouteEntries()
-        }
+        {/*{nav && nav.entries['/'] &&*/}
+        {/*this.renderRouteEntries()*/}
+        {/*}*/}
         <Route component={ErrorPage} />
       </Switch>
     );

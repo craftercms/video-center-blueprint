@@ -142,7 +142,6 @@ class Cards extends Component {
         componentUrl = card['content-type'] === '/component/stream' ? '/stream/' : '/video/',
         categoryType = this.props.category.type ? this.props.category.type : 'video-card';
       const model = parseDescriptor(card);
-
       switch (categoryType) {
         case 'video-card':
 

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Carousel } from 'antd';
 
-import Slide from '../Slide/Slide';
 import HeroHolder from '../Slider/SliderStyle';
+import HeroContent from './HeroContent';
 
 class Hero extends Component {
   componentDidMount() {
@@ -10,7 +10,7 @@ class Hero extends Component {
   }
 
   render() {
-    const { onChange } = this.props;
+    const { model, onChange } = this.props;
 
     return (
       <div>
@@ -22,10 +22,12 @@ class Hero extends Component {
             ref={node => (this.hero = node)}
             autoplay
           >
-            <Slide
-              slide={this.state.heroContent[0]} hero={true}
+            <HeroContent
+              model={model}
+              slide={this.state.heroContent}
+              hero={true}
               onChange={onChange}
-            /> {/* Hero content is always size 1, but comes into an array */}
+            />
           </Carousel>
         </HeroHolder>
         }
