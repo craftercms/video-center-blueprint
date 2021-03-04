@@ -163,7 +163,7 @@ class Cards extends Component {
                     >
                       <div
                         className="image__image"
-                        style={{ backgroundImage: `url(${card.thumbnail_s})` }}
+                        style={{ backgroundImage: `url("${card.thumbnail_s}")` }}
                       />
                     </div>
                     <video
@@ -209,7 +209,7 @@ class Cards extends Component {
                   <div className="image channel-card-alt__image">
                     <div
                       className="image__image"
-                      style={{ backgroundImage: `url(${card.thumbnailImage_s})` }}
+                      style={{ backgroundImage: `url("${card.thumbnailImage_s}")` }}
                     >
                       <div className="channel-card-alt__overlay"></div>
                     </div>

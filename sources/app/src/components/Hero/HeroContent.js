@@ -99,7 +99,7 @@ class HeroContent extends Component {
             >
               <div
                 className="image__image"
-                style={{ backgroundImage: `url(${slide.background.value})` }}
+                style={{ backgroundImage: `url("${slide.background.value}")` }}
               >
               </div>
             </div>
@@ -108,7 +108,7 @@ class HeroContent extends Component {
             >
               <div
                 className="image__image"
-                style={{ backgroundImage: `url(${slide.background.value})` }}
+                style={{ backgroundImage: `url("${slide.background.value}")` }}
               >
               </div>
             </div>
@@ -128,7 +128,7 @@ class HeroContent extends Component {
             {slide.logo_s &&
             <div
               className="discover-slider__inner--title discover-slider__inner--title--logo"
-              style={{ backgroundImage: `url(${slide.logo_s})` }}
+              style={{ backgroundImage: `url("${slide.logo_s}")` }}
             >
             </div>
             }
