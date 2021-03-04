@@ -19,7 +19,6 @@ import { pageScrollTop } from '../../utils';
 import { parseDescriptor } from '@craftercms/content';
 import { isAuthoring } from '../../components/utils';
 import { Guest } from '@craftercms/studio-guest/react';
-import { reportNavigation } from '@craftercms/ice';
 
 class Video extends Component {
   state = {
@@ -119,7 +118,6 @@ class Video extends Component {
 
       const videoModel = parseDescriptor(video);
       this.setState({ videoModel });
-      reportNavigation(videoModel.craftercms.path);
 
       var videoStartDate = new Date(video.startDate_dt),
         now = new Date();

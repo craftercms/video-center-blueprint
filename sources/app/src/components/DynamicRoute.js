@@ -15,7 +15,6 @@
  */
 
 import React, { useEffect, useState } from 'react';
-import { reportNavigation } from '@craftercms/ice';
 import { urlTransform, getItem, parseDescriptor } from '@craftercms/content';
 import { map } from 'rxjs/operators';
 import { isAuthoring } from './utils';
@@ -29,7 +28,6 @@ export default function DynamicRoute(props) {
 
   useEffect(() => {
     let destroyed = false;
-    reportNavigation(url);
 
     urlTransform('renderUrlToStoreUrl', url).subscribe((path) => {
       getItem(path).pipe(
