@@ -15,10 +15,6 @@ class Router extends Component {
     this.props.getNav('/site/website');
   }
 
-  componentWillUnmount() {
-    this.unlisten();
-  }
-
   render() {
     return (
       <Switch>

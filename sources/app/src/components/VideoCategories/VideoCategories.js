@@ -57,7 +57,7 @@ class VideoCategories extends Component {
       if (categoryType === 'video-card') {
         var categoryName = encodeURI(category.value),
           sort = category.sort ? encodeURI(JSON.stringify(category.sort)) : null,
-          query = category.query ? encodeURI(JSON.stringify(category.query)) : category.key,
+          query = category.query ? category.query.bool.filter[1] ? 'featured' : 'all' : category.key,
           viewAllURL;
 
         // In this scenario both label and category key are the same

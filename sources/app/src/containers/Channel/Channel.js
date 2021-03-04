@@ -9,6 +9,8 @@ import Hero from '../../components/Hero/Hero.js';
 import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
 import NotFound from '../Errors/404';
 import { parseDescriptor } from '@craftercms/content';
+import { isAuthoring } from '../../components/utils';
+import { Guest } from '@craftercms/studio-guest/react';
 
 class Channel extends Component {
   constructor(props) {
@@ -139,7 +141,10 @@ class Channel extends Component {
     ];
 
     return (
-      <div>
+      <Guest
+        isAuthoring={isAuthoring()}
+        path={this.descriptorUrl}
+      >
         <Hero
           model={model}
           data={channelHeroData}
@@ -150,7 +155,7 @@ class Channel extends Component {
           categories={categories}
         >
         </VideoCategories>
-      </div>
+      </Guest>
     );
   }
 
