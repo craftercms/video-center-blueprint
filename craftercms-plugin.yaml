@@ -46,6 +46,9 @@ plugin:
     name: MIT
     url: https://opensource.org/licenses/MIT
   crafterCmsVersions:
+    - major: 3
+      minor: 2
+      patch: 0
     - major: 4
       minor: 0
       patch: 0
