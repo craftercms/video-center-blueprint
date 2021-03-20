@@ -44,9 +44,17 @@ class Cards extends Component {
     } else {
       let sort = {};
       if (!isNullOrUndefined(category.sort)) {
-        sort = {
-          [category.sort.by]: category.sort.order
-        };
+        sort = [{
+          [category.sort.by]: {
+            ...(
+              category.sort.unmapped_type
+                ? {"unmapped_type" : category.sort.unmapped_type}
+                : {}
+            )
+            ,
+            "order": category.sort.order
+          }
+        }];
       }
       category = props.category.key;
       query.query = {

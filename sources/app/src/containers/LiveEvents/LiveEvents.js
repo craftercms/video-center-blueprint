@@ -41,7 +41,8 @@ class LiveEvents extends Component {
           },
           sort: {
             by: 'startDate_dt',
-            order: 'asc'
+            order: 'asc',
+            unmapped_type: 'date'
           },
           numResults: 6
         },
@@ -69,7 +70,8 @@ class LiveEvents extends Component {
           },
           sort: {
             by: 'startDate_dt',
-            order: 'asc'
+            order: 'asc',
+            unmapped_type: 'date'
           },
           numResults: 6
         },
@@ -98,7 +100,8 @@ class LiveEvents extends Component {
           },
           sort: {
             by: 'endDate_dt',
-            order: 'desc'
+            order: 'desc',
+            unmapped_type: 'date'
           },
           numResults: 6
         }
