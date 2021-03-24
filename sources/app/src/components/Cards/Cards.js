@@ -35,9 +35,17 @@ class Cards extends Component {
       }
 
       if (!isNullOrUndefined(category.sort)) {
-        queryObj.sort = {
-          [category.sort.by]: category.sort.order
-        };
+        queryObj.sort = [{
+          [category.sort.by]: {
+            ...(
+              category.sort.unmapped_type
+                ? {"unmapped_type" : category.sort.unmapped_type}
+                : {}
+            )
+            ,
+            "order": category.sort.order
+          }
+        }];
       }
 
       query.query = queryObj;
