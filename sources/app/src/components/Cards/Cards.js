@@ -4,11 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import ReactHtmlParser from 'react-html-parser';
 import { isNullOrUndefined } from 'util';
-
 import { crafterConf } from '@craftercms/classes';
 import { SearchService } from '@craftercms/search';
-
 import { formatDate } from '../../utils';
+import { parseDescriptor } from '@craftercms/content';
+import { Field } from '@craftercms/studio-guest/react';
 
 class Cards extends Component {
   componentDidMount() {
@@ -44,9 +44,17 @@ class Cards extends Component {
     } else {
       let sort = {};
       if (!isNullOrUndefined(category.sort)) {
-        sort = {
-          [category.sort.by]: category.sort.order
-        };
+        sort = [{
+          [category.sort.by]: {
+            ...(
+              category.sort.unmapped_type
+                ? {"unmapped_type" : category.sort.unmapped_type}
+                : {}
+            )
+            ,
+            "order": category.sort.order
+          }
+        }];
       }
       category = props.category.key;
       query.query = {
@@ -141,7 +149,7 @@ class Cards extends Component {
       var card = hit._source,
         componentUrl = card['content-type'] === '/component/stream' ? '/stream/' : '/video/',
         categoryType = this.props.category.type ? this.props.category.type : 'video-card';
-
+      const model = parseDescriptor(card);
       switch (categoryType) {
         case 'video-card':
 
@@ -155,7 +163,7 @@ class Cards extends Component {
           return (
             <div className="static-grid__item" key={hit._id}>
               <div className="video-card video-card--has-description">
-                <Link className="video-card__link" to={`${componentUrl}${card.objectId}`}>
+                <Field component={Link} model={model} className="video-card__link" to={`${componentUrl}${card.objectId}`}>
                   <div>
                     <div
                       className="image video-card__image--background"
@@ -163,7 +171,7 @@ class Cards extends Component {
                     >
                       <div
                         className="image__image"
-                        style={{ backgroundImage: `url(${card.thumbnail_s})` }}
+                        style={{ backgroundImage: `url("${card.thumbnail_s}")` }}
                       />
                     </div>
                     <video
@@ -195,7 +203,7 @@ class Cards extends Component {
                   <div className="video-card__play-button">
                     <FontAwesomeIcon className="play-icon" icon={faPlay} />
                   </div>
-                </Link>
+                </Field>
               </div>
             </div>
           );
@@ -205,30 +213,30 @@ class Cards extends Component {
           return (
             <div className="static-grid__item" key={hit._id}>
               <div className="channel-card-alt">
-                <Link className="channel-card-alt__link" to={`/channel/${url}`}>
+                <Field component={Link} model={model} className="channel-card-alt__link" to={`/channel/${url}`}>
                   <div className="image channel-card-alt__image">
                     <div
                       className="image__image"
-                      style={{ backgroundImage: `url(${card.thumbnailImage_s})` }}
+                      style={{ backgroundImage: `url("${card.thumbnailImage_s}")` }}
                     >
                       <div className="channel-card-alt__overlay"></div>
                     </div>
                   </div>
                   <h2 className="channel-card-alt__heading"> {card['internal-name']} </h2>
-                </Link>
+                </Field>
               </div>
             </div>
           );
         case 'standard-card':
           return (
-            <div className="static-grid__item" key={hit._id} />
+            <Field model={model} className="static-grid__item" key={hit._id} />
           );
         case 'live-event-item':
           var dateFormatted = formatDate(card.startDate_dt);
 
           return (
             <div className="live-events-item" key={hit._id}>
-              <CardContainer card={card} category={category}>
+              <CardContainer model={model} card={card} category={category}>
                 <div className="live-events-item__image">
                   <div className="live-events-item__background">
                     <div className="image">
@@ -294,18 +302,18 @@ class Cards extends Component {
 
 class CardContainer extends Component {
   render() {
-    const { category, card, children } = this.props;
+    const { model, category, card, children } = this.props;
     let videoName = card.title_s ? (card.title_s).toLowerCase().replace(/ /g, '-') : '';
     videoName = encodeURIComponent(videoName);
 
     return category.noLinks ? (
-      <div className="live-events-item__link">
+      <Field model={model} className="live-events-item__link">
         {children}
-      </div>
+      </Field>
     ) : (
-      <Link className="live-events-item__link" to={`/stream/${card.objectId}/${videoName}`}>
+      <Field component={Link} model={model} className="live-events-item__link" to={`/stream/${card.objectId}/${videoName}`}>
         {children}
-      </Link>
+      </Field>
     );
   }
 }

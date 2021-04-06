@@ -16,6 +16,9 @@ import ModalDialog from '../../components/Modal/Modal';
 import { setVideoInfo, setVideoStatus } from '../../actions/videoPlayerActions';
 import { setHeaderGhost } from '../../actions/headerActions';
 import { pageScrollTop } from '../../utils';
+import { parseDescriptor } from '@craftercms/content';
+import { isAuthoring } from '../../components/utils';
+import { Guest } from '@craftercms/studio-guest/react';
 
 class Video extends Component {
   state = {
@@ -111,8 +114,10 @@ class Video extends Component {
     if (totalResults > 0) {
       var video = searchResult.hits[0]._source,
         categories = [],
-        upcomingVideoHero = [],
         channels = Array.isArray(video.channels_o.item) ? video.channels_o.item : [video.channels_o.item];
+
+      const videoModel = parseDescriptor(video);
+      this.setState({ videoModel });
 
       var videoStartDate = new Date(video.startDate_dt),
         now = new Date();
@@ -121,17 +126,28 @@ class Video extends Component {
         //is an upcoming video, won't load player
         this.props.setHeaderGhost(true);
 
-        upcomingVideoHero.push({
-          url_s: '#',
-          background_s: video.thumbnail_s,
-          title_t: video.title_s,
-          subtitle_s: video.description_html,
-          date_dt: video.startDate_dt
-        });
+        const upcomingVideoHeroData = {
+          background: {
+            value: video.thumbnail_s,
+            fieldId: 'thumbnail_s'
+          },
+          title: {
+            value: video.title_s,
+            fieldId: 'title_s'
+          },
+          subtitle: {
+            value: video.description_html,
+            fieldId: 'description_html'
+          },
+          date: {
+            value: video.startDate_dt,
+            fieldId: 'startDate_dt'
+          }
+        };
 
         // remove video info (if available)
         setVideoInfo(null);
-        this.setState({ hero: upcomingVideoHero });
+        this.setState({ hero: upcomingVideoHeroData });
       } else {
         //is a video (regular video or stream) - will load player
         // remove upcoming stream hero info (if available)
@@ -320,31 +336,38 @@ class Video extends Component {
       <div>
         {this.state.notFound && <NotFound />}
 
-        <VideoHolder>
-
-          {this.state && this.state.hero &&
-          <Hero
-            data={this.state.hero}
-            localData={true}
-            hero={true}
-            onChange={() => (this.autoLoadVideo())}
+        {this.state.videoModel &&
+          <Guest
+            isAuthoring={isAuthoring()}
+            path={this.state.videoModel.craftercms.path}
           >
-          </Hero>
-          }
+            <VideoHolder>
+              {this.state && this.state.hero &&
+              <Hero
+                model={this.state.videoModel}
+                data={this.state.hero}
+                localData={true}
+                hero={true}
+                onChange={() => (this.autoLoadVideo())}
+              >
+              </Hero>
+              }
 
-          {videoInfo &&
-          this.renderDetailsSection(videoInfo)
-          }
+              {videoInfo &&
+              this.renderDetailsSection(videoInfo)
+              }
 
-          {this.state && this.state.categories &&
-          <VideoCategories
-            categories={this.state.categories}
-            exclude={videoInfo}
-          ></VideoCategories>
-          }
+              {this.state && this.state.categories &&
+              <VideoCategories
+                categories={this.state.categories}
+                exclude={videoInfo}
+              ></VideoCategories>
+              }
 
-          {/* <VideoSidebar/>  */}
-        </VideoHolder>
+              {/* <VideoSidebar/>  */}
+            </VideoHolder>
+          </Guest>
+        }
       </div>
 
     );

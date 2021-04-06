@@ -8,6 +8,9 @@ import { setHeaderGhost } from '../../actions/headerActions';
 import Hero from '../../components/Hero/Hero.js';
 import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
 import NotFound from '../Errors/404';
+import { parseDescriptor } from '@craftercms/content';
+import { isAuthoring } from '../../components/utils';
+import { Guest } from '@craftercms/studio-guest/react';
 
 class Channel extends Component {
   constructor(props) {
@@ -48,16 +51,24 @@ class Channel extends Component {
 
   renderChannelContent(descriptor) {
     var component = descriptor.component,
-      channelHero = [],
       channelContent = descriptor.component,
+      model = parseDescriptor(channelContent),
       categories;
 
-    channelHero.push({
-      url_s: '#',
-      background_s: channelContent.heroImage_s,
-      title_t: channelContent['internal-name'],
-      subtitle_s: channelContent.description_s
-    });
+    const channelHeroData = {
+      background: {
+        value: channelContent.heroImage_s,
+        fieldId: 'heroImage_s'
+      },
+      title: {
+        value: channelContent['internal-name'],
+        fieldId: 'internal-name'
+      },
+      subtitle: {
+        value: channelContent.description_s,
+        fieldId: 'description_s'
+      }
+    };
 
     categories = [
       {
@@ -130,9 +141,13 @@ class Channel extends Component {
     ];
 
     return (
-      <div>
+      <Guest
+        isAuthoring={isAuthoring()}
+        path={this.descriptorUrl}
+      >
         <Hero
-          data={channelHero}
+          model={model}
+          data={channelHeroData}
           localData={true}
         >
         </Hero>
@@ -140,7 +155,7 @@ class Channel extends Component {
           categories={categories}
         >
         </VideoCategories>
-      </div>
+      </Guest>
     );
   }
 

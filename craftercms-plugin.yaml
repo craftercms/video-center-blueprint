@@ -12,9 +12,9 @@ plugin:
     - blueprint
     - video center
   version:
-    major: 1
-    minor: 1
-    patch: 23
+    major: 2
+    minor: 0
+    patch: 0
   description: |
     Video Center webapp built with React atop Crafter CMS that is backed by YouTube, AWS Media Service, or Box.
   website:
@@ -46,36 +46,6 @@ plugin:
     name: MIT
     url: https://opensource.org/licenses/MIT
   crafterCmsVersions:
-    - major: 3
-      minor: 1
-      patch: 6
-    - major: 3
-      minor: 1
-      patch: 7
-    - major: 3
-      minor: 1
-      patch: 8
-    - major: 3
-      minor: 1
-      patch: 9
-    - major: 3
-      minor: 1
-      patch: 10
-    - major: 3
-      minor: 1
-      patch: 11
-    - major: 3
-      minor: 1
-      patch: 12
-    - major: 3
-      minor: 1
-      patch: 13
-    - major: 3
-      minor: 1
-      patch: 14
-    - major: 3
-      minor: 2
-      patch: 0
     - major: 4
       minor: 0
       patch: 0

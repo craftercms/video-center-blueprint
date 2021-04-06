@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Guest } from '@craftercms/studio-guest/react';
 
 import { setVideoDocked } from '../../actions/videoPlayerActions';
 import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
+import { isAuthoring } from '../../components/utils';
 
 class Channel extends Component {
   componentWillMount() {
@@ -27,20 +29,46 @@ class Channel extends Component {
         viewAll: false,
         numResults: 1000
       },
-      query,
-      isKey = false;
+      query;
 
     try {
       query = JSON.parse(params.query.replace(/__/g, '/'));
     } catch (e) {
-      isKey = true;
       query = params.query.replace(/__/g, '/').split(',');
     }
 
-    if (isKey && (query[0].indexOf(':') === -1 && query.length === 1)) {
-      category.key = query[0];
+
+    if (query[0] === 'featured' || query[0] === 'all') {
+      const allVideosQuery = {
+        bool: {
+          filter: [
+            {
+              bool: {
+                should: [
+                  {
+                    match: { "content-type": "/component/youtube-video" }
+                  },
+                  {
+                    match: { "content-type": "/component/video-on-demand" }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      };
+
+      if (query[0] === 'featured') {
+        allVideosQuery.bool.filter.push({
+          match: {
+            featured_b: true
+          }
+        });
+      }
+
+      category.query = allVideosQuery;
     } else {
-      category.query = query;
+      category.key = query[0];
     }
 
     if (params.sort) {
@@ -56,14 +84,17 @@ class Channel extends Component {
 
   render() {
     return (
-      <div>
+      <Guest
+        isAuthoring={isAuthoring()}
+        path="/site/website/index.xml"
+      >
         {this.state && this.state.categories &&
         <VideoCategories
           categories={this.state.categories}
         >
         </VideoCategories>
         }
-      </div>
+      </Guest>
     );
   }
 }
