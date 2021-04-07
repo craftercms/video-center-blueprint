@@ -73,12 +73,6 @@ plugin:
     - major: 3
       minor: 1
       patch: 14
-    - major: 3
-      minor: 2
-      patch: 0
-    - major: 4
-      minor: 0
-      patch: 0
   crafterCmsEditions:
     - community
     - enterprise
