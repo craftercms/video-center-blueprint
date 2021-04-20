@@ -21,7 +21,7 @@
         <widget id="craftercms.components.ToolsPanelEmbeddedAppViewButton">
           <configuration>
             <title id="words.dashboard" defaultMessage="Dashboard"/>
-            <icon baseClass="fa fa-tasks"/>
+            <icon id="@material-ui/icons/DashboardRounded"/>
             <widget id="craftercms.components.LegacyDashboardFrame"/>
           </configuration>
         </widget>
@@ -34,7 +34,7 @@
                 <configuration>
                   <id>Pages</id>
                   <label>Pages</label>
-                  <icon baseClass="fa fa-file-text-o"/>
+                  <icon id="@material-ui/icons/DescriptionOutlined" />
                   <rootPath>/site/website</rootPath>
                   <locale>en</locale>
                 </configuration>
@@ -43,7 +43,7 @@
                 <configuration>
                   <id>Components</id>
                   <label>Components</label>
-                  <icon baseClass="fa fa-puzzle-piece"/>
+                  <icon id="craftercms.icons.Component"/>
                   <rootPath>/site/components</rootPath>
                   <locale>en</locale>
                 </configuration>
@@ -52,7 +52,7 @@
                 <configuration>
                   <id>Videos</id>
                   <label>Videos</label>
-                  <icon baseClass="fa fa-video-camera"/>
+                  <icon id="@material-ui/icons/VideocamOutlined"/>
                   <rootPath>/site/videos</rootPath>
                   <locale>en</locale>
                 </configuration>
@@ -61,7 +61,7 @@
                 <configuration>
                   <id>Streams</id>
                   <label>Streams</label>
-                  <icon baseClass="fa fa-video-camera"/>
+                  <icon id="@material-ui/icons/VideocamOutlined"/>
                   <rootPath>/site/streams</rootPath>
                   <locale>en</locale>
                 </configuration>
@@ -70,7 +70,7 @@
                 <configuration>
                   <id>Origins</id>
                   <label>Origins</label>
-                  <icon baseClass="fa fa-puzzle-piece"/>
+                  <icon id="craftercms.icons.Component"/>
                   <rootPath>/site/origins</rootPath>
                   <locale>en</locale>
                 </configuration>
@@ -79,7 +79,7 @@
                 <configuration>
                   <id>Taxonomy</id>
                   <label>Taxonomy</label>
-                  <icon baseClass="fa fa-tags"/>
+                  <icon id="@material-ui/icons/LocalOfferOutlined"/>
                   <rootPath>/site/taxonomies</rootPath>
                   <locale>en</locale>
                 </configuration>
@@ -88,7 +88,7 @@
                 <configuration>
                   <id>StaticAssets</id>
                   <label>Static Assets</label>
-                  <icon baseClass="fa fa-image"/>
+                  <icon id="@material-ui/icons/ImageOutlined"/>
                   <rootPath>/static-assets</rootPath>
                   <locale>en</locale>
                 </configuration>
@@ -97,7 +97,7 @@
                 <configuration>
                   <id>Sources</id>
                   <label>Sources</label>
-                  <icon baseClass="fa fa-file-code-o"/>
+                  <icon id="@material-ui/icons/InsertDriveFileOutlined"/>
                   <rootPath>/sources</rootPath>
                   <locale>en</locale>
                 </configuration>
@@ -105,7 +105,7 @@
               <widget id="craftercms.components.PathNavigatorTree">
                 <configuration>
                   <label>Templates</label>
-                  <icon baseClass="fa fa-file-code-o"/>
+                  <icon id="@material-ui/icons/InsertDriveFileOutlined"/>
                   <rootPath>/templates</rootPath>
                   <locale>en</locale>
                 </configuration>
@@ -113,7 +113,7 @@
               <widget id="craftercms.components.PathNavigatorTree">
                 <configuration>
                   <label>Scripts</label>
-                  <icon baseClass="fa fa-code"/>
+                  <icon id="@material-ui/icons/CodeRounded"/>
                   <rootPath>/scripts</rootPath>
                   <locale>en</locale>
                 </configuration>
@@ -270,12 +270,12 @@
           </permittedRoles>
           <configuration>
             <title id="siteTools.title" defaultMessage="Site Tools"/>
-            <icon baseClass="fa fa-sliders"/>
+            <icon id="@material-ui/icons/TuneRounded"/>
             <widgets>
               <widget id="craftercms.components.ToolsPanelEmbeddedAppViewButton">
                 <configuration>
                   <title id="dropTargetsMessages.contentTypes" defaultMessage="Content Types"/>
-                  <icon baseClass="fa fa-th-large"/>
+                  <icon id="@material-ui/icons/WidgetsOutlined"/>
                   <widget id="craftercms.components.LegacySiteToolsFrame">
                     <configuration>
                       <tool>content-types</tool>
@@ -286,9 +286,7 @@
               <widget id="craftercms.components.ToolsPanelEmbeddedAppViewButton">
                 <configuration>
                   <title id="GlobalMenu.EncryptionToolEntryLabel" defaultMessage="Encryption Tool"/>
-                  <icon>
-                    <baseClass>fa fa-lock</baseClass>
-                  </icon>
+                  <icon id="@material-ui/icons/LockOutlined" />
                   <widget id="craftercms.components.LegacySiteToolsFrame">
                     <configuration>
                       <tool>encrypt-tool</tool>
@@ -299,7 +297,7 @@
               <widget id="craftercms.components.ToolsPanelEmbeddedAppViewButton">
                 <configuration>
                   <title id="words.configuration" defaultMessage="Configuration"/>
-                  <icon baseClass="fa fa-cogs"/>
+                  <icon id="@material-ui/icons/SettingsApplicationsOutlined"/>
                   <widget id="craftercms.components.LegacySiteToolsFrame">
                     <configuration>
                       <tool>admin-configurations</tool>
@@ -310,9 +308,7 @@
               <widget id="craftercms.components.ToolsPanelEmbeddedAppViewButton">
                 <configuration>
                   <title id="GlobalMenu.AuditEntryLabel" defaultMessage="Audit"/>
-                  <icon>
-                    <baseClass>fa fa-align-justify</baseClass>
-                  </icon>
+                  <icon id="@material-ui/icons/SubjectRounded" />
                   <widget>
                     <id>craftercms.components.LegacySiteToolsFrame</id>
                     <configuration>
@@ -324,7 +320,7 @@
               <widget id="craftercms.components.ToolsPanelEmbeddedAppViewButton">
                 <configuration>
                   <title id="workflowStates.title" defaultMessage="Workflow States"/>
-                  <icon baseClass="fa fa-cog"/>
+                  <icon id="@material-ui/icons/SettingsOutlined"/>
                   <widget id="craftercms.components.LegacySiteToolsFrame">
                     <configuration>
                       <tool>workflow-states</tool>
@@ -335,7 +331,7 @@
               <widget id="craftercms.components.ToolsPanelEmbeddedAppViewButton">
                 <configuration>
                   <title id="GlobalMenu.LogConsoleEntryLabel" defaultMessage="Log Console"/>
-                  <icon baseClass="fa fa-align-left"/>
+                  <icon id="@material-ui/icons/FormatAlignCenterRounded"/>
                   <widget id="craftercms.components.LegacySiteToolsFrame">
                     <configuration>
                       <tool>log-view</tool>
@@ -346,7 +342,7 @@
               <widget id="craftercms.components.ToolsPanelEmbeddedAppViewButton">
                 <configuration>
                   <title id="words.publishing" defaultMessage="Publishing"/>
-                  <icon baseClass="fa fa-cloud-upload"/>
+                  <icon id="@material-ui/icons/CloudUploadOutlined"/>
                   <widget id="craftercms.components.LegacySiteToolsFrame">
                     <configuration>
                       <tool>status-view</tool>
@@ -357,7 +353,7 @@
               <widget id="craftercms.components.ToolsPanelEmbeddedAppViewButton">
                 <configuration>
                   <title id="remoteRepositories.title" defaultMessage="Remote Repositories"/>
-                  <icon baseClass="fa fa-database"/>
+                  <icon id="@material-ui/icons/StorageRounded"/>
                   <widget id="craftercms.components.LegacySiteToolsFrame">
                     <configuration>
                       <tool>repository</tool>
@@ -368,7 +364,7 @@
               <widget id="craftercms.components.ToolsPanelEmbeddedAppViewButton">
                 <configuration>
                   <title>GraphQL</title>
-                  <icon baseClass="fa fa-line-chart"/>
+                  <icon id="@material-ui/icons/PollOutlined"/>
                   <widget id="craftercms.components.LegacySiteToolsFrame">
                     <configuration>
                       <tool>graphiql</tool>
@@ -379,7 +375,7 @@
               <widget id="craftercms.components.ToolsPanelEmbeddedAppViewButton">
                 <configuration>
                   <title id="PluginManagement.title" defaultMessage="Plugin Management"/>
-                  <icon baseClass="fa fa-puzzle-piece"/>
+                  <icon id="@material-ui/icons/ExtensionOutlined"/>
                   <widget id="craftercms.components.PluginManagement">
                     <configuration>
                       <embedded>true</embedded>
