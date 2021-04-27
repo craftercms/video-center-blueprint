@@ -56,7 +56,6 @@ class Header extends Component {
 
     return (
       <HeaderHolder>
-        {/* https://2018.ar.al/scribbles/fork-me-on-github-retina-ribbons/ */}
         <a href={common.repoUrl} target="_blank" rel="noopener noreferrer">
           <img
             style={{
@@ -68,7 +67,7 @@ class Header extends Component {
               height: '100px',
               zIndex: 997
             }}
-            src="http://aral.github.com/fork-me-on-github-retina-ribbons/left-graphite@2x.png"
+            src="/static-assets/images/left-graphite@2x.png"
             alt="Fork me on GitHub"
           />
         </a>
