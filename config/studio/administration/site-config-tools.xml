@@ -48,7 +48,7 @@
     </config>
 -->
 <config>
-   <version>10</version>
+  <version>12</version>
    <tools>
       <tool>
          <name>content-types</name>
@@ -135,9 +135,6 @@
                <name>image-picker</name>
                <icon>
                   <class>fa-picture-o</class>
-                  <styles>
-                     <color>#7e9dbb</color>
-                  </styles>
                </icon>
             </control>
             <control>
@@ -178,24 +175,23 @@
                </icon>
             </control>
             <control>
-               <name>box-file-upload</name>
+          <name>internal-name</name>
                <icon>
-                  <class>fa-square-o</class>
-                  <stackedclass>fa-upload</stackedclass>
+            <class>fa-font</class>
                </icon>
             </control>
             <control>
-               <name>internal-name</name>
+          <name>locale-selector</name>
                <icon>
-                  <class>fa-font</class>
+            <class>fa-globe</class>
                </icon>
             </control>
          </controls>
          <datasources>
             <datasource>
-               <name>child-content</name>
+          <name>dropTargets</name>
                <icon>
-                  <class>fa-child</class>
+            <class>fa-object-group</class>
                </icon>
             </datasource>
             <datasource>
@@ -407,12 +403,6 @@
                      <value>inherit-levels</value>
                      <type>string</type>
                   </property>
-                  <property>
-                     <name>no-template-required</name>
-                     <label>No Template Required</label>
-                     <value/>
-                     <type>boolean</type>
-                  </property>
                </properties>
             </type>
             <type>
@@ -437,17 +427,18 @@
                      <value>inherit-levels</value>
                      <type>string</type>
                   </property>
-                  <property>
-                     <name>no-template-required</name>
-                     <label>No Template Required</label>
-                     <value/>
-                     <type>boolean</type>
-                  </property>
                </properties>
             </type>
          </objectTypes>
       </tool>
       <tool>
+      <name>encrypt-tool</name>
+      <label>Encryption Tool</label>
+      <icon>
+        <class>fa-lock</class>
+      </icon>
+    </tool>
+    <tool>
          <name>admin-configurations</name>
          <label>Configuration</label>
       </tool>
@@ -482,6 +473,13 @@
          <label>GraphiQL</label>
          <icon>
             <class>fa-line-chart</class>
+      </icon>
+    </tool>
+    <tool>
+      <name>plugin-management</name>
+      <label>Plugin Management</label>
+      <icon>
+        <class>fa-puzzle-piece</class>
          </icon>
       </tool>
    </tools>
