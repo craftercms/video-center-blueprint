@@ -50,8 +50,34 @@ class VideoJSPlayer extends Component {
     let src, type;
 
     if (contentType === '/component/youtube-video') {   // YOUTUBE
-      src = `https://www.youtube.com/watch?v=${video.youTubeVideo_s}`
-      type = 'video/youtube'
+      src = `https://www.youtube.com/watch?v=${video.youTubeVideo_s}`;
+      type = 'video/youtube';
+
+      player.src({
+        src,
+        type
+      });
+    } else if (contentType === '/component/video-on-demand') {  //VOD
+      const multipleSrc = video.video_o.item.filter((item) => {
+        return item.url.includes('mp4') || item.url.includes('m3u8') || item.url.includes('mpd')
+      }).map((item) => {
+        const src = item.url;
+
+        if (src.includes('m3u8')) {
+          type = 'application/x-mpegURL';
+        } else if(src.includes('mpd')) {
+          type = 'application/dash+xml';
+        } else {
+          type = 'video/mp4';
+        }
+
+        return {
+          src,
+          type
+        }
+      });
+
+      player.src(multipleSrc);
     } else {
       if (video.origin_o.item.component.url_s.includes('m3u8')) {   // HLS
         src = video.origin_o.item.component.url_s;
@@ -60,12 +86,12 @@ class VideoJSPlayer extends Component {
         src = video.origin_o.item.component.url_s;
         type = 'application/dash+xml'
       }
-    }
 
-    player.src({
-      src,
-      type
-    });
+      player.src({
+        src,
+        type
+      });
+    }
 
   }
 
