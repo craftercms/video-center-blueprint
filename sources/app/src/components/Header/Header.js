@@ -68,7 +68,7 @@ class Header extends Component {
               height: '100px',
               zIndex: 997
             }}
-            src="http://aral.github.com/fork-me-on-github-retina-ribbons/left-graphite@2x.png"
+            src="/static-assets/images/left-graphite@2x.png"
             alt="Fork me on GitHub"
           />
         </a>
