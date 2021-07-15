@@ -46,61 +46,67 @@ class Search extends Component {
   }
 
   setCategories(searchId) {
-    const searchKeyword = isNullOrUndefined(searchId) ? '' : searchId,
-      searchFilter = searchKeyword.replace(/\s/g, '') === ''
-        ? {
-          'regexp': {
-            'title_t': `.*${searchKeyword}.*`
-          }
-        } : {
-          'match_phrase_prefix': {
-            'title_t': searchKeyword
-          }
-        };
+    let searchKeyword = isNullOrUndefined(searchId) ? '' : searchId;
 
+    const fields = ['title_t^1.5', 'description_html^1', 'tags_o.item.value_smv^1'];
+    let query = {};
+    query.filter = [
+      {
+        'terms': {
+          'content-type': ['/component/youtube-video', '/component/video-on-demand', '/component/stream']
+        }
+      }
+    ];
+
+    // Check if the user is requesting an exact match with quotes
+    const regex = /.*("([^"]+)").*/;
+    const matcher = searchKeyword.match(regex);
+
+    if (matcher) {
+      // Using must excludes any doc that doesn't match with the input from the user
+      query.must = [
+        {
+          'multi_match': {
+            'query': matcher[2],
+            'fields': fields,
+            'fuzzy_transpositions': false,
+            'auto_generate_synonyms_phrase_query': false
+          }
+        }
+      ];
+
+      // Remove the exact match to continue processing the user input
+      searchKeyword = searchKeyword.replace(matcher[1], '');
+    } else {
+      query.minimum_should_match = 1;
+    }
+
+    if (searchKeyword) {
+      // Using should makes it optional and each additional match will increase the score of the doc
+      query.should = [
+        {
+          'multi_match': {
+            'query': searchKeyword,
+            'fields': fields,
+            'type': 'phrase_prefix',
+            'boost': 1.5
+          }
+        },
+        {
+          'multi_match': {
+            'query': searchKeyword,
+            'fields': fields
+          }
+        }
+      ]
+    }
 
     return [
       {
         key: 'top-results',
         value: 'Top Results',
         query: {
-          'bool': {
-            'filter': [
-              {
-                'bool': {
-                  'should': [
-                    {
-                      'match': {
-                        'content-type': '/component/youtube-video'
-                      }
-                    },
-                    {
-                      'match': {
-                        'content-type': '/component/video-on-demand'
-                      }
-                    },
-                    {
-                      'match': {
-                        'content-type': '/component/stream'
-                      }
-                    }
-                  ]
-                }
-              },
-              {
-                'bool': {
-                  'should': [
-                    {
-                      'regexp': {
-                        'tags_o.item.value_smv': `.*${searchKeyword}.*`
-                      }
-                    },
-                    searchFilter
-                  ]
-                }
-              }
-            ]
-          }
+          'bool': query
         },
         viewAll: false,
         numResults: 90
