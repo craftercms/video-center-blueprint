@@ -32,16 +32,36 @@
   <version>8</version>
   <wem-project>{siteName}</wem-project>
   <display-name>{siteName}</display-name>
-  <default-timezone>EST5EDT</default-timezone>
 
   <!--
-        Specifies the regular expression patterns to match content type field
-        names that require CDATA escaping.
-        -->
+  Specifies the regular expression patterns to match content type field
+  names that require CDATA escaping.
+  -->
   <cdata-escaped-field-patterns>
     <pattern>(_html|_t|_s|_smv|mvs)$</pattern>
     <pattern>internal-name</pattern>
   </cdata-escaped-field-patterns>
+
+  <locale>
+    <!--
+    BCP 47 language tag or unicode extension (e.g. "en-US-u-ca-buddhist").
+    Leave empty — but do not remove — for using the user's browser locale.
+    -->
+    <localeCode>en-US</localeCode>
+    <!--
+    For full list of options and docs, visit
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat
+    Remove the `timeZone` element all together to default to the users's time zone.
+    -->
+    <dateTimeFormatOptions>
+      <timeZone>EST5EDT</timeZone>
+      <day>numeric</day>
+      <month>numeric</month>
+      <year>numeric</year>
+      <hour>numeric</hour>
+      <minute>numeric</minute>
+    </dateTimeFormatOptions>
+  </locale>
 
   <published-repository>
     <enable-staging-environment>false</enable-staging-environment>
