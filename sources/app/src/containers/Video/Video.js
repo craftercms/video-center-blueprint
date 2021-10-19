@@ -67,7 +67,7 @@ class Video extends Component {
   loadVideo(props) {
     var videoId = props.match.params.id;
 
-    var query = SearchService.createQuery('elasticsearch');
+    var query = SearchService.createQuery();
     this.searchId = query.uuid;
     query.query = {
       'query': {

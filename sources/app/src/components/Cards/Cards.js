@@ -22,7 +22,7 @@ class Cards extends Component {
   searchCards(props) {
     const self = this;
 
-    var query = SearchService.createQuery('elasticsearch'),
+    var query = SearchService.createQuery(),
       category = props.category;
 
     if (category.query) {
