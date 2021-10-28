@@ -1088,63 +1088,63 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@craftercms/classes@2.0.0", "@craftercms/classes@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@craftercms/classes/-/classes-2.0.0.tgz#cc66fa6c51cf57a1e8029c9c56e0efb53ccbab7f"
-  integrity sha512-/7GRzNWPcyNKhET3Ngo1Bl92DzoivCFmb2VkKtHnYtkXrHHzmku2mIn5Jrn4xbUjI0JrAnpUJ82YuyiXyGqS8Q==
+"@craftercms/classes@2.0.1", "@craftercms/classes@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@craftercms/classes/-/classes-2.0.1.tgz#f17e9de8bc13148692c198c93ae5db4ae82cf838"
+  integrity sha512-QtczJ5lQiNdxuRAuY6CjByTQ4iZpf1Tou1Fs0hPsEBXYY7sevVlngIozy/zoCgpcJp4+oONgA+sszzPD/VJkQw==
   dependencies:
-    "@craftercms/models" "2.0.0"
-    "@craftercms/utils" "2.0.0"
+    "@craftercms/models" "2.0.1"
+    "@craftercms/utils" "2.0.1"
     url-search-params-polyfill "^5.0.0"
 
-"@craftercms/content@2.0.0", "@craftercms/content@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@craftercms/content/-/content-2.0.0.tgz#0637fa42fb1971e6579b132fcbc3bec0bfd7c23d"
-  integrity sha512-OmaCgHTvCSWZZJHHiHTABNBix6PM0ycyZTvByGS9ta7FMhU7XhlpN37/5mUz6XcGfa1RoFJzClWI82X/HOovNw==
+"@craftercms/content@2.0.1", "@craftercms/content@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@craftercms/content/-/content-2.0.1.tgz#24aadec598dab1b2c824b6ea3ce6c84b4ba0c5e1"
+  integrity sha512-PZVDjFBmqdfWkoirb8sHbQm+gIdgHqCfkqvtRKMNRAs56yzNsrcYl/i/WsHKzJ+RS5qjv1zGNYmpUZMhzxgopw==
   dependencies:
-    "@craftercms/classes" "2.0.0"
-    "@craftercms/models" "2.0.0"
-    "@craftercms/utils" "2.0.0"
+    "@craftercms/classes" "2.0.1"
+    "@craftercms/models" "2.0.1"
+    "@craftercms/utils" "2.0.1"
     rxjs "^7.0.0"
 
-"@craftercms/ice@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@craftercms/ice/-/ice-2.0.0.tgz#602da382590c33b9d0564ac94abd2854836d1414"
-  integrity sha512-gGbpfSCifzLw7mNOBTorNPqaP/Cy6pLgQojHUsHoorui7bsw7l+XRV5oM4Pr52xtqX3hJZSzpB/Jrrjn+51yjQ==
+"@craftercms/ice@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@craftercms/ice/-/ice-2.0.1.tgz#6e6c76e3d9e4626ef9e6b60ab10602751af69127"
+  integrity sha512-iM1p86fjcWDOdXDTHPNTwzs8uXErKp744XxWLQOFD1SR6ut5X4IiOf2MFGDGM92r/RdS64E9q2ay+LbimZQSxw==
   dependencies:
-    "@craftercms/models" "2.0.0"
+    "@craftercms/models" "2.0.1"
 
-"@craftercms/models@2.0.0", "@craftercms/models@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@craftercms/models/-/models-2.0.0.tgz#bcfb0592b2f9b04c84dd5f7e30c8fca0f79acfc6"
-  integrity sha512-G9hM5CSrSE8A3VD1IIa7NYnIrC1EQA0IPz7gOOH3unB7T7ycmIe4LcSNCl0UKiP5f/Qk+7ZBpLFYzjxjTkwAyg==
+"@craftercms/models@2.0.1", "@craftercms/models@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@craftercms/models/-/models-2.0.1.tgz#105bd533e261d25dd5ec49e0959e802a28302916"
+  integrity sha512-N6ABgooGP9lAzrLC6DtfmZrFHQk5dHdSfFYvi7m/7DWsEo9KwS8xq8TK3+bLqmZ0eUOt+ycmuD2ODRYu+K6Csw==
 
-"@craftercms/redux@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@craftercms/redux/-/redux-2.0.0.tgz#d8e5acca03a3addad3f54c38df0f26d86a5b311d"
-  integrity sha512-7NQi9rWFzb0xBic1EpJQQw5BYFfONfyrvsIcsq9TbTPTbYhrZPT1adDXWU+wUhu7cgvqR68+zSPoa9ZIuBcAiw==
+"@craftercms/redux@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@craftercms/redux/-/redux-2.0.1.tgz#930d655ab366dc582a395fced5277313848c083c"
+  integrity sha512-Us0qp+0ZzQNTwEQOHz89lk0AcP0qnnEGrPzIbCqxHyew6MbCdnBXeMhktFDGuHk2U4abXAXBKYgUFfZLXGQVmA==
   dependencies:
-    "@craftercms/content" "2.0.0"
+    "@craftercms/content" "2.0.1"
     redux "^4.0.5"
-    redux-observable "^1.2.0"
+    redux-observable "^2.0.0"
     rxjs "^7.0.0"
 
-"@craftercms/search@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@craftercms/search/-/search-2.0.0.tgz#b16a169ca9f8a9b7475ea5edef9bc391265b7b62"
-  integrity sha512-fM8uWHkbb0lMED6q1Dngw71tt+/5OVHx7Xgxt6+p9B99kbfXcFRYRZFiPcoplyA6F15FEmb5wte0upQlw3RV3g==
+"@craftercms/search@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@craftercms/search/-/search-2.0.1.tgz#2ceabea8fa982e752e48b084a483a00416309dde"
+  integrity sha512-bYxNFdvphW3UKAbNIaFQSADLuDXoERrBNjdGn4sPzS/Xbw7HNmpjtBUQdpmqEVibDPOunSbVJbGs+nzbE0KWZw==
   dependencies:
-    "@craftercms/classes" "2.0.0"
-    "@craftercms/models" "2.0.0"
-    "@craftercms/utils" "2.0.0"
+    "@craftercms/classes" "2.0.1"
+    "@craftercms/models" "2.0.1"
+    "@craftercms/utils" "2.0.1"
     rxjs "^7.0.0"
     url-search-params-polyfill "^5.0.0"
     uuid "^3.4.0"
 
-"@craftercms/utils@2.0.0", "@craftercms/utils@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@craftercms/utils/-/utils-2.0.0.tgz#bd42a8cca90ed917d7613eeb4328fc5cb62432f6"
-  integrity sha512-0DJstKx6jrGMxkbAX2vHlnoHUaQARZpBeRqps4UuIOIsLJQ1nZeZQmDA77IcITO/EGc22os8dD3pZjB3qzcy4Q==
+"@craftercms/utils@2.0.1", "@craftercms/utils@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@craftercms/utils/-/utils-2.0.1.tgz#f9e5efbae2dac6fcabc7f074b0ea67923e84e962"
+  integrity sha512-E/Iw7i5q544nrDOOhC0MmWOiWT0tp5jA75iZQtEJPf61/pxBQb4SZRiCALFJM/jnXCiUB+zkHl58NbLYQUllBg==
 
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
@@ -11050,11 +11050,6 @@ redux-logger@^3.0.6:
   dependencies:
     deep-diff "^0.3.5"
 
-redux-observable@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/redux-observable/-/redux-observable-1.2.0.tgz#ff51b6c6be2598e9b5e89fc36639186bb0e669c7"
-  integrity sha512-yeR90RP2WzZzCxxnQPlh2uFzyfFLsfXu8ROh53jGDPXVqj71uNDMmvi/YKQkd9ofiVoO4OYb1snbowO49tCEMg==
-
 redux-observable@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/redux-observable/-/redux-observable-2.0.0.tgz#4358bef2e924723a8b1ad0e835ccebb1612a6b9a"
@@ -11080,15 +11075,7 @@ redux@^4.0.0:
     loose-envify "^1.1.0"
     symbol-observable "^1.2.0"
 
-redux@^4.0.4:
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.4.tgz#4ee1aeb164b63d6a1bcc57ae4aa0b6e6fa7a3796"
-  integrity sha512-vKv4WdiJxOWKxK0yRoaK3Y4pxxB0ilzVx6dszU2W8wLxlb2yikRph4iV/ymtdJ6ZxpBLFbyrxklnT5yBbQSl3Q==
-  dependencies:
-    loose-envify "^1.4.0"
-    symbol-observable "^1.2.0"
-
-redux@^4.0.5:
+redux@^4.0.4, redux@^4.0.5:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/redux/-/redux-4.1.1.tgz#76f1c439bb42043f985fbd9bf21990e60bd67f47"
   integrity sha512-hZQZdDEM25UY2P493kPYuKqviVwZ58lEmGQNeQ+gXa+U0gYPUBf7NKYazbe3m+bs/DzM/ahN12DbF+NG8i0CWw==
