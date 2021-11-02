@@ -9,6 +9,8 @@
     "@craftercms/models": "^2.0.1",
     "@craftercms/redux": "^2.0.1",
     "@craftercms/search": "^2.0.1",
+    "@craftercms/studio-guest": "/path/to/your/guest/build",
+    "@craftercms/studio-ui": "/path/to/your/studio-ui/build",
     "@craftercms/utils": "^2.0.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
     "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
@@ -47,7 +49,7 @@
     "videojs-youtube": "^2.6.1"
   },
   "devDependencies": {
-    "react-scripts": "^3.3.0",
+    "react-scripts": "^4.0.3",
     "ws": "3.3.2"
   },
   "scripts": {
