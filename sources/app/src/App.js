@@ -10,8 +10,24 @@ import store from './store';
 import Header from './components/Header/Header.js';
 import Footer from './components/Footer/Footer.js';
 import VideoPlayer from './components/VideoPlayer/VideoPlayer.js';
+import {isAuthoring} from "./utils";
 
 class App extends Component {
+  componentDidMount() {
+    if (isAuthoring()) {
+      const script = document.createElement('script');
+
+      script.src = `/studio/static-assets/libs/requirejs/require.js`;
+
+      script.setAttribute(
+        'data-main',
+        `/studio/overlayhook?site=NOTUSED&page=NOTUSED&cs.js`
+      );
+
+      document.head.appendChild(script);
+    }
+  }
+
   render() {
     return (
       <ThemeProvider theme={themes[themeConfig.theme]}>

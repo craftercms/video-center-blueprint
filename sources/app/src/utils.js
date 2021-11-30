@@ -24,3 +24,37 @@ export function formatDate(studioDate) {
 
   return dateFormatted;
 }
+
+export function isAuthoring() {
+  const html = document.documentElement;
+  const attr = html.getAttribute('data-craftercms-preview');
+  return (
+    // eslint-disable-next-line no-template-curly-in-string
+    attr === '${modePreview?c}' || // Otherwise disable/enable if you want to see pencils in dev server.
+    attr === 'true'
+  );
+}
+
+let iceRepaintTimeout;
+function ICERepaint() {
+  clearTimeout(iceRepaintTimeout);
+  iceRepaintTimeout = setTimeout(
+    () => {
+      window.amplify &&
+      window.amplify.publish('INIT_ICE_REGIONS');
+    },
+    100
+  );
+}
+
+export function getICE({ modelId, label }) {
+  ICERepaint();
+
+  return {
+    props: (isAuthoring()) ? { // TODO: remove || true
+      'data-studio-ice': '',
+      'data-studio-ice-path': modelId,
+      'data-studio-ice-label': label
+    } : {}
+  };
+}

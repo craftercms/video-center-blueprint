@@ -8,6 +8,7 @@ import { setHeaderGhost } from '../../actions/headerActions';
 import Hero from '../../components/Hero/Hero.js';
 import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
 import NotFound from '../Errors/404';
+import {getICE} from "../../utils";
 
 class Channel extends Component {
   constructor(props) {
@@ -51,6 +52,8 @@ class Channel extends Component {
       channelHero = [],
       channelContent = descriptor.component,
       categories;
+
+    const { props: ice } = getICE({ modelId: this.descriptorUrl, label: channelContent['internal-name'] });
 
     channelHero.push({
       url_s: '#',
@@ -134,6 +137,7 @@ class Channel extends Component {
         <Hero
           data={channelHero}
           localData={true}
+          ice={ice}
         >
         </Hero>
         <VideoCategories

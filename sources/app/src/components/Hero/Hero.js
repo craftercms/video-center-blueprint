@@ -10,10 +10,10 @@ class Hero extends Component {
   }
 
   render() {
-    const { onChange } = this.props;
+    const { onChange, ice } = this.props;
 
     return (
-      <div>
+      <div {...ice}>
         {this.state && this.state.heroContent &&
         <HeroHolder className="hero-container hero-container__ghost">
           <Carousel

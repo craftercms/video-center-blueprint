@@ -5,6 +5,7 @@ import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 import SliderHolder from './SliderStyle';
 import Slide from '../Slide/Slide';
+import {getICE} from "../../utils";
 
 class Slider extends Component {
   componentDidMount() {
@@ -13,6 +14,7 @@ class Slider extends Component {
                                       // Studio may return an array but studio's item selector is configured to be
                                       // max 1 item. So it'll always be first item of array
     this.setState({ descriptorKey });
+    this.setState({ sliderData: data[0] });
     this.props.getDescriptor(descriptorKey);
   }
 
@@ -46,6 +48,9 @@ class Slider extends Component {
 
   renderSlider(descriptor) {
     var slides = descriptor.component.slides_o;
+    const modelId = this.state.sliderData.key;
+    const label = descriptor.component['internal-name'];
+    const { props: ice } = getICE({ modelId, label });
 
     if (!(slides.item instanceof Array)) {
       slides = [slides.item];
@@ -54,7 +59,7 @@ class Slider extends Component {
     }
 
     return (
-      <SliderHolder className="hero-container hero-container__ghost">
+      <SliderHolder className="hero-container hero-container__ghost" {...ice}>
         <Carousel
           className="discover-slider"
           effect="fade"

@@ -11,6 +11,8 @@ import LiveEvents from './containers/LiveEvents/LiveEvents.js';
 import Search from './containers/Search/Search.js';
 import List from './containers/List/List.js';
 import ErrorPage from './containers/Errors/errorPage';
+import verifySubselectors from "react-redux/lib/connect/verifySubselectors";
+import {isAuthoring} from "./utils";
 
 // The Main component renders one of the provided Routes
 class Router extends Component {
@@ -32,6 +34,18 @@ class Router extends Component {
 
   componentWillUnmount() {
     this.unlisten();
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    const location = this.props.location;
+    const previousLocation = prevProps.location;
+
+    if (isAuthoring() && location !== previousLocation) {
+      window.crafterRequire &&
+      window.crafterRequire(['guest'], (guest) => {
+        guest.reportNavigation(location, location.pathname);
+      });
+    }
   }
 
   renderRouteEntries() {
