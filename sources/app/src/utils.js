@@ -51,7 +51,7 @@ export function getICE({ modelId, label }) {
   ICERepaint();
 
   return {
-    props: (isAuthoring()) ? { // TODO: remove || true
+    props: (isAuthoring()) ? {
       'data-studio-ice': '',
       'data-studio-ice-path': modelId,
       'data-studio-ice-label': label
