@@ -1296,13 +1296,6 @@
     js-cookie "^3.0.1"
     uuid "^8.3.2"
 
-"@craftercms/ice@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@craftercms/ice/-/ice-2.0.1.tgz#6e6c76e3d9e4626ef9e6b60ab10602751af69127"
-  integrity sha512-iM1p86fjcWDOdXDTHPNTwzs8uXErKp744XxWLQOFD1SR6ut5X4IiOf2MFGDGM92r/RdS64E9q2ay+LbimZQSxw==
-  dependencies:
-    "@craftercms/models" "2.0.1"
-
 "@craftercms/models@2.0.1", "@craftercms/models@^2.0.1":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@craftercms/models/-/models-2.0.1.tgz#105bd533e261d25dd5ec49e0959e802a28302916"
