@@ -8,7 +8,7 @@ import { crafterConf } from '@craftercms/classes';
 import { SearchService } from '@craftercms/search';
 import { formatDate } from '../../utils';
 import { parseDescriptor } from '@craftercms/content';
-import { Field } from '@craftercms/studio-guest/react';
+import { Field } from '@craftercms/experience-builder/react';
 
 class Cards extends Component {
   componentDidMount() {
@@ -22,7 +22,7 @@ class Cards extends Component {
   searchCards(props) {
     const self = this;
 
-    var query = SearchService.createQuery('elasticsearch'),
+    var query = SearchService.createQuery(),
       category = props.category;
 
     if (category.query) {

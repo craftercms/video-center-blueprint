@@ -10,7 +10,7 @@ import VideoCategories from '../../components/VideoCategories/VideoCategories.js
 import NotFound from '../Errors/404';
 import { parseDescriptor } from '@craftercms/content';
 import { isAuthoring } from '../../components/utils';
-import { Guest } from '@craftercms/studio-guest/react';
+import { Guest } from '@craftercms/experience-builder/react';
 
 class Channel extends Component {
   constructor(props) {

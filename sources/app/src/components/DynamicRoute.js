@@ -18,7 +18,7 @@ import React, { useEffect, useState } from 'react';
 import { urlTransform, getItem, parseDescriptor } from '@craftercms/content';
 import { map } from 'rxjs/operators';
 import { isAuthoring } from './utils';
-import { Guest, ContentType } from '@craftercms/studio-guest/react';
+import { Guest, ContentType } from '@craftercms/experience-builder/react';
 import contentTypeMap from './contentTypeMap';
 
 export default function DynamicRoute(props) {

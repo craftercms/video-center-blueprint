@@ -18,7 +18,7 @@ import { setHeaderGhost } from '../../actions/headerActions';
 import { pageScrollTop } from '../../utils';
 import { parseDescriptor } from '@craftercms/content';
 import { isAuthoring } from '../../components/utils';
-import { Guest } from '@craftercms/studio-guest/react';
+import { Guest } from '@craftercms/experience-builder/react';
 
 class Video extends Component {
   state = {
@@ -67,7 +67,7 @@ class Video extends Component {
   loadVideo(props) {
     var videoId = props.match.params.id;
 
-    var query = SearchService.createQuery('elasticsearch');
+    var query = SearchService.createQuery();
     this.searchId = query.uuid;
     query.query = {
       'query': {

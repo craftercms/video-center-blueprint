@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Guest } from '@craftercms/studio-guest/react';
+import { Guest } from '@craftercms/experience-builder/react';
 
 import { setVideoDocked } from '../../actions/videoPlayerActions';
 import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
