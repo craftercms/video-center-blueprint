@@ -26,7 +26,7 @@
    <title>Taxonomy</title>
    <description/>
    <objectType>component</objectType>
-   <content-type>/component/taxonomy</content-type>
+   <content-type>/taxonomy</content-type>
    <imageThumbnail>undefined</imageThumbnail>
    <quickCreate>false</quickCreate>
    <quickCreatePath/>

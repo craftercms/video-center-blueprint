@@ -728,7 +728,7 @@
             </property>
             <property>
                <name>componentPath</name>
-               <value>/site/taxonomies/channels.xml</value>
+               <value>/site/taxonomy/channels.xml</value>
                <type>undefined</type>
             </property>
          </properties>

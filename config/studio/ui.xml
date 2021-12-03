@@ -80,7 +80,7 @@
                   <id>Taxonomy</id>
                   <label>Taxonomy</label>
                   <icon id="@mui/icons-material/LocalOfferOutlined"/>
-                  <rootPath>/site/taxonomies</rootPath>
+                  <rootPath>/site/taxonomy</rootPath>
                   <locale>en</locale>
                 </configuration>
               </widget>

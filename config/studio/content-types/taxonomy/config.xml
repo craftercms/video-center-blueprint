@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!--
   ~ MIT License
   ~
@@ -22,21 +21,22 @@
   ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   ~ SOFTWARE.
   -->
-<component>
-	<content-type>/component/taxonomy</content-type>	<display-template/>
-	<merge-strategy>inherit-levels</merge-strategy>
-	<objectGroupId>fa96</objectGroupId>
-	<objectId>fa96deee-2395-225e-3dc0-8eef5a20da74</objectId>
-	<items>	<item>	<key>video</key>
-	<value>Video</value>
-	</item>	<item>	<key>stream</key>
-	<value>Stream</value>
-	</item></items>
-	<file-name>formats.xml</file-name>
-	<folder-name/>
-	<internal-name>Formats</internal-name>
-	<createdDate>2018-05-29T17:14:13.189Z</createdDate>
-	<createdDate_dt>2018-05-29T17:14:13.189Z</createdDate_dt>
-	<lastModifiedDate>2018-05-29T17:14:13.189Z</lastModifiedDate>
-	<lastModifiedDate_dt>2018-05-29T17:14:13.189Z</lastModifiedDate_dt>
-</component>
+
+<content-type name="/taxonomy" is-wcm-type="true">
+	<label>Taxonomy</label>
+	<form>/taxonomy</form>
+	<form-path>simple</form-path>
+	<model-instance-path>NOT-USED-BY-SIMPLE-FORM-ENGINE</model-instance-path>
+	<file-extension>xml</file-extension>
+	<content-as-folder>false</content-as-folder>
+	<previewable>false</previewable>
+    <quickCreate>false</quickCreate>
+    <quickCreatePath></quickCreatePath>
+	<noThumbnail>true</noThumbnail>
+	<image-thumbnail></image-thumbnail>
+	<paths>
+		<includes>
+			<pattern>^/site/taxonomy/.*</pattern>
+		</includes>
+	</paths>
+</content-type>
