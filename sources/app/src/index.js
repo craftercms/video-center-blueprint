@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
 import 'antd/dist/antd.css';
 
 ReactDOM.render((
@@ -11,4 +10,3 @@ ReactDOM.render((
     <App />
   </BrowserRouter>
 ), document.getElementById('root'));
-registerServiceWorker();
