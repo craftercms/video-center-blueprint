@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C) 2007-2022 Crafter Software Corporation. All Rights Reserved.
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License version 3 as published by
+  ~ the Free Software Foundation.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
 
 <!-- notification-config.xml
 
@@ -6,36 +21,36 @@
 
 -->
 <notificationConfig>
-    <version>2</version>
-    <lang name="en"> <!-- language specific notifications -->
+    <version>4.0.1</version>
+    <lang name="en">
         <deploymentFailureNotification> <!-- list of email addresses to notify in case of publishing failure -->
             <!--<email>admin@example.com</email>-->
             <!--<email>admin2@example.com</email>-->
         </deploymentFailureNotification>
-
+    
         <approverEmails> <!-- list of content approver emails -->
             <!--<email>admin@example.com</email>-->
             <!--<email>admin2@example.com</email>-->
         </approverEmails>
-
+    
         <!-- list of email addresses to notify in case of repository merge conflict -->
         <repositoryMergeConflictNotification>
             <!--<email>admin@example.com</email>-->
             <!--<email>admin2@example.com</email>-->
         </repositoryMergeConflictNotification>
-
+    
         <generalMessages> <!-- list of general messages -->
             <!-- example scheduling policy -->
             <content key="scheduling-policy"><![CDATA[The {siteName} processes all publishing requests each business day, between 4PM EST and 6PM EST, unless a specific date/time is requested.<br/><br/>All requests received after 4PM EST may not be processed until the next business day.<br/><br/>If you have any questions about this policy or need a publish request processed immediately, please email the administrator.]]>
             </content>
         </generalMessages>
-
+    
         <cannedMessages> <!-- list of canned messages to speed up workflow approval processes -->
             <content  title="Typos" key="Typos"><![CDATA[This content has multiple spelling errors and/or grammatical errors. Please correct and re-submit.]]></content>
             <content  title="Incorrect Branding" key="IB"><![CDATA[This content uses incorrect or outdated terms, images, and/or colors. Please correct and re-submit.]]></content>
             <content  title="Broken Links" key="BrokenLinks"><![CDATA[This content has non-working links that may be due to incomplete and/or mistyped URLs. Any links directing users to external sites, or directing users to a document must open in a new browser window. Please correct and re-submit.]]></content>
         </cannedMessages>
-
+    
         <completeMessages> <!-- list of completion messages (when action is completed) -->
             <content key="submitToGoLive"><![CDATA[An email notification has been sent to the team. Your content will be reviewed and (if approved) pushed live between 4PM EST and 6PM EST of the business day that the request was received. If this request is sent after business hours, it will be reviewed and (if approved) pushed live as soon as possible, the next business day.<br/><br/>If you need to make further revisions to this item, please re-submit this publish request after making them.<br/><br/>If this request needs immediate attention, please email the administrator.]]></content>
             <content key="delete">
@@ -47,7 +62,7 @@
             <content key="delete">Item(s) has been pushed for delete. It will be deleted shortly.</content>
             <content key="schedule-to-go-live">Item(s) have been scheduled to go live.</content>
         </completeMessages>
-
+    
         <emailTemplates> <!-- email templates written in FreeMarker -->
             <emailTemplate key="deploymentError">
                 <subject>Deployment error on site ${siteName}</subject>
@@ -70,9 +85,9 @@
                                 </p>
                             </body>
                         </html>
-]]></body>
+    ]]></body>
             </emailTemplate>
-
+    
             <emailTemplate key="contentApproved">
                 <subject><![CDATA[<#if scheduleDate??>Content Scheduled <#else>Content Approved</#if>]]></subject>
                 <!-- Timezone can/is being overwritten in the following template -->
@@ -110,7 +125,7 @@
                             </body>
                         </html>]]></body>
             </emailTemplate>
-
+    
             <emailTemplate key="submittedForReview">
                 <subject>Content Review</subject>
                 <body><![CDATA[
@@ -147,11 +162,11 @@
                         </body>
                     </html>]]></body>
             </emailTemplate>
-
+    
             <emailTemplate key="contentRejected">
                 <subject>Content Requires Revision</subject>
                 <body><![CDATA[
-						<#setting time_zone='EST'>
+                        <#setting time_zone='EST'>
                         <html>
                             <head>
                                 <meta charset="utf-8"/>
@@ -202,7 +217,7 @@
                             </body>
                         </html>]]></body>
             </emailTemplate>
-
+    
             <emailTemplate key="repositoryMergeConflict">
                 <subject>Repository merge conflict for site ${siteName}</subject>
                 <body><![CDATA[
@@ -223,7 +238,5 @@
                         </html>]]></body>
             </emailTemplate>
         </emailTemplates>
-
-
     </lang>
 </notificationConfig>
