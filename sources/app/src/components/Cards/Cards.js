@@ -56,6 +56,7 @@ class Cards extends Component {
           }
         }];
       }
+      const size = category.numResults ?? 6;
       category = props.category.key;
       query.query = {
         'query': {
@@ -131,7 +132,8 @@ class Cards extends Component {
             ]
           },
         },
-        'sort': sort
+        'sort': sort,
+        'size': size
       };
     }
 
