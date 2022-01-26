@@ -56,7 +56,7 @@ class Cards extends Component {
           [category.sort.by]: category.sort.order
         };
       }
-      let size = category.numResults ?? 6;
+      const size = category.numResults ?? 6;
 
       category = props.category.key;
       query.query = {
