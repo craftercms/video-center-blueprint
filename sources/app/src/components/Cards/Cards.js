@@ -56,7 +56,7 @@ class Cards extends Component {
           }
         }];
       }
-      const size = category.numResults ?? 6;
+      const size = category.numResults;
       category = props.category.key;
       query.query = {
         'query': {
@@ -133,7 +133,7 @@ class Cards extends Component {
           },
         },
         'sort': sort,
-        'size': size
+        ...(size ? { 'size': size } : {})
       };
     }
 
