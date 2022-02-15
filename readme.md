@@ -1,6 +1,6 @@
 # Video Center Blueprint
 
-Live, live-to-VOD, and video serving blueprint on Crafter CMS.
+Live, live-to-VOD, and video serving blueprint on CrafterCMS.
 
 ## Installation
 
