@@ -6,7 +6,7 @@ import ReactHtmlParser from 'react-html-parser';
 import { isNullOrUndefined } from 'util';
 import { crafterConf } from '@craftercms/classes';
 import { SearchService } from '@craftercms/search';
-import { formatDate } from '../../utils';
+import {formatDate, nou} from '../../utils';
 import { parseDescriptor } from '@craftercms/content';
 import { Field } from '@craftercms/experience-builder/react';
 
@@ -56,6 +56,7 @@ class Cards extends Component {
           }
         }];
       }
+      const size = category.numResults;
       category = props.category.key;
       query.query = {
         'query': {
@@ -131,7 +132,8 @@ class Cards extends Component {
             ]
           },
         },
-        'sort': sort
+        'sort': sort,
+        ...(!nou(size) ? { 'size': size } : {})
       };
     }
 
