@@ -94,6 +94,15 @@ plugin:
     - major: 3
       minor: 1
       patch: 22
+    - major: 3
+      minor: 1
+      patch: 23
+    - major: 3
+      minor: 1
+      patch: 24
+    - major: 3
+      minor: 1
+      patch: 25
   crafterCmsEditions:
     - community
     - enterprise
