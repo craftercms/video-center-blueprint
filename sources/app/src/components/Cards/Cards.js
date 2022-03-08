@@ -8,7 +8,7 @@ import { isNullOrUndefined } from 'util';
 import { crafterConf } from '@craftercms/classes';
 import { SearchService } from '@craftercms/search';
 
-import { formatDate } from '../../utils';
+import {formatDate, nou} from '../../utils';
 
 class Cards extends Component {
   componentDidMount() {
@@ -56,6 +56,7 @@ class Cards extends Component {
           [category.sort.by]: category.sort.order
         };
       }
+      const size = category.numResults;
       category = props.category.key;
       query.query = {
         'query': {
@@ -131,7 +132,8 @@ class Cards extends Component {
             ]
           },
         },
-        'sort': sort
+        'sort': sort,
+        ...(!nou(size) ? { 'size': size } : {})
       };
     }
 

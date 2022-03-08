@@ -24,3 +24,9 @@ export function formatDate(studioDate) {
 
   return dateFormatted;
 }
+
+let UND;
+// Null Or Undefined (nou)
+export function nou(object) {
+  return object === null || object === UND;
+}
