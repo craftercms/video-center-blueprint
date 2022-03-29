@@ -134,6 +134,7 @@
         <permission>list_plugins</permission>
         <permission>get_children</permission>
         <permission>publish_status</permission>
+        <permission>content_read</permission>
       </allowed-permissions>
     </rule>
   </role>
