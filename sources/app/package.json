@@ -17,7 +17,7 @@
     "dash.js": "^4.0.0",
     "fscreen": "^1.0.2",
     "js-cookie": "^2.2.1",
-    "moment": "^2.22.2",
+    "moment": "^2.29.2",
     "moment-timezone": "^0.5.21",
     "react": "^16.12.0",
     "react-dom": "^16.8.6",
