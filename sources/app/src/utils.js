@@ -1,6 +1,8 @@
 import moment from 'moment';
 import 'moment-timezone';
 
+import { PAGINATION_DEFAULT_PAGE_SIZE } from './components/Pagination/Pagination';
+
 // Scrolls page to top
 export function pageScrollTop() {
   const mainContainer = document.querySelector('.app-content__main');
@@ -30,3 +32,91 @@ let UND;
 export function nou(object) {
   return object === null || object === UND;
 }
+
+export function defaultSearchQuery(category, from = 0, size) {
+  let sort = {};
+  if (!nou(category.sort)) {
+    sort = {
+      [category.sort.by]: category.sort.order
+    };
+  }
+
+  return {
+    'query': {
+      'bool': {
+        'filter': [
+          {
+            'bool': {
+              'should': [
+                // matches 'youtube-video' or 'video-on-demand'
+                {
+                  'match': {
+                    'content-type': '/component/youtube-video'
+                  }
+                },
+                {
+                  'match': {
+                    'content-type': '/component/video-on-demand'
+                  }
+                },
+                // or matches 'stream' and active
+                {
+                  'bool': {
+                    'filter': [
+                      {
+                        'match': {
+                          'content-type': '/component/stream',
+                        }
+                      },
+                      {
+                        'range': {
+                          'startDate_dt': {
+                            'lt': 'now'
+                          }
+                        }
+                      },
+                      {
+                        'range': {
+                          'endDate_dt': {
+                            'gt': 'now'
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                // or matches 'stream' and upcoming
+                {
+                  'bool': {
+                    'filter': [
+                      {
+                        'match': {
+                          'content-type': '/component/stream',
+                        }
+                      },
+                      {
+                        'range': {
+                          'startDate_dt': {
+                            'gt': 'now'
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+              ]
+            }
+          },
+          {
+            'match': {
+              'channels_o.item.key': category.key
+            }
+          }
+        ]
+      },
+    },
+    'sort': sort,
+    'from': from,
+    ...(!nou(size) ? { 'size': size } : {})
+  };
+};
