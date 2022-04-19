@@ -238,6 +238,8 @@
 Prevent deleting, renaming or cutting root folders of sidebar
 -->
   <protected-folders-patterns>
-    <pattern>^/([^ !$`&amp;*()/+]|(\\[ !$`&amp;*()+]))+$</pattern>
+    <pattern>/site/streams</pattern>
+    <pattern>/site/videos</pattern>
+    <pattern>/site/origins</pattern>
   </protected-folders-patterns>
 </site-config>
