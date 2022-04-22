@@ -38,7 +38,7 @@
 						<id>Pages</id>
 						<label>Pages</label>
 						<icon id="@mui/icons-material/DescriptionOutlined"/>
-						<rootPath>/site/website</rootPath>
+						<rootPath>/site/website/index.xml</rootPath>
 						<locale>en</locale>
 					</configuration>
 				</widget>
@@ -46,7 +46,7 @@
 					<configuration>
 						<id>Components</id>
 						<label>Components</label>
-						<icon id="craftercms.icons.Component"/>
+						<icon id="@mui/icons-material/ExtensionOutlined"/>
 						<rootPath>/site/components</rootPath>
 						<locale>en</locale>
 					</configuration>
@@ -73,7 +73,7 @@
 					<configuration>
 						<id>Origins</id>
 						<label>Origins</label>
-						<icon id="craftercms.icons.Component"/>
+						<icon id="@mui/icons-material/ExtensionOutlined"/>
 						<rootPath>/site/origins</rootPath>
 						<locale>en</locale>
 					</configuration>
