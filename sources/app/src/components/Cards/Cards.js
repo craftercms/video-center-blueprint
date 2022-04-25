@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import ReactHtmlParser from 'react-html-parser';
-import { isNullOrUndefined } from 'util';
 import { crafterConf } from '@craftercms/classes';
 import { SearchService } from '@craftercms/search';
-import {formatDate, nou} from '../../utils';
 import { parseDescriptor } from '@craftercms/content';
 import { Field } from '@craftercms/experience-builder/react';
+
+import { formatDate, nou, defaultSearchQuery } from '../../utils';
+
+import { Pagination, PAGINATION_DEFAULT_PAGE_SIZE } from '../Pagination/Pagination';
 
 class Cards extends Component {
   componentDidMount() {
@@ -20,127 +22,49 @@ class Cards extends Component {
   }
 
   searchCards(props) {
-    const self = this;
+    const { category } = props;
+    if (!category) {
+      return;
+    }
 
-    var query = SearchService.createQuery(),
-      category = props.category;
+    const from = 0;
+    let size;
+    if (category.withPagination) {
+      size = PAGINATION_DEFAULT_PAGE_SIZE;
+    } else if (!nou(category.numResults)) {
+      size = category.numResults;
+    }
+
+    this.searchWithSize(category, from, size);
+  }
+
+  searchWithSize(category, from = 0, size) {
+    const queryBuilder = SearchService.createQuery();
 
     if (category.query) {
-      var queryObj = {
+      const queryObj = {
         'query': category.query
       };
 
-      if (!isNullOrUndefined(category.numResults)) {
-        queryObj.size = category.numResults;
-      }
+      queryObj.from = from;
 
-      if (!isNullOrUndefined(category.sort)) {
+      queryObj.size = size;
+
+      if (!nou(category.sort)) {
         queryObj.sort = {
           [category.sort.by]: category.sort.order
         };
       }
 
-      query.query = queryObj;
+      queryBuilder.query = queryObj;
     } else {
-      let sort = {};
-      if (!isNullOrUndefined(category.sort)) {
-        sort = [{
-          [category.sort.by]: {
-            ...(
-              category.sort.unmapped_type
-                ? {"unmapped_type" : category.sort.unmapped_type}
-                : {}
-            )
-            ,
-            "order": category.sort.order
-          }
-        }];
-      }
-      const size = category.numResults;
-      category = props.category.key;
-      query.query = {
-        'query': {
-          'bool': {
-            'filter': [
-              {
-                'bool': {
-                  'should': [
-                    // matches 'youtube-video' or 'video-on-demand'
-                    {
-                      'match': {
-                        'content-type': '/component/youtube-video'
-                      }
-                    },
-                    {
-                      'match': {
-                        'content-type': '/component/video-on-demand'
-                      }
-                    },
-                    // or matches 'stream' and active
-                    {
-                      'bool': {
-                        'filter': [
-                          {
-                            'match': {
-                              'content-type': '/component/stream',
-                            }
-                          },
-                          {
-                            'range': {
-                              'startDate_dt': {
-                                'lt': 'now'
-                              }
-                            }
-                          },
-                          {
-                            'range': {
-                              'endDate_dt': {
-                                'gt': 'now'
-                              }
-                            }
-                          }
-                        ]
-                      }
-                    },
-                    // or matches 'stream' and upcoming
-                    {
-                      'bool': {
-                        'filter': [
-                          {
-                            'match': {
-                              'content-type': '/component/stream',
-                            }
-                          },
-                          {
-                            'range': {
-                              'startDate_dt': {
-                                'gt': 'now'
-                              }
-                            }
-                          }
-                        ]
-                      }
-                    },
-                  ]
-                }
-              },
-              {
-                'match': {
-                  'channels_o.item.key': category
-                }
-              }
-            ]
-          },
-        },
-        'sort': sort,
-        ...(!nou(size) ? { 'size': size } : {})
-      };
+      queryBuilder.query = defaultSearchQuery(category, from, size);
     }
 
     SearchService
-      .search(query, crafterConf.getConfig())
+      .search(queryBuilder, crafterConf.getConfig())
       .subscribe(response => {
-        self.setState({ hits: response.hits });
+        this.setState({ hits: response.hits, total: response.total?.value });
       });
   }
 
@@ -278,26 +202,41 @@ class Cards extends Component {
 
   render() {
     return (
-      <div className={this.props.category.type !== 'live-event-item' ? 'static-grid__items' : ''}>
-        {this.state && this.state.hits &&
-        this.renderCards()
-        }
-        {this.state && this.state.hits && this.state.hits.length === 0 &&
-        <div className="segment">
-          <div
-            style={{
-              textAlign: 'center',
-              fontSize: '3rem',
-              fontWeight: '700',
-              padding: '15rem 0px 25rem',
-              minHeight: '50vh'
-            }}
-          >
-            No results
-          </div>
+      <>
+        <div className={this.props.category.type !== 'live-event-item' ? 'static-grid__items' : ''}>
+          { this.state && this.state.hits &&
+            this.renderCards()
+          }
+          { this.state && this.state.hits && this.state.hits.length === 0 &&
+            <div className="segment">
+              <div
+                style={{
+                  textAlign: 'center',
+                  fontSize: '3rem',
+                  fontWeight: '700',
+                  padding: '15rem 0px 25rem',
+                  minHeight: '50vh'
+                }}
+              >
+                No results
+              </div>
+            </div>
+          }
         </div>
+        { this.props.category?.withPagination && this.state?.total > 0 &&
+          <Pagination
+            total={this.state.total}
+            onChange={(page, pageSize) => {
+              const fromIndex = pageSize * (page - 1);
+              this.searchWithSize(this.props.category, fromIndex, pageSize);
+            }}
+            onShowSizeChange={(current, pageSize) => {
+              const fromIndex = pageSize * (current - 1);
+              this.searchWithSize(this.props.category, fromIndex, pageSize);
+            }}
+          />
         }
-      </div>
+      </>
     );
   }
 }

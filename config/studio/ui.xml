@@ -38,7 +38,7 @@
 						<id>Pages</id>
 						<label>Pages</label>
 						<icon id="@mui/icons-material/DescriptionOutlined"/>
-						<rootPath>/site/website</rootPath>
+						<rootPath>/site/website/index.xml</rootPath>
 						<locale>en</locale>
 					</configuration>
 				</widget>
@@ -46,7 +46,7 @@
 					<configuration>
 						<id>Components</id>
 						<label>Components</label>
-						<icon id="craftercms.icons.Component"/>
+						<icon id="@mui/icons-material/ExtensionOutlined"/>
 						<rootPath>/site/components</rootPath>
 						<locale>en</locale>
 					</configuration>
@@ -73,7 +73,7 @@
 					<configuration>
 						<id>Origins</id>
 						<label>Origins</label>
-						<icon id="craftercms.icons.Component"/>
+						<icon id="@mui/icons-material/ExtensionOutlined"/>
 						<rootPath>/site/origins</rootPath>
 						<locale>en</locale>
 					</configuration>
@@ -488,10 +488,10 @@
 					<widget id="craftercms.components.PublishingDashboard"/>
 				</tool>
 				<tool>
-					<title id="remoteRepositories.title" defaultMessage="Remote Repositories"/>
-					<icon id="@mui/icons-material/StorageRounded"/>
-					<url>remote-repositories</url>
-					<widget id="craftercms.components.RemoteRepositoriesManagement"/>
+					<title id="words.git" defaultMessage="Git"/>
+					<icon id="craftercms.icons.Git"/>
+					<url>git</url>
+					<widget id="craftercms.components.GitManagement"/>
 				</tool>
 				<tool>
 					<title>GraphQL</title>
