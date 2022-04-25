@@ -25,7 +25,7 @@ class Channel extends Component {
         key: '',
         value: params.categoryName,
         viewAll: false,
-        numResults: 1000
+        withPagination: true
       },
       query,
       isKey = false;
@@ -58,10 +58,7 @@ class Channel extends Component {
     return (
       <div>
         {this.state && this.state.categories &&
-        <VideoCategories
-          categories={this.state.categories}
-        >
-        </VideoCategories>
+          <VideoCategories categories={this.state.categories} />
         }
       </div>
     );
