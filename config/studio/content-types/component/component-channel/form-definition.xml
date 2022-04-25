@@ -393,7 +393,7 @@
                <type>numeric-input</type>
                <id>maxVideosDisplay_i</id>
                <iceId/>
-               <title>Max Videos to Display</title>
+               <title>Max Featured Videos to Display</title>
                <description/>
                <defaultValue>6</defaultValue>
                <help/>

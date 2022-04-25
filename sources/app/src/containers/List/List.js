@@ -27,7 +27,7 @@ class Channel extends Component {
         key: '',
         value: params.categoryName,
         viewAll: false,
-        numResults: 1000
+        withPagination: true
       },
       query;
 
@@ -89,10 +89,7 @@ class Channel extends Component {
         path="/site/website/index.xml"
       >
         {this.state && this.state.categories &&
-        <VideoCategories
-          categories={this.state.categories}
-        >
-        </VideoCategories>
+          <VideoCategories categories={this.state.categories} />
         }
       </Guest>
     );
