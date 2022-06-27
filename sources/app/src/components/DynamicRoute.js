@@ -18,7 +18,7 @@ import React, { useEffect, useState } from 'react';
 import { urlTransform, getItem, parseDescriptor } from '@craftercms/content';
 import { map } from 'rxjs/operators';
 import { isAuthoring } from './utils';
-import { Guest, ContentType } from '@craftercms/experience-builder/react';
+import { ExperienceBuilder, ContentType } from '@craftercms/experience-builder/react';
 import contentTypeMap from './contentTypeMap';
 
 export default function DynamicRoute(props) {
@@ -53,7 +53,7 @@ export default function DynamicRoute(props) {
   if (state === null) {
     return <div></div>
   } else {
-    return <Guest
+    return <ExperienceBuilder
       isAuthoring={isAuthoring()}
       path={state.model?.craftercms.path}
     >
@@ -62,6 +62,6 @@ export default function DynamicRoute(props) {
         {...props}
         contentTypeMap={contentTypeMap}
       />
-    </Guest>
+    </ExperienceBuilder>
   }
 }

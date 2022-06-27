@@ -18,7 +18,7 @@ import { setHeaderGhost } from '../../actions/headerActions';
 import { pageScrollTop } from '../../utils';
 import { parseDescriptor } from '@craftercms/content';
 import { isAuthoring } from '../../components/utils';
-import { Guest } from '@craftercms/experience-builder/react';
+import { ExperienceBuilder } from '@craftercms/experience-builder/react';
 
 class Video extends Component {
   state = {
@@ -337,7 +337,7 @@ class Video extends Component {
         {this.state.notFound && <NotFound />}
 
         {this.state.videoModel &&
-          <Guest
+          <ExperienceBuilder
             isAuthoring={isAuthoring()}
             path={this.state.videoModel.craftercms.path}
           >
@@ -366,7 +366,7 @@ class Video extends Component {
 
               {/* <VideoSidebar/>  */}
             </VideoHolder>
-          </Guest>
+          </ExperienceBuilder>
         }
       </div>
 
