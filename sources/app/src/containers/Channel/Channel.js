@@ -10,7 +10,7 @@ import VideoCategories from '../../components/VideoCategories/VideoCategories.js
 import NotFound from '../Errors/404';
 import { parseDescriptor } from '@craftercms/content';
 import { isAuthoring } from '../../components/utils';
-import { Guest } from '@craftercms/experience-builder/react';
+import { ExperienceBuilder } from '@craftercms/experience-builder/react';
 
 class Channel extends Component {
   constructor(props) {
@@ -141,7 +141,7 @@ class Channel extends Component {
     ];
 
     return (
-      <Guest
+      <ExperienceBuilder
         isAuthoring={isAuthoring()}
         path={this.descriptorUrl}
       >
@@ -155,7 +155,7 @@ class Channel extends Component {
           categories={categories}
         >
         </VideoCategories>
-      </Guest>
+      </ExperienceBuilder>
     );
   }
 
