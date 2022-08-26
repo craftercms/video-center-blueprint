@@ -14,7 +14,7 @@ plugin:
   version:
     major: 1
     minor: 1
-    patch: 44
+    patch: 45
   description: |
     Video Center webapp built with React atop CrafterCMS that is backed by YouTube, AWS Media Service, or Box.
   website:
@@ -103,6 +103,9 @@ plugin:
     - major: 3
       minor: 1
       patch: 25
+    - major: 3
+      minor: 1
+      patch: 26
   crafterCmsEditions:
     - community
     - enterprise
