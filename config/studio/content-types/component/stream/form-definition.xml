@@ -716,7 +716,7 @@
          </properties>
       </datasource>
       <datasource>
-         <type>site-component</type>
+         <type>simpleTaxonomy</type>
          <id>channels</id>
          <title>Channels</title>
          <interface>item</interface>
