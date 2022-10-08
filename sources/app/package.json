@@ -28,7 +28,7 @@
     "jss-preset-default": "^10.5.1",
     "lorem-ipsum": "^2.0.3",
     "moment": "^2.29.4",
-    "moment-timezone": "^0.5.21",
+    "moment-timezone": "^0.5.35",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-html-parser": "^2.0.2",
