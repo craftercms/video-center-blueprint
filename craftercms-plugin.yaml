@@ -45,9 +45,6 @@ plugin:
   crafterCmsVersions:
     - major: 4
       minor: 0
-      patch: 2
-    - major: 4
-      minor: 0
       patch: 3
   crafterCmsEditions:
     - community
