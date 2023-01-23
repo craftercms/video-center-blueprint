@@ -14,7 +14,7 @@ plugin:
   version:
     major: 2
     minor: 0
-    patch: 44
+    patch: 45
   description: |
     Video Center webapp built with React atop CrafterCMS that is backed by YouTube, AWS Media Service, or Box.
   website:
@@ -43,12 +43,6 @@ plugin:
     name: MIT
     url: https://opensource.org/licenses/MIT
   crafterCmsVersions:
-    - major: 4
-      minor: 0
-      patch: 3
-    - major: 4
-      minor: 0
-      patch: 4
     - major: 4
       minor: 1
       patch: 0
