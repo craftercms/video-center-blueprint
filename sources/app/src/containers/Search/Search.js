@@ -6,7 +6,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import SearchHolder from './SearchStyle';
 import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
 import { setVideoDocked } from '../../actions/videoPlayerActions';
-import { isNullOrUndefined } from 'util';
+import { isNullOrUndefined } from '../../utils';
 
 const WAIT_INTERVAL = 1000;
 

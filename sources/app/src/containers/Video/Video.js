@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { isNullOrUndefined } from 'util';
+import { isNullOrUndefined } from '../../utils';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComment, faShareAlt } from '@fortawesome/free-solid-svg-icons';
 import ReactHtmlParser from 'react-html-parser';

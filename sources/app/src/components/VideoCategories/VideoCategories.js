@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Scrollspy from 'react-scrollspy';
 import { Link } from 'react-router-dom';
-import { isNull, isNullOrUndefined } from 'util';
+import { isNullOrUndefined } from '../../utils';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
@@ -67,7 +67,7 @@ class VideoCategories extends Component {
         }
 
         query = query.replace(/\//g, '__');
-        sort = !isNull(sort) ? sort.replace(/\//g, '__') : sort;
+        sort = !isNullOrUndefined(sort) ? sort.replace(/\//g, '__') : sort;
 
         viewAllURL = `/list/${categoryName}/${query}`;
         viewAllURL = sort ? `${viewAllURL}/${sort}` : viewAllURL;

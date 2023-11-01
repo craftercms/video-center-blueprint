@@ -47,11 +47,11 @@
     "styled-theme": "^0.3.3",
     "url-search-params-polyfill": "^5.0.0",
     "video.js": "^7.7.5",
-    "videojs-contrib-dash": "^2.11.0",
+    "videojs-contrib-dash": "^5.1.1",
     "videojs-youtube": "^2.6.1"
   },
   "devDependencies": {
-    "react-scripts": "^4.0.3",
+    "react-scripts": "^5.0.1",
     "ws": "3.3.2"
   },
   "scripts": {
