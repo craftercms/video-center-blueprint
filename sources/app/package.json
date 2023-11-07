@@ -51,14 +51,16 @@
     "videojs-youtube": "^3.0.1"
   },
   "devDependencies": {
-    "react-scripts": "^5.0.1",
+    "@vitejs/plugin-react-swc": "^3.4.1",
+    "vite": "^4.5.0",
+    "vite-plugin-svgr": "^4.1.0",
+    "vite-tsconfig-paths": "^4.2.1",
     "ws": "8.14.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "vite",
     "build": "./build.sh",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "test": "vitest"
   },
   "browserslist": {
     "production": [

@@ -5,8 +5,8 @@ import { getDescriptor } from '@craftercms/redux';
 
 import { setVideoDocked } from '../../actions/videoPlayerActions';
 import { setHeaderGhost } from '../../actions/headerActions';
-import Hero from '../../components/Hero/Hero.js';
-import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
+import Hero from '../../components/Hero/Hero.jsx';
+import VideoCategories from '../../components/VideoCategories/VideoCategories.jsx';
 import NotFound from '../Errors/404';
 import { parseDescriptor } from '@craftercms/content';
 import { isAuthoring } from '../../components/utils';

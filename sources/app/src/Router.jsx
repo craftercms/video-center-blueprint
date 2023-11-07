@@ -3,9 +3,9 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getNav } from '@craftercms/redux';
 
-import Video from './containers/Video/Video.js';
-import Channel from './containers/Channel/Channel.js';
-import List from './containers/List/List.js';
+import Video from './containers/Video/Video.jsx';
+import Channel from './containers/Channel/Channel.jsx';
+import List from './containers/List/List.jsx';
 import ErrorPage from './containers/Errors/errorPage';
 import DynamicRoute from './components/DynamicRoute';
 

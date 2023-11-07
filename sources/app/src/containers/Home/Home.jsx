@@ -4,8 +4,8 @@ import { isNullOrUndefined } from '../../utils';
 import { getDescriptor } from '@craftercms/redux';
 import { setVideoDocked } from '../../actions/videoPlayerActions';
 import { setHeaderGhost } from '../../actions/headerActions';
-import Slider from '../../components/Slider/Slider.js';
-import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
+import Slider from '../../components/Slider/Slider.jsx';
+import VideoCategories from '../../components/VideoCategories/VideoCategories.jsx';
 
 class Home extends Component {
   componentWillMount() {

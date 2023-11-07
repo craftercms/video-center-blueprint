@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import SearchHolder from './SearchStyle';
-import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
+import VideoCategories from '../../components/VideoCategories/VideoCategories.jsx';
 import { setVideoDocked } from '../../actions/videoPlayerActions';
 import { isNullOrUndefined } from '../../utils';
 

@@ -154,7 +154,7 @@ and limitations under the License.
 
 /**
  * @license
- * Video.js 7.21.3 <http://videojs.com/>
+ * Video.jsx 7.21.3 <http://videojs.com/>
  * Copyright Brightcove, Inc. <https://www.brightcove.com/>
  * Available under Apache License Version 2.0
  * <https://github.com/videojs/video.js/blob/main/LICENSE>
@@ -256,13 +256,13 @@ and limitations under the License.
  * LICENSE file in the root directory of this source tree.
  */
 
-/**! 
- * hotkeys-js v3.9.4 
- * A simple micro-library for defining and dispatching keyboard shortcuts. It has no dependencies. 
- * 
- * Copyright (c) 2022 kenny wong <wowohoo@qq.com> 
- * http://jaywcjlove.github.io/hotkeys 
- * Licensed under the MIT license 
+/**!
+ * hotkeys-js v3.9.4
+ * A simple micro-library for defining and dispatching keyboard shortcuts. It has no dependencies.
+ *
+ * Copyright (c) 2022 kenny wong <wowohoo@qq.com>
+ * http://jaywcjlove.github.io/hotkeys
+ * Licensed under the MIT license
  */
 
 //! Copyright (c) JS Foundation and other contributors

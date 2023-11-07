@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 import VideoCategoriesHolder from './VideoCategoriesStyle';
-import Cards from '../Cards/Cards.js';
+import Cards from '../Cards/Cards.jsx';
 
 class VideoCategories extends Component {
   constructor(props) {

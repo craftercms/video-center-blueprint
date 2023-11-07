@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { ExperienceBuilder } from '@craftercms/experience-builder/react';
 
 import { setVideoDocked } from '../../actions/videoPlayerActions';
-import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
+import VideoCategories from '../../components/VideoCategories/VideoCategories.jsx';
 import { isAuthoring } from '../../components/utils';
 
 class Channel extends Component {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
+import VideoCategories from '../../components/VideoCategories/VideoCategories.jsx';
 import { setVideoDocked } from '../../actions/videoPlayerActions';
 
 class LiveEvents extends Component {

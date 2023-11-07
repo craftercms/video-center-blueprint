@@ -4,7 +4,7 @@ import ChannelsHolder from './ChannelsStyle';
 
 import { setVideoDocked } from '../../actions/videoPlayerActions';
 
-import VideoCategories from '../../components/VideoCategories/VideoCategories.js';
+import VideoCategories from '../../components/VideoCategories/VideoCategories.jsx';
 
 class Channels extends Component {
   constructor(props) {

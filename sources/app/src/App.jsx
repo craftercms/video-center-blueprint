@@ -7,9 +7,9 @@ import AppHolder from './AppStyle';
 import { Provider } from 'react-redux';
 import store from './store';
 
-import Header from './components/Header/Header.js';
-import Footer from './components/Footer/Footer.js';
-import VideoPlayer from './components/VideoPlayer/VideoPlayer.js';
+import Header from './components/Header/Header.jsx';
+import Footer from './components/Footer/Footer';
+import VideoPlayer from './components/VideoPlayer/VideoPlayer.jsx';
 
 class App extends Component {
   render() {
