@@ -7,6 +7,7 @@ import { setVideoDocked } from '../../actions/videoPlayerActions';
 class LiveEvents extends Component {
   constructor(props) {
     super(props);
+    this.props.setVideoDocked(false);
     this.state = {
       searchId: this.props.match.params.query,
       categories: [
@@ -107,10 +108,6 @@ class LiveEvents extends Component {
         }
       ]
     };
-  }
-
-  componentWillMount() {
-    this.props.setVideoDocked(false);
   }
 
   render() {

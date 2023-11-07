@@ -15,17 +15,13 @@ class Search extends Component {
   constructor(props) {
     super(props);
 
+    this.props.setVideoDocked(false);
+    this.timer = null;
     this.searchId = this.props.match.params.query;
-
     this.state = {
       categories: this.setCategories(this.searchId)
     };
 
-  }
-
-  componentWillMount() {
-    this.props.setVideoDocked(false);
-    this.timer = null;
   }
 
   componentDidMount() {

@@ -9,6 +9,7 @@ import VideoCategories from '../../components/VideoCategories/VideoCategories.js
 class Channels extends Component {
   constructor(props) {
     super(props);
+    this.props.setVideoDocked(false);
     this.state = {
       searchId: this.props.match.params.query,
       categories: [
@@ -52,10 +53,6 @@ class Channels extends Component {
         }
       ]
     };
-  }
-
-  componentWillMount() {
-    this.props.setVideoDocked(false);
   }
 
   render() {

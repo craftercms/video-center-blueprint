@@ -7,7 +7,8 @@ import VideoCategories from '../../components/VideoCategories/VideoCategories.js
 import { isAuthoring } from '../../components/utils';
 
 class Channel extends Component {
-  componentWillMount() {
+  constructor(props) {
+    super(props);
     this.props.setVideoDocked(false);
   }
 

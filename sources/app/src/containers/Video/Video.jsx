@@ -28,15 +28,12 @@ class Video extends Component {
   constructor(props) {
     super(props);
 
-    this.loadVideo(props);
-  }
-
-  componentWillMount() {
     this.props.setVideoStatus({
       ...this.props.videoStatus,
       docked: true,
       currentVideoUrl: this.props.match.url
     });
+    this.loadVideo(props);
   }
 
   componentWillUnmount() {

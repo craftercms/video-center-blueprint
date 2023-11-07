@@ -34,7 +34,7 @@ class HeaderSearch extends Component {
 
         <HeaderSearchModal
           style={{ top: 0 }}
-          visible={this.state.modalVisible}
+          open={this.state.modalVisible}
           onOk={() => this.setModalVisible(false)}
           onCancel={() => this.setModalVisible(false)}
           footer={null}
@@ -42,7 +42,7 @@ class HeaderSearch extends Component {
           width="100%"
           closable={false}
           destroyOnClose={true}
-          ref={node => (this.searchModal = node)}
+          innerRef={node => (this.searchModal = node)}
         >
           <FontAwesomeIcon className="search__icon" icon={faSearch} />
 

@@ -11,7 +11,8 @@ import DynamicRoute from './components/DynamicRoute';
 
 // The Main component renders one of the provided Routes
 class Router extends Component {
-  componentWillMount() {
+  constructor(props) {
+    super(props);
     this.props.getNav('/site/website');
   }
 

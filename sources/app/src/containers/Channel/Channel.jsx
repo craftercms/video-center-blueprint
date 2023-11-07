@@ -15,16 +15,10 @@ import { ExperienceBuilder } from '@craftercms/experience-builder/react';
 class Channel extends Component {
   constructor(props) {
     super(props);
-
+    this.props.setVideoDocked(false);
     //categories = new/featured, all videos, all streams, related
-
     this.getChannelInfo(props);
   }
-
-  componentWillMount() {
-    this.props.setVideoDocked(false);
-  }
-
   componentDidMount() {
     this.props.setHeaderGhost(true);
   }

@@ -8,7 +8,8 @@ import Slider from '../../components/Slider/Slider.jsx';
 import VideoCategories from '../../components/VideoCategories/VideoCategories.jsx';
 
 class Home extends Component {
-  componentWillMount() {
+  constructor(props) {
+    super(props);
     this.props.setVideoDocked(false);
 
     this.descriptorUrl = '/site/website/index.xml';

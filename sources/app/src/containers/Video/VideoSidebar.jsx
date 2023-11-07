@@ -10,10 +10,6 @@ class VideoSidebar extends Component {
     this.element.className = 'app-content__sidebar app-content__sidebar--animate app-content__sidebar--visible';
   }
 
-  componentWillMount() {
-
-  }
-
   componentWillUnmount() {
     this.sidebarContainer.removeChild(this.element);
   }
