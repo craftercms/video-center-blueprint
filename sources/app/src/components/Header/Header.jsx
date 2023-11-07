@@ -43,9 +43,7 @@ class Header extends Component {
       <Link
         className="header__logo active" to="/"
         style={{ backgroundImage: `url("${logo}")` }}
-      >
-        Video Center
-      </Link>
+      />
     );
   }
 
