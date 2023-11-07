@@ -11067,7 +11067,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fscreen@npm:^1.0.2":
+"fscreen@npm:^1.2.0":
   version: 1.2.0
   resolution: "fscreen@npm:1.2.0"
   checksum: 1a5cb44446c9e9f7411454408f47ebdce7320a2493a0135b4b6b34af0e1a56c23fcd01d1f33201ce9e2da3f4d07da6ef7258e9f16960d0ec98e51653e0f16d60
@@ -13668,17 +13668,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jquery@npm:^3.5.1":
-  version: 3.6.3
-  resolution: "jquery@npm:3.6.3"
-  checksum: e507b74e078761464620f8dd407fc9cc576892ffb8852a94c22b2f3371f028c97c8fb2ceaea895a4dbc0dd97106b3c35ab3e552c36516bf6cfd6ec84489fcef6
-  languageName: node
-  linkType: hard
-
 "jquery@npm:^3.6.4":
   version: 3.7.0
   resolution: "jquery@npm:3.7.0"
   checksum: 2eea1d9ce48fabd0d8736b8bed2e2087c33f038a077ea9f8dcbad55b07c3a1abc226898f498fc992b7fb02c1296cbe79d6283902a9d2027ed41efab04d86da6f
+  languageName: node
+  linkType: hard
+
+"jquery@npm:^3.7.1":
+  version: 3.7.1
+  resolution: "jquery@npm:3.7.1"
+  checksum: 808cfbfb758438560224bf26e17fcd5afc7419170230c810dd11f5c1792e2263e2970cca8d659eb84fcd9acc301edb6d310096e450277d54be4f57071b0c82d9
   languageName: node
   linkType: hard
 
@@ -14047,7 +14047,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jss-preset-default@npm:^10.5.1":
+"jss-preset-default@npm:^10.10.0":
   version: 10.10.0
   resolution: "jss-preset-default@npm:10.10.0"
   dependencies:
@@ -14069,7 +14069,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jss@npm:10.10.0, jss@npm:^10.5.1":
+"jss@npm:10.10.0, jss@npm:^10.10.0":
   version: 10.10.0
   resolution: "jss@npm:10.10.0"
   dependencies:
@@ -14482,7 +14482,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lorem-ipsum@npm:^2.0.3":
+"lorem-ipsum@npm:^2.0.8":
   version: 2.0.8
   resolution: "lorem-ipsum@npm:2.0.8"
   dependencies:
@@ -15106,16 +15106,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"moment-timezone@npm:^0.5.35":
-  version: 0.5.41
-  resolution: "moment-timezone@npm:0.5.41"
-  dependencies:
-    moment: "npm:^2.29.4"
-  checksum: 358692c8aaaf5fd37faee12c7fe57d02ead23b009a8842b1a44b32884b7f6b824f40679d53f960ca2843eba530abe7b87d87eaa3b0a0337fead4a1ea9bf08d5c
-  languageName: node
-  linkType: hard
-
-"moment-timezone@npm:^0.5.41":
+"moment-timezone@npm:^0.5.41, moment-timezone@npm:^0.5.43":
   version: 0.5.43
   resolution: "moment-timezone@npm:0.5.43"
   dependencies:
@@ -18242,13 +18233,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-sticky-el@npm:^2.0.6":
-  version: 2.0.9
-  resolution: "react-sticky-el@npm:2.0.9"
+"react-sticky-el@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "react-sticky-el@npm:2.1.0"
   peerDependencies:
     react: ">=16.3.0"
     react-dom: ">=16.3.0"
-  checksum: 4c69ebe2deb40061e60eec97acf587a560c2f89e0fc862c4d657a6e29169d7de01f0941063083f2927dd132c73d5d9cd63729bb8094484c2fc2a9720763af1ad
+  checksum: ec0813aa6835ab30953616c3bb4cd8f2c3fb317072aec8aeb465102969ccc3f588e27158821dbe2cf3c5cd1f292d5ebc604ecc5ac39f02087ba33928cec0df14
   languageName: node
   linkType: hard
 
@@ -18419,7 +18410,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"redux-promise-middleware@npm:^6.1.1":
+"redux-promise-middleware@npm:^6.1.3":
   version: 6.1.3
   resolution: "redux-promise-middleware@npm:6.1.3"
   peerDependencies:
@@ -18428,7 +18419,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"redux-thunk@npm:^2.3.0, redux-thunk@npm:^2.4.2":
+"redux-thunk@npm:^2.4.2":
   version: 2.4.2
   resolution: "redux-thunk@npm:2.4.2"
   peerDependencies:
@@ -18437,7 +18428,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"redux@npm:^4.0.0, redux@npm:^4.0.4, redux@npm:^4.0.5, redux@npm:^4.2.0, redux@npm:^4.2.1":
+"redux@npm:^4.0.0, redux@npm:^4.0.5, redux@npm:^4.2.0, redux@npm:^4.2.1":
   version: 4.2.1
   resolution: "redux@npm:4.2.1"
   dependencies:
@@ -19130,6 +19121,15 @@ __metadata:
   dependencies:
     tslib: "npm:^2.1.0"
   checksum: c48833638ae5d339332f8b792e716c3c662950ba95ba04e9e97a8cfd4628d8f009129672793c6c067c872a4dab5757231d41d7256a2114a5fabbf30d8a5b9d67
+  languageName: node
+  linkType: hard
+
+"rxjs@npm:^7.8.1":
+  version: 7.8.1
+  resolution: "rxjs@npm:7.8.1"
+  dependencies:
+    tslib: "npm:^2.1.0"
+  checksum: 3c49c1ecd66170b175c9cacf5cef67f8914dcbc7cd0162855538d365c83fea631167cacb644b3ce533b2ea0e9a4d0b12175186985f89d75abe73dbd8f7f06f68
   languageName: node
   linkType: hard
 
@@ -21384,14 +21384,14 @@ __metadata:
     antd: "npm:^3.26.2"
     antd-local-icon: "npm:^0.1.3"
     dash.js: "npm:^4.0.0"
-    fscreen: "npm:^1.0.2"
-    jquery: "npm:^3.5.1"
+    fscreen: "npm:^1.2.0"
+    jquery: "npm:^3.7.1"
     js-cookie: "npm:^2.2.1"
-    jss: "npm:^10.5.1"
-    jss-preset-default: "npm:^10.5.1"
-    lorem-ipsum: "npm:^2.0.3"
+    jss: "npm:^10.10.0"
+    jss-preset-default: "npm:^10.10.0"
+    lorem-ipsum: "npm:^2.0.8"
     moment: "npm:^2.29.4"
-    moment-timezone: "npm:^0.5.35"
+    moment-timezone: "npm:^0.5.43"
     react: "npm:^17.0.1"
     react-dom: "npm:^17.0.1"
     react-html-parser: "npm:^2.0.2"
@@ -21399,13 +21399,13 @@ __metadata:
     react-router-dom: "npm:^5.2.0"
     react-scripts: "npm:^5.0.1"
     react-scrollspy: "npm:^3.4.3"
-    react-sticky-el: "npm:^2.0.6"
-    redux: "npm:^4.0.4"
+    react-sticky-el: "npm:^2.1.0"
+    redux: "npm:^4.2.1"
     redux-logger: "npm:^3.0.6"
     redux-observable: "npm:^2.0.0"
-    redux-promise-middleware: "npm:^6.1.1"
-    redux-thunk: "npm:^2.3.0"
-    rxjs: "npm:^7.0.0"
+    redux-promise-middleware: "npm:^6.1.3"
+    redux-thunk: "npm:^2.4.2"
+    rxjs: "npm:^7.8.1"
     rxjs-compat: "npm:^6.6.7"
     styled-components: "npm:^4.3.2"
     styled-theme: "npm:^0.3.3"
