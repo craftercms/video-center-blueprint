@@ -9,7 +9,7 @@ echo "Deleting prior build"
 rm -rf ../../static-assets/app/*
 
 # Build the app
-vite build
+yarn build-vite
 
 echo "Restoring .gitkeep"
 touch ../../static-assets/app/.gitkeep

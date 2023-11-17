@@ -60,6 +60,7 @@
   "scripts": {
     "start": "vite",
     "build": "./build.sh",
+    "build-vite": "vite build",
     "test": "vitest"
   },
   "browserslist": {
