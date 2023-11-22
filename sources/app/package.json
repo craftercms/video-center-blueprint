@@ -5,7 +5,7 @@
   "dependencies": {
     "@craftercms/classes": "4.1.2-support.2",
     "@craftercms/content": "4.1.2-support.2",
-    "@craftercms/experience-builder": "4.1.2-support.2",
+    "@craftercms/experience-builder": "4.1.2-support.3",
     "@craftercms/models": "4.1.2-support.2",
     "@craftercms/redux": "4.1.2-support.2",
     "@craftercms/search": "4.1.2-support.2",
