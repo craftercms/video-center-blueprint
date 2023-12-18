@@ -30,11 +30,14 @@ const HeaderSearchModal = styled(Modal)`
                 padding-left: 1em;
                 outline: none;
                 box-shadow: none;
+              &::placeholder {
+                color: hsla(0,0%,100%,.5);
+              }
             }
 
             .search__icon{
                 position: absolute;
-                top: 2.4em;
+                top: 1.1em;
             }
 
             .ant-modal-close {

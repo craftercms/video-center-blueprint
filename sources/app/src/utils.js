@@ -31,6 +31,13 @@ export function nou(object) {
   return object === null || object === UND;
 }
 
+export const isNullOrUndefined = nou;
+
+// Not Null Or Undefined (nnou)
+export function nnou(object) {
+  return object !== null && object !== UND;
+}
+
 export function defaultSearchQuery(category, from = 0, size) {
   let sort = {};
   if (!nou(category.sort)) {
