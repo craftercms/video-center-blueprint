@@ -6747,12 +6747,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"moment-timezone@npm:^0.5.41, moment-timezone@npm:^0.5.43":
-  version: 0.5.43
-  resolution: "moment-timezone@npm:0.5.43"
+"moment-timezone@npm:^0.5.41":
+  version: 0.5.45
+  resolution: "moment-timezone@npm:0.5.45"
   dependencies:
     moment: "npm:^2.29.4"
-  checksum: 10c0/6f42174e01398d135883fb45aa820e57f34b25aab5ea6c50998139d06f975ee4457275b5e331466b14bff4d830e681c267f9cc462f445eb9c2b84d04add829f6
+  checksum: 10c0/7497f23c4b8c875dbf07c03f9a1253f79edaeedc29d5732e36bfd3c5577e25aed1924fbd84cbb713ce1920dbe822be0e21bd487851a7d13907226f289a5e568b
   languageName: node
   linkType: hard
 
@@ -9853,7 +9853,6 @@ __metadata:
     jss-preset-default: "npm:^10.10.0"
     lorem-ipsum: "npm:^2.0.8"
     moment: "npm:^2.29.4"
-    moment-timezone: "npm:^0.5.43"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     react-html-parser: "npm:^2.0.2"
