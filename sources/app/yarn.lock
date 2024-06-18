@@ -6747,7 +6747,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"moment-timezone@npm:^0.5.41":
+"moment-timezone@npm:^0.5.41, moment-timezone@npm:^0.5.43":
   version: 0.5.45
   resolution: "moment-timezone@npm:0.5.45"
   dependencies:
@@ -9853,6 +9853,7 @@ __metadata:
     jss-preset-default: "npm:^10.10.0"
     lorem-ipsum: "npm:^2.0.8"
     moment: "npm:^2.29.4"
+    moment-timezone: "npm:^0.5.43"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     react-html-parser: "npm:^2.0.2"
@@ -9876,7 +9877,7 @@ __metadata:
     vite: "npm:^4.5.3"
     vite-plugin-svgr: "npm:^4.1.0"
     vite-tsconfig-paths: "npm:^4.2.1"
-    ws: "npm:8.14.2"
+    ws: "npm:8.17.1"
   languageName: unknown
   linkType: soft
 
@@ -10161,9 +10162,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ws@npm:8.14.2":
-  version: 8.14.2
-  resolution: "ws@npm:8.14.2"
+"ws@npm:8.17.1":
+  version: 8.17.1
+  resolution: "ws@npm:8.17.1"
   peerDependencies:
     bufferutil: ^4.0.1
     utf-8-validate: ">=5.0.2"
@@ -10172,7 +10173,7 @@ __metadata:
       optional: true
     utf-8-validate:
       optional: true
-  checksum: 10c0/35b4c2da048b8015c797fd14bcb5a5766216ce65c8a5965616a5440ca7b6c3681ee3cbd0ea0c184a59975556e9d58f2002abf8485a14d11d3371770811050a16
+  checksum: 10c0/f4a49064afae4500be772abdc2211c8518f39e1c959640457dcee15d4488628620625c783902a52af2dd02f68558da2868fd06e6fd0e67ebcd09e6881b1b5bfe
   languageName: node
   linkType: hard
 
