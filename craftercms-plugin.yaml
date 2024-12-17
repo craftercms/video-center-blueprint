@@ -52,6 +52,15 @@ plugin:
     - major: 4
       minor: 2
       patch: 2
+    - major: 4
+      minor: 2
+      patch: 3
+    - major: 4
+      minor: 2
+      patch: 4
+    - major: 4
+      minor: 2
+      patch: 5
     - major: 5
       minor: 0
       patch: 0
