@@ -76,11 +76,14 @@
                                     The following content was unable to deploy:
                                     <ul>
                                         <#list files as file>
-                                                <li>${file.internalName!file.name}</li>
+                                            <li>${file.action}: ${file.path} from package ${file.packageId}.
+                                                <#if file.liveError != 0>Live error: ${file.liveError?c}</#if><#if file.stagingError != 0>Stage error: ${file.stagingError?c}</#if></li>
                                         </#list>
                                     </ul>
+                                    <#if deploymentError?has_content>
                                         Error:<br/>
-                                        ${deploymentError.toString()}
+                                        <pre>${deploymentError}</pre>
+                                    </#if>
                                     <br/><br/>
                                 </p>
                             </body>
