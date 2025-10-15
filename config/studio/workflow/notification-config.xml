@@ -21,14 +21,14 @@
 
 -->
 <notificationConfig>
-    <version>5.0.0</version>
+    <version>5.0.0.0</version>
     <lang name="en">
         <deploymentFailureNotification> <!-- list of email addresses to notify in case of publishing failure -->
             <!--<email>admin@example.com</email>-->
             <!--<email>admin2@example.com</email>-->
         </deploymentFailureNotification>
 
-        <approverEmails> <!-- list of content approver emails -->
+        <approverEmails> <!-- list of content reviewer emails -->
             <!--<email>admin@example.com</email>-->
             <!--<email>admin2@example.com</email>-->
         </approverEmails>
@@ -103,9 +103,9 @@
                             <body style=" font-size: 12pt;">
                                 <p>
                                     <#if publishPackage.packageType == 'INITIAL_PUBLISH'>
-                                        ${reviewer.first_name!submitter.username} ${reviewer.last_name} has approved your initial publish request.
+                                        ${reviewer.firstName!submitter.username} ${reviewer.lastName} has approved your initial publish request.
                                     <#elseif publishPackage.packageType == 'PUBLISH_ALL'>
-                                        ${reviewer.first_name!submitter.username} ${reviewer.last_name} has approved your publish all request.
+                                        ${reviewer.firstName!submitter.username} ${reviewer.lastName} has approved your publish all request.
                                     <#else>
                                         The following content has been reviewed and approved by ${reviewer.firstName!reviewer.username} ${reviewer.lastName!""}:
                                     </#if>
@@ -124,7 +124,7 @@
                                     </ul><br/>
                                     Site: ${siteName}
                                     <br />
-                                    <#if scheduleDate??>
+                                    <#if publishPackage.schedule??>
                                         Scheduled date: ${publishPackage.schedule?datetime.iso?string["MMM dd, yyyy 'at' hh:mm a"]} Eastern Time.
                                         <br />
                                     </#if>
@@ -149,11 +149,11 @@
                         <body style=" font-size: 12pt">
                             <p>
                                 <#if publishPackage.packageType == 'PUBLISH_ALL'>
-                                    ${submitter.first_name!submitter.username} ${submitter.last_name} has submitted a 'publish all' request for your review.
+                                    ${submitter.firstName!submitter.username} ${submitter.lastName} has submitted a 'publish all' request for your review.
                                 <#elseif publishPackage.packageType == 'INITIAL_PUBLISH'>
-                                    ${submitter.first_name!submitter.username} ${submitter.last_name} has submitted an 'initial publish' request for your review.
+                                    ${submitter.firstName!submitter.username} ${submitter.lastName} has submitted an 'initial publish' request for your review.
                                 <#else>
-                                    ${submitter.first_name!submitter.username} ${submitter.last_name} has submitted items for your review:
+                                    ${submitter.firstName!submitter.username} ${submitter.lastName} has submitted items for your review:
                                 </#if>
                                 <#if files?? &amp;&amp; files?size gt 0>
                                     <ul>
@@ -202,11 +202,11 @@
                             <body style=" font-size: 12pt;">
                                 <p>
                                     <#if publishPackage.packageType == 'INITIAL_PUBLISH'>
-                                        ${reviewer.first_name!submitter.username} ${reviewer.last_name} has reviewed your initial publish request and it requires some revision before it can be approved:
+                                        ${reviewer.firstName!submitter.username} ${reviewer.lastName} has reviewed your initial publish request and it requires some revision before it can be approved:
                                     <#elseif publishPackage.packageType == 'PUBLISH_ALL'>
-                                        ${reviewer.first_name!submitter.username} ${reviewer.last_name} has reviewed your publish all request and it requires some revision before it can be approved:
+                                        ${reviewer.firstName!submitter.username} ${reviewer.lastName} has reviewed your publish all request and it requires some revision before it can be approved:
                                     <#else>
-                                        ${reviewer.first_name!submitter.username} ${reviewer.last_name} has reviewed the following content that requires some revision before it can be approved:
+                                        ${reviewer.firstName!submitter.username} ${reviewer.lastName} has reviewed the following content that requires some revision before it can be approved:
                                     </#if>
                                     <#if files?? &amp;&amp; files?size gt 0>
                                         <ul>
