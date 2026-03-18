@@ -29,7 +29,7 @@
 
 -->
 <dependency-resolver>
-   <version>5.0.0.7</version>
+   <version>5.0.0.1</version>
    <item-types>
       <item-type>
 <!-- name of type -->
@@ -52,7 +52,7 @@
                      <transforms>
                         <transform>
                            <match>href=["'](\/((?!index\.xml)[^"'?#])+((?!index\.xml)[^"'?#\/])+)([^"']*)["']</match>
-                           <replace>/site/website$1</replace>
+                           <replace>/site/website$1/index.xml</replace>
                         </transform>
                      </transforms>
                   </pattern>
@@ -139,7 +139,7 @@
                      <transforms>
                         <transform>
                            <match>href=["'](\/((?!index\.xml)[^"'?#])+((?!index\.xml)[^"'?#\/])+)([^"']*)["']</match>
-                           <replace>/site/website$1</replace>
+                           <replace>/site/website$1/index.xml</replace>
                         </transform>
                      </transforms>
                   </pattern>
@@ -217,7 +217,7 @@
                      <transforms>
                         <transform>
                            <match>href=["'](\/((?!index\.xml)[^"'?#])+((?!index\.xml)[^"'?#\/])+)([^"']*)["']</match>
-                           <replace>/site/website$1</replace>
+                           <replace>/site/website$1/index.xml</replace>
                         </transform>
                      </transforms>
                   </pattern>
@@ -312,7 +312,7 @@
                      <transforms>
                         <transform>
                            <match>href=["'](\/((?!index\.xml)[^"'?#])+((?!index\.xml)[^"'?#\/])+)([^"']*)["']</match>
-                           <replace>/site/website$1</replace>
+                           <replace>/site/website$1/index.xml</replace>
                         </transform>
                      </transforms>
                   </pattern>
