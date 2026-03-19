@@ -13,7 +13,7 @@ plugin:
     - video center
   version:
     major: 3
-    minor: 0
+    minor: 1
     patch: 0
   description: |
     Video Center webapp built with React atop CrafterCMS that is backed by YouTube, AWS Media Service, or Box.
