@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
-import { getDescriptor } from '@craftercms/redux';
-
+import { getItem } from '@craftercms/redux';
 import FooterHolder from './FooterStyle';
+import { parseDescriptor } from "@craftercms/content";
 
 class Footer extends Component {
   constructor(props) {
     super(props);
 
     this.footerUrl = '/site/components/footer.xml';
-    this.props.getDescriptor(this.footerUrl);
+    this.props.getItem(this.footerUrl);
   }
 
   renderFooterNav(nav) {
@@ -32,9 +31,9 @@ class Footer extends Component {
     });
   }
 
-  renderFooterContent(descriptor) {
+  renderFooterContent(item) {
     const currentYear = new Date().getFullYear(),
-      updatedCopyright = descriptor.component.copyrightLabel_t.replace('{year}', currentYear);
+      updatedCopyright = item.copyrightLabel_t.replace('{year}', currentYear);
 
     return (
       <div className="footer__content">
@@ -43,8 +42,8 @@ class Footer extends Component {
         </div>
 
         <div className="footer__nav">
-          {descriptor.component.nav_o &&
-          this.renderFooterNav(descriptor.component.nav_o)
+          {item.nav_o &&
+            this.renderFooterNav(item.nav_o)
           }
         </div>
       </div>
@@ -55,8 +54,8 @@ class Footer extends Component {
     return (
       <FooterHolder>
         <footer className="footer">
-          {this.props.descriptors && this.props.descriptors[this.footerUrl] &&
-          this.renderFooterContent(this.props.descriptors[this.footerUrl])
+          {this.props.items?.[this.footerUrl] &&
+            this.renderFooterContent(parseDescriptor(this.props.items[this.footerUrl]))
           }
         </footer>
       </FooterHolder>
@@ -65,11 +64,11 @@ class Footer extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  getDescriptor: url => dispatch(getDescriptor(url))
+  getItem: (url) => dispatch(getItem({url, config: { flatten: true }})),
 });
 
 const mapStateToProps = store => ({
-  descriptors: store.craftercms.descriptors.entries
+  items: store.craftercms.items.entries
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Footer);

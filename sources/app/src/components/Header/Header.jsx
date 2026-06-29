@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getDescriptor } from '@craftercms/redux';
+import { getItem } from '@craftercms/redux';
+import { parseDescriptor } from '@craftercms/content';
 import { isNullOrUndefined } from '../../utils';
 
 import HeaderHolder from './HeaderStyle';
@@ -13,8 +14,8 @@ class Header extends Component {
 
     this.levelDescriptorUrl = '/site/website/crafter-level-descriptor.level.xml';
 
-    if (isNullOrUndefined(props.descriptors[this.levelDescriptorUrl])) {
-      this.props.getDescriptor(this.levelDescriptorUrl);
+    if (isNullOrUndefined(props.items[this.levelDescriptorUrl])) {
+      this.props.getItem(this.levelDescriptorUrl);
     }
   }
 
@@ -36,8 +37,8 @@ class Header extends Component {
     });
   }
 
-  renderHeaderLogo(descriptor) {
-    const logo = descriptor.component.siteLogo;
+  renderHeaderLogo(item) {
+    const logo = item.siteLogo;
 
     return (
       <Link
@@ -48,7 +49,7 @@ class Header extends Component {
   }
 
   render() {
-    const { nav, descriptors } = this.props;
+    const { nav, items } = this.props;
     const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
     return (
@@ -60,8 +61,10 @@ class Header extends Component {
           <div className="header__container">
             <div className="header__overlay"></div>
 
-            {descriptors && descriptors[this.levelDescriptorUrl] &&
-            this.renderHeaderLogo(descriptors[this.levelDescriptorUrl])
+            {items?.[this.levelDescriptorUrl] &&
+              this.renderHeaderLogo(
+                parseDescriptor(items[this.levelDescriptorUrl]),
+              )
             }
 
             <div className="header__navigation">
@@ -109,12 +112,12 @@ class Header extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  getDescriptor: url => dispatch(getDescriptor(url))
+  getItem: (url) => dispatch(getItem({url, config: { flatten: true }})),
 });
 
 const mapStateToProps = store => ({
   nav: store.craftercms.navigation,
-  descriptors: store.craftercms.descriptors.entries,
+  items: store.craftercms.items.entries,
   headerGhost: store.header.headerGhost
 });
 
