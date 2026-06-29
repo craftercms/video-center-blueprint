@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { isNullOrUndefined } from '../../utils';
-import { getDescriptor } from '@craftercms/redux';
+import { getItem } from '@craftercms/redux';
 
 import { setVideoDocked } from '../../actions/videoPlayerActions';
 import { setHeaderGhost } from '../../actions/headerActions';
@@ -38,15 +38,13 @@ class Channel extends Component {
 
     this.descriptorUrl = `/site/components/channel/${channelName}.xml`;
 
-    if (isNullOrUndefined(this.props.descriptors[this.descriptorUrl])) {
-      this.props.getDescriptor(this.descriptorUrl);
+    if (isNullOrUndefined(this.props.items[this.descriptorUrl])) {
+      this.props.getItem(this.descriptorUrl);
     }
   }
 
-  renderChannelContent(descriptor) {
-    var component = descriptor.component,
-      channelContent = descriptor.component,
-      model = parseDescriptor(channelContent),
+  renderChannelContent(item) {
+    var channelContent = item,
       categories;
 
     const channelHeroData = {
@@ -109,7 +107,7 @@ class Channel extends Component {
           by: 'date_dt',
           order: 'desc'
         },
-        numResults: component.maxVideosDisplay_i,
+        numResults: channelContent.maxVideosDisplay_i,
         viewAll: channelContent.channelKey_s
       },
       {
@@ -119,7 +117,7 @@ class Channel extends Component {
         query: {
           'bool': {
             'must_not': {
-              'term': { 'file-name': channelContent['file-name'] }
+              'term': { 'file-name': channelContent.craftercms.fileName }
             },
             'filter': [
               {
@@ -130,7 +128,7 @@ class Channel extends Component {
             ]
           }
         },
-        numResults: component.maxChannelsDisplay_i
+        numResults: channelContent.maxChannelsDisplay_i
       }
     ];
 
@@ -140,7 +138,7 @@ class Channel extends Component {
         path={this.descriptorUrl}
       >
         <Hero
-          model={model}
+          model={channelContent}
           data={channelHeroData}
           localData={true}
         >
@@ -154,17 +152,17 @@ class Channel extends Component {
   }
 
   render() {
-    const { descriptors, descriptorsLoading } = this.props;
+    const { items, itemsLoading } = this.props;
 
-    if ((descriptorsLoading[this.descriptorUrl] === false) && isNullOrUndefined(descriptors[this.descriptorUrl])) {
+    if ((itemsLoading[this.descriptorUrl] === false) && isNullOrUndefined(items[this.descriptorUrl])) {
       return (
         <NotFound />
       );
     } else {
       return (
         <div>
-          {descriptors && descriptors[this.descriptorUrl] &&
-          this.renderChannelContent(descriptors[this.descriptorUrl])
+          {items?.[this.descriptorUrl] &&
+          this.renderChannelContent(parseDescriptor(items[this.descriptorUrl]))
           }
         </div>
       );
@@ -176,8 +174,8 @@ function mapStateToProps(store) {
   return {
     videoInfo: store.video.videoInfo,
     videoStatus: store.video.videoStatus,
-    descriptors: store.craftercms.descriptors.entries,
-    descriptorsLoading: store.craftercms.descriptors.loading
+    items: store.craftercms.items.entries,
+    itemsLoading: store.craftercms.items.loading
   };
 }
 
@@ -186,9 +184,7 @@ function mapDispatchToProps(dispatch) {
     setVideoDocked: (docked) => {
       dispatch(setVideoDocked(docked));
     },
-    getDescriptor: (url) => {
-      dispatch(getDescriptor(url));
-    },
+    getItem: (url) => dispatch(getItem({url, config: { flatten: true }})),
     setHeaderGhost: (ghost) => {
       dispatch(setHeaderGhost(ghost));
     }

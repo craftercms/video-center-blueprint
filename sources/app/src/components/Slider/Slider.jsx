@@ -5,16 +5,14 @@ import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 import SliderHolder from './SliderStyle';
 import Slide from '../Slide/Slide';
-import { parseDescriptor } from '@craftercms/content';
 
 class Slider extends Component {
   componentDidMount() {
-    const data = Array.isArray(this.props.data) ? this.props.data : [this.props.data],
-      descriptorKey = data[0].key;    // data is the list of descriptors (only 1 for this component)
-                                      // Studio may return an array but studio's item selector is configured to be
-                                      // max 1 item. So it'll always be first item of array
-    this.setState({ descriptorKey });
-    this.props.getDescriptor(descriptorKey);
+    const data = Array.isArray(this.props.data) ? this.props.data : [this.props.data];
+      // data is the list of descriptors (only 1 for this component)
+      // Studio may return an array but studio's item selector is configured to be
+      // max 1 item. So it'll always be first item of array
+    this.setState({ data });
   }
 
   changeSlide(direction) {
@@ -45,15 +43,9 @@ class Slider extends Component {
     );
   }
 
-  renderSlider(descriptor) {
-    var slides = descriptor.component.slides_o;
-    const model = parseDescriptor(descriptor);
-
-    if (!(slides.item instanceof Array)) {
-      slides = [slides.item];
-    } else {
-      slides = slides.item;
-    }
+  renderSlider() {
+    const model = this.state.data[0]
+    var slides = this.state.data[0].slides_o;
 
     return (
       <SliderHolder className="hero-container hero-container__ghost">
@@ -78,9 +70,7 @@ class Slider extends Component {
   render() {
     return (
       <div>
-        {this.props.descriptors && this.state && this.state.descriptorKey && this.props.descriptors[this.state.descriptorKey] &&
-        this.renderSlider(this.props.descriptors[this.state.descriptorKey])
-        }
+        {this.state?.data && this.renderSlider()}
       </div>
     );
   }
